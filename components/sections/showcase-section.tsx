@@ -5,28 +5,36 @@ import { motion, AnimatePresence, useSpring } from 'framer-motion'
 
 const services = [
   {
-    title: 'Brand Strategy',
-    img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
+    title: 'Social Media Marketing',
+    img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
   },
   {
-    title: 'UI/UX Design',
-    img: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
+    title:'Performance Marketing',
+    img: 'https://images.unsplash.com/photo-1517433456452-f9633a875f6f',
   },
   {
-    title: 'Web Development',
-    img: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c',
+    title: 'SEO Optimization',
+    img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d',
   },
-  {
+   {
     title: 'Content Creation',
     img: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2',
   },
   {
-    title: 'Digital Marketing',
-    img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d',
+    title: 'Brand Strategy',
+    img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb',
   },
+
+  {
+    title: 'Branding & Design',
+    img: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6',
+  },
+  {
+    title:'Marketing Strategy',
+    img: 'https://images.unsplash.com/photo-1492724441997-5dc865305da4',}
 ]
 
-export default function CubertoServices() {
+export default function Services() {
   const [active, setActive] = useState<number | null>(null)
 
   const mouseX = useSpring(0, { stiffness: 150, damping: 25 })

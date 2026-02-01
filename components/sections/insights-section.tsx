@@ -1,104 +1,91 @@
 "use client"
 
-import type React from "react"
+import React, { useState } from "react"
+import { motion } from "framer-motion"
 
-import { useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import { ArrowRight } from "lucide-react"
-
-const articles = [
+const faqs = [
   {
-    title: "The Art of Visual Storytelling",
-    category: "Design",
-    image: "/visual-storytelling-design-article.jpg",
+    question: "Do I really need a website if I have social media?",
+    answer: "Social media is rented space the rules can change anytime. Your website is your own home, where your brand stays consistent and you control the customer journey.",
   },
   {
-    title: "Building a Personal Brand Online",
-    category: "Strategy",
-    image: "/personal-branding-digital-marketing.jpg",
+    question: "How long does it take to see results?",
+    answer: "You’ll feel the shift within the first month better engagement and clarity. Measurable growth and inbound leads usually follow within 60–90 days with consistent execution.",
   },
   {
-    title: "Typography Trends for 2024",
-    category: "Typography",
-    image: "/typography-trends-modern-fonts.jpg",
+    question: "Is social media enough to grow a brand?",
+    answer: "Social media is just one touchpoint. Real growth comes from aligning content, ads, website, and SEO into one cohesive digital ecosystem.",
   },
   {
-    title: "Minimalism in Portfolio Design",
-    category: "Inspiration",
-    image: "/placeholder.svg?height=200&width=300",
+    question: "What makes WinX different?",
+    answer: "We don’t just execute tasks we think like brand partners. Every decision is rooted in strategy, creativity, and long-term brand value.",
   },
 ]
 
 export function InsightsSection() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const [flipped, setFlipped] = useState<number | null>(null)
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    setMousePosition({ x: e.clientX, y: e.clientY })
-  }
+  // Card positions (relative to center)
+  const positions = [
+    { x: -260, y: -80, rotate: -8 },
+    { x: 260, y: -80, rotate: 8 },
+    { x: -230, y: 160, rotate: -4 },
+    { x: 240, y: 160, rotate: 6 },
+  ]
 
   return (
-    <section className="bg-background px-6 py-24" onMouseMove={handleMouseMove}>
-      <div className="max-w-4xl mx-auto">
-        <motion.p
-          className="text-muted-foreground text-sm uppercase tracking-widest mb-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          Insights
-        </motion.p>
-
-        <div className="divide-y divide-border">
-          {articles.map((article, i) => (
-            <motion.a
-              key={i}
-              href="#"
-              className="group flex items-center justify-between py-6 relative"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
-              whileHover={{ paddingLeft: 16, paddingRight: 16 }}
-              data-clickable
-            >
-              <div className="flex-1">
-                <span className="text-xs text-muted-foreground uppercase tracking-wider">{article.category}</span>
-                <h3 className="font-serif text-xl md:text-2xl text-foreground mt-1 group-hover:text-primary transition-colors">
-                  {article.title}
-                </h3>
-              </div>
-              <ArrowRight className="w-5 h-5 text-muted-foreground group-hover:text-primary group-hover:translate-x-1 transition-all" />
-            </motion.a>
-          ))}
-        </div>
-
-        {/* Floating hover image */}
-        <AnimatePresence>
-          {hoveredIndex !== null && (
+    <section className="relative bg-[#f8f8f8] min-h-[600px] flex flex-col items-center justify-center py-24 overflow-hidden">
+      <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 font-serif">FAQ</h2>
+      <div className="relative w-full flex items-center justify-center" style={{ minHeight: 420 }}>
+        {/* Floating FAQ cards */}
+        {faqs.map((faq, i) => (
+          <motion.div
+            key={i}
+            className="absolute"
+            style={{
+              left: "50%",
+              top: "50%",
+              transform: `translate(-50%, -50%) translate(${positions[i].x}px, ${positions[i].y}px) rotate(${positions[i].rotate}deg)`,
+              perspective: 1200,
+              zIndex: 10,
+            }}
+            onMouseEnter={() => setFlipped(i)}
+            onMouseLeave={() => setFlipped(null)}
+          >
             <motion.div
-              className="fixed pointer-events-none z-50 w-[200px] md:w-[300px] rounded-lg overflow-hidden shadow-2xl hidden md:block"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                x: mousePosition.x + 20,
-                y: mousePosition.y - 100,
-              }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.2 }}
+              className="w-96 h-48 [transform-style:preserve-3d] cursor-pointer"
+              animate={{ rotateY: flipped === i ? 180 : 0 }}
+              transition={{ duration: 0.6 }}
             >
-              <img
-                src={articles[hoveredIndex].image || "/placeholder.svg"}
-                alt={articles[hoveredIndex].title}
-                className="w-full h-auto"
-              />
+              {/* Front (Question) */}
+              <div className="absolute w-full h-full  bg-white text-black rounded-2xl flex items-center justify-center text-center text-lg font-semibold shadow-2xl [backface-visibility:hidden] px-6 py-4">
+                {faq.question}
+              </div>
+              {/* Back (Answer) */}
+              <div className="absolute w-full h-full  bg-black text-white rounded-2xl flex items-center justify-center text-center text-base font-medium shadow-2xl [transform:rotateY(180deg)] [backface-visibility:hidden] px-6 py-4">
+                {faq.answer}
+              </div>
             </motion.div>
-          )}
-        </AnimatePresence>
+          </motion.div>
+        ))}
+
+        {/* Person image in center */}
+        <div className=" flex flex-col items-center">
+          <img
+            src="https://i.pinimg.com/736x/4c/4f/c4/4c4fc498f2ba5b394e99b0433468fcbf.jpg"
+            alt="Person thinking"
+            className="w-52 h-52 rounded-full object-cover"
+          />
+         
+        </div>
       </div>
+      {/* Optional: Explore button */}
+      {/* <button className="absolute bottom-8 right-8 bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-8 py-3 rounded-full flex items-center gap-2 shadow-lg transition">
+        Explore
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+          <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </button> */}
     </section>
   )
 }

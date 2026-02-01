@@ -4,7 +4,112 @@
 @custom-variant dark (&:is(.dark *));
 
 ::-webkit-scrollbar{
-  width:8px;
+  width:2px;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: gridMove 8s linear infinite;
+}
+
+.elem {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* IMAGES */
+.elem img {
+    position: absolute;
+    width: 240px;
+    height: 320px;
+    object-fit: cover;
+    opacity: 0;
+    transition: all 0.6s ease;
+    top: 50%;                         /* KEY FIX */
+    transform: translateY(-40%) rotate(4deg);
+    z-index: 1;
+    border-radius: 12px;
+}
+
+/* LEFT IMAGE */
+.elem img:nth-child(1) {
+    left: 2%;
+}
+
+/* RIGHT IMAGE */
+.elem img:nth-child(3) {
+    right: 5%;
+}
+
+/* TEXT */
+.text-div {
+    height: 16vh;
+    position: relative;
+    z-index: 5;                       /* TEXT ABOVE IMAGES */
+    overflow: hidden;
+}
+
+/* HEADINGS */
+.elem h1 {
+    font-size: 7.5vw;
+    font-weight: 600;
+    line-height: 1;
+    transition: all 0.8s ease;
+}
+
+/* TEXT HOVER */
+.elem:hover h1 {
+    transform: translateY(-100%);
+    background: linear-gradient(to right, #181f7c, #a34fdc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* IMAGE HOVER */
+.elem:hover img {
+    opacity: 1;
+    transform: translateY(-50%) rotate(0deg);
+}
+
+/* PAGE */
+.page4 {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    padding: 170px 100px;
+}
+
+@keyframes gridMove {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 48px 48px, 48px 48px; }
+}
+@keyframes border-reveal-anticlockwise {
+  0% {
+    clip-path: polygon(0 0,0 0,0 0,0 0);
+  }
+  25% {
+    clip-path: polygon(0 0,0 100%,0 100%,0 0);
+  }
+  50% {
+    clip-path: polygon(0 0,0 100%,100% 100%,0 0);
+  }
+  75% {
+    clip-path: polygon(0 0,0 100%,100% 100%,100% 0);
+  }
+  100% {
+    clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+  }
 }
 :root {
   /* Opus Lilac & Ink Theme */
@@ -197,5 +302,31 @@ html.lenis body {
 }
 
 .lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Add this to your globals.css or tailwind.css file */
+
+html {
+  overflow-x: hidden;
+}
+
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
   pointer-events: none;
 }

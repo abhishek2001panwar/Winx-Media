@@ -1,0 +1,19 @@
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-18px) scale(1.03); }
+}
+
+.card-parallax-1 { animation: floatCard 4s ease-in-out infinite; }
+.card-parallax-2 { animation: floatCard 5s ease-in-out infinite; }
+.card-parallax-3 { animation: floatCard 6s ease-in-out infinite; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.text-animate { animation: fadeUp 1.2s cubic-bezier(0.76,0,0.24,1) both; }
+.card-glow {
+  box-shadow: 0 8px 32px 0 rgba(80,80,200,0.10), 0 0 0 4px #6c63ff22;
+  border: 2px solid #fff;
+}

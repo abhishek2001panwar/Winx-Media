@@ -14,9 +14,9 @@ const _instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
-  title: "Opus – The Editorial Portfolio Platform",
+  title: "winxmedia",
   description:
-    "A website builder designed for writers, photographers, and architects who need a narrative-driven portfolio.",
+    "WinX Media is a full-service digital marketing agency that crafts compelling brand stories and drives measurable growth through innovative strategies and creative solutions.",
   generator: "v0.app",
   icons: {
     icon: [
@@ -44,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased`}>
+      <body className={`  ${_geist.className} ${_geistMono.className} ${_instrumentSerif.className} `}>
         {children}
         <Analytics />
       </body>
