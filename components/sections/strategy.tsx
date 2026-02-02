@@ -11,8 +11,8 @@ function Strategy() {
             alt="Brand Strategy Discussion"
           />
           <div className="text-div">
-            <h1>STRATEGY</h1>
-            <h1>STRATEGY</h1>
+            <h1>ROI</h1>
+            <h1>ROI</h1>
           </div>
           <img
             src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"
@@ -21,9 +21,9 @@ function Strategy() {
         </div>
         <div className="elem">
           <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" />
-          <div className="text-div">
-            <h1>PLANNING</h1>
-            <h1>PLANNING</h1>
+          <div className="text-div uppercase">
+            <h1>Campaigns</h1>
+            <h1>Campaigns</h1>
           </div>
           <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop" />
         </div>

@@ -120,7 +120,7 @@ export default function Navbar() {
                 alt="Winx Media Logo"
                 width={120}
                 height={24}
-                className="md:w-[150px] md:h-[50px] object-contain text-black"
+                className="md:w-[150px] md:h-[50px] object-contain "
               />
             </div>
           </button>
@@ -247,7 +247,7 @@ export default function Navbar() {
                   Social
                 </p>
                 <a 
-                  href="https://www.instagram.com/winxmedia" 
+                  href="https://www.instagram.com/winxmedia.in" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60"

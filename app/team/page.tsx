@@ -36,16 +36,16 @@ const team = [
   },
   {
      name: "Chirag",
-    role: "",
-    description: "Driving strategic growth and innovative partnerships.",
-    image: "",
+    role: "Social Media Manager",
+    description: "Crafting engaging social media strategies to elevate brand presence.",
+    image: "./chirag.png",
     gradient: "from-cyan-400 to-blue-400",
   },
    {
      name: "Kushal",
-    role: "",
-    description: "Driving strategic growth and innovative partnerships.",
-    image: "",
+    role: "Video Editor",
+    description: "Bringing stories to life through compelling video content.",
+    image: "./kushal.png",
     gradient: "from-cyan-400 to-blue-400",
   },
    {
