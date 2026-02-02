@@ -44,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`  ${_geist.className} ${_geistMono.className} ${_instrumentSerif.className} `}>
+      <body className={`   `}>
         {children}
         <Analytics />
       </body>
