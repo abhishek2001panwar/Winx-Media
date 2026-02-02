@@ -33,6 +33,8 @@ const team = [
     image: "https://winxmarketingmedia.in/wp-content/uploads/2025/10/2.png",
     gradient: "from-cyan-400 to-blue-400",
   },
+ 
+
 ];
 
 export default function TeamPage() {
@@ -48,13 +50,12 @@ export default function TeamPage() {
             <div className="absolute -top-2 right-4 w-6 h-4 bg-yellow-300 opacity-60 rounded-sm transform rotate-12"></div>
             
             <div className="flex items-center gap-3">
-              <span className="text-lg font-bold bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
-                Our Team
+              <span className="text-lg font-bold bg-linear-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
+                Founders
               </span>
-              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc] animate-pulse"></div>
+              <div className="w-2 h-2 rounded-full bg-linear-to-r from-[#181f7c] to-[#a34fdc] animate-pulse"></div>
             </div>
-            <span className="text-sm text-gray-700 font-medium">Meet the Creators</span>
-            
+            <span className="text-sm text-gray-700 font-medium">Meet the Visionaries</span>
             {/* Sticky note corner fold */}
             <div className="absolute top-0 right-0 w-4 h-4 bg-yellow-300 transform rotate-45 translate-x-2 -translate-y-2 rounded-br-sm shadow-sm"></div>
           </div>

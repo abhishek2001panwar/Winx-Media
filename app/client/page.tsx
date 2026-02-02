@@ -122,7 +122,7 @@ const caseStudies = [
 
 export default function ClientPage() {
   return (
-    <div className="bg-gradient-to-br from-[#f5f5f5] via-[#e0e0e0] to-[#c3c3c3] min-h-screen font-serif">
+    <div className="min-h-screen font-serif">
       <Navbar />
       <main className="max-w-5xl mx-auto px-4 py-52">
         <h1

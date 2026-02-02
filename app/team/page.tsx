@@ -36,18 +36,32 @@ const team = [
   },
   {
      name: "Chirag",
-    role: "Strategic Partner",
+    role: "",
     description: "Driving strategic growth and innovative partnerships.",
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/10/2.png",
+    image: "",
     gradient: "from-cyan-400 to-blue-400",
   },
    {
      name: "Kushal",
-    role: "Strategic Partner",
+    role: "",
     description: "Driving strategic growth and innovative partnerships.",
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/10/2.png",
+    image: "",
     gradient: "from-cyan-400 to-blue-400",
-  }
+  },
+   {
+    name: "Abhin Jayan",
+    role: "Photographer & Cinematographer",
+    description: "Capturing moments that tell compelling brand stories.",
+    image: "",
+    gradient: "from-cyan-400 to-blue-400",
+  },
+   {
+    name: "Abhishek Panwar",
+    role: "Web Developer",
+    description: "Crafting seamless and engaging digital experiences.",
+    image: "/abhishek.png",
+    gradient: "from-cyan-400 to-blue-400",
+  },
 ];
 
 export default function page() {
@@ -136,7 +150,7 @@ export default function page() {
           {/* Team member card */}
           <div
             className={`
-          relative flex items-center gap-14 bg-white rounded-3xl shadow-2xl px-14 py-10 z-20
+          relative flex items-center gap-14  bg-white rounded-3xl shadow-2xl px-14 py-10 z-20
           border border-gray-100
           ${idx % 2 === 0 ? "flex-row" : "flex-row-reverse"}
             `}
@@ -145,7 +159,7 @@ export default function page() {
             <img
           src={member.image}
           alt={member.name}
-          className="w-40 h-40 rounded-full object-cover border-4 border-white shadow-xl"
+          className="w-50 h-50 rounded-full object-cover border-4 border-white shadow-xl"
             />
             <div>
           <div className="text-3xl font-bold text-gray-900 mb-2">{member.name}</div>

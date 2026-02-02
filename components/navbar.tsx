@@ -91,8 +91,8 @@ export default function Navbar() {
   };
 
   const menuItems = [
-    { label: "Our work", type: "scroll", value: "work", icon: Briefcase },
-    { label: "About us", type: "scroll", value: "about", icon: Info },
+    { label: "Our work", type: "route", value: "/work", icon: Briefcase },
+    { label: "About us", type: "route", value: "/about", icon: Info },
     { label: "Services", type: "scroll", value: "features", icon: Wrench },
     { label: "Gallery", type: "route", value: "/gallery", icon: ImageIcon },
     { label: "Contact", type: "scroll", value: "contact", icon: MessageCircle },
@@ -164,6 +164,7 @@ export default function Navbar() {
         className={`fixed inset-0 z-[55] transition-all duration-700 ${
           isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
+        
       >
         {/* Background with gradient */}
         <div
@@ -246,7 +247,7 @@ export default function Navbar() {
                   Social
                 </p>
                 <a 
-                  href="https://instagram.com/winxmedia" 
+                  href="https://www.instagram.com/winxmedia" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60"
@@ -257,7 +258,7 @@ export default function Navbar() {
                   <span className="text-base md:text-lg">Instagram</span>
                 </a>
                 <a 
-                  href="https://linkedin.com/company/winxmedia" 
+                  href="https://www.linkedin.com/company/winxmedia-in/" 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60"
@@ -267,7 +268,7 @@ export default function Navbar() {
                   </div>
                   <span className="text-base md:text-lg">LinkedIn</span>
                 </a>
-                <a 
+                {/* <a 
                   href="https://facebook.com/winxmedia" 
                   target="_blank"
                   rel="noopener noreferrer"
@@ -277,7 +278,7 @@ export default function Navbar() {
                     <Facebook size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
                   </div>
                   <span className="text-base md:text-lg">Facebook</span>
-                </a>
+                </a> */}
               </div>
 
               {/* LOCATION */}
@@ -291,7 +292,7 @@ export default function Navbar() {
                   </div>
                   <span className="text-base md:text-lg">India</span>
                 </div>
-                <div className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60 cursor-pointer">
+                {/* <div className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60 cursor-pointer">
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110">
                     <MapPin size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
                   </div>
@@ -302,7 +303,7 @@ export default function Navbar() {
                     <MapPin size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
                   </div>
                   <span className="text-base md:text-lg">USA</span>
-                </div>
+                </div> */}
               </div>
 
               {/* CONTACT */}
@@ -326,7 +327,7 @@ export default function Navbar() {
                   <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110 group-hover:-rotate-6">
                     <Phone size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
                   </div>
-                  <span className="text-base md:text-lg">+91 99999 99999</span>
+                  <span className="text-base md:text-lg">+91 8197519556</span>
                 </a>
               </div>
             </div>

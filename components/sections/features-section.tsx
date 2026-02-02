@@ -247,27 +247,118 @@ function DesignAnimation() {
   )
 }
 
-// Marketing Strategy - Animated line graph
+// Marketing Strategy - Connected strategy network
 function StrategyAnimation() {
-  const [points, setPoints] = useState([20, 40, 30, 60, 50, 80])
+  const [activeNode, setActiveNode] = useState(0)
+
   useEffect(() => {
     const interval = setInterval(() => {
-      setPoints(points => points.map(p => Math.max(20, Math.min(90, p + (Math.random() * 20 - 10)))))
-    }, 1200)
+      setActiveNode(prev => (prev + 1) % 4)
+    }, 1500)
     return () => clearInterval(interval)
   }, [])
-  const width = 180, height = 100
-  const step = width / (points.length - 1)
-  const path = points.map((p, i) => `${i === 0 ? 'M' : 'L'}${i * step},${height - p}`).join(' ')
+
+  const strategyNodes = [
+    { label: 'Analyze', x: 90, y: 30, icon: '📊' },
+    { label: 'Plan', x: 150, y: 70, icon: '🎯' },
+    { label: 'Execute', x: 90, y: 110, icon: '📈' },
+    { label: 'Grow', x: 30, y: 70, icon: '💎' }
+  ]
+
+  // Create connections between nodes for string effect
+  const connections = [
+    { from: 0, to: 1 }, // Analytics to Goals
+    { from: 1, to: 2 }, // Goals to Growth
+    { from: 2, to: 3 }, // Growth to ROI
+    { from: 3, to: 0 }, // ROI to Analytics
+    { from: 0, to: 2 }, // Analytics to Growth (diagonal)
+    { from: 1, to: 3 }, // Goals to ROI (diagonal)
+  ]
+
   return (
-    <div className="flex flex-col items-center justify-center h-full">
-      <svg width={width} height={height} style={{ display: 'block' }}>
-        <path d={path} stroke="#6366F1" strokeWidth="4" fill="none" />
-        {points.map((p, i) => (
-          <circle key={i} cx={i * step} cy={height - p} r={6} fill="#4F46E5" />
-        ))}
-      </svg>
-      <span className="text-lg font-semibold mt-2 text-indigo-600">Growth in Motion</span>
+    <div className="flex flex-col items-center justify-center h-full relative w-full">
+      <div className="relative flex items-center justify-center">
+        {/* Strategy Network */}
+        <svg width="180" height="140" className="relative">
+          <defs>
+            <filter id="glow">
+              <fegaussianblur stdDeviation="3" result="coloredBlur"/>
+              <femerge> 
+                <femergenode in="coloredBlur"/>
+                <femergenode in="SourceGraphic"/>
+              </femerge>
+            </filter>
+          </defs>
+          
+          {/* Connection strings */}
+          {connections.map((connection, i) => {
+            const fromNode = strategyNodes[connection.from]
+            const toNode = strategyNodes[connection.to]
+            const isActive = activeNode === connection.from || activeNode === connection.to
+            
+            return (
+              <motion.line
+                key={i}
+                x1={fromNode.x} y1={fromNode.y}
+                x2={toNode.x} y2={toNode.y}
+                stroke={isActive ? "#6366f1" : "#e5e7eb"}
+                strokeWidth={isActive ? "2" : "1"}
+                strokeDasharray="3,3"
+                animate={{
+                  strokeDashoffset: isActive ? [0, -6] : 0,
+                  opacity: isActive ? 0.8 : 0.3
+                }}
+                transition={{ 
+                  strokeDashoffset: { duration: 1, repeat: Infinity, ease: "linear" },
+                  opacity: { duration: 0.5 }
+                }}
+              />
+            )
+          })}
+          
+          {/* Strategy nodes */}
+          {strategyNodes.map((node, i) => (
+            <g key={i}>
+              {/* Node circles */}
+              <motion.circle
+                cx={node.x} cy={node.y}
+                r={i === activeNode ? "18" : "14"}
+                fill={i === activeNode ? "#6366f1" : "#f3f4f6"}
+                stroke={i === activeNode ? "#4f46e5" : "#d1d5db"}
+                strokeWidth="2"
+                filter={i === activeNode ? "url(#glow)" : "none"}
+                animate={{
+                  scale: i === activeNode ? [1, 1.2, 1] : 1,
+                  fill: i === activeNode ? "#6366f1" : "#f3f4f6"
+                }}
+                transition={{ duration: 1.5 }}
+              />
+              
+              {/* Node icons */}
+              <text
+                x={node.x} y={node.y + 2}
+                textAnchor="middle"
+                dominantBaseline="middle"
+                fontSize="14"
+                fill={i === activeNode ? "white" : "#6b7280"}
+              >
+                {node.icon}
+              </text>
+            </g>
+          ))}
+        </svg>
+
+        {/* Active node label */}
+        <motion.div
+          className="absolute -bottom-6 left-1/2 transform -translate-x-1/2"
+          animate={{ opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+        >
+          <span className="text-sm font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+            {strategyNodes[activeNode]?.label}
+          </span>
+        </motion.div>
+      </div>
     </div>
   )
 }

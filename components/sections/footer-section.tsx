@@ -271,12 +271,13 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 const footerLinks = [
-  { label: "Services", href: "/services" },
+  { label: "Gallery", href: "/gallery" },
   { label: "About", href: "/about" },
   { label: "Work", href: "/work" },
-  { label: "Contact", href: "/contact" },
+  { label: "Team", href: "/team" },
 ]
 
 
@@ -300,7 +301,13 @@ export function FooterSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              WINX
+             <Image   
+              src="/logo.png"
+              alt="Winx Marketing Media"
+              width={250}
+              height={80}
+              className="object-contain text-black"
+            />
             </motion.h2>
 
             <nav className="flex flex-wrap gap-6 mt-8">

@@ -236,9 +236,11 @@ export default function GalleryPage() {
             <h3 className="text-4xl md:text-5xl font-light text-black mb-12">
               Let's create something <span className="italic text-[#6c63ff]">extraordinary</span> together
             </h3>
+          <Link href="/#contact">
             <button className="px-12 py-5 bg-black text-white rounded-full text-lg font-medium hover:bg-[#6c63ff] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl">
               Get in Touch
             </button>
+          </Link>
           </div>
         </div>
       </main>

@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Navbar from '../../components/navbar'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function AboutPage() {
   const [currentStory, setCurrentStory] = useState(0)
@@ -399,6 +400,7 @@ function AboutPage() {
                   whileHover={{ x: '100%' }}
                   transition={{ duration: 0.6 }}
                 />
+               <Link href="/#contact" className="relative z-10">
                 <span className="relative z-10 flex items-center gap-4">
                   Start the Journey
                   <motion.span
@@ -408,13 +410,14 @@ function AboutPage() {
                     →
                   </motion.span>
                 </span>
+                </Link>
               </motion.button>
             </motion.div>
           </motion.div>
         </section>
 
         {/* Contact Footer */}
-        <section className="py-20 px-6 bg-gray-50">
+        {/* <section className="py-20 px-6 bg-gray-50">
           <div className="max-w-6xl mx-auto">
             <motion.div
               className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left"
@@ -471,7 +474,7 @@ function AboutPage() {
               </motion.div>
             </motion.div>
           </div>
-        </section>
+        </section> */}
       </div>
     </div>
   )
