@@ -237,7 +237,7 @@ export default function GalleryPage() {
               Let's create something <span className="italic text-[#6c63ff]">extraordinary</span> together
             </h3>
           <Link href="/#contact">
-            <button className="px-12 py-5 bg-black text-white rounded-full text-lg font-medium hover:bg-[#6c63ff] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl">
+            <button className="px-12 py-5 bg-gradient-to-r from-[#181f7c] to-[#a34fdc] text-white rounded-full text-lg font-medium hover:from-[#a34fdc] hover:to-[#181f7c] transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-2xl">
               Get in Touch
             </button>
           </Link>

@@ -32,6 +32,11 @@ const socialLinks = [
 // Social Media Animation - Orbiting icons
 function SocialOrbitAnimation() {
   const radius = 80
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <div className="flex items-center justify-center relative" style={{ height: '140px', marginBottom: '-40px', marginTop: '-20px' }}>
@@ -52,7 +57,7 @@ function SocialOrbitAnimation() {
           animation: 'rotate-group 10s linear infinite',
         }}
       >
-        {socialLinks.map((social, index) => {
+        {mounted && socialLinks.map((social, index) => {
           const angle = (social.angle * Math.PI) / 180
           const x = Math.cos(angle) * radius
           const y = Math.sin(angle) * radius
@@ -282,11 +287,11 @@ function StrategyAnimation() {
         <svg width="180" height="140" className="relative">
           <defs>
             <filter id="glow">
-              <fegaussianblur stdDeviation="3" result="coloredBlur"/>
-              <femerge> 
-                <femergenode in="coloredBlur"/>
-                <femergenode in="SourceGraphic"/>
-              </femerge>
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
             </filter>
           </defs>
           

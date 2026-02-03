@@ -172,6 +172,46 @@ export default function page() {
         </div>
       </div>
       </div>
+
+      <div className="mt-20 flex flex-col items-center">
+        <div className="relative mb-8">
+          {/* Decorative elements */}
+          <div className="absolute -top-6 -left-6 w-12 h-12 bg-yellow-300 rounded-full opacity-30 animate-bounce"></div>
+          <div className="absolute -top-4 -right-4 w-8 h-8 bg-pink-300 rounded-full opacity-40 animate-pulse"></div>
+          <div className="absolute -bottom-4 left-8 w-10 h-10 bg-purple-300 rounded-full opacity-25 animate-bounce delay-150"></div>
+          
+          {/* Handwritten style text */}
+          <div className="bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-lg px-8 py-4 shadow-lg transform -rotate-1 relative border-2 border-yellow-300">
+            <div className="absolute top-0 left-4 w-16 h-6 bg-yellow-300 opacity-50 rounded transform -rotate-12 -translate-y-3"></div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-1 font-serif">
+              ✨ Join Our Creative Family! ✨
+            </h3>
+            <p className="text-sm text-gray-600 italic">We're always looking for passionate talent</p>
+          </div>
+        </div>
+        <Link href="/carrers">
+          <button className="mb-10 group relative px-10 py-5 bg-white text-gray-800 font-bold text-lg rounded-full shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-2xl border-3 border-gray-200 overflow-hidden">
+            {/* Colorful background on hover */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#181f7c] to-[#a34fdc] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            
+            {/* Button content */}
+            <span className="relative z-10 flex items-center gap-3 group-hover:text-white transition-colors duration-300">
+              <span>Join Our Team</span>
+              <svg 
+          className="w-6 h-6 transform group-hover:translate-x-2 transition-transform duration-300" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+              >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+            
+            {/* Tape effect */}
+            <div className="absolute -top-2 left-8 w-16 h-5 bg-yellow-200 opacity-60 rounded transform -rotate-6"></div>
+          </button>
+        </Link>
+      </div>
     </div>
     </>
   );

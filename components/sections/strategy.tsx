@@ -12,7 +12,7 @@ function Strategy() {
           />
           <div className="text-div">
             <h1>ROI</h1>
-            <h1>ROI</h1>
+            <h1 className="">ROI</h1>
           </div>
           <img
             src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop"

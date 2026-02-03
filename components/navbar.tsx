@@ -103,7 +103,7 @@ export default function Navbar() {
     <>
       {/* TOP NAV */}
       <nav
-        className="fixed top-0 w-full z-[60] px-4 md:px-6 py-4 md:py-6 border-b border-black/10 transition-all duration-500"
+        className="fixed top-0 w-full z-[60] px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 lg:py-6 border-b border-black/10 transition-all duration-500 backdrop-blur-3xl"
         style={{
           backdropFilter: "blur(24px)",
           background: isMenuOpen 
@@ -118,14 +118,14 @@ export default function Navbar() {
               <Image 
                 src="/logo.png"
                 alt="Winx Media Logo"
-                width={120}
-                height={24}
-                className="md:w-[150px] md:h-[50px] object-contain "
+                width={100}
+                height={40}
+                className="w-[100px] h-auto sm:w-[120px] md:w-[140px] lg:w-[150px] object-contain"
               />
             </div>
           </button>
 
-          {/* Center Text - Hidden on mobile */}
+          {/* Center Text - Hidden on mobile and tablet */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2">
             <p className="font-serif uppercase tracking-[0.35em] text-base lg:text-lg font-medium text-black">
               Digital Creative Agency
@@ -140,8 +140,8 @@ export default function Navbar() {
               aria-label="Open menu"
             >
               <div className="space-y-1.5 md:space-y-2">
-                <span className="block w-8 md:w-10 h-[2px] bg-black transition-all duration-300" />
-                <span className="block w-8 md:w-10 h-[2px] bg-black transition-all duration-300" />
+                <span className="block w-7 sm:w-8 md:w-10 h-[2px] bg-black transition-all duration-300" />
+                <span className="block w-7 sm:w-8 md:w-10 h-[2px] bg-black transition-all duration-300" />
               </div>
             </button>
           ) : (
@@ -150,9 +150,9 @@ export default function Navbar() {
               className="p-2 md:p-3 relative z-10"
               aria-label="Close menu"
             >
-              <div className="relative w-8 md:w-10 h-8 md:h-10 flex items-center justify-center">
-                <span className="absolute w-7 md:w-8 h-0.5 bg-black rotate-45 transition-all duration-300" />
-                <span className="absolute w-7 md:w-8 h-0.5 bg-black -rotate-45 transition-all duration-300" />
+              <div className="relative w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 flex items-center justify-center">
+                <span className="absolute w-6 sm:w-7 md:w-8 h-0.5 bg-black rotate-45 transition-all duration-300" />
+                <span className="absolute w-6 sm:w-7 md:w-8 h-0.5 bg-black -rotate-45 transition-all duration-300" />
               </div>
             </button>
           )}
@@ -164,7 +164,6 @@ export default function Navbar() {
         className={`fixed inset-0 z-[55] transition-all duration-700 ${
           isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
-        
       >
         {/* Background with gradient */}
         <div
@@ -179,25 +178,25 @@ export default function Navbar() {
             isMenuOpen ? "opacity-100 delay-200" : "opacity-0"
           }`}
         >
-          <div className="min-h-full grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-8 md:gap-12 lg:gap-16 px-6 md:px-12 lg:px-24 xl:px-32 py-24 md:py-32">
+          <div className="min-h-full flex flex-col lg:grid lg:grid-cols-[1fr_auto_1fr] gap-6 sm:gap-8 md:gap-10 lg:gap-16 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-20 sm:py-24 md:py-28 lg:py-32">
             
             {/* LEFT SIDE - MENU LINKS */}
-            <div className="flex flex-col justify-center items-start space-y-1 md:space-y-4">
+            <div className="flex flex-col justify-center items-start space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-4">
               {menuItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
                   <button
                     key={item.label}
                     onClick={() => handleMenuClick(item.type as "scroll" | "route", item.value)}
-                    className="group relative flex items-center gap-3 md:gap-6 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light pl-4 md:pl-6 transition-all duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] hover:translate-x-4 md:hover:translate-x-6 hover:opacity-60"
+                    className="group relative flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light pl-3 sm:pl-4 md:pl-5 lg:pl-6 transition-all duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] hover:translate-x-3 sm:hover:translate-x-4 lg:hover:translate-x-6 hover:opacity-60"
                     style={{
                       animationDelay: `${index * 100}ms`,
                     }}
                   >
-                    <span className="absolute left-0 top-1/2 w-1.5 md:w-2 h-0.5 bg-black transition-all duration-[400ms] group-hover:w-6 md:group-hover:w-8 group-hover:-translate-x-3 md:group-hover:-translate-x-5 group-hover:opacity-0" />
+                    <span className="absolute left-0 top-1/2 w-1 sm:w-1.5 md:w-2 h-0.5 bg-black transition-all duration-[400ms] group-hover:w-4 sm:group-hover:w-5 md:group-hover:w-6 lg:group-hover:w-8 group-hover:-translate-x-2 sm:group-hover:-translate-x-3 lg:group-hover:-translate-x-5 group-hover:opacity-0" />
                     <Icon 
-                      size={24}
-                      className="md:w-8 md:h-8 opacity-0 -translate-x-3 md:-translate-x-5 transition-all duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:opacity-100 group-hover:translate-x-0" 
+                      size={18}
+                      className="sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 opacity-0 -translate-x-2 sm:-translate-x-3 lg:-translate-x-5 transition-all duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:opacity-100 group-hover:translate-x-0" 
                       strokeWidth={1.5} 
                     />
                     {item.label}
@@ -239,95 +238,72 @@ export default function Navbar() {
             </div>
 
             {/* RIGHT SIDE - CONTACT INFO */}
-            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-8 md:gap-12 lg:gap-16 text-sm md:text-base">
+            <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 text-sm md:text-base mt-4 sm:mt-6 lg:mt-0">
               
               {/* SOCIAL */}
-              <div className="flex flex-col items-start gap-3 md:gap-4">
-                <p className="uppercase tracking-[0.3em] text-gray-600 mb-2 text-xs font-medium">
+              <div className="flex flex-col items-start gap-2 sm:gap-3 md:gap-4">
+                <p className="uppercase tracking-[0.25em] sm:tracking-[0.3em] text-gray-600 mb-1 sm:mb-2 text-[10px] sm:text-xs font-medium">
                   Social
                 </p>
                 <a 
                   href="https://www.instagram.com/winxmedia.in" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60"
+                  className="group flex items-center gap-2 sm:gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-1 sm:hover:-translate-x-2 hover:opacity-60"
                 >
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-purple-600 group-hover:to-pink-600 group-hover:scale-110 group-hover:rotate-6">
-                    <Instagram size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-purple-600 group-hover:to-pink-600 group-hover:scale-110 group-hover:rotate-6">
+                    <Instagram size={18} strokeWidth={2} className="sm:w-5 sm:h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
                   </div>
-                  <span className="text-base md:text-lg">Instagram</span>
+                  <span className="text-sm sm:text-base md:text-lg">Instagram</span>
                 </a>
                 <a 
                   href="https://www.linkedin.com/company/winxmedia-in/" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60"
+                  className="group flex items-center gap-2 sm:gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-1 sm:hover:-translate-x-2 hover:opacity-60"
                 >
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110 group-hover:rotate-6">
-                    <Linkedin size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110 group-hover:rotate-6">
+                    <Linkedin size={18} strokeWidth={2} className="sm:w-5 sm:h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
                   </div>
-                  <span className="text-base md:text-lg">LinkedIn</span>
+                  <span className="text-sm sm:text-base md:text-lg">LinkedIn</span>
                 </a>
-                {/* <a 
-                  href="https://facebook.com/winxmedia" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60"
-                >
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-700 group-hover:scale-110 group-hover:rotate-6">
-                    <Facebook size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
-                  </div>
-                  <span className="text-base md:text-lg">Facebook</span>
-                </a> */}
               </div>
 
               {/* LOCATION */}
-              <div className="flex flex-col items-start gap-3 md:gap-4">
-                <p className="uppercase tracking-[0.3em] text-gray-600 mb-2 text-xs font-medium">
+              <div className="flex flex-col items-start gap-2 sm:gap-3 md:gap-4">
+                <p className="uppercase tracking-[0.25em] sm:tracking-[0.3em] text-gray-600 mb-1 sm:mb-2 text-[10px] sm:text-xs font-medium">
                   Location
                 </p>
-                <div className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60 cursor-pointer">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110">
-                    <MapPin size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
+                <div className="group flex items-center gap-2 sm:gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-1 sm:hover:-translate-x-2 hover:opacity-60 cursor-pointer">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110">
+                    <MapPin size={18} strokeWidth={2} className="sm:w-5 sm:h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
                   </div>
-                  <span className="text-base md:text-lg">India</span>
+                  <span className="text-sm sm:text-base md:text-lg">India</span>
                 </div>
-                {/* <div className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60 cursor-pointer">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110">
-                    <MapPin size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
-                  </div>
-                  <span className="text-base md:text-lg">Europe</span>
-                </div>
-                <div className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60 cursor-pointer">
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110">
-                    <MapPin size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
-                  </div>
-                  <span className="text-base md:text-lg">USA</span>
-                </div> */}
               </div>
 
               {/* CONTACT */}
-              <div className="flex flex-col items-start gap-3 md:gap-4">
-                <p className="uppercase tracking-[0.3em] text-gray-600 mb-2 text-xs font-medium">
+              <div className="flex flex-col items-start gap-2 sm:gap-3 md:gap-4 sm:col-span-2 lg:col-span-1">
+                <p className="uppercase tracking-[0.25em] sm:tracking-[0.3em] text-gray-600 mb-1 sm:mb-2 text-[10px] sm:text-xs font-medium">
                   Contact
                 </p>
                 <a 
                   href="mailto:info@winxmedia.com" 
-                  className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60"
+                  className="group flex items-center gap-2 sm:gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-1 sm:hover:-translate-x-2 hover:opacity-60"
                 >
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110 group-hover:-rotate-6">
-                    <Mail size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110 group-hover:-rotate-6">
+                    <Mail size={18} strokeWidth={2} className="sm:w-5 sm:h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
                   </div>
-                  <span className="text-sm md:text-lg break-all">info@winxmedia.com</span>
+                  <span className="text-xs sm:text-sm md:text-base lg:text-lg break-all">info@winxmedia.com</span>
                 </a>
                 <a 
-                  href="tel:+919999999999" 
-                  className="group flex items-center gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-2 hover:opacity-60"
+                  href="tel:+918197519556" 
+                  className="group flex items-center gap-2 sm:gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-1 sm:hover:-translate-x-2 hover:opacity-60"
                 >
-                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110 group-hover:-rotate-6">
-                    <Phone size={20} strokeWidth={2} className="md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110 group-hover:-rotate-6">
+                    <Phone size={18} strokeWidth={2} className="sm:w-5 sm:h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
                   </div>
-                  <span className="text-base md:text-lg">+91 8197519556</span>
+                  <span className="text-sm sm:text-base md:text-lg">+91 8197519556</span>
                 </a>
               </div>
             </div>

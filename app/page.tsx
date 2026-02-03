@@ -5,7 +5,6 @@ import { CustomCursor } from "@/components/custom-cursor";
 import { HeroSection } from "@/components/sections/hero-section";
 import { Manifesto } from "@/components/sections/manifesto";
 import { FeaturesSection } from "@/components/sections/features-section";
-import { CarouselSection } from "@/components/sections/carousel-section";
 import { InsightsSection } from "@/components/sections/insights-section";
 import ContactSection from "@/components/sections/contact";
 import { FooterSection } from "@/components/sections/footer-section";
@@ -17,6 +16,7 @@ import Strategy from "@/components/sections/strategy";
 import { ManifestoSection } from "@/components/sections/manifesto-section";
 import TeamPage from "@/components/sections/team";
 import App from "./blog/page";
+import Carousel from "./carousel/page";
 
 export default function Home() {
   useEffect(() => {
@@ -92,7 +92,7 @@ export default function Home() {
           </section>
 
           <section id="carousel">
-            <CarouselSection />
+            <Carousel />
           </section>
 
           <section id="team">
