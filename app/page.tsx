@@ -16,6 +16,7 @@ import { useEffect } from "react";
 import Strategy from "@/components/sections/strategy";
 import { ManifestoSection } from "@/components/sections/manifesto-section";
 import TeamPage from "@/components/sections/team";
+import App from "./blog/page";
 
 export default function Home() {
   useEffect(() => {
@@ -96,6 +97,9 @@ export default function Home() {
 
           <section id="team">
             <TeamPage />
+          </section>
+          <section id="blog">
+            <App/>
           </section>
 
           <section id="insights">

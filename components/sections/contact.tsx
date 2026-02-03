@@ -1,6 +1,8 @@
 'use client'
 import React, { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import { supabase } from '@/lib/supabaseClient';
+import { FaRegPaperPlane } from 'react-icons/fa';
 
 const ContactSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -12,33 +14,119 @@ const ContactSection: React.FC = () => {
   });
 
   const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
-
+  const [focusedField, setFocusedField] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    message: '',
+    message: ''
   });
 
-  const [focusedField, setFocusedField] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState(false);
+   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+   const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    
+    // Clear error when user starts typing
+    if (errors[name as keyof typeof errors]) {
+      setErrors(prev => ({ ...prev, [name]: '' }));
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate all fields
+    const isNameValid = validateField('name', formData.name);
+    const isEmailValid = validateField('email', formData.email);
+    const isPhoneValid = validateField('phone', formData.phone);
+    const isMessageValid = validateField('message', formData.message);
+
+    if (!isNameValid || !isEmailValid || !isPhoneValid || !isMessageValid) {
+      return;
+    }
+
+    setLoading(true);
+
+    const { error } = await supabase.from('contact').insert([
+      {
+        name: formData.name,
+        email: formData.email,
+        number: formData.phone,
+        description: formData.message,
+      },
+    ]);
+
+    setLoading(false);
+
+    if (error) {
+      console.error(error);
+      // Show error to user
+      setErrors(prev => ({ ...prev, message: 'Failed to send message. Please try again.' }));
+
+      return;
+    }
+
     setSubmitted(true);
-    console.log('Form submitted:', formData);
-    // Add your form submission logic here
+    setFormData({ name: '', email: '', phone: '', message: '' });
+    setErrors({ name: '', email: '', phone: '', message: '' });
+
+    setTimeout(() => setSubmitted(false), 2000);
   };
+
+
+  const [errors, setErrors] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+    // Validation function
+  const validateField = (name: string, value: string) => {
+    let error = '';
+
+    switch (name) {
+      case 'name':
+        if (value.trim().length < 2) {
+          error = 'Name must be at least 2 characters';
+        }
+        break;
+      case 'email':
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+          error = 'Please enter a valid email address';
+        }
+        break;
+      case 'phone':
+        const phoneRegex = /^[+]?[0-9]{10}$/;
+        if (!phoneRegex.test(value.replace(/\s/g, ''))) {
+          error = 'Please enter a valid phone number (10 digits)';
+        }
+        break;
+      case 'message':
+        if (value.trim().length < 10) {
+          error = 'Message must be at least 10 characters';
+        }
+        break;
+    }
+
+    setErrors(prev => ({ ...prev, [name]: error }));
+    return error === '';
+  };
+ 
 
   return (
-    <section ref={containerRef} className="relative min-h-screen bg-white py-24 overflow-hidden">
+    <>
+  <section
+  ref={containerRef}
+  className={`relative min-h-screen bg-white py-24 overflow-hidden transition-all duration-300 ${
+    submitted ? 'blur-sm' : ''
+  }`}
+>
       {/* Minimal Decorative Elements */}
       <motion.div
         style={{ y }}
@@ -160,6 +248,15 @@ const ContactSection: React.FC = () => {
                   >
                     Your Name *
                   </label>
+                  {errors.name && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-500 text-xs mt-1 font-semibold"
+                    >
+                      {errors.name}
+                    </motion.p>
+                  )}
                 </div>
 
                 {/* Email & Phone Row */}
@@ -182,6 +279,15 @@ const ContactSection: React.FC = () => {
                       placeholder="your@email.com"
                       whileFocus={{ scale: 1.01 }}
                     />
+                    {errors.email && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-500 text-xs mt-1 font-semibold"
+                      >
+                        {errors.email}
+                      </motion.p>
+                    )}
                   </div>
                   <div>
                     <label className="block text-xs font-bold text-black mb-2 uppercase tracking-wide">
@@ -201,6 +307,15 @@ const ContactSection: React.FC = () => {
                       placeholder="+91 XXX XXX XXXX"
                       whileFocus={{ scale: 1.01 }}
                     />
+                     {errors.phone && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-500 text-xs mt-1 font-semibold"
+                      >
+                        {errors.phone}
+                      </motion.p>
+                    )}
                   </div>
                 </div>
 
@@ -223,16 +338,26 @@ const ContactSection: React.FC = () => {
                     placeholder="What's your vision?"
                     whileFocus={{ scale: 1.01 }}
                   />
+                   {errors.message && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-500 text-xs mt-1 font-semibold"
+                    >
+                      {errors.message}
+                    </motion.p>
+                  )}
                 </div>
 
                 {/* Submit Button */}
                 <motion.button
                   type="submit"
+                  disabled={loading}
+                   whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   className="w-full py-3 bg-gradient-to-r from-[#181f7c] to-[#a34fdc] text-white font-bold text-base rounded-xl flex items-center justify-center gap-2  transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.97 }}
                 >
-                  <span className="relative z-10">Submit & Let's Talk</span>
+                  <span className="relative z-10"> {loading ? 'Sending...' : 'Submit & Let’s Talk'}</span>
                   <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
                     <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
@@ -257,6 +382,39 @@ const ContactSection: React.FC = () => {
         We respect your privacy. Your info stays with us.
       </p>
     </section>
+  {submitted && (
+  <motion.div
+    className="fixed inset-0 z-[999] flex items-center justify-center bg-black/40 backdrop-blur-md"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+  >
+    <motion.div
+      initial={{ scale: 0.7, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      transition={{ duration: 0.3, ease: "easeOut" }}
+      className="bg-white rounded-3xl p-10 max-w-md text-center shadow-2xl"
+    >
+      <div className="mb-4 flex justify-center">
+        <FaRegPaperPlane className="text-5xl text-purple-500" />
+      </div>
+
+      <h3 className="text-4xl font-serif font-black text-black mb-2">
+        Message Sent!
+      </h3>
+
+      <p className="text-gray-600 text-sm mb-4">
+        We got your details. Our team will reach out faster than your Wi-Fi loads.
+      </p>
+
+      <div className="text-xs text-gray-400">
+        This window will close automatically
+      </div>
+    </motion.div>
+  </motion.div>
+  )}
+
+    </>
   );
 };
 

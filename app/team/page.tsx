@@ -52,7 +52,7 @@ const team = [
     name: "Abhin Jayan",
     role: "Photographer & Cinematographer",
     description: "Capturing moments that tell compelling brand stories.",
-    image: "",
+    image: "/abin.jpeg",
     gradient: "from-cyan-400 to-blue-400",
   },
    {

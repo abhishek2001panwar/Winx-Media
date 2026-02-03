@@ -44,7 +44,7 @@ export default function TeamPage() {
       <div className="">
         <div className="relative">
           {/* Main sticky note */}
-          <div className="bg-yellow-200 rounded-sm px-6 py-4 shadow-lg transform rotate-2 relative">
+          <div className="bg-yellow-200 rounded-sm px-6 mt-5 py-4 shadow-lg transform rotate-2 relative">
             {/* Sticky note tape effect */}
             <div className="absolute -top-2 left-4 w-8 h-4 bg-yellow-300 opacity-60 rounded-sm transform -rotate-12"></div>
             <div className="absolute -top-2 right-4 w-6 h-4 bg-yellow-300 opacity-60 rounded-sm transform rotate-12"></div>

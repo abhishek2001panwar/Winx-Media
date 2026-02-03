@@ -10,6 +10,9 @@ html {
   scroll-behavior: smooth;
 }
 
+.blog-card {
+  will-change: flex, transform;
+}
 
 .grid-bg {
   background-image:
