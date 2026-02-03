@@ -314,7 +314,7 @@ export default function WorkPage() {
             className="text-center mt-16"
           >
             <a
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/winxmedia.in"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group"

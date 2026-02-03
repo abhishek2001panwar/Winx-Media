@@ -22,6 +22,9 @@ const pastelBg = [
 ];
 
 const caseStudies = [
+
+
+
   {
     title: "KLCI",
     subtitle: "Digging Deep into Digital Excellence",
@@ -64,6 +67,7 @@ const caseStudies = [
     tags: ["Instagram"],
     slug: "/work/ssss-catering",
   },
+  
   {
     title: "Collaborative Senior Care",
     subtitle: "Rewriting Healthcare's Story",

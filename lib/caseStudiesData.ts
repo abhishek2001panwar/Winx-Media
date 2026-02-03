@@ -1,5 +1,18 @@
 // lib/caseStudiesData.ts
 
+// Remove this line:
+// import {image} from '@/public/forever.png';
+
+// If you want to use the image, use:
+import foreverImage from '@/public/forever.png';
+
+// But in your data, you are using image: "./forever.png",
+// which is just a string path. If you want to use the imported image,
+// update the relevant object like:
+// image: foreverImage,
+
+// Otherwise, you can just remove the import entirely if not used.
+
 export interface CaseStudy {
   title: string;
   subtitle: string;
@@ -15,6 +28,26 @@ export interface CaseStudy {
   instagramHandle?: string;
 }
 export const caseStudiesData: CaseStudy[] = [
+{
+  title: "It's forever",
+  subtitle: "Digging Deep into Digital Excellence",
+  description:
+    "We created a digital foundation as solid as the work they do.",
+  image: foreverImage.src,
+  tags: [],
+  color: "from-blue-500 to-indigo-600",
+  slug: "forever",
+  challenge:
+    "Indian weddings generate thousands of photos, but guests and couples struggle to find the ones they actually like. Managing uploads from multiple devices and avoiding unflattering candid shots was chaotic.",
+  solution:
+    "You know how Indian weddings generate approximately 47,000 photos, but somehow you can never find the ones where you actually look good? And don’t even get us started on trying to hunt down pictures of yourself from your cousin’s phone while avoiding those unflattering candid shots your uncle took. Its Forever solved this chaos with features that feel like magic. Their highly accurate AI facial recognition automatically finds and matches photos of you across all uploads—no more playing digital detective to track down that perfect shot. Meanwhile, photographers can upload their entire collection but choose exactly what guests can download, and couples get the ultimate power move: deciding which photos guests can even see. It’s like having a personal photo curator who knows your face better than your mirror, plus the privacy controls that let you curate your own wedding story. We didn’t just build their social media presence—we made their brand the solution to every couple’s biggest wedding photography nightmares: finding the good photos while hiding the questionable ones. Their Instagram became the place where love stories get organized, shared, and celebrated on YOUR terms. Now they’re not just a QR code app; they’re the reason families actually get to keep their precious memories AND their dignity intact.",
+  results: [
+    "Transformed the brand into the ultimate wedding photo management tool.",
+    "Instagram became a hub for organized and shareable wedding memories.",
+    "Guests and couples could finally find perfect photos without compromising privacy.",
+  ],
+}
+,
   {
     title: "KLCI",
     subtitle: "Digging Deep into Digital Excellence",

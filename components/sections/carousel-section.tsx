@@ -12,6 +12,24 @@ const tagIcons = {
 
 const caseStudies = [
   {
+    title: "It's forever",
+    subtitle: "Digging Deep into Digital Excellence",
+    description:
+      "We created a digital foundation as solid as the work they do.",
+    image: "./forever.png",
+    slug: "/work/forever",
+    challenge:
+      "Indian weddings generate thousands of photos, but guests and couples struggle to find the ones they actually like. Managing uploads from multiple devices and avoiding unflattering candid shots was chaotic.",
+    solution:
+      "It's Forever solved this with AI facial recognition that automatically finds and matches photos of each guest. Photographers can control what guests can download, and couples decide which photos are visible, creating a curated, privacy-focused experience.",
+    results: [
+      "Transformed the brand into the ultimate wedding photo management tool.",
+      "Instagram became a hub for organized and shareable wedding memories.",
+      "Guests and couples could finally find perfect photos without compromising privacy.",
+    ],
+
+  },
+  {
     title: "KLCI",
     subtitle: "Digging Deep into Digital Excellence",
     description:
@@ -23,7 +41,8 @@ const caseStudies = [
   {
     title: "Ambari Weddings",
     subtitle: "Orchestrating Dreams from Vision to Reality",
-    description: "When Ambari Weddings came to us, they were like incredibly talented artists ready to showcase their work on the biggest stage. They had the skills, the vision, the passion—they just needed the right platform to share it all. We built their complete brand ecosystem from the ground up. From brand identity to social media presence to performance marketing, we created a comprehensive platform that showcases their incredible talent for creating unforgettable celebrations. Now they're not just planning weddings; they're creating experiences that make people book them for future events before their current ones are even finished.",
+    description:
+      "When Ambari Weddings came to us, they were like incredibly talented artists ready to showcase their work on the biggest stage. They had the skills, the vision, the passion—they just needed the right platform to share it all. We built their complete brand ecosystem from the ground up. From brand identity to social media presence to performance marketing, we created a comprehensive platform that showcases their incredible talent for creating unforgettable celebrations. Now they're not just planning weddings; they're creating experiences that make people book them for future events before their current ones are even finished.",
     image:
       "https://winxmarketingmedia.in/wp-content/uploads/2025/07/Untitled-design-33.png",
     tags: ["Instagram", "WordPress"],
@@ -32,7 +51,8 @@ const caseStudies = [
   {
     title: "House of Bliss",
     subtitle: "From Unknown to Unmissable",
-    description: "Every photographer thinks they're the next big thing, but House of Bliss actually became it. We took their incredible talent and gave it the digital stage it deserved. Their story isn't just about taking pretty pictures—it's about capturing the moments that matter most. We helped them tell that story in a way that makes couples forget about every other photographer in Bengaluru. Now they're not just booking clients; they're creating a waiting list of people who refuse to trust their special day to anyone else.",
+    description:
+      "Every photographer thinks they're the next big thing, but House of Bliss actually became it. We took their incredible talent and gave it the digital stage it deserved. Their story isn't just about taking pretty pictures—it's about capturing the moments that matter most. We helped them tell that story in a way that makes couples forget about every other photographer in Bengaluru. Now they're not just booking clients; they're creating a waiting list of people who refuse to trust their special day to anyone else.",
     image: "https://winxmarketingmedia.in/wp-content/uploads/2025/07/1.png",
     tags: ["Instagram", "WordPress"],
     slug: "/work/house-of-bliss",
@@ -40,7 +60,8 @@ const caseStudies = [
   {
     title: "Sneha Banquet Hall",
     subtitle: "Where Dreams Get Their Spotlight",
-    description: "Event venues are everywhere, but Sneha Banquet Hall became the place where memories are made. We transformed their marketing from 'we have a nice space' to 'we're where your story gets its perfect setting.' Through content that captures not just the beauty of their venue but the emotion of every celebration, Sneha went from being compared to competitors to being in a category of their own. Now families don't just book them—they specifically ask for 'the Sneha experience.'",
+    description:
+      "Event venues are everywhere, but Sneha Banquet Hall became the place where memories are made. We transformed their marketing from 'we have a nice space' to 'we're where your story gets its perfect setting.' Through content that captures not just the beauty of their venue but the emotion of every celebration, Sneha went from being compared to competitors to being in a category of their own. Now families don't just book them—they specifically ask for 'the Sneha experience.'",
     image: "https://winxmarketingmedia.in/wp-content/uploads/2025/07/3.png",
     tags: ["Instagram"],
     slug: "/work/sneha-banquet",
@@ -48,7 +69,8 @@ const caseStudies = [
   {
     title: "SSSS Catering",
     subtitle: "Flavoring Success, One Event at a Time",
-    description: "Food is the heart of every celebration, and SSSS Catering Service has always understood that every dish contributes to someone's special story. We helped them share this beautiful philosophy with the world. We positioned them not just as caterers, but as celebration enhancers. Every dish they serve becomes part of someone's cherished memory, someone's perfect day, someone's family gathering that everyone talks about for years. Through content that captures the artistry, passion, and genuine care behind every event, SSSS became known for creating culinary experiences that make celebrations truly memorable.",
+    description:
+      "Food is the heart of every celebration, and SSSS Catering Service has always understood that every dish contributes to someone's special story. We helped them share this beautiful philosophy with the world. We positioned them not just as caterers, but as celebration enhancers. Every dish they serve becomes part of someone's cherished memory, someone's perfect day, someone's family gathering that everyone talks about for years. Through content that captures the artistry, passion, and genuine care behind every event, SSSS became known for creating culinary experiences that make celebrations truly memorable.",
     image: "https://winxmarketingmedia.in/wp-content/uploads/2025/07/2.png",
     tags: ["Instagram"],
     slug: "/work/ssss-catering",
@@ -56,7 +78,8 @@ const caseStudies = [
   {
     title: "Collaborative Senior Care",
     subtitle: "Rewriting Healthcare's Story",
-    description: "Healthcare marketing is usually about as exciting as watching paint dry, but we changed that narrative completely. We made Collaborative Senior Care feel less like a medical service and more like family. Their transformation wasn't just about getting more clients—it was about changing how people think about senior care. We helped them tell stories that make families feel hopeful instead of worried, confident instead of anxious. Now they're not just a healthcare provider; they're the place where golden years actually feel golden.",
+    description:
+      "Healthcare marketing is usually about as exciting as watching paint dry, but we changed that narrative completely. We made Collaborative Senior Care feel less like a medical service and more like family. Their transformation wasn't just about getting more clients—it was about changing how people think about senior care. We helped them tell stories that make families feel hopeful instead of worried, confident instead of anxious. Now they're not just a healthcare provider; they're the place where golden years actually feel golden.",
     image: "https://winxmarketingmedia.in/wp-content/uploads/2025/07/6.png",
     tags: ["WordPress"],
     slug: "/work/collaborative-senior-care",
@@ -83,7 +106,8 @@ const caseStudies = [
   {
     title: "Classy Captures",
     subtitle: "The Art of Timeless Wedding Photography",
-    description: "Classy Captures always knew that wedding photography is more than documenting moments—it's preserving emotions that deserve to live forever. Winx Marketing Media positioned them as artists of timeless storytelling, not just photographers. Every frame they create reflects elegance, emotion, and the quiet beauty found in real connections. Their work goes beyond visuals; it becomes a legacy for families to treasure. Through intentional digital positioning and refined visual storytelling, we showcased their transformation from talented photographers to curators of unforgettable wedding memories. Today, they don't just book clients—they attract couples who value authenticity, artistry, and depth.",
+    description:
+      "Classy Captures always knew that wedding photography is more than documenting moments—it's preserving emotions that deserve to live forever. Winx Marketing Media positioned them as artists of timeless storytelling, not just photographers. Every frame they create reflects elegance, emotion, and the quiet beauty found in real connections. Their work goes beyond visuals; it becomes a legacy for families to treasure. Through intentional digital positioning and refined visual storytelling, we showcased their transformation from talented photographers to curators of unforgettable wedding memories. Today, they don't just book clients—they attract couples who value authenticity, artistry, and depth.",
     image:
       "https://winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-09T155103.244.png",
     tags: ["Instagram", "WordPress"],
@@ -92,7 +116,8 @@ const caseStudies = [
   {
     title: "Glass Gallery",
     subtitle: "South India's Premium Glass Brand",
-    description: "Glass Gallery is known for redefining modern spaces through premium glass manufacturing and bespoke design solutions. Winx Marketing Media positioned Glass Gallery not just as a glass manufacturer, but as a visionary design partner shaping the future of modern architecture and interior luxury. Their expertise goes far beyond producing glass—they craft masterpieces that elevate spaces with elegance, precision, and timeless sophistication. Through a strategically designed, high-end website, we showcased their evolution from a product supplier to a premium design authority trusted by architects, builders, and luxury homeowners.",
+    description:
+      "Glass Gallery is known for redefining modern spaces through premium glass manufacturing and bespoke design solutions. Winx Marketing Media positioned Glass Gallery not just as a glass manufacturer, but as a visionary design partner shaping the future of modern architecture and interior luxury. Their expertise goes far beyond producing glass—they craft masterpieces that elevate spaces with elegance, precision, and timeless sophistication. Through a strategically designed, high-end website, we showcased their evolution from a product supplier to a premium design authority trusted by architects, builders, and luxury homeowners.",
     image:
       "https://winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-10T120812.686.png",
     tags: ["WordPress"],
@@ -101,7 +126,8 @@ const caseStudies = [
   {
     title: "HSR Tiles & Sanitary World",
     subtitle: "Transforming Spaces, One Tile at a Time",
-    description: "HSR Tiles and Sanitary World always understood that tiles are more than building materials—they are the foundation of spaces where people live, grow, and create memories. Winx Marketing Media positioned them not just as suppliers, but as curators of modern living and architectural elegance. Their products go beyond functionality; they represent craftsmanship, durability, and style designed to elevate every corner of a home. Through strategic digital storytelling, we showcased their evolution from a showroom to a trusted design partner for homeowners, architects, and interior creators. Today, they don't just attract buyers—they attract visionaries who believe every space deserves character and creativity.",
+    description:
+      "HSR Tiles and Sanitary World always understood that tiles are more than building materials—they are the foundation of spaces where people live, grow, and create memories. Winx Marketing Media positioned them not just as suppliers, but as curators of modern living and architectural elegance. Their products go beyond functionality; they represent craftsmanship, durability, and style designed to elevate every corner of a home. Through strategic digital storytelling, we showcased their evolution from a showroom to a trusted design partner for homeowners, architects, and interior creators. Today, they don't just attract buyers—they attract visionaries who believe every space deserves character and creativity.",
     image:
       "https://winxmarketingmedia.in/wp-content/uploads/2025/12/IMG-20251105-WA0010.jpg",
     tags: ["Instagram"],
@@ -109,14 +135,14 @@ const caseStudies = [
   },
 ];
 
-const ProjectCard = ({ 
-  item, 
-  index, 
-  isAnyHovered, 
+const ProjectCard = ({
+  item,
+  index,
+  isAnyHovered,
   isThisHovered,
-  onHoverChange 
-}: { 
-  item: typeof caseStudies[0]; 
+  onHoverChange,
+}: {
+  item: (typeof caseStudies)[0];
   index: number;
   isAnyHovered: boolean;
   isThisHovered: boolean;
@@ -129,7 +155,10 @@ const ProjectCard = ({
   const rotateX = useTransform(mouseY, [-100, 100], [5, -5]);
   const rotateY = useTransform(mouseX, [-100, 100], [-5, 5]);
 
-  const [explorePos, setExplorePos] = useState<{ x: number; y: number }>({ x: 50, y: 80 });
+  const [explorePos, setExplorePos] = useState<{ x: number; y: number }>({
+    x: 50,
+    y: 80,
+  });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -167,32 +196,37 @@ const ProjectCard = ({
       }}
       animate={{
         scale: isThisHovered ? 1.08 : shouldBlur ? 0.95 : 1,
-        filter: shouldBlur ? "blur(4px) brightness(0.6)" : "blur(0px) brightness(1)",
+        filter: shouldBlur
+          ? "blur(4px) brightness(0.6)"
+          : "blur(0px) brightness(1)",
         opacity: shouldBlur ? 0.5 : 1,
       }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 1 }}
     >
       <div className="relative overflow-hidden rounded-2xl mb-6">
         {/* Animated gradient border - only shows on hover */}
         <motion.div
           className="absolute inset-0 rounded-2xl p-[2px] z-0"
           style={{
-            background: 'linear-gradient(45deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%)',
-            backgroundSize: '300% 300%',
+            background:
+              "linear-gradient(45deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #667eea 75%, #764ba2 100%)",
+            backgroundSize: "300% 300%",
           }}
           animate={{
-            backgroundPosition: isThisHovered ? ['0% 50%', '100% 50%', '0% 50%'] : ['0% 50%'],
+            backgroundPosition: isThisHovered
+              ? ["0% 50%", "100% 50%", "0% 50%"]
+              : ["0% 50%"],
             opacity: isThisHovered ? 1 : 0,
           }}
           transition={{
             backgroundPosition: {
               duration: 3,
               repeat: Infinity,
-              ease: 'linear'
+              ease: "linear",
             },
             opacity: {
-              duration: 0.3
-            }
+              duration: 0.3,
+            },
           }}
         >
           <div className="w-full h-full bg-black rounded-2xl" />
@@ -230,16 +264,17 @@ const ProjectCard = ({
           <motion.div
             className="absolute inset-0 pointer-events-none rounded-2xl z-30"
             style={{
-              background: 'linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%)',
-              backgroundSize: '200% 200%',
+              background:
+                "linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%)",
+              backgroundSize: "200% 200%",
             }}
             animate={{
-              backgroundPosition: ['0% 0%', '200% 200%'],
+              backgroundPosition: ["0% 0%", "200% 200%"],
             }}
             transition={{
               duration: 2,
               repeat: Infinity,
-              ease: 'linear'
+              ease: "linear",
             }}
           />
         )}
@@ -252,9 +287,9 @@ const ProjectCard = ({
                 key={i}
                 className="absolute w-1 h-1 bg-white rounded-full z-40"
                 style={{
-                  top: `${15 + (i * 8) % 70}%`,
-                  left: `${10 + (i * 9) % 80}%`,
-                  pointerEvents: "none"
+                  top: `${15 + ((i * 8) % 70)}%`,
+                  left: `${10 + ((i * 9) % 80)}%`,
+                  pointerEvents: "none",
                 }}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{
@@ -269,7 +304,7 @@ const ProjectCard = ({
                 }}
               />
             ))}
-            
+
             {/* Explore button follows mouse with smooth spring */}
             <motion.button
               className="absolute z-50 w-20 h-20 flex items-center justify-center rounded-full bg-white text-black font-semibold shadow-2xl pointer-events-none border-2 border-white/20"
@@ -291,10 +326,12 @@ const ProjectCard = ({
                 transition={{
                   duration: 2,
                   repeat: Infinity,
-                  ease: 'easeInOut'
+                  ease: "easeInOut",
                 }}
               />
-              <span className="text-sm font-semibold relative z-10">Explore</span>
+              <span className="text-sm font-semibold relative z-10">
+                Explore
+              </span>
             </motion.button>
           </>
         )}
@@ -336,17 +373,23 @@ const ProjectCard = ({
                   title={tag}
                   animate={{
                     y: isThisHovered ? [0, -5, 0] : 0,
-                    borderColor: isThisHovered ? '#ffffff' : 'rgba(255,255,255,0.6)',
+                    borderColor: isThisHovered
+                      ? "#ffffff"
+                      : "rgba(255,255,255,0.6)",
                   }}
                   whileHover={{
                     scale: 1.2,
                     rotate: 360,
-                    backgroundColor: '#ffffff',
-                    color: '#6c63ff',
-                    borderColor: '#ffffff',
+                    backgroundColor: "#ffffff",
+                    color: "#6c63ff",
+                    borderColor: "#ffffff",
                   }}
                   transition={{
-                    y: { duration: 0.6, delay: i * 0.1, repeat: isThisHovered ? Infinity : 0 },
+                    y: {
+                      duration: 0.6,
+                      delay: i * 0.1,
+                      repeat: isThisHovered ? Infinity : 0,
+                    },
                     scale: { duration: 0.3 },
                     rotate: { duration: 0.5 },
                   }}
@@ -363,7 +406,7 @@ const ProjectCard = ({
           initial={{ opacity: 0, height: 0 }}
           animate={{
             opacity: isThisHovered ? 1 : 0,
-            height: isThisHovered ? 'auto' : 0,
+            height: isThisHovered ? "auto" : 0,
           }}
           transition={{ duration: 0.3 }}
         >
@@ -394,7 +437,7 @@ const ProjectCard = ({
 
 export function CarouselSection() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  
+
   // duplicate for seamless scroll
   const items = [...caseStudies, ...caseStudies];
 
@@ -414,17 +457,17 @@ export function CarouselSection() {
           className="absolute inset-0 opacity-50"
           animate={{
             background: [
-              'radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.4) 0%, transparent 50%)',
-              'radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.4) 0%, transparent 50%)',
-              'radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.4) 0%, transparent 50%)',
-              'radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.4) 0%, transparent 50%)',
-              'radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.4) 0%, transparent 50%)',
+              "radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.4) 0%, transparent 50%)",
+              "radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.4) 0%, transparent 50%)",
+              "radial-gradient(circle at 0% 100%, rgba(59, 130, 246, 0.4) 0%, transparent 50%)",
+              "radial-gradient(circle at 100% 0%, rgba(16, 185, 129, 0.4) 0%, transparent 50%)",
+              "radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.4) 0%, transparent 50%)",
             ],
           }}
           transition={{
             duration: 10,
             repeat: Infinity,
-            ease: 'linear',
+            ease: "linear",
           }}
         />
       </div>
@@ -451,7 +494,7 @@ export function CarouselSection() {
             transition={{
               duration: 10 + i * 2,
               repeat: Infinity,
-              ease: 'easeInOut',
+              ease: "easeInOut",
             }}
           />
         ))}
@@ -492,7 +535,7 @@ export function CarouselSection() {
               >
                 Featured Work
               </motion.p>
-              
+
               <motion.h2
                 className="text-5xl font-serif md:text-7xl font-black text-white"
                 initial={{ opacity: 0, y: 30 }}
@@ -501,14 +544,14 @@ export function CarouselSection() {
               >
                 Our Clients
               </motion.h2>
-              
+
               {/* Animated Underline */}
               <motion.div
                 className="w-32 h-1 bg-white rounded-full mt-6"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                style={{ transformOrigin: 'left' }}
+                style={{ transformOrigin: "left" }}
               />
             </div>
 
@@ -521,7 +564,7 @@ export function CarouselSection() {
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
               className="px-10 py-4 rounded-full bg-white/10 backdrop-blur-md text-white border-2 border-white/30 font-serif text-lg font-semibold shadow-2xl overflow-hidden group relative"
-              onClick={() => window.location.href = "/client"}
+              onClick={() => (window.location.href = "/client")}
             >
               <span className="relative z-10 flex items-center gap-3">
                 View All Projects
@@ -533,7 +576,7 @@ export function CarouselSection() {
                 </motion.span>
               </span>
               {/* Glow effect on hover */}
-              <motion.span 
+              <motion.span
                 className="absolute inset-0 rounded-full bg-white/20"
                 initial={{ scale: 0, opacity: 0 }}
                 whileHover={{ scale: 1, opacity: 1 }}
@@ -554,9 +597,9 @@ export function CarouselSection() {
           }}
         >
           {items.map((item, i) => (
-            <ProjectCard 
-              key={i} 
-              item={item} 
+            <ProjectCard
+              key={i}
+              item={item}
               index={i}
               isAnyHovered={hoveredIndex !== null}
               isThisHovered={hoveredIndex === i}
@@ -571,14 +614,14 @@ export function CarouselSection() {
             <motion.div
               className="h-full bg-gradient-to-r from-white via-white/80 to-white rounded-full shadow-lg"
               animate={{
-                x: ['-100%', '100%'],
+                x: ["-100%", "100%"],
               }}
               transition={{
                 duration: 60,
                 repeat: Infinity,
-                ease: 'linear',
+                ease: "linear",
               }}
-              style={{ width: '40%' }}
+              style={{ width: "40%" }}
             />
           </div>
         </div>
