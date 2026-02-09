@@ -237,15 +237,15 @@ export function HeroSection() {
               }
             >
               <Image
-                src={images[0]}
-                alt="Brand imagery"
-                fill
-                quality={95}
-                priority
-                unoptimized
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
-              />
+  src={images[0]}
+  alt="Brand imagery"
+  fill
+  quality={95} // Increase quality (default is 75)
+  priority // Load immediately for hero images
+  sizes="(max-width: 768px) 100vw, 50vw"
+  className="object-cover"
+ 
+/>
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
 
@@ -267,7 +267,7 @@ export function HeroSection() {
                 alt="Brand imagery"
                 fill
                 quality={95}
-                priority
+                priority  
                 unoptimized
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
