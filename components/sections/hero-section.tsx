@@ -52,7 +52,7 @@ export function HeroSection() {
     [0, isMobile ? -80 : -150],
   );
   const x3 = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? 80 : 150]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.3], [0.95, 1]);
   const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   useEffect(() => {
@@ -139,7 +139,7 @@ export function HeroSection() {
         {/* Subtle gradient orb - Desktop only */}
         {!isMobile && (
           <motion.div
-            className="absolute w-[600px] h-[600px] rounded-full pointer-events-none"
+            className="absolute w-[600px] h-[600px] rounded-full pointer-events-none "
             style={{
               left: mousePosition.x - 300,
               top: mousePosition.y - 300,
@@ -224,7 +224,7 @@ export function HeroSection() {
           >
             {/* Left Image */}
             <motion.div
-              className="absolute w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-xl"
+              className="absolute w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-xl  transform-gpu will-change-transform"
               style={{
                 rotate: rotate1,
                 x: x1,
@@ -251,7 +251,7 @@ export function HeroSection() {
 
             {/* Center Image - Main focus */}
             <motion.div
-              className="relative w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-2xl"
+              className="relative w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-2xl transform-gpu will-change-transform"
               style={{
                 rotate: rotate2,
                 zIndex: 2,
@@ -277,7 +277,7 @@ export function HeroSection() {
 
             {/* Right Image */}
             <motion.div
-              className="absolute w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-xl"
+              className="absolute w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-xl transform-gpu will-change-transform"
               style={{
                 rotate: rotate3,
                 x: x3,
@@ -297,7 +297,7 @@ export function HeroSection() {
                 priority
                 unoptimized
                 sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-cover"
+                className="object-cover "
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
