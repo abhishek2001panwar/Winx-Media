@@ -1,75 +1,95 @@
-"use client"
+"use client";
 
-import { useRef, useState, useEffect } from "react"
-import { motion, useScroll, useTransform } from "framer-motion"
-import Navbar from "../navbar"
+import { useRef, useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import Navbar from "../navbar";
 
 const images = [
   "https://cdn.prod.website-files.com/658031e408a50a76013e5183/680fa5ebdd3d9d78849fe02c_sarah-dorweiler-Rv2kTIuya_I-unsplash%203%20(1).png",
   "https://cdn.prod.website-files.com/658031e408a50a76013e5183/6870a1589d63bd36e1d161ce_slider-2-p-2000.png",
   "https://a.storyblok.com/f/133769/748x1278/5784aa7150/home-news-1.jpg/m/1200x2050/filters:quality(90)",
-]
+];
 
 export function HeroSection() {
-  const MotionImage = motion(Image)
-  const containerRef = useRef<HTMLDivElement>(null)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const [hoveredCells, setHoveredCells] = useState<Set<string>>(new Set())
-  const [isMobile, setIsMobile] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [hoveredCells, setHoveredCells] = useState<Set<string>>(new Set());
+  const [isMobile, setIsMobile] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
-  })
+  });
 
   // Text movement - split apart on scroll (reduced on mobile)
-  const leftTextX = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? -50 : -200])
-  const rightTextX = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? 50 : 200])
-  
+  const leftTextX = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    [0, isMobile ? -50 : -200],
+  );
+  const rightTextX = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    [0, isMobile ? 50 : 200],
+  );
+
   // Images reveal and spread (reduced rotation on mobile)
-  const rotate1 = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? -6 : -12])
-  const rotate2 = useTransform(scrollYProgress, [0, 0.5], [0, 0])
-  const rotate3 = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? 6 : 12])
-  const x1 = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? -80 : -150])
-  const x3 = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? 80 : 150])
-  const imageScale = useTransform(scrollYProgress, [0, 0.3], [0, 1])
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1])
+  const rotate1 = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    [0, isMobile ? -6 : -12],
+  );
+  const rotate2 = useTransform(scrollYProgress, [0, 0.5], [0, 0]);
+  const rotate3 = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    [0, isMobile ? 6 : 12],
+  );
+  const x1 = useTransform(
+    scrollYProgress,
+    [0, 0.5],
+    [0, isMobile ? -80 : -150],
+  );
+  const x3 = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? 80 : 150]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   useEffect(() => {
     // Detect mobile
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!containerRef.current || isMobile) return // Disable on mobile for performance
-      const rect = containerRef.current.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      
-      setMousePosition({ x, y })
-      
-      const cellSize = 100
-      const gridX = Math.floor(x / cellSize)
-      const gridY = Math.floor(y / cellSize)
-      
-      const newHovered = new Set<string>()
-      newHovered.add(`${gridX}-${gridY}`)
-      newHovered.add(`${gridX + 1}-${gridY}`)
-      newHovered.add(`${gridX}-${gridY + 1}`)
-      newHovered.add(`${gridX + 1}-${gridY + 1}`)
-      
-      setHoveredCells(newHovered)
-    }
+      if (!containerRef.current || isMobile) return; // Disable on mobile for performance
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-    window.addEventListener('mousemove', handleMouseMove)
+      setMousePosition({ x, y });
+
+      const cellSize = 100;
+      const gridX = Math.floor(x / cellSize);
+      const gridY = Math.floor(y / cellSize);
+
+      const newHovered = new Set<string>();
+      newHovered.add(`${gridX}-${gridY}`);
+      newHovered.add(`${gridX + 1}-${gridY}`);
+      newHovered.add(`${gridX}-${gridY + 1}`);
+      newHovered.add(`${gridX + 1}-${gridY + 1}`);
+
+      setHoveredCells(newHovered);
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove)
-      window.removeEventListener('resize', checkMobile)
-    }
-  }, [isMobile])
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("resize", checkMobile);
+    };
+  }, [isMobile]);
 
   return (
     <>
@@ -82,14 +102,24 @@ export function HeroSection() {
           <div className="absolute inset-0 pointer-events-none">
             <svg className="w-full h-full">
               <defs>
-                <pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse">
-                  <path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(0,0,0,0.03)" strokeWidth="1"/>
+                <pattern
+                  id="grid"
+                  width="100"
+                  height="100"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <path
+                    d="M 100 0 L 0 0 0 100"
+                    fill="none"
+                    stroke="rgba(0,0,0,0.03)"
+                    strokeWidth="1"
+                  />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#grid)" />
-              
+
               {Array.from(hoveredCells).map((cell) => {
-                const [x, y] = cell.split('-').map(Number)
+                const [x, y] = cell.split("-").map(Number);
                 return (
                   <rect
                     key={cell}
@@ -100,7 +130,7 @@ export function HeroSection() {
                     fill="rgba(0,0,0,0.015)"
                     className="transition-opacity duration-500 ease-out"
                   />
-                )
+                );
               })}
             </svg>
           </div>
@@ -113,8 +143,9 @@ export function HeroSection() {
             style={{
               left: mousePosition.x - 300,
               top: mousePosition.y - 300,
-              background: 'radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 70%)',
-              filter: 'blur(60px)',
+              background:
+                "radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 70%)",
+              filter: "blur(60px)",
             }}
             transition={{ type: "spring", damping: 30, stiffness: 200 }}
           />
@@ -122,7 +153,6 @@ export function HeroSection() {
 
         {/* Content Container */}
         <div className="sticky top-0 w-full h-screen flex items-center justify-center pb-16 sm:pb-32">
-          
           {/* Left Text - "YOUR BRAND" */}
           <motion.div
             className="absolute left-4 sm:left-8 md:left-16 lg:left-24 top-[28%] sm:top-1/3 -translate-y-1/2 z-30 group"
@@ -132,7 +162,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tighter cursor-pointer relative bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
-              YOUR 
+              YOUR
               <br />
               BRAND
               {/* Video overlay - Desktop only */}
@@ -188,26 +218,32 @@ export function HeroSection() {
           </motion.div>
 
           {/* Stacked images - Responsive sizes */}
-          <motion.div 
+          <motion.div
             className="relative flex items-center justify-center z-10 mt-12 sm:mt-0"
             style={{ scale: imageScale, opacity: imageOpacity }}
           >
             {/* Left Image */}
             <motion.div
               className="absolute w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-xl"
-              style={{ 
-                rotate: rotate1, 
+              style={{
+                rotate: rotate1,
                 x: x1,
                 zIndex: 1,
               }}
-              whileHover={!isMobile ? { scale: 1.03, zIndex: 10, transition: { duration: 0.2 } } : {}}
+              whileHover={
+                !isMobile
+                  ? { scale: 1.03, zIndex: 10, transition: { duration: 0.2 } }
+                  : {}
+              }
             >
-              <motion.img
+              <Image
                 src={images[0]}
-                alt="Creative team"
-                className="w-full h-full object-cover"                
-                unoptimized 
-                loading="lazy"
+                alt="Brand imagery"
+                fill
+                quality={95}
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
@@ -215,18 +251,24 @@ export function HeroSection() {
             {/* Center Image - Main focus */}
             <motion.div
               className="relative w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-2xl"
-              style={{ 
+              style={{
                 rotate: rotate2,
                 zIndex: 2,
               }}
-              whileHover={!isMobile ? { scale: 1.05, zIndex: 10, transition: { duration: 0.2 } } : {}}
+              whileHover={
+                !isMobile
+                  ? { scale: 1.05, zIndex: 10, transition: { duration: 0.2 } }
+                  : {}
+              }
             >
-              <motion.img
+              <Image
                 src={images[1]}
-                alt="Design studio"
-                className="w-full h-full object-cover"
-                unoptimized 
-                loading="lazy"
+                alt="Brand imagery"
+                fill
+                quality={95}
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
@@ -234,19 +276,25 @@ export function HeroSection() {
             {/* Right Image */}
             <motion.div
               className="absolute w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-xl"
-              style={{ 
-                rotate: rotate3, 
+              style={{
+                rotate: rotate3,
                 x: x3,
                 zIndex: 1,
               }}
-              whileHover={!isMobile ? { scale: 1.03, zIndex: 10, transition: { duration: 0.2 } } : {}}
+              whileHover={
+                !isMobile
+                  ? { scale: 1.03, zIndex: 10, transition: { duration: 0.2 } }
+                  : {}
+              }
             >
-              <motion.img
+              <Image
                 src={images[2]}
-                alt="Brand strategy"
-                className="w-full h-full object-cover"
-                loading="lazy"
-                unoptimized 
+                alt="Brand imagery"
+                fill
+                quality={95}
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
@@ -267,16 +315,29 @@ export function HeroSection() {
               <button
                 className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-gray-300 bg-white/90 shadow-lg hover:bg-white/100 transition-all duration-200 focus:outline-none p-3 sm:p-4"
                 onClick={() => {
-                  const nextSection = document.querySelector('section')?.nextElementSibling as HTMLElement
+                  const nextSection = document.querySelector("section")
+                    ?.nextElementSibling as HTMLElement;
                   if (nextSection) {
-                    nextSection.scrollIntoView({ behavior: 'smooth' })
+                    nextSection.scrollIntoView({ behavior: "smooth" });
                   }
                 }}
                 aria-label="Scroll to next section "
                 type="button"
               >
-                <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gray-500 sm:w-[38px] sm:h-[38px]" viewBox="0 0 24 24">
-                  <path d="M6 9l6 6 6-6" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg
+                  width="32"
+                  height="32"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  className="text-gray-500 sm:w-[38px] sm:h-[38px]"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M6 9l6 6 6-6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
                 </svg>
               </button>
             </motion.div>
@@ -284,5 +345,5 @@ export function HeroSection() {
         </div>
       </section>
     </>
-  )
+  );
 }
