@@ -11,6 +11,7 @@ const images = [
 ]
 
 export function HeroSection() {
+  const MotionImage = motion(Image)
   const containerRef = useRef<HTMLDivElement>(null)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [hoveredCells, setHoveredCells] = useState<Set<string>>(new Set())
@@ -204,10 +205,8 @@ export function HeroSection() {
               <motion.img
                 src={images[0]}
                 alt="Creative team"
-                className="w-full h-full object-cover"
-                style={{ imageRendering: "auto" }}
-                draggable={false}
-                
+                className="w-full h-full object-cover"                
+                unoptimized 
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
@@ -226,9 +225,7 @@ export function HeroSection() {
                 src={images[1]}
                 alt="Design studio"
                 className="w-full h-full object-cover"
-                
-                 style={{ imageRendering: "auto" }}
-                draggable={false}
+                unoptimized 
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
@@ -249,8 +246,7 @@ export function HeroSection() {
                 alt="Brand strategy"
                 className="w-full h-full object-cover"
                 loading="lazy"
-                  style={{ imageRendering: "auto" }}
-                draggable={false}
+                unoptimized 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
