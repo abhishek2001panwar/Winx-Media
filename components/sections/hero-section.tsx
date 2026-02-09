@@ -271,7 +271,7 @@ export function HeroSection() {
                 fill
                 quality={95}
                 priority  
-                unoptimized
+                
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
@@ -298,7 +298,7 @@ export function HeroSection() {
                 fill
                 quality={95}
                 priority
-                unoptimized
+                
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover "
               />
