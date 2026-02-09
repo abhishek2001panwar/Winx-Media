@@ -4,12 +4,15 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Navbar from "../navbar";
+import img1 from "@/public/hero1.png";
+import img2 from "@/public/hero2.png";
+import img3 from "@/public/hero3.webp";
 
-const images = [
-  "https://cdn.prod.website-files.com/658031e408a50a76013e5183/680fa5ebdd3d9d78849fe02c_sarah-dorweiler-Rv2kTIuya_I-unsplash%203%20(1).png",
-  "https://cdn.prod.website-files.com/658031e408a50a76013e5183/6870a1589d63bd36e1d161ce_slider-2-p-2000.png",
-  "https://a.storyblok.com/f/133769/748x1278/5784aa7150/home-news-1.jpg/m/1200x2050/filters:quality(90)",
-];
+// const images = [
+//   "https://cdn.prod.website-files.com/658031e408a50a76013e5183/680fa5ebdd3d9d78849fe02c_sarah-dorweiler-Rv2kTIuya_I-unsplash%203%20(1).png",
+//   "https://cdn.prod.website-files.com/658031e408a50a76013e5183/6870a1589d63bd36e1d161ce_slider-2-p-2000.png",
+//   "https://a.storyblok.com/f/133769/748x1278/5784aa7150/home-news-1.jpg/m/1200x2050/filters:quality(90)",
+// ];
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -237,7 +240,7 @@ export function HeroSection() {
               }
             >
               <Image
-  src={images[0]}
+  src={img1}
   alt="Brand imagery"
   fill
   quality={95} // Increase quality (default is 75)
@@ -263,7 +266,7 @@ export function HeroSection() {
               }
             >
               <Image
-                src={images[1]}
+                src={img2}
                 alt="Brand imagery"
                 fill
                 quality={95}
@@ -290,7 +293,7 @@ export function HeroSection() {
               }
             >
               <Image
-                src={images[2]}
+                src={img3}
                 alt="Brand imagery"
                 fill
                 quality={95}
