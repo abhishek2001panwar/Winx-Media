@@ -242,9 +242,7 @@ export function HeroSection() {
               <Image
   src={img1}
   alt="Brand imagery"
-  fill
-  quality={95} // Increase quality (default is 75)
-  priority // Load immediately for hero images
+  
   sizes="(max-width: 768px) 100vw, 50vw"
   className="object-cover"
  
@@ -268,9 +266,7 @@ export function HeroSection() {
               <Image
                 src={img2}
                 alt="Brand imagery"
-                fill
-                quality={95}
-                priority  
+               
                 
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -295,9 +291,7 @@ export function HeroSection() {
               <Image
                 src={img3}
                 alt="Brand imagery"
-                fill
-                quality={95}
-                priority
+              
                 
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover "
