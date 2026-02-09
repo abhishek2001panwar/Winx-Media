@@ -205,6 +205,9 @@ export function HeroSection() {
                 src={images[0]}
                 alt="Creative team"
                 className="w-full h-full object-cover"
+                style={{ imageRendering: "auto" }}
+                  draggable={false}
+
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
