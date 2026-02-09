@@ -30,7 +30,7 @@ const caseStudies = [
     subtitle: "Digging Deep into Digital Excellence",
     description:
       "We created a digital foundation as solid as the work they do.",
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/07/7.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/7.png",
     tags: ["WordPress"],
     slug: "/work/klci",
   },
@@ -39,7 +39,7 @@ const caseStudies = [
     subtitle: "Orchestrating Dreams from Vision to Reality",
     description: "A complete wedding brand ecosystem built from the ground up.",
     image:
-      "https://winxmarketingmedia.in/wp-content/uploads/2025/07/Untitled-design-33.png",
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/Untitled-design-33.png",
     tags: ["Instagram", "WordPress"],
     slug: "/work/ambari-weddings",
   },
@@ -47,7 +47,7 @@ const caseStudies = [
     title: "House of Bliss",
     subtitle: "From Unknown to Unmissable",
     description: "Photography transformed into a high-demand visual brand.",
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/07/1.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/1.png",
     tags: ["Instagram", "WordPress"],
     slug: "/work/house-of-bliss",
   },
@@ -55,7 +55,7 @@ const caseStudies = [
     title: "Sneha Banquet Hall",
     subtitle: "Where Dreams Get Their Spotlight",
     description: "From venue to unforgettable celebration experience.",
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/07/3.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/3.png",
     tags: ["Instagram"],
     slug: "/work/sneha-banquet",
   },
@@ -63,7 +63,7 @@ const caseStudies = [
     title: "SSSS Catering",
     subtitle: "Flavoring Success, One Event at a Time",
     description: "Positioned as celebration enhancers, not just caterers.",
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/07/2.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/2.png",
     tags: ["Instagram"],
     slug: "/work/ssss-catering",
   },
@@ -72,7 +72,7 @@ const caseStudies = [
     title: "Collaborative Senior Care",
     subtitle: "Rewriting Healthcare's Story",
     description: "Healthcare marketing reimagined with empathy and trust.",
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/07/6.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/6.png",
     tags: ["WordPress"],
     slug: "/work/collaborative-senior-care",
   },
@@ -82,7 +82,7 @@ const caseStudies = [
     description:
       "From planners to luxury storytellers of unforgettable celebrations.",
     image:
-      "https://winxmarketingmedia.in/wp-content/uploads/2025/12/1000404200.jpg",
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/1000404200.jpg",
     tags: ["Instagram"],
     slug: "/work/kahani",
   },
@@ -91,7 +91,7 @@ const caseStudies = [
     subtitle: "Where Perfection Meets Prestige",
     description:
       "Automotive detailing positioned as a luxury lifestyle experience.",
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/07/4.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/4.png",
     tags: ["Instagram"],
     slug: "/work/ceramic-pro",
   },
@@ -100,7 +100,7 @@ const caseStudies = [
     subtitle: "The Art of Timeless Wedding Photography",
     description: "From photographers to curators of legacy moments.",
     image:
-      "https://winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-09T155103.244.png",
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-09T155103.244.png",
     tags: ["Instagram", "WordPress"],
     slug: "/work/classy-captures",
   },
@@ -109,7 +109,7 @@ const caseStudies = [
     subtitle: "South India's Premium Glass Brand",
     description: "From manufacturer to premium design authority.",
     image:
-      "https://winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-10T120812.686.png",
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-10T120812.686.png",
     tags: ["WordPress"],
     slug: "/work/glass-gallery",
   },
@@ -118,7 +118,7 @@ const caseStudies = [
     subtitle: "Transforming Spaces, One Tile at a Time",
     description: "Curators of modern architectural elegance and durability.",
     image:
-      "https://winxmarketingmedia.in/wp-content/uploads/2025/12/IMG-20251105-WA0010.jpg",
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/IMG-20251105-WA0010.jpg",
     tags: ["Instagram"],
     slug: "/work/hsr-tiles",
   },

@@ -342,7 +342,7 @@ function AboutPage() {
                      <img
                         className='overflow-hidden rounded-2xl'
                      
-                     src="https://winxmarketingmedia.in/wp-content/uploads/2025/06/pexels-photo-445109-445109-1536x964.jpg" alt="" />
+                     src="https://media.winxmarketingmedia.in/wp-content/uploads/2025/06/pexels-photo-445109-445109-1536x964.jpg" alt="" />
                     
                     
                     <motion.div

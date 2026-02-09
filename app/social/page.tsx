@@ -5,55 +5,55 @@ import { motion, useScroll, useTransform } from "framer-motion";
 
 const posts = [
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/2-768x1296.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/2-768x1296.png",
     text: "Instagram Look for It's Forever",
     icon: "instagram",
     link: "https://www.instagram.com/itsforever.in?igsh=c3YyaWlwNzQ3NWZi"
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/4-768x1296.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/4-768x1296.png",
     text: "Instagram Look for VR Ceramic Pro Bangalore",
     icon: "instagram",
     link: "https://www.instagram.com/ceramicprobangalore_official?igsh=MWR1ZXpsdTl0NzFvbA=="
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-07T212736.894-768x1296.webp",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-07T212736.894-768x1296.webp",
     text: "Instagram Look for Classy Captures",
     icon: "instagram",
     link: "https://www.instagram.com/classycaptures_official?igsh=NDRibmZ5dWFjemg4"
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/5-768x1296.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/5-768x1296.png",
     text: "Instagram Look for SSSS Catering",
     icon: "instagram",
     link: "https://www.instagram.com/sssscatering/"
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-07T212650.061-768x1296.webp",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-07T212650.061-768x1296.webp",
     text: "Instagram Look for Kahani by Charm Events",
     icon: "instagram",
     link: "https://www.instagram.com/kahaniby_charm_events?igsh=ZXZiamJ0NDBseWZr"
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-08T150334.513-768x1296.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-08T150334.513-768x1296.png",
     text: "Instagram Look for Ambari Weddings",
     icon: "instagram",
     link: "https://www.instagram.com/ambari_weddings?igsh=MWtjczhjd3M0bXhmYw=="
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-07T212700.204-768x1296.webp",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-07T212700.204-768x1296.webp",
     text: "Instagram Look for HSR Tiles",
     icon: "instagram",
     link: "https://www.instagram.com/hsrtiles_blr?igsh=NHZjNXZvOGlxMWpl"
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/7-768x1296.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/7-768x1296.png",
     text: "Instagram Look for Sneha Banquet Hall",
     icon: "instagram",
     link: "https://www.instagram.com/snehabanquethall/"
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/1-768x1296.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/1-768x1296.png",
     text: "Instagram Look for House of Bliss",
     icon: "instagram",
     link: "https://www.instagram.com/houseofbliss.in/"

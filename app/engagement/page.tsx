@@ -7,85 +7,85 @@ import "./engagement-animations.css";
 // Instagram engagement data with real metrics
 const posts = [
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/1-1.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/1-1.png",
     likes: 10096,
     reach: 624752,
     link: "https://www.instagram.com/reel/DLfWiqIzMWX/?igsh=MXM2ejFoZjAza3dpag=="
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/2-1.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/2-1.png",
     likes: 15775,
     reach: 430000,
     link: "https://www.instagram.com/reel/DLkfwFHzosj/?igsh=MWkwMHVqcXM5aG91Yw=="
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/3-1.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/3-1.png",
     likes: 21374,
     reach: 2100000,
     link: "https://www.instagram.com/reel/DG8VGe_StG8/?igsh=MXdnOHV3MXR4MjlzYg=="
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/4-1.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/4-1.png",
     likes: 2740,
     reach: 233000,
     link: "https://www.instagram.com/reel/DHi7z_Qz-nx/?igsh=MWFzMzMyZ21ka2RidA=="
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/6-1.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/6-1.png",
     likes: 14354,
     reach: 2400000,
     link: "https://www.instagram.com/reel/DEsJj-9CWnv/?igsh=dnIzdjB0NGZuNnNv"
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/5-1.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/5-1.png",
     likes: 7314,
     reach: 399000,
     link: "https://www.instagram.com/p/DKSB3bnM8_z/?igsh=aWh6N3g4eDhsMjdq"
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/1-2.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/1-2.png",
     likes: 13306,
     reach: 1000000,
     link: "https://www.instagram.com/reel/DIZBCBfTAG8/?igsh=MXE4ZnJiNmc3ZnEzOQ=="
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/2-2.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/2-2.png",
     likes: 4161,
     reach: 836000,
     link: "https://www.instagram.com/reel/DHQ63N8oilW/?igsh=MXV4bjg0dnc4aXl1"
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/3-2.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/3-2.png",
     likes: 6131,
     reach: 526000,
     link: "https://www.instagram.com/reel/DGa-CjoSpg3/?igsh=bDR0Z2kxM2NyeDZm"
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/4-2.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/4-2.png",
     likes: 3877,
     reach: 404000,
     link: "https://www.instagram.com/reel/DCec3C7IPhR/?igsh=MXI4Y3RteWhsajA5cA=="
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/5-2.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/5-2.png",
     likes: 37660,
     reach: 38600,
     link: "https://www.instagram.com/reel/C_8ZNsqSFe8/?igsh=MWJpeHVlcHdqY2ZvaA=="
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/6-2.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/6-2.png",
     likes: 108500,
     reach: 2100000,
     link: "https://www.instagram.com/reel/DBeLmTMsDS1/?igsh=MWs3dWQ3bnY1ZGk3YQ=="
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/8.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/8.png",
     likes: 117202,
     reach: 3400000,
     link: "https://www.instagram.com/reel/DDKRe3wSqKh/?igsh=MWozOTg0ZmZ3OHhkMw=="
   },
   {
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/09/9.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/9.png",
     likes: 103829,
     reach: 13300000,
     link: "https://www.instagram.com/reel/DGI0v8cSy55/?igsh=MWd0bXoweHMxMnpobg=="

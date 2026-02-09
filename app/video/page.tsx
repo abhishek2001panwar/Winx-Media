@@ -4,13 +4,13 @@ import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const videos = [
-  "https://winxmarketingmedia.in/wp-content/uploads/2025/09/Wait%E2%80%A6-WHAT-just-happened-at-this-wedding-You-wont-believe-what-went-down-during-the-ceremony.mp4",
-  "https://winxmarketingmedia.in/wp-content/uploads/2025/09/I-couldnt-stop-crying-because-of-what-he-did%E2%80%A6-It-was-the-most-beautiful-surprise.-%F0%9F%98%AE-Take-these.mp4",
-  "https://winxmarketingmedia.in/wp-content/uploads/2025/09/Create-a-QR-code-for-your-wedding-with-the-app-@itsforever.in-and-collect-all-the-photos-your-gu.mp4",
-  "https://winxmarketingmedia.in/wp-content/uploads/2025/09/%F0%9F%9B%91-Stop-scrolling-and-Save-this-reel-for-your-wedding%E2%80%94you-wont-regret-it.-%F0%9F%93%B8%E2%9C%A8wedding-photo-p.mp4",
-  "https://winxmarketingmedia.in/wp-content/uploads/2025/09/Her-guests-didnt-expect-this-%E2%80%94-but-theyre-still-talking-about-it%E2%80%A6-%F0%9F%98%B1wedding-photo-photograp.mp4",
-  "https://winxmarketingmedia.in/wp-content/uploads/2025/09/She-thought-it-was-just-a-QR-code%E2%80%A6-until-she-scanned-it-and-saw-everything-%F0%9F%A4%AF%F0%9F%93%B8wedding-photo-.mp4",
-  "https://winxmarketingmedia.in/wp-content/uploads/2025/09/My-wedding-not-yours-%F0%9F%99%83Its-about-our-love-our-story-and-the-memories-we-want-to-create-not-e.mp4",
+  "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/Wait%E2%80%A6-WHAT-just-happened-at-this-wedding-You-wont-believe-what-went-down-during-the-ceremony.mp4",
+  "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/I-couldnt-stop-crying-because-of-what-he-did%E2%80%A6-It-was-the-most-beautiful-surprise.-%F0%9F%98%AE-Take-these.mp4",
+  "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/Create-a-QR-code-for-your-wedding-with-the-app-@itsforever.in-and-collect-all-the-photos-your-gu.mp4",
+  "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/%F0%9F%9B%91-Stop-scrolling-and-Save-this-reel-for-your-wedding%E2%80%94you-wont-regret-it.-%F0%9F%93%B8%E2%9C%A8wedding-photo-p.mp4",
+  "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/Her-guests-didnt-expect-this-%E2%80%94-but-theyre-still-talking-about-it%E2%80%A6-%F0%9F%98%B1wedding-photo-photograp.mp4",
+  "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/She-thought-it-was-just-a-QR-code%E2%80%A6-until-she-scanned-it-and-saw-everything-%F0%9F%A4%AF%F0%9F%93%B8wedding-photo-.mp4",
+  "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/My-wedding-not-yours-%F0%9F%99%83Its-about-our-love-our-story-and-the-memories-we-want-to-create-not-e.mp4",
 ]
 
 function VideoCard({ src, idx }: { src: string; idx: number }) {

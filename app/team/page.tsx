@@ -11,14 +11,14 @@ const team = [
     description:
       "Visionary leader driving brand excellence and creative innovation.",
     image:
-      "https://winxmarketingmedia.in/wp-content/uploads/2025/06/Untitled-design-29.png",
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/06/Untitled-design-29.png",
     gradient: "from-violet-400 to-purple-400",
   },
   {
     name: "M N K Khajukathara",
     role: "Co-Founder",
     description: "Strategic mind behind transformative marketing solutions.",
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/06/2-1.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/06/2-1.png",
     gradient: "from-pink-300 to-rose-300",
   },
   {
@@ -26,14 +26,14 @@ const team = [
     role: "Strategic Partner",
     description:
       "Empowering brands with strategic insights and market expertise.",
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/10/1.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/10/1.png",
     gradient: "from-purple-400 to-pink-400",
   },
   {
     name: "Dharam T",
     role: "Strategic Partner",
     description: "Driving strategic growth and innovative partnerships.",
-    image: "https://winxmarketingmedia.in/wp-content/uploads/2025/10/2.png",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/10/2.png",
     gradient: "from-cyan-400 to-blue-400",
   },
   {
