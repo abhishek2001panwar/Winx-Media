@@ -131,7 +131,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tighter cursor-pointer relative bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
-              YOUR
+              YOUR 
               <br />
               BRAND
               {/* Video overlay - Desktop only */}
@@ -268,7 +268,7 @@ export function HeroSection() {
                     nextSection.scrollIntoView({ behavior: 'smooth' })
                   }
                 }}
-                aria-label="Scroll to next section"
+                aria-label="Scroll to next section "
                 type="button"
               >
                 <svg width="32" height="32" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-gray-500 sm:w-[38px] sm:h-[38px]" viewBox="0 0 24 24">
