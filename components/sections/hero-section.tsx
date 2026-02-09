@@ -201,13 +201,12 @@ export function HeroSection() {
               }}
               whileHover={!isMobile ? { scale: 1.03, zIndex: 10, transition: { duration: 0.2 } } : {}}
             >
-              <img
+              <motion.img
                 src={images[0]}
                 alt="Creative team"
                 className="w-full h-full object-cover"
                 style={{ imageRendering: "auto" }}
-                  draggable={false}
-
+                draggable={false}
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
