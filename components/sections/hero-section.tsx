@@ -55,7 +55,7 @@ export function HeroSection() {
     [0, isMobile ? -80 : -150],
   );
   const x3 = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? 80 : 150]);
-  const imageScale = useTransform(scrollYProgress, [0, 0.3], [0.95, 1]);
+  const imageScale = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   useEffect(() => {
     // Detect mobile
