@@ -223,12 +223,7 @@ export function HeroSection() {
           {/* Stacked images - Responsive sizes */}
           <motion.div
             className="relative flex items-center justify-center z-10 mt-12 sm:mt-0"
-            style={{
-              rotate: rotate1,
-              x: x1,
-              scale: imageScale,
-              opacity: imageOpacity,
-            }}
+            style={{  scale: imageScale, opacity: imageOpacity }}
           >
             {/* Left Image */}
             <motion.div
@@ -246,7 +241,7 @@ export function HeroSection() {
             >
               <Image
                 src={img1}
-                quality={95} // Add this - default is 75
+                 quality={95} // Add this - default is 75
                 alt="Brand imagery"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -259,8 +254,6 @@ export function HeroSection() {
               className="relative w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-2xl transform-gpu will-change-transform"
               style={{
                 rotate: rotate2,
-    scale: imageScale,
-    opacity: imageOpacity,
                 zIndex: 2,
               }}
               whileHover={
@@ -271,7 +264,7 @@ export function HeroSection() {
             >
               <Image
                 src={img2}
-                quality={95} // Add this - default is 75
+                 quality={95} // Add this - default is 75
                 alt="Brand imagery"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -283,10 +276,8 @@ export function HeroSection() {
             <motion.div
               className="absolute w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-xl transform-gpu will-change-transform"
               style={{
-                 rotate: rotate3,
-    x: x3,
-    scale: imageScale,
-    opacity: imageOpacity,
+                rotate: rotate3,
+                x: x3,
                 zIndex: 1,
               }}
               whileHover={
@@ -297,7 +288,7 @@ export function HeroSection() {
             >
               <Image
                 src={img3}
-                quality={95} // Add this - default is 75
+                 quality={95} // Add this - default is 75
                 alt="Brand imagery"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover "
