@@ -250,7 +250,7 @@ export function HeroSection() {
                 priority
                 unoptimized={true}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" /> */}
             </motion.div>
 
               {/* Center Image */}
@@ -277,7 +277,7 @@ export function HeroSection() {
                 priority
                 unoptimized={true}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" /> */}
             </motion.div>
 
             {/* Right Image */}
@@ -305,7 +305,7 @@ export function HeroSection() {
                 priority
                 unoptimized={true}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" /> */}
             </motion.div>
           </motion.div>
 
