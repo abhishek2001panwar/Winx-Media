@@ -240,13 +240,11 @@ export function HeroSection() {
               }
             >
               <Image
-  src={img1}
-  alt="Brand imagery"
-  
-  sizes="(max-width: 768px) 100vw, 50vw"
-  className="object-cover"
- 
-/>
+                src={img1}
+                alt="Brand imagery"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
 
@@ -266,8 +264,6 @@ export function HeroSection() {
               <Image
                 src={img2}
                 alt="Brand imagery"
-               
-                
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
               />
@@ -291,8 +287,6 @@ export function HeroSection() {
               <Image
                 src={img3}
                 alt="Brand imagery"
-              
-                
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover "
               />
