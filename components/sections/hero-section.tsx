@@ -252,7 +252,7 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
 
-            {/* Center Image - Main focus */}
+              {/* Center Image */}
             <motion.div
               className="relative w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-2xl transform-gpu will-change-transform"
               style={{
