@@ -246,8 +246,9 @@ export function HeroSection() {
                 alt="Brand imagery"
                 sizes="(max-width: 640px) 140px, (max-width: 768px) 180px, (max-width: 1024px) 240px, 320px"
                 className="object-cover"
+                style={{ objectFit: 'cover' }}
                 priority
-                unoptimized={false}
+                unoptimized={true}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
@@ -272,8 +273,9 @@ export function HeroSection() {
                 alt="Brand imagery"
                 sizes="(max-width: 640px) 140px, (max-width: 768px) 180px, (max-width: 1024px) 240px, 320px"
                 className="object-cover"
+                style={{ objectFit: 'cover' }}
                 priority
-                unoptimized={false}
+                unoptimized={true}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
@@ -299,8 +301,9 @@ export function HeroSection() {
                 alt="Brand imagery"
                 sizes="(max-width: 640px) 140px, (max-width: 768px) 180px, (max-width: 1024px) 240px, 320px"
                 className="object-cover"
+                style={{ objectFit: 'cover' }}
                 priority
-                unoptimized={false}
+                unoptimized={true}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
