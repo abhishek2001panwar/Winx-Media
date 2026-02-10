@@ -56,7 +56,6 @@ export function HeroSection() {
   );
   const x3 = useTransform(scrollYProgress, [0, 0.5], [0, isMobile ? 80 : 150]);
   const imageScale = useTransform(scrollYProgress, [0, 0.3], [0.95, 1]);
-  const imageOpacity = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   useEffect(() => {
     // Detect mobile
@@ -223,7 +222,7 @@ export function HeroSection() {
           {/* Stacked images - Responsive sizes */}
           <motion.div
             className="relative flex items-center justify-center z-10 mt-12 sm:mt-0"
-            style={{  scale: imageScale, opacity: imageOpacity }}
+            style={{ scale: imageScale }}
           >
             {/* Left Image */}
             <motion.div
@@ -241,12 +240,13 @@ export function HeroSection() {
             >
               <Image
                 src={img1}
-                fill
+                width={714}
+                height={782}
                 quality={100}
                 alt="Brand imagery"
                 sizes="(max-width: 640px) 140px, (max-width: 768px) 180px, (max-width: 1024px) 240px, 320px"
-                className="object-cover"
-                style={{ objectFit: 'cover' }}
+                className="object-cover w-full h-full"
+                style={{ imageRendering: 'crisp-edges' }}
                 priority
                 unoptimized={true}
               />
@@ -267,12 +267,13 @@ export function HeroSection() {
             >
               <Image
                 src={img2}
-                fill
+                width={2000}
+                height={2000}
                 quality={100}
                 alt="Brand imagery"
                 sizes="(max-width: 640px) 140px, (max-width: 768px) 180px, (max-width: 1024px) 240px, 320px"
-                className="object-cover"
-                style={{ objectFit: 'cover' }}
+                className="object-cover w-full h-full"
+                style={{ imageRendering: 'crisp-edges' }}
                 priority
                 unoptimized={true}
               />
@@ -294,12 +295,13 @@ export function HeroSection() {
             >
               <Image
                 src={img3}
-                fill
+                width={1200}
+                height={2050}
                 quality={100}
                 alt="Brand imagery"
                 sizes="(max-width: 640px) 140px, (max-width: 768px) 180px, (max-width: 1024px) 240px, 320px"
-                className="object-cover"
-                style={{ objectFit: 'cover' }}
+                className="object-cover w-full h-full"
+                style={{ imageRendering: 'crisp-edges' }}
                 priority
                 unoptimized={true}
               />

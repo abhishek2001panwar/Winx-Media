@@ -3,6 +3,16 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Force crisp image rendering */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+}
+
 ::-webkit-scrollbar{
   width:2px;
 }
