@@ -241,16 +241,13 @@ export function HeroSection() {
             >
               <Image
                 src={img1}
-                 width={320}
-  height={426}
-                 quality={95} // Add this - default is 75
+                fill
+                quality={100}
                 alt="Brand imagery"
-                sizes="(max-width: 640px) 140px,
-         (max-width: 768px) 180px,
-         (max-width: 1024px) 240px,
-         320px"
+                sizes="(max-width: 640px) 140px, (max-width: 768px) 180px, (max-width: 1024px) 240px, 320px"
                 className="object-cover"
                 priority
+                unoptimized={false}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
@@ -270,16 +267,13 @@ export function HeroSection() {
             >
               <Image
                 src={img2}
-                 width={320}
-  height={426}
-                 quality={95} // Add this - default is 75
+                fill
+                quality={100}
                 alt="Brand imagery"
-                sizes="(max-width: 640px) 140px,
-         (max-width: 768px) 180px,
-         (max-width: 1024px) 240px,
-         320px"
+                sizes="(max-width: 640px) 140px, (max-width: 768px) 180px, (max-width: 1024px) 240px, 320px"
                 className="object-cover"
                 priority
+                unoptimized={false}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
@@ -300,16 +294,13 @@ export function HeroSection() {
             >
               <Image
                 src={img3}
-                 width={320}
-  height={426}
-                 quality={95} // Add this - default is 75
+                fill
+                quality={100}
                 alt="Brand imagery"
-                sizes="(max-width: 640px) 140px,
-         (max-width: 768px) 180px,
-         (max-width: 1024px) 240px,
-         320px"
-                className="object-cover "
+                sizes="(max-width: 640px) 140px, (max-width: 768px) 180px, (max-width: 1024px) 240px, 320px"
+                className="object-cover"
                 priority
+                unoptimized={false}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
