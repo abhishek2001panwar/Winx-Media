@@ -159,7 +159,7 @@ export function HeroSection() {
         <div className="sticky top-0 w-full h-screen flex items-center justify-center pb-16 sm:pb-32">
           {/* Left Text - "YOUR BRAND" */}
           <motion.div
-            className="absolute left-2 sm:left-8 md:left-16 lg:left-24 top-[28%] sm:top-1/3 -translate-y-1/2 z-30 group"
+            className="absolute left-2 sm:left-4 md:left-16 lg:left-24 top-[28%] sm:top-1/3 -translate-y-1/2 z-30 group"
             style={{ x: leftTextX }}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -167,7 +167,7 @@ export function HeroSection() {
             onClick={() => handleTextInteraction('left')}
             onTouchStart={() => handleTextInteraction('left')}
           >
-            <h1 className="text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tighter cursor-pointer relative bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tighter cursor-pointer relative bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
               YOUR
               <br />
               BRAND
@@ -209,7 +209,7 @@ export function HeroSection() {
 
           {/* Right Text - "OBSESSED" */}
           <motion.div
-            className="absolute right-4 sm:right-8 md:right-16 lg:right-20 top-[28%] sm:top-1/3 -translate-y-1/2 z-30 group"
+            className="absolute right-2 sm:right-4 md:right-16 lg:right-20 top-[28%] sm:top-1/3 -translate-y-1/2 z-30 group"
             style={{ x: rightTextX }}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -217,7 +217,7 @@ export function HeroSection() {
             onClick={() => handleTextInteraction('right')}
             onTouchStart={() => handleTextInteraction('right')}
           >
-            <h1 className="text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tighter text-right cursor-pointer relative bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tighter text-right cursor-pointer relative bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
               <span className="italic font-serif">OBSESSED!</span>
               {/* Video overlay - Works on both mobile and desktop */}
               <div
@@ -346,7 +346,7 @@ export function HeroSection() {
 
           {/* Scroll indicator */}
           <motion.div
-            className="absolute bottom-60 md:bottom-10 left-1/2 -translate-x-1/2 z-30"
+            className="absolute bottom-52 md:bottom-10 left-1/2 -translate-x-1/2 z-30"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
