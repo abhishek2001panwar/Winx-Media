@@ -8,17 +8,12 @@ import img1 from "@/public/hero1.png";
 import img2 from "@/public/hero2.png";
 import img3 from "@/public/hero3.webp";
 
-// const images = [
-//   "https://cdn.prod.website-files.com/658031e408a50a76013e5183/680fa5ebdd3d9d78849fe02c_sarah-dorweiler-Rv2kTIuya_I-unsplash%203%20(1).png",
-//   "https://cdn.prod.website-files.com/658031e408a50a76013e5183/6870a1589d63bd36e1d161ce_slider-2-p-2000.png",
-//   "https://a.storyblok.com/f/133769/748x1278/5784aa7150/home-news-1.jpg/m/1200x2050/filters:quality(90)",
-// ];
-
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoveredCells, setHoveredCells] = useState<Set<string>>(new Set());
   const [isMobile, setIsMobile] = useState(false);
+  const [activeVideo, setActiveVideo] = useState<'left' | 'right' | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -93,6 +88,13 @@ export function HeroSection() {
     };
   }, [isMobile]);
 
+  // Handle touch/click for mobile video overlays
+  const handleTextInteraction = (side: 'left' | 'right') => {
+    if (isMobile) {
+      setActiveVideo(activeVideo === side ? null : side);
+    }
+  };
+
   return (
     <>
       <section
@@ -157,66 +159,100 @@ export function HeroSection() {
         <div className="sticky top-0 w-full h-screen flex items-center justify-center pb-16 sm:pb-32">
           {/* Left Text - "YOUR BRAND" */}
           <motion.div
-            className="absolute left-4 sm:left-8 md:left-16 lg:left-24 top-[28%] sm:top-1/3 -translate-y-1/2 z-30 group"
+            className="absolute left-2 sm:left-8 md:left-16 lg:left-24 top-[28%] sm:top-1/3 -translate-y-1/2 z-30 group"
             style={{ x: leftTextX }}
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            onClick={() => handleTextInteraction('left')}
+            onTouchStart={() => handleTextInteraction('left')}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tighter cursor-pointer relative bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
+            <h1 className="text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tighter cursor-pointer relative bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
               YOUR
               <br />
               BRAND
-              {/* Video overlay - Desktop only */}
-              {!isMobile && (
-                <div
-                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-500 ease-out pointer-events-none z-10"
-                  style={{ pointerEvents: "none" }}
-                >
-                  <div className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-full bg-white/30 backdrop-blur-md border border-white/30 flex items-center justify-center overflow-hidden">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover rounded-full"
-                      src="https://player.vimeo.com/progressive_redirect/playback/1020697798/rendition/720p/file.mp4?loc=external&log_user=0&signature=cd45f23683db91c40f08a3f4a31ba153f1e93eac3d4f98cb3ca4b651b8830d04"
-                    />
-                  </div>
+              {/* Video overlay - Works on both mobile and desktop */}
+              <div
+                className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ease-out pointer-events-none z-10 ${
+                  isMobile
+                    ? activeVideo === 'left'
+                      ? 'opacity-100 scale-100'
+                      : 'opacity-0 scale-95'
+                    : 'opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100'
+                }`}
+                style={{ pointerEvents: "none" }}
+              >
+                <div className="w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] md:w-[280px] md:h-[280px] rounded-full bg-white/30 backdrop-blur-md border border-white/30 flex items-center justify-center overflow-hidden shadow-2xl">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover rounded-full"
+                    src="https://player.vimeo.com/progressive_redirect/playback/1020697798/rendition/720p/file.mp4?loc=external&log_user=0&signature=cd45f23683db91c40f08a3f4a31ba153f1e93eac3d4f98cb3ca4b651b8830d04"
+                  />
                 </div>
-              )}
+              </div>
             </h1>
+            {/* Mobile tap hint - shows briefly on mobile */}
+            {isMobile && (
+              <motion.p
+                className="text-xs text-gray-400 mt-2 text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0, 1, 1, 0] }}
+                transition={{ duration: 3, times: [0, 0.1, 0.9, 1], delay: 1 }}
+              >
+                Tap to see magic ✨
+              </motion.p>
+            )}
           </motion.div>
 
           {/* Right Text - "OBSESSED" */}
           <motion.div
-            className="absolute right-4 sm:right-8 md:right-16 lg:right-24 top-[28%] sm:top-1/3 -translate-y-1/2 z-30 group"
+            className="absolute right-4 sm:right-8 md:right-16 lg:right-20 top-[28%] sm:top-1/3 -translate-y-1/2 z-30 group"
             style={{ x: rightTextX }}
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            onClick={() => handleTextInteraction('right')}
+            onTouchStart={() => handleTextInteraction('right')}
           >
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tighter text-right cursor-pointer relative bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
+            <h1 className="text-5xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-none tracking-tighter text-right cursor-pointer relative bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
               <span className="italic font-serif">OBSESSED!</span>
-              {/* Video overlay - Desktop only */}
-              {!isMobile && (
-                <div
-                  className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 transition-all duration-500 ease-out pointer-events-none z-10"
-                  style={{ pointerEvents: "none" }}
-                >
-                  <div className="w-[200px] h-[200px] md:w-[280px] md:h-[280px] rounded-full bg-white/30 backdrop-blur-md border border-white/30 flex items-center justify-center overflow-hidden">
-                    <video
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover rounded-full"
-                      src="https://player.vimeo.com/progressive_redirect/playback/1047169994/rendition/720p/file.mp4?loc=external&log_user=0&signature=780c70237c241a1fe7a4b3837cad974ed7fb98f38cd2e6f912752ff9e44107ee"
-                    />
-                  </div>
+              {/* Video overlay - Works on both mobile and desktop */}
+              <div
+                className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ease-out pointer-events-none z-10 ${
+                  isMobile
+                    ? activeVideo === 'right'
+                      ? 'opacity-100 scale-100'
+                      : 'opacity-0 scale-95'
+                    : 'opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100'
+                }`}
+                style={{ pointerEvents: "none" }}
+              >
+                <div className="w-[160px] h-[160px] sm:w-[200px] sm:h-[200px] md:w-[280px] md:h-[280px] rounded-full bg-white/30 backdrop-blur-md border border-white/30 flex items-center justify-center overflow-hidden shadow-2xl">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover rounded-full"
+                    src="https://player.vimeo.com/progressive_redirect/playback/1047169994/rendition/720p/file.mp4?loc=external&log_user=0&signature=780c70237c241a1fe7a4b3837cad974ed7fb98f38cd2e6f912752ff9e44107ee"
+                  />
                 </div>
-              )}
+              </div>
             </h1>
+            {/* Mobile tap hint - shows briefly on mobile */}
+            {isMobile && (
+              <motion.p
+                className="text-xs text-gray-400 mt-2 text-center"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: [0, 1, 1, 0] }}
+                transition={{ duration: 3, times: [0, 0.1, 0.9, 1], delay: 1.2 }}
+              >
+                Tap to see magic ✨
+              </motion.p>
+            )}
           </motion.div>
 
           {/* Stacked images - Responsive sizes */}
@@ -252,7 +288,7 @@ export function HeroSection() {
               />
             </motion.div>
 
-              {/* Center Image */}
+            {/* Center Image */}
             <motion.div
               className="relative w-[140px] sm:w-[180px] md:w-[240px] lg:w-[320px] aspect-[3/4] rounded-lg overflow-hidden shadow-2xl transform-gpu will-change-transform"
               style={{
@@ -310,7 +346,7 @@ export function HeroSection() {
 
           {/* Scroll indicator */}
           <motion.div
-            className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-30"
+            className="absolute bottom-60 md:bottom-10 left-1/2 -translate-x-1/2 z-30"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}

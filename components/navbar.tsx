@@ -15,7 +15,7 @@ import {
   Image as ImageIcon,
   MessageCircle,
   Sparkles,
-  Facebook
+  ArrowUpRight
 } from "lucide-react";
 import Image from "next/image";
 
@@ -35,13 +35,11 @@ export default function Navbar() {
   const scrollToSection = (id: string) => {
     setIsMenuOpen(false);
 
-    // If NOT on home page → navigate first
     if (pathname !== "/") {
       router.push(`/#${id}`);
       return;
     }
 
-    // Already on home → smooth scroll
     setTimeout(() => {
       const target = document.getElementById(id);
       if (!target) return;
@@ -67,7 +65,6 @@ export default function Navbar() {
       return;
     }
 
-    // scroll logic
     if (pathname !== "/") {
       router.push(`/#${value}`);
       return;
@@ -107,7 +104,7 @@ export default function Navbar() {
         style={{
           backdropFilter: "blur(24px)",
           background: isMenuOpen 
-            ? "linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%)" 
+            ? "rgba(255,255,255,0.95)" 
             : "rgba(255,255,255,0.85)",
         }}
       >
@@ -136,23 +133,23 @@ export default function Navbar() {
           {!isMenuOpen ? (
             <button
               onClick={() => setIsMenuOpen(true)}
-              className="p-2 md:p-3 relative z-10"
+              className="p-2 md:p-3 relative z-10 group"
               aria-label="Open menu"
             >
               <div className="space-y-1.5 md:space-y-2">
-                <span className="block w-7 sm:w-8 md:w-10 h-[2px] bg-black transition-all duration-300" />
+                <span className="block w-7 sm:w-8 md:w-10 h-[2px] bg-black transition-all duration-300 group-hover:w-6 group-hover:sm:w-7 group-hover:md:w-9" />
                 <span className="block w-7 sm:w-8 md:w-10 h-[2px] bg-black transition-all duration-300" />
               </div>
             </button>
           ) : (
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="p-2 md:p-3 relative z-10"
+              className="p-2 md:p-3 relative z-10 group"
               aria-label="Close menu"
             >
               <div className="relative w-7 sm:w-8 md:w-10 h-7 sm:h-8 md:h-10 flex items-center justify-center">
-                <span className="absolute w-6 sm:w-7 md:w-8 h-0.5 bg-black rotate-45 transition-all duration-300" />
-                <span className="absolute w-6 sm:w-7 md:w-8 h-0.5 bg-black -rotate-45 transition-all duration-300" />
+                <span className="absolute w-6 sm:w-7 md:w-8 h-0.5 bg-black rotate-45 transition-all duration-300 group-hover:rotate-90" />
+                <span className="absolute w-6 sm:w-7 md:w-8 h-0.5 bg-black -rotate-45 transition-all duration-300 group-hover:-rotate-90" />
               </div>
             </button>
           )}
@@ -165,147 +162,176 @@ export default function Navbar() {
           isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
       >
-        {/* Background with gradient */}
+        {/* Background with light gradient */}
         <div
           className={`absolute inset-0 bg-gradient-to-br from-white via-gray-50 to-gray-100 transition-opacity duration-700 ${
             isMenuOpen ? "opacity-100" : "opacity-0"
           }`}
         />
 
+        {/* Animated grain texture overlay */}
+        <div 
+          className={`absolute inset-0 opacity-[0.03] mix-blend-overlay transition-opacity duration-700 ${
+            isMenuOpen ? "opacity-[0.03]" : "opacity-0"
+          }`}
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+          }}
+        />
+
         {/* Content */}
         <div
-          className={`absolute inset-0 z-56 font-serif transition-opacity duration-500 overflow-y-auto ${
+          className={`absolute inset-0 z-56 font-serif transition-opacity duration-500 ${
             isMenuOpen ? "opacity-100 delay-200" : "opacity-0"
           }`}
         >
-          <div className="min-h-full flex flex-col lg:grid lg:grid-cols-[1fr_auto_1fr] gap-6 sm:gap-8 md:gap-10 lg:gap-16 px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-20 sm:py-24 md:py-28 lg:py-32">
+          <div className="h-full flex flex-col justify-between px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-20 sm:py-24 md:py-28 lg:py-32">
             
-            {/* LEFT SIDE - MENU LINKS */}
-            <div className="flex flex-col justify-center items-start space-y-2 sm:space-y-3 md:space-y-4 lg:space-y-4">
-              {menuItems.map((item, index) => {
-                const Icon = item.icon;
-                return (
-                  <button
-                    key={item.label}
-                    onClick={() => handleMenuClick(item.type as "scroll" | "route", item.value)}
-                    className="group relative flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light pl-3 sm:pl-4 md:pl-5 lg:pl-6 transition-all duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] hover:translate-x-3 sm:hover:translate-x-4 lg:hover:translate-x-6 hover:opacity-60"
-                    style={{
-                      animationDelay: `${index * 100}ms`,
-                    }}
-                  >
-                    <span className="absolute left-0 top-1/2 w-1 sm:w-1.5 md:w-2 h-0.5 bg-black transition-all duration-[400ms] group-hover:w-4 sm:group-hover:w-5 md:group-hover:w-6 lg:group-hover:w-8 group-hover:-translate-x-2 sm:group-hover:-translate-x-3 lg:group-hover:-translate-x-5 group-hover:opacity-0" />
-                    <Icon 
-                      size={18}
-                      className="sm:w-5 sm:h-5 md:w-6 md:h-6 lg:w-7 lg:h-7 xl:w-8 xl:h-8 opacity-0 -translate-x-2 sm:-translate-x-3 lg:-translate-x-5 transition-all duration-[400ms] ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:opacity-100 group-hover:translate-x-0" 
-                      strokeWidth={1.5} 
-                    />
-                    {item.label}
-                  </button>
-                );
-              })}
-            </div>
+            {/* MAIN CONTENT AREA */}
+            <div className="flex-1 flex flex-col lg:grid lg:grid-cols-[1.2fr_auto_0.8fr] gap-8 lg:gap-16 xl:gap-24">
+              
+              {/* LEFT SIDE - MENU LINKS */}
+              <div className="flex flex-col justify-center space-y-1 sm:space-y-2 md:space-y-3 lg:space-y-4">
+                {menuItems.map((item, index) => {
+                  const Icon = item.icon;
+                  return (
+                    <button
+                      key={item.label}
+                      onClick={() => handleMenuClick(item.type as "scroll" | "route", item.value)}
+                      className="group relative flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 text-black py-2 sm:py-3 transition-all duration-500 ease-out hover:translate-x-4 sm:hover:translate-x-6"
+                      style={{
+                        animationDelay: `${index * 80}ms`,
+                      }}
+                    >
+                      {/* Hover line indicator */}
+                      <span className="absolute left-0 top-1/2 -translate-y-1/2 w-0 h-px bg-black/50 transition-all duration-500 group-hover:w-6 sm:group-hover:w-8 md:group-hover:w-10" />
+                      
+                      {/* Icon */}
+                      <Icon 
+                        size={20}
+                        className="sm:w-6 sm:h-6 md:w-7 md:h-7 opacity-0 scale-0 transition-all duration-500 ease-out group-hover:opacity-100 group-hover:scale-100 text-black/80" 
+                        strokeWidth={1.5} 
+                      />
+                      
+                      {/* Text with number */}
+                      <div className="flex items-baseline gap-3 sm:gap-4">
+                        <span className="text-xs sm:text-sm text-black/40 font-light tabular-nums">
+                          0{index + 1}
+                        </span>
+                        <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight transition-all duration-500 group-hover:tracking-wide">
+                          {item.label}
+                        </span>
+                      </div>
 
-            {/* MIDDLE DECORATIVE ELEMENT - Hidden on mobile and tablet */}
-            <div className="hidden xl:flex flex-col items-center justify-center px-8">
-              <div className="relative">
-                {/* Vertical gradient line */}
-                <div className="w-px h-[60vh] bg-gradient-to-b from-transparent via-black/30 to-transparent" />
-                
-                {/* Top animated circle */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-black animate-pulse" />
-                
-                {/* Center ornament with rotating ring */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="relative w-16 h-16 flex items-center justify-center">
-                    {/* Rotating outer ring */}
-                    <div className="absolute w-full h-full rounded-full border-2 border-black/20 animate-spin-slow" />
-                    {/* Static middle ring with sparkle */}
-                    <div className="absolute w-10 h-10 rounded-full border-2 border-black flex items-center justify-center">
-                      <Sparkles size={16} className="text-black animate-pulse" />
+                      {/* Arrow indicator */}
+                      <ArrowUpRight 
+                        size={20}
+                        className="sm:w-6 sm:h-6 md:w-7 md:h-7 ml-auto opacity-0 -translate-y-2 translate-x-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 text-black/60" 
+                        strokeWidth={1.5}
+                      />
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* MIDDLE DECORATIVE ELEMENT - Hidden on mobile/tablet */}
+              <div className="hidden xl:flex flex-col items-center justify-center px-8">
+                <div className="relative">
+                  {/* Vertical gradient line */}
+                  <div className="w-px h-[50vh] bg-gradient-to-b from-transparent via-black/20 to-transparent" />
+                  
+                  {/* Animated orbiting elements */}
+                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <div className="relative w-20 h-20 flex items-center justify-center">
+                      {/* Rotating outer ring */}
+                      <div className="absolute w-full h-full rounded-full border border-black/10 animate-spin-slow" />
+                      {/* Counter-rotating middle ring */}
+                      <div className="absolute w-14 h-14 rounded-full border border-black/20 animate-spin-reverse" />
+                      {/* Center icon */}
+                      <div className="absolute w-8 h-8 rounded-full bg-black/5 backdrop-blur-sm flex items-center justify-center">
+                        <Sparkles size={14} className="text-black/60 animate-pulse" strokeWidth={2} />
+                      </div>
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* RIGHT SIDE - CONTACT INFO */}
+              <div className="flex flex-col justify-center gap-8 md:gap-10 lg:gap-12 text-black/80">
                 
-                {/* Bottom animated circle */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-black animate-pulse [animation-delay:1s]" />
-                
-                {/* Floating decorative dots */}
-                <div className="absolute top-[20%] -left-4 w-1.5 h-1.5 rounded-full bg-black/40 animate-float" />
-                <div className="absolute top-[40%] -right-4 w-1.5 h-1.5 rounded-full bg-black/40 animate-float [animation-delay:0.5s]" />
-                <div className="absolute top-[60%] -left-4 w-1.5 h-1.5 rounded-full bg-black/40 animate-float [animation-delay:1s]" />
-                <div className="absolute top-[80%] -right-4 w-1.5 h-1.5 rounded-full bg-black/40 animate-float [animation-delay:1.5s]" />
+                {/* SOCIAL */}
+                <div className="space-y-3 md:space-y-4">
+                  <p className="uppercase tracking-[0.3em] text-black/40 text-[10px] sm:text-xs font-medium mb-4">
+                    Connect
+                  </p>
+                  <a 
+                    href="https://www.instagram.com/winxmedia.in" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between py-2 border-b border-black/10 transition-all duration-300 hover:border-black/30"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/5 flex items-center justify-center transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-purple-600 group-hover:to-pink-600 group-hover:scale-110">
+                        <Instagram size={16} strokeWidth={2} className="sm:w-[18px] sm:h-[18px] transition-colors duration-300 group-hover:text-white" />
+                      </div>
+                      <span className="text-sm sm:text-base font-light">Instagram</span>
+                    </div>
+                    <ArrowUpRight size={16} className="opacity-0 -translate-y-1 translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0" strokeWidth={1.5} />
+                  </a>
+                  
+                  <a 
+                    href="https://www.linkedin.com/company/winxmedia-in/" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-center justify-between py-2 border-b border-black/10 transition-all duration-300 hover:border-black/30"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/5 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110">
+                        <Linkedin size={16} strokeWidth={2} className="sm:w-[18px] sm:h-[18px] transition-colors duration-300 group-hover:text-white" />
+                      </div>
+                      <span className="text-sm sm:text-base font-light">LinkedIn</span>
+                    </div>
+                    <ArrowUpRight size={16} className="opacity-0 -translate-y-1 translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0" strokeWidth={1.5} />
+                  </a>
+                </div>
+
+                {/* CONTACT */}
+                <div className="space-y-3 md:space-y-4">
+                  <p className="uppercase tracking-[0.3em] text-black/40 text-[10px] sm:text-xs font-medium mb-4">
+                    Get in touch
+                  </p>
+                  <a 
+                    href="mailto:info@winxmedia.com" 
+                    className="group flex items-center gap-3 py-2 transition-all duration-300 hover:translate-x-2"
+                  >
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/5 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110">
+                      <Mail size={16} strokeWidth={2} className="sm:w-[18px] sm:h-[18px] transition-colors duration-300 group-hover:text-white" />
+                    </div>
+                    <span className="text-xs sm:text-sm font-light">info@winxmedia.com</span>
+                  </a>
+                  
+                  <a 
+                    href="tel:+918197519556" 
+                    className="group flex items-center gap-3 py-2 transition-all duration-300 hover:translate-x-2"
+                  >
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-black/5 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110">
+                      <Phone size={16} strokeWidth={2} className="sm:w-[18px] sm:h-[18px] transition-colors duration-300 group-hover:text-white" />
+                    </div>
+                    <span className="text-sm sm:text-base font-light">+91 8197519556</span>
+                  </a>
+                </div>
               </div>
             </div>
 
-            {/* RIGHT SIDE - CONTACT INFO */}
-            <div className="flex flex-col sm:grid sm:grid-cols-2 lg:flex lg:flex-col gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-16 text-sm md:text-base mt-4 sm:mt-6 lg:mt-0">
-              
-              {/* SOCIAL */}
-              <div className="flex flex-col items-start gap-2 sm:gap-3 md:gap-4">
-                <p className="uppercase tracking-[0.25em] sm:tracking-[0.3em] text-gray-600 mb-1 sm:mb-2 text-[10px] sm:text-xs font-medium">
-                  Social
-                </p>
-                <a 
-                  href="https://www.instagram.com/winxmedia.in" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 sm:gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-1 sm:hover:-translate-x-2 hover:opacity-60"
-                >
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-purple-600 group-hover:to-pink-600 group-hover:scale-110 group-hover:rotate-6">
-                    <Instagram size={18} strokeWidth={2} className="sm:w-5 sm:h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
-                  </div>
-                  <span className="text-sm sm:text-base md:text-lg">Instagram</span>
-                </a>
-                <a 
-                  href="https://www.linkedin.com/company/winxmedia-in/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-2 sm:gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-1 sm:hover:-translate-x-2 hover:opacity-60"
-                >
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-600 group-hover:scale-110 group-hover:rotate-6">
-                    <Linkedin size={18} strokeWidth={2} className="sm:w-5 sm:h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
-                  </div>
-                  <span className="text-sm sm:text-base md:text-lg">LinkedIn</span>
-                </a>
+            {/* BOTTOM FOOTER */}
+            <div className="border-t border-black/10 pt-6 sm:pt-8 mt-8 sm:mt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 text-black/40">
+              <div className="flex items-center gap-2">
+                <MapPin size={14} strokeWidth={2} />
+                <span className="text-xs sm:text-sm font-light">Based in India</span>
               </div>
-
-              {/* LOCATION */}
-              <div className="flex flex-col items-start gap-2 sm:gap-3 md:gap-4">
-                <p className="uppercase tracking-[0.25em] sm:tracking-[0.3em] text-gray-600 mb-1 sm:mb-2 text-[10px] sm:text-xs font-medium">
-                  Location
-                </p>
-                <div className="group flex items-center gap-2 sm:gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-1 sm:hover:-translate-x-2 hover:opacity-60 cursor-pointer">
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110">
-                    <MapPin size={18} strokeWidth={2} className="sm:w-5 sm:h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
-                  </div>
-                  <span className="text-sm sm:text-base md:text-lg">India</span>
-                </div>
-              </div>
-
-              {/* CONTACT */}
-              <div className="flex flex-col items-start gap-2 sm:gap-3 md:gap-4 sm:col-span-2 lg:col-span-1">
-                <p className="uppercase tracking-[0.25em] sm:tracking-[0.3em] text-gray-600 mb-1 sm:mb-2 text-[10px] sm:text-xs font-medium">
-                  Contact
-                </p>
-                <a 
-                  href="mailto:info@winxmedia.com" 
-                  className="group flex items-center gap-2 sm:gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-1 sm:hover:-translate-x-2 hover:opacity-60"
-                >
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110 group-hover:-rotate-6">
-                    <Mail size={18} strokeWidth={2} className="sm:w-5 sm:h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
-                  </div>
-                  <span className="text-xs sm:text-sm md:text-base lg:text-lg break-all">info@winxmedia.com</span>
-                </a>
-                <a 
-                  href="tel:+918197519556" 
-                  className="group flex items-center gap-2 sm:gap-3 md:gap-4 transition-all duration-300 hover:-translate-x-1 sm:hover:-translate-x-2 hover:opacity-60"
-                >
-                  <div className="w-9 h-9 sm:w-10 sm:h-10 md:w-11 md:h-11 lg:w-12 lg:h-12 rounded-full bg-black/10 flex items-center justify-center transition-all duration-300 group-hover:bg-black group-hover:scale-110 group-hover:-rotate-6">
-                    <Phone size={18} strokeWidth={2} className="sm:w-5 sm:h-5 md:w-6 md:h-6 transition-colors duration-300 group-hover:text-white" />
-                  </div>
-                  <span className="text-sm sm:text-base md:text-lg">+91 8197519556</span>
-                </a>
-              </div>
+              <p className="text-xs sm:text-sm font-light">
+                © {new Date().getFullYear()} Winx Media. All rights reserved.
+              </p>
             </div>
           </div>
         </div>
@@ -314,31 +340,21 @@ export default function Navbar() {
       {/* CUSTOM ANIMATIONS */}
       <style jsx>{`
         @keyframes spin-slow {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
 
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-            opacity: 0.4;
-          }
-          50% {
-            transform: translateY(-10px);
-            opacity: 1;
-          }
+        @keyframes spin-reverse {
+          from { transform: rotate(360deg); }
+          to { transform: rotate(0deg); }
         }
 
         .animate-spin-slow {
-          animation: spin-slow 8s linear infinite;
+          animation: spin-slow 20s linear infinite;
         }
 
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
+        .animate-spin-reverse {
+          animation: spin-reverse 15s linear infinite;
         }
       `}</style>
     </>

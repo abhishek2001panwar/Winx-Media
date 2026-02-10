@@ -48,6 +48,7 @@ html {
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
 }
 
 /* IMAGES */
@@ -62,19 +63,16 @@ html {
     transform: translateY(-40%) rotate(4deg);
     z-index: 1;
     border-radius: 20px;
-    
 }
 
 /* LEFT IMAGE */
 .elem img:nth-child(1) {
     left: 2%;
-     border-radius: 20px;
 }
 
 /* RIGHT IMAGE */
 .elem img:nth-child(3) {
     right: 5%;
-     border-radius: 20px;
 }
 
 /* TEXT */
@@ -93,142 +91,301 @@ html {
     transition: all 0.8s ease;
 }
 
-/* TEXT HOVER */
-.elem:hover h1 {
-    transform: translateY(-100%);
-    background: linear-gradient(to right, #181f7c, #a34fdc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+/* Hide second h1 by default */
+.elem h1:nth-of-type(2) {
+    display: none !important;
 }
 
-/* IMAGE HOVER */
-.elem:hover img {
-    opacity: 1;
-    transform: translateY(-50%) rotate(0deg);
+/* TAP INDICATOR - Hidden on Desktop */
+.tap-indicator {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-/* TABLET & MOBILE STYLES - Same layout for both */
+.tap-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #181f7c 0%, #a34fdc 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    box-shadow: 0 8px 20px rgba(24, 31, 124, 0.25);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tap-icon {
+    font-size: 1.2rem;
+    animation: tapBounce 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.tap-button span {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+/* Hover effect for tap button */
+.tap-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(24, 31, 124, 0.35);
+}
+
+/* DESKTOP HOVER */
+@media (min-width: 1025px) {
+    .elem:hover h1 {
+        transform: translateY(-100%);
+        background: linear-gradient(to right, #181f7c, #a34fdc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+    }
+
+    .elem:hover img {
+        opacity: 1;
+        transform: translateY(-50%) rotate(0deg);
+    }
+}
+
+/* Show second h1 only on very large screens (2000px+) */
+@media (min-width: 2000px) {
+    .elem h1:nth-of-type(2) {
+        display: block !important;
+    }
+}
+
+/* TABLET & MOBILE STYLES */
 @media (max-width: 1024px) {
     .page4 {
-        padding: 80px 20px;
+        padding: 80px 10px;
         min-height: auto;
     }
 
     .elem {
-        margin-bottom: 60px;
+        margin-bottom: 80px;
+        position: relative;
+        padding: 20px 0;
+        display: flex;
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
+        gap: 0;
     }
 
-    /* Show images as regular elements, not absolute */
+    /* Position images above and below text - Same size as desktop */
     .elem img {
         position: relative;
-        opacity: 1;
-        transform: none;
-        width: 75%;
-        max-width: 280px;
-        height: auto;
-        aspect-ratio: 3/4;
-        top: auto;
-        left: auto;
-        right: auto;
+        width: 240px;
+        height: 320px;
+        opacity: 0;
+        transform: scale(0.85) rotate(3deg);
+        transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        border-radius: 20px;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
     }
 
-    /* Only show first h1, hide the duplicate */
+    /* Top image */
+    .elem img:nth-child(1) {
+        order: 1;
+        margin-bottom: -30px;
+        z-index: 1;
+        border-radius: 20px;
+    }
+
+    /* Text in middle */
     .text-div {
+        order: 2;
+        z-index: 2;
         height: auto;
         width: 100%;
         text-align: center;
+        position: relative;
         padding: 15px 0;
+        overflow: visible;
+    }
+
+    /* Bottom image */
+    .elem img:nth-child(3) {
+        order: 3;
+        margin-top: -30px;
+        z-index: 1;
+        border-radius: 20px;
     }
 
     .elem h1 {
-        font-size: 12vw;
+        font-size: 13vw;
         font-weight: 700;
+        transition: all 0.5s ease;
     }
 
-    /* Hide the second h1 */
-    .elem h1:nth-child(2) {
-        display: none;
+    /* Show tap indicator */
+    .tap-indicator {
+        opacity: 1;
+        position: relative;
+        bottom: auto;
+        margin-top: 20px;
     }
 
-    /* Disable hover effects */
-    .elem:hover h1 {
-        transform: none;
-        background: none;
-        -webkit-text-fill-color: inherit;
-        color: inherit;
+    .tap-button {
+        animation: pulseGlow 2s ease-in-out infinite;
     }
 
-    .elem:hover img {
-        transform: none;
+    /* Hide tap indicator when active */
+    .elem.active .tap-indicator {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.8);
     }
 
-    /* Adjust order: img, text, img */
-    .elem img:nth-child(1) {
-        order: 1;
+    /* Active state (when tapped) */
+    .elem.active h1 {
+        transform: scale(1.05);
+        background: linear-gradient(to right, #181f7c, #a34fdc);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
     }
 
-    .text-div {
-        order: 2;
-    }
-
-    .elem img:nth-child(3) {
-        order: 3;
+    .elem.active img {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
     }
 }
 
 /* SMALL MOBILE STYLES */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
     .page4 {
-        padding: 60px 15px;
+        padding: 50px 15px;
     }
 
     .elem {
-        margin-bottom: 50px;
-        gap: 15px;
+        margin-bottom: 70px;
+        padding: 15px 0;
     }
 
     .elem img {
-        width: 85%;
-        max-width: 320px;
+        width: 200px;
+        height: 270px;
+        border-radius: 14px;
     }
 
-    .elem h1 {
-        font-size: 14vw;
+    .elem img:nth-child(1) {
+        margin-bottom: -25px;
     }
 
-    .text-div {
-        padding: 10px 0;
-    }
-}
-
-/* EXTRA SMALL DEVICES */
-@media (max-width: 375px) {
-    .page4 {
-        padding: 50px 12px;
-    }
-
-    .elem {
-        margin-bottom: 40px;
-        gap: 12px;
-    }
-
-    .elem img {
-        width: 90%;
+    .elem img:nth-child(3) {
+        margin-top: -25px;
     }
 
     .elem h1 {
         font-size: 15vw;
     }
+
+    .tap-button {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+        gap: 8px;
+    }
+
+    .tap-icon {
+        font-size: 1.1rem;
+    }
+
+    .tap-button span {
+        font-size: 0.7rem;
+    }
 }
+
+/* EXTRA SMALL DEVICES */
+@media (max-width: 480px) {
+    .page4 {
+        padding: 50px 12px;
+    }
+
+    .elem {
+        margin-bottom: 60px;
+        padding: 12px 0;
+    }
+
+    .elem img {
+        width: 170px;
+        height: 230px;
+        border-radius: 12px;
+    }
+
+    .elem img:nth-child(1) {
+        margin-bottom: -20px;
+    }
+
+    .elem img:nth-child(3) {
+        margin-top: -20px;
+    }
+
+    .elem h1 {
+        font-size: 16vw;
+    }
+
+    .tap-button {
+        padding: 9px 18px;
+        font-size: 0.8rem;
+        gap: 7px;
+    }
+
+    .tap-icon {
+        font-size: 1rem;
+    }
+
+    .tap-button span {
+        font-size: 0.65rem;
+    }
+}
+
+/* Tap icon bounce animation */
+@keyframes tapBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(-20deg);
+    }
+    25% {
+        transform: translateY(-5px) rotate(-25deg);
+    }
+    50% {
+        transform: translateY(0) rotate(-20deg);
+    }
+    75% {
+        transform: translateY(-3px) rotate(-22deg);
+    }
+}
+
+/* Pulse glow animation for tap button */
+@keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 8px 20px rgba(24, 31, 124, 0.25);
+    }
+    50% {
+        box-shadow: 0 8px 25px rgba(163, 79, 220, 0.4), 0 0 30px rgba(163, 79, 220, 0.2);
+    }
+}
+
 /* Prevent horizontal scroll */
 .page4,
 .elem {
-  max-width: 100%;
-  overflow-x: hidden;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 @keyframes gridMove {
