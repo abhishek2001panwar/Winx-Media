@@ -100,7 +100,7 @@ export default function Navbar() {
     <>
       {/* TOP NAV */}
       <nav
-        className="fixed top-0 w-full z-[60] px-4 sm:px-5 md:px-6 py-3 sm:py-4 md:py-5 lg:py-6 border-b border-black/10 transition-all duration-500 backdrop-blur-3xl"
+        className="fixed top-0 w-full z-[60] px-4 sm:px-5 md:px-6 py-3 sm:py-8 md:py-5 lg:py-6 border-b border-black/10 transition-all duration-500 backdrop-blur-3xl"
         style={{
           backdropFilter: "blur(24px)",
           background: isMenuOpen 
