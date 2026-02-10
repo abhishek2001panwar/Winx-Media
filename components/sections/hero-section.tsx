@@ -243,8 +243,12 @@ export function HeroSection() {
                 src={img1}
                  quality={95} // Add this - default is 75
                 alt="Brand imagery"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 640px) 140px,
+         (max-width: 768px) 180px,
+         (max-width: 1024px) 240px,
+         320px"
                 className="object-cover"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
@@ -266,8 +270,12 @@ export function HeroSection() {
                 src={img2}
                  quality={95} // Add this - default is 75
                 alt="Brand imagery"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 640px) 140px,
+         (max-width: 768px) 180px,
+         (max-width: 1024px) 240px,
+         320px"
                 className="object-cover"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
@@ -290,8 +298,12 @@ export function HeroSection() {
                 src={img3}
                  quality={95} // Add this - default is 75
                 alt="Brand imagery"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 640px) 140px,
+         (max-width: 768px) 180px,
+         (max-width: 1024px) 240px,
+         320px"
                 className="object-cover "
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent" />
             </motion.div>
