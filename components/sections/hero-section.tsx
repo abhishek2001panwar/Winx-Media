@@ -241,6 +241,8 @@ export function HeroSection() {
             >
               <Image
                 src={img1}
+                 width={320}
+  height={426}
                  quality={95} // Add this - default is 75
                 alt="Brand imagery"
                 sizes="(max-width: 640px) 140px,
@@ -268,6 +270,8 @@ export function HeroSection() {
             >
               <Image
                 src={img2}
+                 width={320}
+  height={426}
                  quality={95} // Add this - default is 75
                 alt="Brand imagery"
                 sizes="(max-width: 640px) 140px,
@@ -296,6 +300,8 @@ export function HeroSection() {
             >
               <Image
                 src={img3}
+                 width={320}
+  height={426}
                  quality={95} // Add this - default is 75
                 alt="Brand imagery"
                 sizes="(max-width: 640px) 140px,
