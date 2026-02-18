@@ -23,7 +23,70 @@ const pastelBg = [
 
 const caseStudies = [
 
-
+{
+    title: "It's forever",
+    subtitle: "Digging Deep into Digital Excellence",
+    description:
+      "We created a digital foundation as solid as the work they do.",
+    image: '/forever.png',
+    tags: ["instagram", "wordpress"],
+    slug: "forever",
+  },
+   {
+    title: "Ceramic Pro – VR Lifestyle",
+    subtitle: "Where Perfection Meets Prestige",
+    description:
+      "Automotive detailing positioned as a luxury lifestyle experience.",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/4.png",
+    tags: ["Instagram"],
+    slug: "/work/ceramic-pro",
+  },
+   {
+    title: "Ambari Weddings",
+    subtitle: "Orchestrating Dreams from Vision to Reality",
+    description: "A complete wedding brand ecosystem built from the ground up.",
+    image:
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/Untitled-design-33.png",
+    tags: ["Instagram", "WordPress"],
+    slug: "/work/ambari-weddings",
+  },
+  {
+    title: "WeMe",
+    subtitle: "Documenting Special Stories one frame at a time",
+    description:
+      "We are WeMe Stories, and we live to document love honest, heartfelt, and unapologetic..",
+    image: "/weme.png",
+    tags: ["Instagram", "WordPress"],
+    slug: "weme",
+  
+  },
+  {
+    title: "Classy Captures",
+    subtitle: "The Art of Timeless Wedding Photography",
+    description: "From photographers to curators of legacy moments.",
+    image:
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-09T155103.244.png",
+    tags: ["Instagram", "WordPress"],
+    slug: "/work/classy-captures",
+  },
+    {
+    title: "Kahani by Charm Events",
+    subtitle: "Luxury Wedding Curators",
+    description:
+      "From planners to luxury storytellers of unforgettable celebrations.",
+    image:
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/1000404200.jpg",
+    tags: ["Instagram"],
+    slug: "/work/kahani",
+  },
+ {
+    title: "House of Bliss",
+    subtitle: "From Unknown to Unmissable",
+    description: "Photography transformed into a high-demand visual brand.",
+    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/1.png",
+    tags: ["Instagram", "WordPress"],
+    slug: "/work/house-of-bliss",
+  },
 
   {
     title: "KLCI",
@@ -34,23 +97,8 @@ const caseStudies = [
     tags: ["WordPress"],
     slug: "/work/klci",
   },
-  {
-    title: "Ambari Weddings",
-    subtitle: "Orchestrating Dreams from Vision to Reality",
-    description: "A complete wedding brand ecosystem built from the ground up.",
-    image:
-      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/Untitled-design-33.png",
-    tags: ["Instagram", "WordPress"],
-    slug: "/work/ambari-weddings",
-  },
-  {
-    title: "House of Bliss",
-    subtitle: "From Unknown to Unmissable",
-    description: "Photography transformed into a high-demand visual brand.",
-    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/1.png",
-    tags: ["Instagram", "WordPress"],
-    slug: "/work/house-of-bliss",
-  },
+ 
+  
   {
     title: "Sneha Banquet Hall",
     subtitle: "Where Dreams Get Their Spotlight",
@@ -76,34 +124,8 @@ const caseStudies = [
     tags: ["WordPress"],
     slug: "/work/collaborative-senior-care",
   },
-  {
-    title: "Kahani by Charm Events",
-    subtitle: "Luxury Wedding Curators",
-    description:
-      "From planners to luxury storytellers of unforgettable celebrations.",
-    image:
-      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/1000404200.jpg",
-    tags: ["Instagram"],
-    slug: "/work/kahani",
-  },
-  {
-    title: "Ceramic Pro – VR Lifestyle",
-    subtitle: "Where Perfection Meets Prestige",
-    description:
-      "Automotive detailing positioned as a luxury lifestyle experience.",
-    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/4.png",
-    tags: ["Instagram"],
-    slug: "/work/ceramic-pro",
-  },
-  {
-    title: "Classy Captures",
-    subtitle: "The Art of Timeless Wedding Photography",
-    description: "From photographers to curators of legacy moments.",
-    image:
-      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-09T155103.244.png",
-    tags: ["Instagram", "WordPress"],
-    slug: "/work/classy-captures",
-  },
+
+  
   {
     title: "Glass Gallery",
     subtitle: "South India's Premium Glass Brand",

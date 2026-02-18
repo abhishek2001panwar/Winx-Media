@@ -19,12 +19,12 @@ export default function GalleryPage() {
         <div className="grain-overlay fixed inset-0 pointer-events-none opacity-[0.02]"></div>
 
         {/* Content */}
-        <div className="relative z-10 px-6 md:px-12 py-40">
+        <div className="relative z-10 px-6 md:px-12 pt-32">
           {/* Hero Section */}
-          <div className="max-w-[1600px] mx-auto mb-32">
+          <div className="max-w-[1600px] mx-auto mb-10">
           
             
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-light text-black mb-8 text-center tracking-tight leading-[0.95] title-reveal">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-light text-black mb-4 text-center tracking-tight leading-[0.95] title-reveal">
               Creative
               <br />
               <span
@@ -41,8 +41,8 @@ export default function GalleryPage() {
           </div>
 
           {/* Gallery Grid */}
-          <div className="max-w-[1600px] mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8">
               
               {/* Video Section - Large Featured */}
               <Link 
@@ -229,7 +229,7 @@ export default function GalleryPage() {
           </div>
 
           {/* Bottom CTA */}
-          <div className="max-w-[1600px] mx-auto mt-32 text-center cta-reveal">
+          {/* <div className="mx-auto mt-6 text-center cta-reveal">
             <p className="text-gray-500 text-sm tracking-[0.3em] uppercase mb-8">
               Want to see more?
             </p>
@@ -241,7 +241,7 @@ export default function GalleryPage() {
               Get in Touch
             </button>
           </Link>
-          </div>
+          </div> */}
         </div>
       </main>
     </>

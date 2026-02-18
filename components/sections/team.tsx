@@ -33,121 +33,198 @@ const team = [
     image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/10/2.png",
     gradient: "from-cyan-400 to-blue-400",
   },
- 
-
+  {
+    name: "Chirag",
+    role: "Social Media Manager",
+    description: "Crafting engaging social media strategies to elevate brand presence.",
+    image: "./chirag.png",
+    gradient: "from-emerald-400 to-teal-400",
+  },
+  {
+    name: "Kushal",
+    role: "Video Editor",
+    description: "Bringing stories to life through compelling video content.",
+    image: "./kushal.png",
+    gradient: "from-orange-400 to-amber-400",
+  },
+  {
+    name: "Abhin Jayan",
+    role: "Photographer & Cinematographer",
+    description: "Capturing moments that tell compelling brand stories.",
+    image: "/abin.jpeg",
+    gradient: "from-indigo-400 to-purple-400",
+  },
+  {
+    name: "Abhishek Panwar",
+    role: "Web Developer",
+    description: "Crafting seamless and engaging digital experiences.",
+    image: "/abhishek.png",
+    gradient: "from-blue-400 to-cyan-400",
+  },
 ];
 
 export default function TeamPage() {
   return (
-    <div className="relative min-h-screen w-full bg-white flex flex-col items-center justify-center overflow-hidden">
-      {/* Sticky Notes Header */}
-      <div className="">
-        <div className="relative">
-          {/* Main sticky note */}
-          <div className="bg-yellow-200 rounded-sm px-6 mt-5 py-4 shadow-lg transform rotate-2 relative">
-            {/* Sticky note tape effect */}
-            <div className="absolute -top-2 left-4 w-8 h-4 bg-yellow-300 opacity-60 rounded-sm transform -rotate-12"></div>
-            <div className="absolute -top-2 right-4 w-6 h-4 bg-yellow-300 opacity-60 rounded-sm transform rotate-12"></div>
-            
-            <div className="flex items-center gap-3">
-              <span className="text-lg font-bold bg-linear-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
-                Founders
-              </span>
-              <div className="w-2 h-2 rounded-full bg-linear-to-r from-[#181f7c] to-[#a34fdc] animate-pulse"></div>
-            </div>
-            <span className="text-sm text-gray-700 font-medium">Meet the Visionaries</span>
-            {/* Sticky note corner fold */}
-            <div className="absolute top-0 right-0 w-4 h-4 bg-yellow-300 transform rotate-45 translate-x-2 -translate-y-2 rounded-br-sm shadow-sm"></div>
+    <div className="relative w-full  bg-gradient-to-br from-gray-50 via-white to-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+      {/* Subtle background pattern */}
+      <div 
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-16 sm:mb-10">
+          <div className="inline-block mb-4">
+            <span className="inline-block px-4 py-1.5 text-xs sm:text-sm font-medium bg-gradient-to-r from-[#181f7c]/10 to-[#a34fdc]/10 text-[#181f7c] rounded-full border border-[#181f7c]/20">
+              Our Team
+            </span>
           </div>
-          
-          {/* Secondary smaller sticky note behind */}
-          <div className="absolute -top-1 -left-2 bg-pink-200 rounded-sm px-4 py-2 shadow-md transform -rotate-6 -z-10">
-            <span className="text-xs text-gray-600">✨</span>
-          </div>
-          
-          {/* Third sticky note */}
-          <div className="absolute -top-1 -right-2 bg-green-200 rounded-sm px-4 py-2 shadow-md transform rotate-6 -z-10">
-            <span className="text-xs text-gray-600">🎨</span>
-          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight text-gray-900 mb-2">
+            Meet the <span className="font-serif bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">Creators</span>
+          </h1>
+          {/* <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-light">
+            The passionate minds shaping exceptional digital experiences
+          </p> */}
         </div>
-      </div>
-      {/* Wavy SVG background */}
-      {/* <svg
-        className="absolute top-0 left-0 w-full h-80 pointer-events-none"
-        viewBox="0 0 1440 320"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        style={{ zIndex: 0 }}
-      >
-        <path
-          fill="#e0e7ff"
-          fillOpacity="0.5"
-          d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,154.7C840,149,960,171,1080,170.7C1200,171,1320,149,1380,138.7L1440,128L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"
-        ></path>
-      </svg> */}
 
-      <div className="relative z-10 flex flex-col items-center">
-        <p className="text-gray-500 text-lg mb-10 mt-16">
-          Meet the People Behind the Brand
-        </p>
-        {/* <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 font-serif">
-          Our Super Squad of Creatives
-        </h2> */}
+        {/* Founders Section */}
+        <div className="mb-10 sm:mb-10">
+          <div className="flex items-center justify-center mb-5">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-gray-300"></div>
+            <h2 className="mx-4 text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-400 font-serif">
+              Leadership
+            </h2>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-gray-300"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-5">
+            {team.slice(0, 4).map((member, index) => (
+              <div
+                key={member.name}
+                className="group relative"
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                }}
+              >
+                {/* Gradient background blob */}
+                <div className={`absolute -inset-1 bg-gradient-to-r ${member.gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
+                
+                {/* Card */}
+                <div className="relative bg-white rounded-2xl p-6 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-gray-200 overflow-hidden">
+                  {/* Subtle corner accent */}
+                  <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${member.gradient} opacity-5 rounded-bl-full`}></div>
+                  
+                  {/* Image container with gradient ring */}
+                  <div className="relative mb-6 flex justify-center">
+                    
+                    <div className={`relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br ${member.gradient} p-[2px] transition-transform duration-500 group-hover:scale-105`}>
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full rounded-full object-cover bg-white"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="text-center space-y-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 tracking-tight">
+                      {member.name}
+                    </h3>
+                    <p className={`text-sm font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
+                      {member.role}
+                    </p>
+                 
+                  </div>
 
-        {/* Team Cards */}
-        <div className="flex flex-wrap justify-center gap-8">
-          {team.map((member, idx) => (
-            <div
-              key={member.name}
-              className={`bg-white rounded-2xl shadow-xl border border-gray-200 flex flex-col items-center px-10 py-8 transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl ${
-                idx === 2 ? "scale-110 z-20" : "z-10"
-              }`}
-              style={{
-                minWidth: 260,
-                maxWidth: 300,
-                transform:
-                  idx === 1
-                    ? "rotate(-6deg)"
-                    : idx === 2
-                      ? "rotate(3deg)"
-                      : idx === 3
-                        ? "rotate(6deg)"
-                        : "rotate(-3deg)",
-              }}
-            >
-              <img
-                src={member.image}
-                alt={member.name}
-                className="w-32 h-32 rounded-full object-cover mb-6 border-4 border-white shadow"
-              />
-              <div className="text-xl font-bold text-gray-900">
-                {member.name}
+                  {/* Hover indicator */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
               </div>
-              <div className="text-base text-gray-500">{member.role}</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-        <Link href="/team">
-          <button className="mt-12 px-8 py-6 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc] text-white font-semibold flex items-center gap-2 shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 group">
-            Meet the Team
-            <svg 
-              width="20" 
-              height="20" 
-              fill="none" 
-              viewBox="0 0 24 24"
-              className="group-hover:translate-x-1 transition-transform duration-300"
-            >
-              <path
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        </Link>
+
+        {/* Team Members Section */}
+        <div>
+          <div className="flex items-center justify-center mb-5">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-gray-300"></div>
+            <h2 className="mx-4 text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-400 font-serif">
+              The Team
+            </h2>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-gray-300"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-5">
+            {team.slice(4).map((member, index) => (
+              <div
+                key={member.name}
+                className="group relative"
+                style={{
+                  animationDelay: `${(index + 4) * 100}ms`,
+                }}
+              >
+                {/* Gradient background blob */}
+                <div className={`absolute -inset-1 bg-gradient-to-r ${member.gradient} rounded-2xl blur-lg opacity-0 group-hover:opacity-20 transition-all duration-500`}></div>
+                
+                {/* Card */}
+                <div className="relative bg-white rounded-2xl p-6 sm:p-6 shadow-sm hover:shadow-xl transition-all duration-500 border border-gray-100 hover:border-gray-200 overflow-hidden">
+                  {/* Subtle corner accent */}
+                  <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${member.gradient} opacity-5 rounded-bl-full`}></div>
+                  
+                  {/* Image container with gradient ring */}
+                  <div className="relative mb-6 flex justify-center">
+                   
+                    <div className={`relative w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br ${member.gradient} p-[2px] transition-transform duration-500 group-hover:scale-105`}>
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full rounded-full object-cover bg-white"
+                      />
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="text-center space-y-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 tracking-tight">
+                      {member.name}
+                    </h3>
+                    <p className={`text-sm font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
+                      {member.role}
+                    </p>
+                  
+                  </div>
+
+                  {/* Hover indicator */}
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-gray-200 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom decorative element */}
+        <div className="mt-5 flex justify-center">
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc] animate-pulse"></div>
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc] animate-pulse delay-75"></div>
+            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc] animate-pulse delay-150"></div>
+          </div>
+        </div>
       </div>
+
+      {/* Custom animations */}
+      <style jsx>{`
+        .delay-75 {
+          animation-delay: 75ms;
+        }
+        .delay-150 {
+          animation-delay: 150ms;
+        }
+      `}</style>
     </div>
   );
 }

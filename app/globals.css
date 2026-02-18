@@ -1,3 +1,15 @@
+/* Hide native scrollbar for carousel area */
+.carousel-scroll-hide {
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE 10+ */
+  overflow: -moz-scrollbars-none !important;
+}
+.carousel-scroll-hide::-webkit-scrollbar {
+  width: 0 !important;
+  height: 0 !important;
+  display: none !important;
+  background: transparent !important;
+}
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -14,7 +26,18 @@ img {
 }
 
 ::-webkit-scrollbar{
-  width:2px;
+  width:6px;
+  height:10px;
+}
+::-webkit-scrollbar-track{
+  background:transparent;
+}
+::-webkit-scrollbar-thumb{
+  background:rgba(0, 0, 0, 0.2);
+  border-radius:10px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background:rgba(0, 0, 0, 0.4);
 }
 html {
   scroll-behavior: smooth;

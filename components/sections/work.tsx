@@ -87,7 +87,7 @@ const StoryBeat: React.FC<{ beat: typeof storyBeats[0]; index: number }> = ({ be
       initial={{ opacity: 0, x: -50 }}
       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className={`relative p-4 sm:p-6 md:p-8 lg:p-10 rounded-xl sm:rounded-2xl ${getTypeStyles()} mb-4 sm:mb-6 md:mb-8`}
+      className={`relative p-3 sm:p-4 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl ${getTypeStyles()} mb-2 sm:mb-3 md:mb-4`}
     >
       {/* Icon */}
       <motion.div
@@ -147,7 +147,7 @@ const Work: React.FC = () => {
   const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
 
   return (
-    <section ref={containerRef} className="relative py-12 sm:py-16 md:py-20 lg:py-24 xl:py-28 overflow-hidden bg-white">
+    <section ref={containerRef} className="relative pt-1 sm:pt-2 md:pt-3 lg:pt-4 xl:pt-5 pb-2 overflow-hidden bg-background">
       {/* Animated Background Elements */}
       <motion.div
         style={{ y: backgroundY }}
@@ -171,11 +171,11 @@ const Work: React.FC = () => {
         />
       </motion.div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+      <div className="container mx-auto px-2 sm:px-4 lg:px-8 relative z-10">
         {/* Header */}
-        <div className="text-center mb-12 sm:mb-16 md:mb-20 lg:mb-24">
+        <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10">
           <motion.p
-            className="text-gray-600 text-xs sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-4 sm:mb-6"
+            className="text-gray-600 text-xs sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2 sm:mb-3"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -183,9 +183,9 @@ const Work: React.FC = () => {
             Our Work
           </motion.p>
 
-          <div className="max-w-5xl mx-auto relative mb-6 sm:mb-8">
+          <div className="max-w-5xl mx-auto relative mb-2 sm:mb-2">
             {/* Background text */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-tight text-center text-black font-serif">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-tight text-center text-black font-light font-serif">
               Less talking
               <br />
               More showing
@@ -193,7 +193,7 @@ const Work: React.FC = () => {
 
             {/* Animated gradient text reveal */}
             <motion.h2
-              className="absolute inset-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-tight text-center bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent font-serif"
+              className="absolute inset-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl  font-light leading-tight text-center bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent font-serif"
               initial={{ clipPath: 'inset(0 100% 0 0)' }}
               animate={{ clipPath: 'inset(0 0 0 0)' }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -292,7 +292,7 @@ const Work: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto mt-12 sm:mt-16 md:mt-20"
+          className="max-w-4xl mx-auto m-4"
         >
           <div className="relative p-8 sm:p-10 md:p-12 lg:p-16 border-l-4 border-gray-700 bg-gray-200/30 text-black border rounded-2xl sm:rounded-3xl overflow-hidden">
             {/* Animated gradient background */}

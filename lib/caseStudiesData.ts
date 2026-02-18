@@ -4,7 +4,7 @@
 // import {image} from '@/public/forever.png';
 
 // If you want to use the image, use:
-import foreverImage from '@/public/forever.png';
+import foreverImage from "@/public/forever.png";
 
 // But in your data, you are using image: "./forever.png",
 // which is just a string path. If you want to use the imported image,
@@ -28,46 +28,48 @@ export interface CaseStudy {
   instagramHandle?: string;
 }
 export const caseStudiesData: CaseStudy[] = [
-{
-  title: "It's forever",
-  subtitle: "Digging Deep into Digital Excellence",
-  description:
-    "We created a digital foundation as solid as the work they do.",
-  image: foreverImage.src,
-  tags: [],
-  color: "from-blue-500 to-indigo-600",
-  slug: "forever",
-  challenge:
-    "Indian weddings generate thousands of photos, but guests and couples struggle to find the ones they actually like. Managing uploads from multiple devices and avoiding unflattering candid shots was chaotic.",
-  solution:
-    "You know how Indian weddings generate approximately 47,000 photos, but somehow you can never find the ones where you actually look good? And don’t even get us started on trying to hunt down pictures of yourself from your cousin’s phone while avoiding those unflattering candid shots your uncle took. Its Forever solved this chaos with features that feel like magic. Their highly accurate AI facial recognition automatically finds and matches photos of you across all uploads—no more playing digital detective to track down that perfect shot. Meanwhile, photographers can upload their entire collection but choose exactly what guests can download, and couples get the ultimate power move: deciding which photos guests can even see. It’s like having a personal photo curator who knows your face better than your mirror, plus the privacy controls that let you curate your own wedding story. We didn’t just build their social media presence—we made their brand the solution to every couple’s biggest wedding photography nightmares: finding the good photos while hiding the questionable ones. Their Instagram became the place where love stories get organized, shared, and celebrated on YOUR terms. Now they’re not just a QR code app; they’re the reason families actually get to keep their precious memories AND their dignity intact.",
-  results: [
-    "Transformed the brand into the ultimate wedding photo management tool.",
-    "Instagram became a hub for organized and shareable wedding memories.",
-    "Guests and couples could finally find perfect photos without compromising privacy.",
-  ],
-}
-,
   {
-    title: "KLCI",
+    title: "It's forever",
     subtitle: "Digging Deep into Digital Excellence",
     description:
-      "Mining companies have incredible stories to tell about building the future—they just need the right platform to share them. KLCI had the expertise and vision; we gave them the digital presence to match their industry leadership. We created a digital foundation as solid as the work they do. Their new website doesn't just showcase services—it tells the compelling story of a company that's literally building tomorrow from the ground up. Now they don't just extract materials; they build trust, confidence, and lasting partnerships.",
-    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/7.png",
-    tags: ["WordPress"],
-    slug: "klci",
+      "We created a digital foundation as solid as the work they do.",
+    image: foreverImage.src,
+    tags: [],
+    color: "from-blue-500 to-indigo-600",
+    slug: "forever",
     challenge:
-      "KLCI needed a digital presence that could match their industry expertise and showcase their capabilities to potential clients and partners in the competitive mining sector.",
+      "Indian weddings generate thousands of photos, but guests and couples struggle to find the ones they actually like. Managing uploads from multiple devices and avoiding unflattering candid shots was chaotic.",
     solution:
-      "We designed and developed a comprehensive website that tells their story effectively, showcases their projects, and positions them as industry leaders with a focus on trust and professionalism.",
+      "You know how Indian weddings generate approximately 47,000 photos, but somehow you can never find the ones where you actually look good? And don’t even get us started on trying to hunt down pictures of yourself from your cousin’s phone while avoiding those unflattering candid shots your uncle took. Its Forever solved this chaos with features that feel like magic. Their highly accurate AI facial recognition automatically finds and matches photos of you across all uploads—no more playing digital detective to track down that perfect shot. Meanwhile, photographers can upload their entire collection but choose exactly what guests can download, and couples get the ultimate power move: deciding which photos guests can even see. It’s like having a personal photo curator who knows your face better than your mirror, plus the privacy controls that let you curate your own wedding story. We didn’t just build their social media presence—we made their brand the solution to every couple’s biggest wedding photography nightmares: finding the good photos while hiding the questionable ones. Their Instagram became the place where love stories get organized, shared, and celebrated on YOUR terms. Now they’re not just a QR code app; they’re the reason families actually get to keep their precious memories AND their dignity intact.",
     results: [
-      "Enhanced brand credibility in the mining sector",
-      "Improved client engagement and trust",
-      "Professional platform for business development",
-      "Streamlined presentation of services and expertise",
+      "Transformed the brand into the ultimate wedding photo management tool.",
+      "Instagram became a hub for organized and shareable wedding memories.",
+      "Guests and couples could finally find perfect photos without compromising privacy.",
     ],
-    color: "from-blue-600 to-purple-600",
   },
+  {
+    title: "Ceramic Pro – VR Lifestyle",
+    subtitle: "Where Perfection Meets Prestige",
+    description:
+      "Car detailing, when done right, is automotive artistry. VR Lifestyle India understood this from day one—they weren't just maintaining vehicles, they were creating automotive excellence. We positioned them as the luxury lifestyle curators they truly are. Their ceramic protection services represent more than maintenance; they're about preserving automotive perfection for people who appreciate the finer details. Through strategic digital positioning, we showcased their transformation from service provider to luxury experience creator. Now they don't just have clients; they have enthusiasts who won't trust their vehicles to anyone else.",
+    image:
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/4.png",
+    tags: ["Instagram"],
+    slug: "ceramic-pro",
+    challenge:
+      "VR Lifestyle needed to elevate car detailing from maintenance service to luxury lifestyle experience, attracting premium vehicle owners who value perfection.",
+    solution:
+      "Positioned as automotive artistry and luxury lifestyle curation, showcasing the precision, care, and excellence that goes into every ceramic protection service through visual storytelling.",
+    results: [
+      "Transformed from detailer to luxury curator",
+      "Attracted premium vehicle enthusiasts",
+      "Built loyal community of perfection-seekers",
+      "Established as the only choice for discerning owners",
+    ],
+    color: "from-gray-700 to-gray-900",
+    instagramHandle: "@ceramicpro_vrlifestyle",
+  },
+
   {
     title: "Ambari Weddings",
     subtitle: "Orchestrating Dreams from Vision to Reality",
@@ -90,89 +92,52 @@ export const caseStudiesData: CaseStudy[] = [
     color: "from-pink-500 to-rose-500",
     instagramHandle: "@ambariweddings",
   },
+
   {
-    title: "House of Bliss",
-    subtitle: "From Unknown to Unmissable",
+    title: "WeMe",
+    subtitle: "Documenting Special Stories one frame at a time",
     description:
-      "Every photographer thinks they're the next big thing, but House of Bliss actually became it. We took their incredible talent and gave it the digital stage it deserved. Their story isn't just about taking pretty pictures—it's about capturing the moments that matter most. We helped them tell that story in a way that makes couples forget about every other photographer in Bengaluru. Now they're not just booking clients; they're creating a waiting list of people who refuse to trust their special day to anyone else.",
-    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/1.png",
+      "We are WeMe Stories, and we live to document love honest, heartfelt, and unapologetic. With ten years of experience and countless journeys, we focus on one purpose only: your story. Behind every frame is a team that believes deeply in love, laughter, and the magic in between. We capture moments as they naturally unfold, preserving not just how your wedding looked, but how it truly felt because years from now, what will matter most is the emotion you return to. We believe wedding films should never feel overwhelming; they should feel like freedom the freedom to laugh, to cry, and to be unapologetically you. Raw, real, and refined, we are WeMe Stories, and we can’t wait to tell yours.",
+    image: "/weme.png",
     tags: ["Instagram", "WordPress"],
-    slug: "house-of-bliss",
+    slug: "weme",
     challenge:
-      "House of Bliss had exceptional photography skills but struggled to differentiate themselves in Bengaluru's saturated wedding photography market and attract premium clients.",
+      "WeMe Stories needed to stand apart in a crowded wedding photography space by going beyond traditional visuals. The challenge was to communicate that they don’t just capture weddings they preserve emotions, fleeting moments, and the intangible feelings that make each love story unique.",
     solution:
-      "Strategic brand positioning, stunning portfolio website, consistent Instagram presence showcasing their unique storytelling approach, and targeted content that resonates with couples.",
+      "We positioned WeMe Stories as timeless storytelling artists, not just wedding photographers. Through a thoughtfully curated portfolio website and a strong Instagram presence, the brand showcased raw emotions, elegant visuals, and deeply authentic connections. Every frame was treated as a story, attracting couples who value meaning, depth, and emotional truth over trends.",
     results: [
-      "Transformed into Bengaluru's most sought-after wedding photographers",
-      "Created a 6-month advance booking waitlist",
-      "300% increase in premium package bookings",
-      "Established as the go-to choice for discerning couples",
+      " Elevated the brand from wedding photographers to memory curators",
+      "Attracted emotionally invested, quality-focused couples",
+      "Established a strong reputation for raw, real, and refined storytelling",
+      "Created legacy films and photographs that families cherish for generations",
     ],
-    color: "from-amber-500 to-orange-600",
-    instagramHandle: "@houseofbliss",
+    color: "from-indigo-600 to-purple-600",
+    instagramHandle: "@weme_stories",
   },
+
   {
-    title: "Sneha Banquet Hall",
-    subtitle: "Where Dreams Get Their Spotlight",
+    title: "Classy Captures",
+    subtitle: "The Art of Timeless Wedding Photography",
     description:
-      "Event venues are everywhere, but Sneha Banquet Hall became the place where memories are made. We transformed their marketing from 'we have a nice space' to 'we're where your story gets its perfect setting.' Through content that captures not just the beauty of their venue but the emotion of every celebration, Sneha went from being compared to competitors to being in a category of their own. Now families don't just book them—they specifically ask for 'the Sneha experience.'",
-    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/3.png",
-    tags: ["Instagram"],
-    slug: "sneha-banquet",
+      "Classy Captures always knew that wedding photography is more than documenting moments—it's preserving emotions that deserve to live forever. Winx Marketing Media positioned them as artists of timeless storytelling, not just photographers. Every frame they create reflects elegance, emotion, and the quiet beauty found in real connections. Their work goes beyond visuals; it becomes a legacy for families to treasure. Through intentional digital positioning and refined visual storytelling, we showcased their transformation from talented photographers to curators of unforgettable wedding memories. Today, they don't just book clients—they attract couples who value authenticity, artistry, and depth.",
+    image:
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-09T155103.244.png",
+    tags: ["Instagram", "WordPress"],
+    slug: "classy-captures",
     challenge:
-      "Sneha Banquet Hall was lost in a sea of similar venue options, struggling to communicate their unique value beyond just physical space.",
+      "Classy Captures needed to differentiate from countless wedding photographers by emphasizing their artistic approach and ability to preserve emotions, not just capture images.",
     solution:
-      "Emotional storytelling through Instagram, showcasing real celebrations, behind-the-scenes preparation, and the care that goes into every event, creating 'the Sneha experience' brand.",
+      "Positioned as timeless storytelling artists, created portfolio website and Instagram presence showcasing elegance, emotion, and authentic connections, attracting couples who value depth.",
     results: [
-      "Moved from price competition to value-based bookings",
-      "Created distinct brand identity in crowded market",
-      "80% increase in direct booking inquiries",
-      "Established as the emotional choice for celebrations",
+      "Elevated from photographer to memory curator",
+      "Attracted emotionally-invested, quality-focused couples",
+      "Built reputation for authentic, artistic storytelling",
+      "Created legacy work that families treasure",
     ],
-    color: "from-purple-600 to-pink-600",
-    instagramHandle: "@snehabanquet",
+    color: "from-indigo-600 to-purple-600",
+    instagramHandle: "@classycaptures",
   },
-  {
-    title: "SSSS Catering",
-    subtitle: "Flavoring Success, One Event at a Time",
-    description:
-      "Food is the heart of every celebration, and SSSS Catering Service has always understood that every dish contributes to someone's special story. We helped them share this beautiful philosophy with the world. We positioned them not just as caterers, but as celebration enhancers. Every dish they serve becomes part of someone's cherished memory, someone's perfect day, someone's family gathering that everyone talks about for years. Through content that captures the artistry, passion, and genuine care behind every event, SSSS became known for creating culinary experiences that make celebrations truly memorable.",
-    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/2.png",
-    tags: ["Instagram"],
-    slug: "ssss-catering",
-    challenge:
-      "SSSS Catering needed to differentiate themselves from countless catering services and communicate their philosophy that food creates lasting memories, not just fills stomachs.",
-    solution:
-      "Content strategy focused on the artistry and emotion of food, showcasing preparation processes, ingredient selection, and the joy food brings to celebrations through Instagram storytelling.",
-    results: [
-      "Positioned as memory-makers, not just caterers",
-      "200% increase in premium event bookings",
-      "Strong emotional brand connection with clients",
-      "Repeat bookings from satisfied families",
-    ],
-    color: "from-red-500 to-orange-500",
-    instagramHandle: "@sssscatering",
-  },
-  {
-    title: "Collaborative Senior Care",
-    subtitle: "Rewriting Healthcare's Story",
-    description:
-      "Healthcare marketing is usually about as exciting as watching paint dry, but we changed that narrative completely. We made Collaborative Senior Care feel less like a medical service and more like family. Their transformation wasn't just about getting more clients—it was about changing how people think about senior care. We helped them tell stories that make families feel hopeful instead of worried, confident instead of anxious. Now they're not just a healthcare provider; they're the place where golden years actually feel golden.",
-    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/6.png",
-    tags: ["WordPress"],
-    slug: "collaborative-senior-care",
-    challenge:
-      "Senior care is often approached with anxiety and worry. Collaborative Senior Care needed to change the narrative and make families feel confident and hopeful about their choices.",
-    solution:
-      "Humanized healthcare marketing through storytelling website, focusing on hope, dignity, and quality of life rather than just medical services and facilities.",
-    results: [
-      "Transformed perception of senior care from worry to hope",
-      "Increased family confidence in choosing care",
-      "Positioned as family-first healthcare provider",
-      "Strong emotional connection with community",
-    ],
-    color: "from-teal-500 to-green-600",
-  },
+
   {
     title: "Kahani by Charm Events",
     subtitle: "Luxury Wedding Curators",
@@ -196,48 +161,116 @@ export const caseStudiesData: CaseStudy[] = [
     instagramHandle: "@kahanibycharm",
   },
   {
-    title: "Ceramic Pro – VR Lifestyle",
-    subtitle: "Where Perfection Meets Prestige",
+    title: "House of Bliss",
+    subtitle: "From Unknown to Unmissable",
     description:
-      "Car detailing, when done right, is automotive artistry. VR Lifestyle India understood this from day one—they weren't just maintaining vehicles, they were creating automotive excellence. We positioned them as the luxury lifestyle curators they truly are. Their ceramic protection services represent more than maintenance; they're about preserving automotive perfection for people who appreciate the finer details. Through strategic digital positioning, we showcased their transformation from service provider to luxury experience creator. Now they don't just have clients; they have enthusiasts who won't trust their vehicles to anyone else.",
-    image: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/4.png",
-    tags: ["Instagram"],
-    slug: "ceramic-pro",
+      "Every photographer thinks they're the next big thing, but House of Bliss actually became it. We took their incredible talent and gave it the digital stage it deserved. Their story isn't just about taking pretty pictures—it's about capturing the moments that matter most. We helped them tell that story in a way that makes couples forget about every other photographer in Bengaluru. Now they're not just booking clients; they're creating a waiting list of people who refuse to trust their special day to anyone else.",
+    image:
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/1.png",
+    tags: ["Instagram", "WordPress"],
+    slug: "house-of-bliss",
     challenge:
-      "VR Lifestyle needed to elevate car detailing from maintenance service to luxury lifestyle experience, attracting premium vehicle owners who value perfection.",
+      "House of Bliss had exceptional photography skills but struggled to differentiate themselves in Bengaluru's saturated wedding photography market and attract premium clients.",
     solution:
-      "Positioned as automotive artistry and luxury lifestyle curation, showcasing the precision, care, and excellence that goes into every ceramic protection service through visual storytelling.",
+      "Strategic brand positioning, stunning portfolio website, consistent Instagram presence showcasing their unique storytelling approach, and targeted content that resonates with couples.",
     results: [
-      "Transformed from detailer to luxury curator",
-      "Attracted premium vehicle enthusiasts",
-      "Built loyal community of perfection-seekers",
-      "Established as the only choice for discerning owners",
+      "Transformed into Bengaluru's most sought-after wedding photographers",
+      "Created a 6-month advance booking waitlist",
+      "300% increase in premium package bookings",
+      "Established as the go-to choice for discerning couples",
     ],
-    color: "from-gray-700 to-gray-900",
-    instagramHandle: "@ceramicpro_vrlifestyle",
+    color: "from-amber-500 to-orange-600",
+    instagramHandle: "@houseofbliss",
+  },
+
+  {
+    title: "KLCI",
+    subtitle: "Digging Deep into Digital Excellence",
+    description:
+      "Mining companies have incredible stories to tell about building the future—they just need the right platform to share them. KLCI had the expertise and vision; we gave them the digital presence to match their industry leadership. We created a digital foundation as solid as the work they do. Their new website doesn't just showcase services—it tells the compelling story of a company that's literally building tomorrow from the ground up. Now they don't just extract materials; they build trust, confidence, and lasting partnerships.",
+    image:
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/7.png",
+    tags: ["WordPress"],
+    slug: "klci",
+    challenge:
+      "KLCI needed a digital presence that could match their industry expertise and showcase their capabilities to potential clients and partners in the competitive mining sector.",
+    solution:
+      "We designed and developed a comprehensive website that tells their story effectively, showcases their projects, and positions them as industry leaders with a focus on trust and professionalism.",
+    results: [
+      "Enhanced brand credibility in the mining sector",
+      "Improved client engagement and trust",
+      "Professional platform for business development",
+      "Streamlined presentation of services and expertise",
+    ],
+    color: "from-blue-600 to-purple-600",
+  },
+
+  {
+    title: "Sneha Banquet Hall",
+    subtitle: "Where Dreams Get Their Spotlight",
+    description:
+      "Event venues are everywhere, but Sneha Banquet Hall became the place where memories are made. We transformed their marketing from 'we have a nice space' to 'we're where your story gets its perfect setting.' Through content that captures not just the beauty of their venue but the emotion of every celebration, Sneha went from being compared to competitors to being in a category of their own. Now families don't just book them—they specifically ask for 'the Sneha experience.'",
+    image:
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/3.png",
+    tags: ["Instagram"],
+    slug: "sneha-banquet",
+    challenge:
+      "Sneha Banquet Hall was lost in a sea of similar venue options, struggling to communicate their unique value beyond just physical space.",
+    solution:
+      "Emotional storytelling through Instagram, showcasing real celebrations, behind-the-scenes preparation, and the care that goes into every event, creating 'the Sneha experience' brand.",
+    results: [
+      "Moved from price competition to value-based bookings",
+      "Created distinct brand identity in crowded market",
+      "80% increase in direct booking inquiries",
+      "Established as the emotional choice for celebrations",
+    ],
+    color: "from-purple-600 to-pink-600",
+    instagramHandle: "@snehabanquet",
   },
   {
-    title: "Classy Captures",
-    subtitle: "The Art of Timeless Wedding Photography",
+    title: "SSSS Catering",
+    subtitle: "Flavoring Success, One Event at a Time",
     description:
-      "Classy Captures always knew that wedding photography is more than documenting moments—it's preserving emotions that deserve to live forever. Winx Marketing Media positioned them as artists of timeless storytelling, not just photographers. Every frame they create reflects elegance, emotion, and the quiet beauty found in real connections. Their work goes beyond visuals; it becomes a legacy for families to treasure. Through intentional digital positioning and refined visual storytelling, we showcased their transformation from talented photographers to curators of unforgettable wedding memories. Today, they don't just book clients—they attract couples who value authenticity, artistry, and depth.",
+      "Food is the heart of every celebration, and SSSS Catering Service has always understood that every dish contributes to someone's special story. We helped them share this beautiful philosophy with the world. We positioned them not just as caterers, but as celebration enhancers. Every dish they serve becomes part of someone's cherished memory, someone's perfect day, someone's family gathering that everyone talks about for years. Through content that captures the artistry, passion, and genuine care behind every event, SSSS became known for creating culinary experiences that make celebrations truly memorable.",
     image:
-      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/12/Untitled-design-2025-12-09T155103.244.png",
-    tags: ["Instagram", "WordPress"],
-    slug: "classy-captures",
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/2.png",
+    tags: ["Instagram"],
+    slug: "ssss-catering",
     challenge:
-      "Classy Captures needed to differentiate from countless wedding photographers by emphasizing their artistic approach and ability to preserve emotions, not just capture images.",
+      "SSSS Catering needed to differentiate themselves from countless catering services and communicate their philosophy that food creates lasting memories, not just fills stomachs.",
     solution:
-      "Positioned as timeless storytelling artists, created portfolio website and Instagram presence showcasing elegance, emotion, and authentic connections, attracting couples who value depth.",
+      "Content strategy focused on the artistry and emotion of food, showcasing preparation processes, ingredient selection, and the joy food brings to celebrations through Instagram storytelling.",
     results: [
-      "Elevated from photographer to memory curator",
-      "Attracted emotionally-invested, quality-focused couples",
-      "Built reputation for authentic, artistic storytelling",
-      "Created legacy work that families treasure",
+      "Positioned as memory-makers, not just caterers",
+      "200% increase in premium event bookings",
+      "Strong emotional brand connection with clients",
+      "Repeat bookings from satisfied families",
     ],
-    color: "from-indigo-600 to-purple-600",
-    instagramHandle: "@classycaptures",
+    color: "from-red-500 to-orange-500",
+    instagramHandle: "@sssscatering",
   },
+  {
+    title: "Collaborative Senior Care",
+    subtitle: "Rewriting Healthcare's Story",
+    description:
+      "Healthcare marketing is usually about as exciting as watching paint dry, but we changed that narrative completely. We made Collaborative Senior Care feel less like a medical service and more like family. Their transformation wasn't just about getting more clients—it was about changing how people think about senior care. We helped them tell stories that make families feel hopeful instead of worried, confident instead of anxious. Now they're not just a healthcare provider; they're the place where golden years actually feel golden.",
+    image:
+      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/6.png",
+    tags: ["WordPress"],
+    slug: "collaborative-senior-care",
+    challenge:
+      "Senior care is often approached with anxiety and worry. Collaborative Senior Care needed to change the narrative and make families feel confident and hopeful about their choices.",
+    solution:
+      "Humanized healthcare marketing through storytelling website, focusing on hope, dignity, and quality of life rather than just medical services and facilities.",
+    results: [
+      "Transformed perception of senior care from worry to hope",
+      "Increased family confidence in choosing care",
+      "Positioned as family-first healthcare provider",
+      "Strong emotional connection with community",
+    ],
+    color: "from-teal-500 to-green-600",
+  },
+
   {
     title: "Glass Gallery",
     subtitle: "South India's Premium Glass Brand",

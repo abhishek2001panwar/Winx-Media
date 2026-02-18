@@ -41,7 +41,7 @@ export function InsightsSection() {
   ]
 
   return (
-    <section className="relative min-h-[600px] flex flex-col items-center justify-center py-32 overflow-hidden px-4">
+    <section className="  flex flex-col items-center justify-center md:py-16 px-4">
       <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 font-serif">FAQ</h2>
       
       {/* Desktop View - Floating Cards */}

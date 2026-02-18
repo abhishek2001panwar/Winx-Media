@@ -128,17 +128,17 @@ function BlogGrid({ onSelect }) {
   for (let i = 0; i < BLOGS.length; i += 2) rows.push(BLOGS.slice(i, i + 2));
 
   return (
-    <div style={{ minHeight: "100vh", background: "#fff", paddingTop: 64 }}>
+    <div className="bg-background" style={{ minHeight: "", background: "", paddingTop: 1 }}>
       {/* YOUR Navbar drops in here */}
       <Navbar />
 
       {/* ── Heading ── */}
-      <div className="font-serif" style={{ textAlign: "center", padding: "72px 20px 48px" }}>
-        <p className="" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase", color: "rgba(0,0,0,0.32)", marginBottom: 16 }}>
+      <div className="font-serif" style={{ textAlign: "center", padding: "32px 20px 32px" }}>
+        <p className="" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase", color: "rgba(0,0,0,0.32)", marginBottom: 10 }}>
           Insights & Strategy
         </p>
-        <h1  className="text-3xl" style={{
-          fontSize: "clamp(38px,5.5vw,58px)", fontWeight: 800, lineHeight: 1.1,
+        <h1  className="text-3xl font-light" style={{
+          fontSize: "clamp(38px,5.5vw,58px)", fontWeight: 300, lineHeight: 1.1,
           background: "linear-gradient(135deg, #181f7c, #a34fdc)",
           WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent"
         }}>Our Blogs</h1>

@@ -20,7 +20,7 @@ function AboutPage() {
       content: "It started with a simple observation: most businesses are absolutely incredible at what they do, but many haven't discovered their unique voice in the digital world yet.",
       highlight: "That's the gap we love to bridge.",
       detail: "We've all seen it. You know a local business that creates amazing products or delivers exceptional service, but their online presence doesn't quite capture that magic. Meanwhile, you see other brands that have mastered the art of storytelling, they've figured out how to connect with their audience in ways that feel authentic and engaging.",
-      extraDetail: "WinX Media isn't just another digital marketing agency—we're the storytellers who help your business become the protagonist of its own success story. We're the ones who uncover what makes your brand special, then make sure the world gets to experience that magic too. Because every great business has a story worth telling. Sometimes it just needs the right storyteller to bring it to life."
+      extraDetail: "WinX Media isn't just another digital marketing agency-we're the storytellers who help your business become the protagonist of its own success story. We're the ones who uncover what makes your brand special, then make sure the world gets to experience that magic too. Because every great business has a story worth telling. Sometimes it just needs the right storyteller to bring it to life."
     },
     {
       title: "The WinX Founders",
@@ -108,9 +108,9 @@ function AboutPage() {
         ))}
 
         {/* Hero Story Introduction */}
-        <section className="min-h-screen flex items-center justify-center relative">
+        <section className="relative  m-0 flex items-center justify-center p-20  mt-0 md:mt-12">
           <motion.div 
-            className="text-center space-y-12 px-6"
+            className="text-center space-y-2 px-2"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
@@ -147,8 +147,6 @@ function AboutPage() {
               transition={{ delay: 1.5, duration: 1 }}
             >
               <div className="w-12 h-0.5 bg-gradient-to-r from-[#181f7c] to-[#a34fdc]"></div>
-              <span className="text-lg text-gray-500">Scroll to explore</span>
-              <div className="w-12 h-0.5 bg-gradient-to-r from-[#a34fdc] to-[#181f7c]"></div>
             </motion.div>
           </motion.div>
           
@@ -170,11 +168,11 @@ function AboutPage() {
         {storyPoints.map((story, index) => (
           <section 
             key={index} 
-            className="min-h-screen flex items-center justify-center px-6 relative"
+            className="relative px-2 m-0 p-0 my-8 md:my-12 lg:my-16"
           >
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-6xl mx-auto m-0 p-0">
               <motion.div
-                className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-2 items-start m-0 p-0"
                 initial={{ opacity: 0, y: 100 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.3 }}
@@ -337,14 +335,23 @@ function AboutPage() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.3, duration: 0.8 }}
                 >
-                  <div className="relative w-full max-w-md h-80  rounded-3xl flex items-center justify-center overflow-hidden group">
-                    
-                     <img
-                        className='overflow-hidden rounded-2xl'
-                     
-                     src="https://media.winxmarketingmedia.in/wp-content/uploads/2025/06/pexels-photo-445109-445109-1536x964.jpg" alt="" />
-                    
-                    
+                  <div className="relative w-full max-w-md h-80 rounded-3xl flex items-center justify-center overflow-hidden group bg-gradient-to-br from-blue-50 to-purple-100">
+                    {/* Animated Paper Plane */}
+                    <motion.svg
+                      width="120"
+                      height="120"
+                      viewBox="0 0 120 120"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                      initial={{ x: -60, y: 40, rotate: -10 }}
+                      animate={{ x: [ -60, 60, -60 ], y: [40, -30, 40], rotate: [-10, 10, -10] }}
+                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <polygon points="10,60 110,60 60,10" fill="#a34fdc" stroke="#181f7c" strokeWidth="4" />
+                      <polygon points="60,10 60,110 10,60" fill="#fff" stroke="#181f7c" strokeWidth="2" />
+                      <polygon points="60,10 60,110 110,60" fill="#e0d7fa" stroke="#181f7c" strokeWidth="2" />
+                    </motion.svg>
                     <motion.div
                       className="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-xl"
                       animate={{ y: [0, -10, 0] }}
@@ -362,7 +369,7 @@ function AboutPage() {
         ))}
 
         {/* Call to Action */}
-        <section className="min-h-screen flex items-center justify-center relative px-6">
+        <section className="">
           <motion.div 
             className="text-center space-y-16 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 100 }}

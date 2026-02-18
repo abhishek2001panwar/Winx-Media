@@ -47,18 +47,22 @@ export function FooterSection() {
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 2000);
   };
+
+  const bg = "bg-gradient-to-tr from-purple-300 via-purple-200 to-lime-200 opacity-40 blur-3xl rounded-full "
+  const reverse = "bg-gradient-to-tr from-lime-200 via-purple-200 to-purple-300 opacity-40 blur-3xl rounded-full "
+
  
 
   return (
     <>
 <footer
-  className={`relative bg-background px-6 py-24 overflow-hidden transition-all duration-300 ${
+  className={`relative  px-6 py-24 overflow-hidden transition-all duration-300 ${
     submitted ? "blur-sm" : ""
   }`}
 >
       {/* Gradient blob */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-tr from-purple-300 via-purple-200 to-lime-200 opacity-40 blur-3xl rounded-full" />
+        <div className={`absolute inset-0 ${bg} opacity-40 blur-3xl rounded-full`} />
       </div>
 
       <div className="relative max-w-6xl mx-auto">

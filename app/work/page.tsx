@@ -15,46 +15,64 @@ const videos = [
 ];
 
 const instagramReels = [
+   { 
+    url: "https://www.instagram.com/reel/DTxdZKhDLt9/?igsh=NWJweXUwZnVsYTcy",
+    thumbnail: "/viral8.png",
+    label: "Pure Joy"
+  },
+  {
+    url: "https://www.instagram.com/reel/DTsT0AAASfe/?igsh=ZHNnMzRyMWFqMDdy",
+    thumbnail: "/viral9.png",
+    label: "Love Stories"
+  },
   { 
     url: "https://www.instagram.com/reel/C8MyL9Vycq0/?igsh=NTFhdnh1M3kzc2dh",
-    thumbnail: "https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80",
+    thumbnail: "/viral1.png",
     label: "Wedding Magic"
   },
   { 
     url: "https://www.instagram.com/reel/DUF4IQdkmA9/?igsh=cnBqNWpkNjhybnp3",
-    thumbnail: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=600&q=80",
+    thumbnail: "/viral2.png",
     label: "Love Stories"
   },
   { 
     url: "https://www.instagram.com/reel/DRkTdtkkneK/?igsh=MWwzNm1mbWQxbmw2bQ==",
-    thumbnail: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=80",
+    thumbnail: "/viral3.png",
     label: "Perfect Moments"
   },
   { 
     url: "https://www.instagram.com/reel/DQ1rK-8EgPM/?igsh=MXNqM2hsaDhtbzEwZA==",
-    thumbnail: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=600&q=80",
+    thumbnail: "/viral4.png",
     label: "Celebration"
   },
   { 
     url: "https://www.instagram.com/reel/DS2y8Z2iBmZ/?igsh=N2hsYWcxb2RmenZv",
-    thumbnail: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=600&q=80",
+    thumbnail: "/viral5.png",
     label: "Dream Wedding"
   },
   { 
     url: "https://www.instagram.com/reel/DRwvQ6mEohC/?igsh=MTg3djBqMmoxempxNw==",
-    thumbnail: "https://images.unsplash.com/photo-1529634806980-85c3dd6d3815?w=600&q=80",
+    thumbnail: "/viral6.png",
     label: "Forever Memories"
   },
   { 
     url: "https://www.instagram.com/reel/DSfD8J7Emxk/?igsh=MWxzd3h0N2g2ZGFlcA==",
-    thumbnail: "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=600&q=80",
+    thumbnail: "/viral7.png",
     label: "Special Day"
   },
-  { 
-    url: "https://www.instagram.com/reel/DTxdZKhDLt9/?igsh=NWJweXUwZnVsYTcy",
-    thumbnail: "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=600&q=80",
-    label: "Pure Joy"
+    {
+    thumbnail: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/1-1.png",
+    likes: 10096,
+    reach: 624752,
+    url: "https://www.instagram.com/reel/DLfWiqIzMWX/?igsh=MXM2ejFoZjAza3dpag=="
   },
+  {
+    thumbnail: "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/2-1.png",
+    likes: 15775,
+    reach: 430000,
+    url: "https://www.instagram.com/reel/DLkfwFHzosj/?igsh=MWkwMHVqcXM5aG91Yw=="
+  },
+ 
 ];
 
 export default function WorkPage() {
@@ -85,7 +103,7 @@ export default function WorkPage() {
       {/* First Section - Video Carousel */}
       <div className="flex flex-col items-center justify-end min-h-[90vh] pb-4">
         <h2 className="mb-6 text-4xl md:text-5xl font-serif font-bold text-center drop-shadow-lg bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent pb-3">
-          Our Work <br />Making Brands Unmissable
+          Our Work <br />Stories People Notice
         </h2>
         <div className="relative w-full flex justify-center p-3" style={{ perspective: 1600, height: 400 }}>
           {videos.map((video, idx) => {
@@ -94,21 +112,20 @@ export default function WorkPage() {
             const rotateY = offset * -40;
             const scale = idx === active ? 1 : 0.85;
             const zIndex = 100 - Math.abs(offset);
-
             return (
               <div
                 key={idx}
                 className="absolute bottom-0 left-1/2 group"
                 style={{
                   width: 260,
-                  height: 380,
+                  height: 400,
                   transform: `
                     translateX(-50%)
                     translateX(${translateX}px)
                     scale(${scale})
                     rotateY(${rotateY}deg)
                   `,
-                  transition: 'transform 0.7s cubic-bezier(.4,2,.6,1)',
+                  transition: 'transform 1.4s cubic-bezier(.4,2,.6,1)',
                   zIndex,
                   boxShadow: idx === active
                     ? '0 8px 32px 0 rgba(108,99,255,0.25)'
@@ -162,7 +179,7 @@ export default function WorkPage() {
       </div>
 
       {/* Second Section - Instagram Reels Grid */}
-      <section className="relative py-16 px-6 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+      <section className="relative py-8 px-6 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 pointer-events-none opacity-5">
           <div className="absolute top-20 left-10 w-72 h-72 bg-black rounded-full blur-[120px]" />
@@ -185,7 +202,7 @@ export default function WorkPage() {
               <span className="text-sm font-bold tracking-widest uppercase text-gray-700">Instagram Showcase</span>
             </div>
             
-            <h2 className="text-5xl md:text-7xl font-black font-serif mb-6 leading-tight">
+            <h2 className="text-5xl md:text-7xl font-black font-serif mb- leading-tight">
               <span className="bg-gradient-to-r from-gray-900 via-black to-gray-700 bg-clip-text text-transparent">
                 Viral Reels,
                 <br />
@@ -204,7 +221,6 @@ export default function WorkPage() {
               // Create varied sizes for bento grid effect
               const isLarge = idx === 0 || idx === 4;
               const isTall = idx === 2 || idx === 5;
-              
               return (
                 <motion.a
                   key={idx}
@@ -226,16 +242,12 @@ export default function WorkPage() {
                     aspectRatio: isLarge ? '16/9' : isTall ? '9/16' : '1/1',
                   }}
                 >
-                  {/* Thumbnail */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black">
-                    <div 
-                      className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-                      style={{ backgroundImage: `url(${reel.thumbnail})` }}
-                    />
-                    
-                    {/* Overlay gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                  </div>
+                  {/* Instagram Reel Thumbnail */}
+                  <img
+                    src={reel.thumbnail}
+                    alt={reel.label}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 overflow-hidden"
+                  />
 
                   {/* Instagram icon - top right */}
                   <motion.div
@@ -275,7 +287,6 @@ export default function WorkPage() {
                       }}
                       transition={{ duration: 0.3 }}
                     >
-                      <p className="text-white font-bold text-lg mb-2">{reel.label}</p>
                       <div className="flex items-center gap-2 text-white/80 text-sm">
                         <span>View on Instagram</span>
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">

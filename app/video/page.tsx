@@ -198,9 +198,9 @@ function VideoPage() {
       <Navbar />
       <main className="max-w-7xl mx-auto px-4 py-32 relative z-10">
         {/* Header Section */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-5 pt-5">
           <motion.p
-            className="text-gray-600 text-sm font-bold tracking-[0.3em] uppercase mb-6"
+            className="text-gray-600 text-sm font-bold tracking-[0.3em] uppercase mb-3"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -208,7 +208,7 @@ function VideoPage() {
             Video Showcase
           </motion.p>
 
-          <div className="max-w-5xl mx-auto relative mb-8">
+          <div className="max-w-5xl mx-auto relative">
             {/* Background text */}
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-tight text-center text-black font-serif">
               Stories That

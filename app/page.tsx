@@ -17,6 +17,8 @@ import { ManifestoSection } from "@/components/sections/manifesto-section";
 import TeamPage from "@/components/sections/team";
 import App from "./blog/page";
 import Carousel from "./carousel/page";
+import { Heronew } from "@/components/sections/heronew";
+import Analytic from "@/components/sections/analytic";
 
 export default function Home() {
   useEffect(() => {
@@ -67,12 +69,15 @@ export default function Home() {
         <CustomCursor />
         <Navbar />
 
-        <main className="custom-cursor bg-background">
+        <main className="custom-cursor bg-background ">
           <section id="home">
-            <HeroSection />
+            <Heronew />
           </section>
-          <section id="strategy">
+          {/* <section id="strategy">
             <Strategy />
+          </section> */}
+          <section id="analysis">
+            <Analytic />
           </section>
 
           <section id="features">

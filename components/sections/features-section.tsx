@@ -368,6 +368,58 @@ function StrategyAnimation() {
   )
 }
 
+// Production & Ad Shoot - Camera flash animation
+function ProductionAdShootAnimation() {
+  const [flash, setFlash] = useState(false)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFlash(true)
+      setTimeout(() => setFlash(false), 250)
+    }, 2200)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="flex flex-col items-center justify-center h-full relative">
+      <motion.div
+        className="relative"
+        initial={false}
+        animate={{ scale: flash ? 1.15 : 1, rotate: flash ? [0, 2, -2, 0] : 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        {/* Camera body */}
+        <div className="w-16 h-10 bg-gray-800 rounded-lg flex items-end justify-center relative shadow-lg">
+          {/* Lens */}
+          <div className="w-7 h-7 bg-gradient-to-br from-blue-400 to-blue-700 rounded-full border-4 border-blue-200 absolute left-1/2 -translate-x-1/2 bottom-1"></div>
+          {/* Flash */}
+          <motion.div
+            className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-3 rounded-t-lg"
+            style={{ background: flash ? 'radial-gradient(circle, #fff 60%, #fef08a 100%)' : '#fef08a' }}
+            animate={{ opacity: flash ? [0.2, 1, 0.2] : 0.5 }}
+            transition={{ duration: 0.25 }}
+          />
+        </div>
+        {/* Film strip */}
+        <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 flex gap-1">
+          {[...Array(5)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="w-3 h-4 bg-gray-400 rounded-sm"
+              animate={{
+                y: flash ? [-2, 2, -2] : 0,
+                backgroundColor: flash ? '#fef08a' : '#a3a3a3',
+              }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
+            />
+          ))}
+        </div>
+      </motion.div>
+      <span className="mt-7 text-xl  text-gray-500 font-bold">Lights, Camera, Action!</span>
+    </div>
+  )
+}
+
 const services = [
   {
     title: 'Social Media Marketing',
@@ -411,6 +463,13 @@ const services = [
     icon: TbBrandGoogleAnalytics,
     animation: StrategyAnimation,
   },
+  {
+    title: 'Production & Ad shoot',
+    description: 'High-quality content production for impactful campaigns',
+    icon: TbBrandGoogleAnalytics,
+    animation: ProductionAdShootAnimation,
+  }
+  
 ]
 
 function ServiceCard({ service, index }: { service: typeof services[0], index: number }) {
@@ -428,7 +487,7 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
       whileTap={{ scale: 0.96 }}
     >
       {/* Card Container */}
-      <div className="relative h-full bg-gray-50 rounded-2xl p-8 transition-all duration-500 hover:bg-white hover:shadow-xl min-h-[320px] flex flex-col">
+      <div className="relative h-full bg-gray-50 border rounded-2xl p-8 transition-all duration-500 hover:bg-white hover:shadow-xl min-h-[320px] flex flex-col">
         
         {/* Animation Area */}
         <div className="flex-1 mb-6">
@@ -458,26 +517,26 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
 
 export function FeaturesSection() {
   return (
-    <section className="bg-white px-6 py-24 font-serif">
+    <section className="bg-background px-6 md:py-2 font-serif">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div 
-          className="mb-16"
+          className="mb-10"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-gray-500 text-sm uppercase tracking-widest mb-4">
+          <p className="text-gray-500 text-sm uppercase tracking-widest mb-2">
             What We Offer
           </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-black">
             Our Services
           </h2>
         </motion.div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => (
             <ServiceCard key={service.title} service={service} index={index} />
           ))}

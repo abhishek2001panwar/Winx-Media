@@ -3,7 +3,7 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import Link from "next/link";
 import { FaInstagram, FaWordpress } from "react-icons/fa";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { caseStudiesData } from "@/lib/caseStudiesData";
 
 const tagIcons = {
@@ -52,8 +52,7 @@ const ProjectCard = ({
     setExplorePos({ x: 50, y: 80 });
   };
 
-  // Calculate blur and dim based on hover state
-  const shouldBlur = isAnyHovered && !isThisHovered;
+  // Blur/dim effect removed
 
   return (
     <Link href={`/carousel/${item.slug}`} className="block">
@@ -61,7 +60,7 @@ const ProjectCard = ({
 
       <motion.div
         ref={cardRef}
-        className="w-[360px] md:w-[420px] flex-shrink-0 group cursor-pointer relative"
+        className="w-[360px] md:w-[420px] md:p-5 flex-shrink-0 group cursor-pointer relative"
         onMouseMove={handleMouseMove}
         onMouseEnter={() => onHoverChange(true)}
         onMouseLeave={handleMouseLeave}
@@ -71,13 +70,13 @@ const ProjectCard = ({
           transformStyle: "preserve-3d",
         }}
         animate={{
-          scale: isThisHovered ? 1.08 : shouldBlur ? 0.95 : 1,
-          filter: shouldBlur ? "blur(4px) brightness(0.6)" : "blur(0px) brightness(1)",
-          opacity: shouldBlur ? 0.5 : 1,
+          scale: isThisHovered ? 1.08 : 1,
+          filter: "none",
+          opacity: 1,
         }}
         transition={{ duration: 0.3 }}
       >
-        <div className="relative overflow-hidden rounded-2xl mb-6">
+        <div className="relative overflow-hidden rounded-2xl mb-6 ">
           {/* Animated gradient border - only shows on hover */}
           <motion.div
             className="absolute inset-0 rounded-2xl p-[2px] z-0"
@@ -297,6 +296,54 @@ const ProjectCard = ({
 
 export default function Carousel() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+    const carouselRef = useRef<HTMLDivElement>(null);
+    const progressBarRef = useRef<HTMLDivElement>(null);
+
+    // Move progress indicator with carousel scroll
+    const [progress, setProgress] = useState(0);
+
+    // Sync progress bar indicator with carousel scroll
+    const handleCarouselScroll = () => {
+      const carousel = carouselRef.current;
+      if (!carousel) return;
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      setProgress(maxScroll > 0 ? carousel.scrollLeft / maxScroll : 0);
+    };
+
+    useEffect(() => {
+      const carousel = carouselRef.current;
+      if (!carousel) return;
+      carousel.addEventListener('scroll', handleCarouselScroll);
+      handleCarouselScroll();
+      return () => carousel.removeEventListener('scroll', handleCarouselScroll);
+    }, []);
+
+    // Drag handler for progress bar to scroll carousel
+    const handleProgressBarDrag = (e: React.MouseEvent | React.TouchEvent) => {
+      e.preventDefault();
+      const bar = progressBarRef.current;
+      const carousel = carouselRef.current;
+      if (!bar || !carousel) return;
+
+      const getX = (ev: any) => (ev.touches ? ev.touches[0].clientX : ev.clientX);
+      let startX = getX(e);
+      let startScroll = carousel.scrollLeft;
+
+      const onMove = (ev: any) => {
+        const dx = getX(ev) - startX;
+        carousel.scrollLeft = startScroll + dx * 2; // Adjust multiplier for sensitivity
+      };
+      const onUp = () => {
+        window.removeEventListener('mousemove', onMove);
+        window.removeEventListener('touchmove', onMove);
+        window.removeEventListener('mouseup', onUp);
+        window.removeEventListener('touchend', onUp);
+      };
+      window.addEventListener('mousemove', onMove);
+      window.addEventListener('touchmove', onMove);
+      window.addEventListener('mouseup', onUp);
+      window.addEventListener('touchend', onUp);
+    };
   
   // duplicate for seamless scroll
   const items = [...caseStudiesData, ...caseStudiesData ];
@@ -310,7 +357,7 @@ export default function Carousel() {
   ];
 
   return (
-    <section className="relative py-32 overflow-hidden">
+    <section className="relative pt-4 sm:pt-6 md:pt-8 lg:pt-10 overflow-hidden">
       {/* Animated Gradient Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#181f7c] to-[#a34fdc]">
         <motion.div
@@ -384,11 +431,11 @@ export default function Carousel() {
       {/* Content */}
       <div className="relative z-10">
         {/* Section Heading */}
-        <div className="max-w-7xl mx-auto px-6 mb-16">
+        <div className="max-w-7xl mx-auto px-6 mb-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <motion.p
-                className="text-white/80 text-sm font-bold tracking-[0.3em] uppercase mb-4"
+                className="text-white/80 text-sm font-light tracking-[0.3em] uppercase mb-4"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -397,7 +444,7 @@ export default function Carousel() {
               </motion.p>
               
               <motion.h2
-                className="text-5xl font-serif md:text-7xl font-black text-white"
+                className="text-5xl font-serif md:text-7xl font-light text-white"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -439,24 +486,20 @@ export default function Carousel() {
               <motion.span 
                 className="absolute inset-0 rounded-full bg-white/20"
                 initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.3 }}
+                whileHover={{ scale: 0.2, opacity: 1 }}
+                transition={{ duration: 0.1 }}
               />
             </motion.button>
           </div>
         </div>
 
         {/* Carousel */}
-        <motion.div
-          className="flex gap-8 px-6"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            duration: 60,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+        <div
+          className="flex gap-8 px-6 overflow-x-auto mt-6 mb-8 carousel-scroll-hide"
+          style={{ WebkitOverflowScrolling: 'touch', cursor: 'grab' }}
+          ref={carouselRef}
         >
-          {items.map((item, i) => (
+          {caseStudiesData.map((item, i) => (
             <ProjectCard 
               key={i} 
               item={item} 
@@ -466,23 +509,27 @@ export default function Carousel() {
               onHoverChange={(hovered) => setHoveredIndex(hovered ? i : null)}
             />
           ))}
-        </motion.div>
+        </div>
 
-        {/* Progress Bar with enhanced styling */}
-        <div className="max-w-7xl mx-auto px-6 mt-16">
-          <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm">
-            <motion.div
-              className="h-full bg-gradient-to-r from-white via-white/80 to-white rounded-full shadow-lg"
-              animate={{
-                x: ['-100%', '100%'],
-              }}
-              transition={{
-                duration: 60,
-                repeat: Infinity,
-                ease: 'linear',
-              }}
-              style={{ width: '40%' }}
-            />
+        {/* Progress Bar with horizontal scroll */}
+        {/* Draggable Progress Bar that scrolls the carousel */}
+        <div className="max-w-5xl mx-auto px-6 mb-8 select-none mt-20">
+          <div
+            className="w-full cursor-ew-resize"
+            ref={progressBarRef}
+            onMouseDown={handleProgressBarDrag}
+            onTouchStart={handleProgressBarDrag}
+          >
+            <div className="h-2 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm min-w-[600px] w-[120vw] relative">
+              <div
+                className="h-full bg-gradient-to-r from-white via-white/80 to-white rounded-full shadow-lg absolute left-0 top-0"
+                style={{
+                  width: '40%',
+                  transform: `translateX(${progress * 60}%)`, // 60% = 100%-40%
+                  transition: 'transform 0.2s',
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

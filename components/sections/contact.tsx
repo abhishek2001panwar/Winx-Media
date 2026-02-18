@@ -123,11 +123,13 @@ const ContactSection: React.FC = () => {
     <>
   <section
   ref={containerRef}
-  className={`relative min-h-screen bg-white py-24 overflow-hidden transition-all duration-300 ${
+  className={`relative min-h-screen bg-white py-10 overflow-hidden transition-all duration-300 ${
     submitted ? 'blur-sm' : ''
   }`}
 >
-      {/* Minimal Decorative Elements */}
+   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-tr from-purple-300 via-purple-200 to-lime-200 opacity-40 blur-3xl" />
+      </div>
       <motion.div
         style={{ y }}
         className="absolute top-40 right-20 w-96 h-96 bg-gray-100 rounded-full blur-3xl opacity-50"
@@ -141,6 +143,7 @@ const ContactSection: React.FC = () => {
         {/* Header Section */}
         <motion.div
           className="text-center max-w-4xl mx-auto mb-20 font-serif"
+            className="text-center max-w-4xl mx-auto mb-6 font-serif"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
