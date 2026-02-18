@@ -22,7 +22,7 @@
   font-style: normal;
   font-display: swap;
 }
-  
+
 @font-face {
   font-family: 'SF Pro Display';
   src: url('/fonts/SF-Pro-Display-Medium.ttf') format('truetype');
@@ -39,6 +39,10 @@
   font-display: swap;
 }
 
+body {
+  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+               'Segoe UI', Arial, sans-serif;
+}
 
 /* Force crisp image rendering */
 img {
