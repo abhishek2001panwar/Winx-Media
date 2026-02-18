@@ -30,7 +30,7 @@ export const metadata: Metadata = {
       },
       {
         url: "/fav.jpeg",
-        type: "image/svg+xml",
+        type: "image/jpeg",
       },
     ],
     apple: "/fav.jpeg",
