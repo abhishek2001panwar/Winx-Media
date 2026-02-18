@@ -18,9 +18,10 @@ export const metadata: Metadata = {
   description:
     "WinX Media is a full-service digital marketing agency that crafts compelling brand stories and drives measurable growth through innovative strategies and creative solutions.",
   generator: "",
- icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+    shortcut: "/icon.png",
   },
 
 }
