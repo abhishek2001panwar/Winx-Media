@@ -14,26 +14,14 @@ const _instrumentSerif = Instrument_Serif({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.winxmarketingmedia.in/"), // IMPORTANT
   title: "winxmarketingmedia - Digital Marketing Agency",
   description:
     "WinX Media is a full-service digital marketing agency that crafts compelling brand stories and drives measurable growth through innovative strategies and creative solutions.",
   generator: "",
-  icons: {
-    icon: [
-      {
-        url: "/fav.jpeg",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/fav.jpeg",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/fav.jpeg",
-        type: "image/jpeg",
-      },
-    ],
-    apple: "/fav.jpeg",
+ icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
 }
 
