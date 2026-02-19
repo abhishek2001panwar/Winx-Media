@@ -58,6 +58,19 @@ const posts = [
     icon: "instagram",
     link: "https://www.instagram.com/houseofbliss.in/"
   },
+  {
+    image: "/wemeinsta.jpeg",
+    text: "Instagram Look for WeMe Stories",
+    icon: "instagram",
+    link: "https://www.instagram.com/weme_stories?igsh=enN2NDFlYm0wYmN3"
+  },
+  {
+    image: "/avoco.jpeg",
+    text: "Instagram Look for AvocaWhitefieldBangalore",
+    icon: "instagram",
+    link: "https://www.instagram.com/avocawhitefield.bangalore?igsh=aGh5ZGliZzdiZGVr"
+  },
+
 ];
 
 function SocialCard({ post, idx }: { post: typeof posts[0]; idx: number }) {

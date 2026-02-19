@@ -102,6 +102,12 @@ const posts = [
     likes: 103829,
     reach: 13300000,
     link: "https://www.instagram.com/reel/DGI0v8cSy55/?igsh=MWd0bXoweHMxMnpobg=="
+  },
+  {
+    image: "/viral10.png",
+    likes: 4300,
+    reach: 1330000,
+    link: "https://www.instagram.com/reel/DRCkXbxExA2/?igsh=MW9vMWhhMXhjaXhwYQ=="
   }
 ];
 
