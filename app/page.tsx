@@ -1,5 +1,9 @@
 "use client";
-
+export const metadata = {
+  title: "Winx Marketing Media | Digital Marketing Agency",
+  description:
+    "Winx Marketing Media is a full-service digital marketing agency helping brands grow through strategy, design, and performance marketing.",
+};
 import { LenisProvider } from "@/components/lenis-provider";
 import { CustomCursor } from "@/components/custom-cursor";
 import { HeroSection } from "@/components/sections/hero-section";
@@ -52,7 +56,11 @@ export default function Home() {
 
         if (scrollPosition >= top && scrollPosition < bottom) {
           if (window.location.hash !== `#${id}`) {
-            window.history.replaceState({}, "", `#${id}`);
+            window.history.replaceState(
+              null,
+              "",
+              window.location.pathname + window.location.search,
+            );
           }
           break;
         }
@@ -70,6 +78,7 @@ export default function Home() {
         <Navbar />
 
         <main className="custom-cursor bg-background ">
+          <h1 className="sr-only">Winx Marketing Media</h1>
           <section id="home">
             <Heronew />
           </section>
@@ -104,7 +113,7 @@ export default function Home() {
             <TeamPage />
           </section>
           <section id="blog">
-            <App/>
+            <App />
           </section>
 
           <section id="insights">
