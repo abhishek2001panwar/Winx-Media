@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury Work Section</title>
+
+<!-- GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #000;
+  font-family: 'Jost', sans-serif;
+  color: #fff;
+}
+
+.work-section {
+  max-width: 1280px;
+  margin: auto;
+  padding: 120px 20px;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+@media (max-width: 768px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CARD BASE */
+.work-card {
+  position: relative;
+  height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000;
+  transform: translateX(-60px);
+  opacity: 0;
+}
+
+/* VIDEO */
+.work-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* IMAGE WRAPPER */
+.work-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.08);
+  filter: blur(2px) brightness(0.85);
+  transition: transform 1.2s ease, filter 1.2s ease;
+}
+
+/* IMAGE HOVER ENHANCE */
+.work-card:hover .work-image {
+  transform: scale(1);
+  filter: blur(0px) brightness(1);
+}
+
+/* OVERLAY */
+.work-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.92),
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0)
+  );
+  display: flex;
+  align-items: flex-end;
+  padding: 32px;
+  transform: translateY(100%);
+}
+
+/* TEXT */
+.work-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.9rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.work-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ddd;
+  max-width: 90%;
+}
+</style>
+</head>
+
+<body>
+
+<section class="work-section">
+  <div class="work-grid">
+
+    <!-- VIDEO CARD -->
+    <div class="work-card">
+      <video autoplay muted loop playsinline>
+        <source src="https://ambariweddings.com/wp-content/uploads/2026/02/Ambari-Weddings-Posts-27.mp4" type="video/mp4">
+      </video>
+      <div class="work-overlay">
+        <div>
+          <div class="work-title">Heritage-Rooted Innovation</div>
+          <div class="work-desc">
+            Tradition and modern vision merge to create timeless wedding experiences.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMAGE CARD -->
+    <div class="work-card">
+      <div class="work-image"
+           style="background-image:url('https://images.unsplash.com/photo-1529634896419-6a2f10a9fbb5');">
+      </div>
+      <div class="work-overlay">
+        <div>
+          <div class="work-title">Artisanal Excellence</div>
+          <div class="work-desc">
+            Every element is handcrafted in-house, ensuring depth, detail, and authenticity.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMAGE CARD -->
+    <div class="work-card">
+      <div class="work-image"
+           style="background-image:url('https://images.unsplash.com/photo-1530023367847-a683933f4172');">
+      </div>
+      <div class="work-overlay">
+        <div>
+          <div class="work-title">Personalized Storytelling</div>
+          <div class="work-desc">
+            Your journey becomes our design language — emotional, intentional, unforgettable.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEO CARD -->
+    <div class="work-card">
+      <video autoplay muted loop playsinline>
+        <source src="https://ambariweddings.com/wp-content/uploads/2026/02/Video-16.mp4" type="video/mp4">
+      </video>
+      <div class="work-overlay">
+        <div>
+          <div class="work-title">Seamless Orchestration</div>
+          <div class="work-desc">
+            We handle every detail so you can be fully present on your day.
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+document.querySelectorAll('.work-card').forEach(card => {
+  const overlay = card.querySelector('.work-overlay');
+
+  gsap.set(overlay, { y: "100%" });
+
+  card.addEventListener('mouseenter', () => {
+    gsap.to(overlay, {
+      y: "0%",
+      duration: 0.7,
+      ease: "power4.out"
+    });
+  });
+
+  card.addEventListener('mouseleave', () => {
+    gsap.to(overlay, {
+      y: "100%",
+      duration: 0.6,
+      ease: "power4.in"
+    });
+  });
+
+  gsap.to(card, {
+    x: 0,
+    opacity: 1,
+    duration: 1.2,
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: card,
+      start: "top 85%",
+      toggleActions: "play none none none"
+    }
+  });
+});
+</script>
+
+</body>
+</html>

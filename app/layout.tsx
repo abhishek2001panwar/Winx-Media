@@ -23,11 +23,8 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://winxmarketingmedia.in/",
   },
-  icons: {
-    icon: "/icon-v2.png",
-    apple: "/apple-icon-v2.png",
-    shortcut: "/icon-v2.png",
-  },
+ 
+   
 };
 
 export default function RootLayout({
