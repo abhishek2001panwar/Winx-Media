@@ -1,9 +1,5 @@
 "use client";
-export const metadata = {
-  title: "Winx Marketing Media | Digital Marketing Agency",
-  description:
-    "Winx Marketing Media is a full-service digital marketing agency helping brands grow through strategy, design, and performance marketing.",
-};
+
 import { LenisProvider } from "@/components/lenis-provider";
 import { CustomCursor } from "@/components/custom-cursor";
 import { HeroSection } from "@/components/sections/hero-section";
