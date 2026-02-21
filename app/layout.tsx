@@ -14,17 +14,17 @@ const _instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "winxmarketingmedia - Digital Marketing Agency",
-  description:
-    "WinX Media is a full-service digital marketing agency that crafts compelling brand stories and drives measurable growth through innovative strategies and creative solutions.",
-  generator: "",
-  metadataBase: new URL("https://winxmarketingmedia.in"),
-
-  alternates: {
-    canonical: "https://winxmarketingmedia.in/",
+    title: {
+    default: "Winx Marketing Media | Digital Creative Company",
+    template: "%s | Winx Marketing Media",
   },
- 
-   
+  description:
+    "Winx Marketing Media is a full-service digital marketing agency crafting compelling brand stories and driving measurable growth through innovative strategies.",
+  metadataBase: new URL("https://winxmarketingmedia.in"),
+  alternates: {
+    canonical: "/",
+  },
+  generator: "",   
 };
 
 export default function RootLayout({
