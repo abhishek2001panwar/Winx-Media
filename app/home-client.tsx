@@ -22,6 +22,11 @@ import Analytic from "@/components/sections/analytic";
 
 export default function Home() {
   useEffect(() => {
+    // Safety check for browser environment
+    if (typeof window === "undefined" || typeof document === "undefined") {
+      return;
+    }
+
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 300;
 

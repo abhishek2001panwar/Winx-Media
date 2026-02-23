@@ -9,6 +9,17 @@ export function CustomCursor() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
+    // Only run on desktop devices with mouse support
+    if (typeof window === "undefined" || typeof document === "undefined") {
+      return
+    }
+
+    // Don't initialize on touch devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    if (isTouchDevice) {
+      return
+    }
+
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY })
       setIsVisible(true)
