@@ -219,7 +219,7 @@ export default function Navbar() {
                         <span className="text-xs sm:text-sm text-black font-light tabular-nums">
                           0{index + 1}
                         </span>
-                        <span className="text-3xl  sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight transition-all duration-500 group-hover:tracking-wide  " style={{fontFamily: `SF Pro Display, sans-serif`}}>
+                        <span className="text-3xl  sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight transition-all duration-500 group-hover:tracking-wide  " style={{fontFamily: `SF Pro Display regular`}}>
                           {item.label}
                         </span>
                       </div>
