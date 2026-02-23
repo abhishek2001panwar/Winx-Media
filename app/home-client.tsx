@@ -11,7 +11,7 @@ import { FooterSection } from "@/components/sections/footer-section";
 import About from "@/components/sections/about";
 import Work from "@/components/sections/work";
 import Navbar from "@/components/navbar";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Strategy from "@/components/sections/strategy";
 import { ManifestoSection } from "@/components/sections/manifesto-section";
 import TeamPage from "@/components/sections/team";
@@ -21,6 +21,9 @@ import { Heronew } from "@/components/sections/heronew";
 import Analytic from "@/components/sections/analytic";
 
 export default function Home() {
+  const lastSectionRef = useRef<string>("");
+  const ticking = useRef(false);
+
   useEffect(() => {
     // Safety check for browser environment
     if (typeof window === "undefined" || typeof document === "undefined") {
@@ -28,47 +31,59 @@ export default function Home() {
     }
 
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 300;
+      if (!ticking.current) {
+        window.requestAnimationFrame(() => {
+          const scrollPosition = window.scrollY + 300;
 
-      if (window.scrollY < 100) {
-        if (window.location.hash) {
-          window.history.replaceState({}, "", window.location.pathname);
-        }
-        return;
-      }
-
-      const sections = [
-        "home",
-        "manifesto",
-        "features",
-        "about",
-        "work",
-        "insights",
-        "carousel",
-        "contact",
-      ];
-
-      for (const id of sections) {
-        const section = document.getElementById(id);
-        if (!section) continue;
-
-        const top = section.offsetTop;
-        const bottom = top + section.offsetHeight;
-
-        if (scrollPosition >= top && scrollPosition < bottom) {
-          if (window.location.hash !== `#${id}`) {
-            window.history.replaceState(
-              null,
-              "",
-              window.location.pathname + window.location.search,
-            );
+          if (window.scrollY < 100) {
+            if (window.location.hash && lastSectionRef.current !== "") {
+              window.history.replaceState({}, "", window.location.pathname);
+              lastSectionRef.current = "";
+            }
+            ticking.current = false;
+            return;
           }
-          break;
-        }
+
+          const sections = [
+            "home",
+            "manifesto",
+            "features",
+            "about",
+            "work",
+            "insights",
+            "carousel",
+            "contact",
+          ];
+
+          for (const id of sections) {
+            const section = document.getElementById(id);
+            if (!section) continue;
+
+            const top = section.offsetTop;
+            const bottom = top + section.offsetHeight;
+
+            if (scrollPosition >= top && scrollPosition < bottom) {
+              // Only update history if the section actually changed
+              if (lastSectionRef.current !== id) {
+                lastSectionRef.current = id;
+                window.history.replaceState(
+                  null,
+                  "",
+                  window.location.pathname + window.location.search,
+                );
+              }
+              break;
+            }
+          }
+
+          ticking.current = false;
+        });
+
+        ticking.current = true;
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
