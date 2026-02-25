@@ -231,19 +231,19 @@ function DesignAnimation() {
   }, [])
 
   return (
-    <div className="flex items-center justify-center h-full gap-2">
+    <div className="flex items-center justify-center h-full gap-2 overflow-hidden">
       {colors.map((color, i) => (
         <motion.div
           key={i}
-          className="rounded-lg"
+          className="rounded-lg will-change-transform"
           style={{
             backgroundColor: color,
-            width: activeColor === i ? '50px' : '30px',
-            height: activeColor === i ? '80px' : '60px',
+            width: '30px',
+            height: '60px',
           }}
           animate={{
-            width: activeColor === i ? '50px' : '30px',
-            height: activeColor === i ? '80px' : '60px',
+            scaleX: activeColor === i ? 1.4 : 1,
+            scaleY: activeColor === i ? 1.2 : 1,
           }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         />
