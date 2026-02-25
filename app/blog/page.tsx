@@ -137,8 +137,8 @@ function BlogGrid({ onSelect }) {
         <p className="" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase", color: "rgba(0,0,0,0.32)", marginBottom: 10 }}>
           Insights & Strategy
         </p>
-        <h1  className="text-3xl font-light" style={{
-          fontSize: "clamp(38px,5.5vw,58px)", fontWeight: 300, lineHeight: 1.1,
+        <h1  className="text-3xl font-bold" style={{
+          fontSize: "clamp(38px,5.5vw,58px)", fontWeight: 600, lineHeight: 1.1,
           background: "linear-gradient(135deg, #181f7c, #a34fdc)",
           WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent"
         }}>Our Blogs</h1>

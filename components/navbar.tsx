@@ -126,7 +126,7 @@ export default function Navbar() {
 
           {/* Center Text - Hidden on mobile and tablet */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2">
-            <p className="font-serif uppercase tracking-[0.35em] text-base lg:text-lg font-medium text-black">
+            <p className="font-serif uppercase tracking-[0.25em] text-base lg:text-lg font-medium text-black">
              Creative Marketing Company
             </p>
           </div>

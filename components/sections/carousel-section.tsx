@@ -307,7 +307,7 @@ const ProjectCard = ({
 
             {/* Explore button follows mouse with smooth spring */}
             <motion.button
-              className="absolute z-50 w-20 h-20 flex items-center justify-center rounded-full bg-white text-black font-semibold shadow-2xl pointer-events-none border-2 border-white/20"
+              className="absolute z-50 w-20 h-20 flex items-center justify-center rounded-full bg-white text-black font-semibold font-sans shadow-2xl pointer-events-none border-2 border-white/20"
               style={{
                 top: `calc(${explorePos.y}% - 40px)`,
                 left: `calc(${explorePos.x}% - 40px)`,
@@ -329,7 +329,7 @@ const ProjectCard = ({
                   ease: "easeInOut",
                 }}
               />
-              <span className="text-sm font-semibold relative z-10">
+              <span className="text-sm font-semibold font-sans relative z-10">
                 Explore
               </span>
             </motion.button>
@@ -338,7 +338,7 @@ const ProjectCard = ({
 
         {/* Number badge with rotation on hover */}
         <motion.div
-          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-black font-bold text-sm z-40 shadow-lg"
+          className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-black font-bold font-sans text-sm z-40 shadow-lg"
           animate={{
             rotate: isThisHovered ? 360 : 0,
             scale: isThisHovered ? 1.2 : 1,
@@ -353,7 +353,7 @@ const ProjectCard = ({
       <div className="space-y-4">
         <div className="flex items-start justify-between gap-4">
           <motion.h3
-            className="text-2xl font-semibold text-white"
+            className="text-2xl font-semibold font-sans text-white"
             animate={{
               y: isThisHovered ? -5 : 0,
             }}
@@ -415,7 +415,7 @@ const ProjectCard = ({
 
         <Link
           href={item.slug}
-          className="inline-flex items-center gap-2 font-semibold border-b-2 border-white/60 pb-1 text-white hover:gap-4 transition-all group/link"
+          className="inline-flex items-center gap-2 font-semibold font-sans border-b-2 border-white/60 pb-1 text-white hover:gap-4 transition-all group/link"
         >
           View Case Study
           <motion.span
@@ -537,7 +537,7 @@ export function CarouselSection() {
               </motion.p>
 
               <motion.h2
-                className="text-5xl font-serif md:text-7xl font-black text-white"
+                className="text-5xl md:text-7xl font-bold tracking-tight text-white"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -563,7 +563,7 @@ export function CarouselSection() {
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="px-10 py-4 rounded-full bg-white/10 backdrop-blur-md text-white border-2 border-white/30 font-serif text-lg font-semibold shadow-2xl overflow-hidden group relative"
+              className="px-10 py-4 rounded-full bg-white/10 backdrop-blur-md text-white border-2 border-white/30 text-lg font-semibold tracking-tight shadow-2xl overflow-hidden group relative"
               onClick={() => (window.location.href = "/client")}
             >
               <span className="relative z-10 flex items-center gap-3">

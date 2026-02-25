@@ -435,7 +435,7 @@ export default function Carousel() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <motion.p
-                className="text-white/80 text-sm font-light tracking-[0.3em] uppercase mb-4"
+                className="text-white/80 text-sm font-light tracking-[0.3em] uppercase mb-2"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -444,7 +444,7 @@ export default function Carousel() {
               </motion.p>
               
               <motion.h2
-                className="text-5xl font-serif md:text-7xl font-light text-white"
+                className="text-5xl  md:text-6xl font-bold text-white"
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -454,7 +454,7 @@ export default function Carousel() {
               
               {/* Animated Underline */}
               <motion.div
-                className="w-32 h-1 bg-white rounded-full mt-6"
+                className="w-32 h-1 bg-white rounded-full mt-3"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}

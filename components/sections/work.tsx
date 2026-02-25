@@ -175,7 +175,7 @@ const Work: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10">
           <motion.p
-            className="text-gray-600 text-xs sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2 sm:mb-3"
+            className="text-gray-600 text-xs sm:text-sm font-bold font-sans tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2 sm:mb-3"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -185,7 +185,7 @@ const Work: React.FC = () => {
 
           <div className="max-w-5xl mx-auto relative mb-2 sm:mb-2">
             {/* Background text */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black leading-tight text-center text-black font-light font-serif">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl  leading-tight text-center text-black font-light ">
               Less talking
               <br />
               More showing
@@ -193,7 +193,7 @@ const Work: React.FC = () => {
 
             {/* Animated gradient text reveal */}
             <motion.h2
-              className="absolute inset-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl  font-light leading-tight text-center bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent font-serif"
+              className="absolute inset-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl   font-bold leading-tight text-center bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent"
               initial={{ clipPath: 'inset(0 100% 0 0)' }}
               animate={{ clipPath: 'inset(0 0 0 0)' }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
@@ -265,7 +265,7 @@ const Work: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="mb-8 sm:mb-10 md:mb-12"
           >
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-3 sm:mb-4 font-serif">The Journey</h3>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 tracking-tight">The Journey</h3>
             <p className="text-sm sm:text-base md:text-lg text-gray-600">From chaos to clarity, one feature at a time.</p>
           </motion.div>
 
@@ -309,8 +309,8 @@ const Work: React.FC = () => {
             />
             
             <div className="relative z-10 text-center">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-black mb-4 sm:mb-6 font-serif">The Result?</h3>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed font-light mb-6 sm:mb-8">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 tracking-tight">The Result?</h3>
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed  mb-6 sm:mb-8">
                 A brand that doesn't just solve problems it transforms the entire wedding photography experience. From scattered chaos to organized magic.
               </p>
               

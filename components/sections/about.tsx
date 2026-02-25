@@ -17,7 +17,7 @@ function About() {
 
   return (
     <section 
-      className="w-full flex justify-center items-center py-24 bg-white font-serif relative overflow-hidden"
+      className="w-full flex justify-center items-center py-24 bg-white relative overflow-hidden"
       ref={containerRef}
       onMouseMove={handleMouseMove}
     >

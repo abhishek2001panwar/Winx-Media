@@ -148,7 +148,7 @@ const caseStudies = [
 
 export default function ClientPage() {
   return (
-    <div className="min-h-screen font-serif">
+    <div className="min-h-screen">
       <Navbar />
       <main className="max-w-5xl mx-auto px-4 py-52">
         <h1

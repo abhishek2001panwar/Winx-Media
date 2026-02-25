@@ -4,9 +4,9 @@ import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 
 const images = [
-  "/minimal-architecture-portfolio-with-clean-lines.jpg",
-  "/fashion-photography-editorial-black-and-white.jpg",
-  "/modern-ui-design-portfolio-mockup.jpg",
+  "/img2.PNG",
+  "/img1.PNG",
+  "/vid.mp4",
 ]
 
 export function Heronew() {
@@ -16,11 +16,11 @@ export function Heronew() {
     offset: ["start start", "end start"],
   })
 
-  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, -25])
+  const rotate1 = useTransform(scrollYProgress, [0, 1], [0, -35])
   const rotate2 = useTransform(scrollYProgress, [0, 1], [0, 0])
-  const rotate3 = useTransform(scrollYProgress, [0, 1], [0, 25])
-  const x1 = useTransform(scrollYProgress, [0, 1], [0, -500])
-  const x3 = useTransform(scrollYProgress, [0, 1], [0, 500])
+  const rotate3 = useTransform(scrollYProgress, [0, 1], [0, 35])
+  const x1 = useTransform(scrollYProgress, [0, 1], [0, -900])
+  const x3 = useTransform(scrollYProgress, [0, 1], [0, 900])
   const y = useTransform(scrollYProgress, [0, 1], [0, 100])
 
   return (
@@ -36,7 +36,7 @@ export function Heronew() {
           style={{ rotate: rotate1, x: x1, y, zIndex: 1 }}
           initial={{ clipPath: "inset(100% 0 0 0)" }}
           animate={{ clipPath: "inset(0 0 0 0)" }}
-          transition={{ duration: .5, delay: 2, ease: [0.16, 1, 0.3, 0.16] }}
+          transition={{ duration: .5, delay: 3, ease: [0.16, 1, 0.3, 0.16] }}
         >
           <img
             src={images[0] || "/placeholder.svg"}
@@ -52,11 +52,15 @@ export function Heronew() {
           animate={{ clipPath: "inset(0 0 0 0)" }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img
-            src={images[1] || "/placeholder.svg"}
-            alt="Portfolio showcase 2"
+          <video
+            src={images[2] || "/placeholder.mp4"}
+            autoPlay
+            muted
+            loop
+           
             className="w-full h-full object-cover"
           />
+         
         </motion.div>
 
         <motion.div
@@ -66,9 +70,9 @@ export function Heronew() {
           animate={{ clipPath: "inset(0 0 0 0)" }}
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <img
-            src={images[2] || "/placeholder.svg"}
-            alt="Portfolio showcase 3"
+           <img
+            src={images[1] || "/placeholder.svg"}
+            alt="Portfolio showcase 2"
             className="w-full h-full object-cover"
           />
         </motion.div>
@@ -80,9 +84,11 @@ export function Heronew() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.8 }}
       >
-      <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-center 
+        <h1 style={{
+          fontFamily: "var(--font-instrument-serif)" , fontWeight: 300,
+        }} className="text-5xl md:text-7xl lg:text-8xl text-center tracking-tight
 bg-gradient-to-r from-[#181f7c] to-[#a34fdc] 
-bg-clip-text text-transparent">
+bg-clip-text text-transparent font-instrument font-light">
   Your Brand, <em className="italic">Obsessed</em>.
 </h1>
 

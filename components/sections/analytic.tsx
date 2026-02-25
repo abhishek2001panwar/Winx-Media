@@ -108,7 +108,7 @@ function Analytic() {
           className="text-center mb-3"
         >
           <motion.h2 
-            className="font-serif text-4xl md:text-5xl lg:text-6xl font-light  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent p-2"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent p-2"
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
@@ -240,7 +240,7 @@ function Analytic() {
 
                   {/* Label */}
                   <motion.p 
-                    className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 font-medium px-2"
+                    className="text-sm sm:text-base md:text-lg text-gray-700 dark:text-gray-300 font-medium font-sans px-2"
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}

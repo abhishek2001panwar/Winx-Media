@@ -7,7 +7,7 @@ export default function GalleryPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen font-serif relative overflow-hidden bg-white">
+      <main className="min-h-screen relative overflow-hidden bg-white">
         {/* Animated background gradient mesh - subtle light version */}
         <div className="fixed inset-0 opacity-40 pointer-events-none">
           <div className="gradient-orb-light orb-1"></div>
@@ -24,11 +24,11 @@ export default function GalleryPage() {
           <div className="max-w-[1600px] mx-auto mb-10">
           
             
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-light text-black mb-4 text-center tracking-tight leading-[0.95] title-reveal">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-light text-black mb-2 text-center tracking-tight leading-[0] title-reveal">
               Creative
               <br />
               <span
-                className="italic font-serif text-transparent bg-clip-text bg-gradient-to-r from-[#181f7c] to-[#a34fdc]"
+                className=" font-serif text-transparent bg-clip-text bg-gradient-to-r from-[#181f7c] to-[#a34fdc]"
               >
                 Gallery
               </span>
@@ -84,9 +84,9 @@ export default function GalleryPage() {
                       </div>
                     </div>
 
-                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-black mb-6 tracking-tight leading-tight group-hover:translate-x-2 transition-transform duration-500">
+                    <h2 className="text-5xl md:text-5xl lg:text-6xl font-light text-black mb-6 tracking-tight leading-tight group-hover:translate-x-2 transition-transform duration-500">
                       Video<br />
-                      <span className="italic text-[#6c63ff]">Content</span>
+                      <span className=" text-[#6c63ff]">Content</span>
                     </h2>
                     
                     <p className="text-lg text-gray-600 mb-2 max-w-md leading-relaxed">
@@ -94,10 +94,10 @@ export default function GalleryPage() {
                     </p>
 
                     <div className="inline-flex items-center gap-3 text-black group-hover:gap-5 transition-all duration-300">
-                      <span className="text-lg font-medium">Explore Collection</span>
+                      {/* <span className="text-lg font-medium">Explore Collection</span>
                       <svg className="w-6 h-6 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
+                      </svg> */}
                     </div>
                   </div>
 
@@ -153,9 +153,9 @@ export default function GalleryPage() {
                       </div>
                     </div>
 
-                    <h2 className="text-5xl md:text-6xl font-light text-black mb-6 tracking-tight leading-tight group-hover:translate-x-2 transition-transform duration-500">
+                    <h2 className="text-5xl md:text-5xl lg:text-6xl font-light text-black mb-6 tracking-tight leading-tight group-hover:translate-x-2 transition-transform duration-500">
                       Social<br />
-                      <span className="italic text-[#ffb366]">Media</span>
+                      <span className=" text-[#ffb366]">Media</span>
                     </h2>
                     
                     <p className="text-lg text-gray-600 mb-2 leading-relaxed">
@@ -191,9 +191,9 @@ export default function GalleryPage() {
                       </div>
                     </div>
 
-                    <h2 className="text-5xl md:text-6xl lg:text-7xl font-light text-black mb-6 tracking-tight leading-tight group-hover:translate-x-2 transition-transform duration-500">
+                    <h2 className="text-5xl md:text-5xl lg:text-6xl font-light text-black mb-6 tracking-tight leading-tight group-hover:translate-x-2 transition-transform duration-500">
                       Engagement<br />
-                      <span className="italic text-[#66b3ff]">Status</span>
+                      <span className=" text-[#66b3ff]">Status</span>
                     </h2>
                     
                     <p className="text-lg text-gray-600 mb-8 max-w-xl leading-relaxed">

@@ -78,12 +78,12 @@ export default function TeamPage() {
         {/* Header Section */}
         <div className="text-center mb-16 sm:mb-10">
           <div className="inline-block mb-4">
-            <span className="inline-block px-4 py-1.5 text-xs sm:text-sm font-medium bg-gradient-to-r from-[#181f7c]/10 to-[#a34fdc]/10 text-[#181f7c] rounded-full border border-[#181f7c]/20">
+            <span className="inline-block px-4 py-1.5 text-xs sm:text-sm font-medium font-sans bg-gradient-to-r from-[#181f7c]/10 to-[#a34fdc]/10 text-[#181f7c] rounded-full border border-[#181f7c]/20">
               Our Team
             </span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif tracking-tight text-gray-900 mb-2">
-            Meet the <span className="font-serif bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">Creators</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-2">
+            Meet the <span className="bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">Creators</span>
           </h1>
           {/* <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-light">
             The passionate minds shaping exceptional digital experiences
@@ -131,10 +131,10 @@ export default function TeamPage() {
                   
                   {/* Content */}
                   <div className="text-center space-y-2">
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 tracking-tight">
+                    <h3 className="text-lg sm:text-xl font-semibold font-sans text-gray-900 tracking-tight">
                       {member.name}
                     </h3>
-                    <p className={`text-sm font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
+                    <p className={`text-sm font-medium font-sans bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
                       {member.role}
                     </p>
                  
@@ -189,10 +189,10 @@ export default function TeamPage() {
                   
                   {/* Content */}
                   <div className="text-center space-y-2">
-                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 tracking-tight">
+                    <h3 className="text-lg sm:text-xl font-semibold font-sans text-gray-900 tracking-tight">
                       {member.name}
                     </h3>
-                    <p className={`text-sm font-medium bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
+                    <p className={`text-sm font-medium font-sans bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
                       {member.role}
                     </p>
                   

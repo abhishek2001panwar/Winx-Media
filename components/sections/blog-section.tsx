@@ -277,7 +277,7 @@ function BlogGrid({ onSelect }) {
         <p className=" " style={{ fontSize: 11, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase", color: "rgba(0,0,0,0.32)", marginBottom: 16 }}>
           Insights & Strategy
         </p>
-        <h1 className="font-serif mt-3" style={{
+        <h1 className="mt-3 font-bold tracking-tight" style={{
           fontSize: "clamp(38px,5.5vw,58px)", fontWeight: 800, lineHeight: 1.1,
           background: "linear-gradient(135deg, #181f7c, #a34fdc)",
           WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent"
@@ -337,7 +337,7 @@ function BlogGrid({ onSelect }) {
        <div className="relative mx-auto max-w-3xl text-center">
   
 
-    <h2 className=" mt-10 text-3xl font-serif md:text-4xl font-extrabold text-neutral-900 leading-tight">
+    <h2 className=" mt-10 text-3xl md:text-4xl font-bold tracking-tight text-neutral-900 leading-tight">
       One blog gives clarity.  
       <span className="bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
         Reading more gives advantage.

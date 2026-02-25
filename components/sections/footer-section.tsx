@@ -49,8 +49,7 @@ export function FooterSection() {
   };
 
   const bg = "bg-gradient-to-tr from-purple-300 via-purple-200 to-lime-200 opacity-40 blur-3xl rounded-full "
-  const reverse = "bg-gradient-to-tr from-lime-200 via-purple-200 to-purple-300 opacity-40 blur-3xl rounded-full "
-
+  const reverse = "bg-gradient-to-tr from-lime-200 via-purple-300 to-purple-300 opacity-40 blur-3xl rounded-full "
  
 
   return (
@@ -62,7 +61,7 @@ export function FooterSection() {
 >
       {/* Gradient blob */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] pointer-events-none">
-        <div className={`absolute inset-0 ${bg} opacity-40 blur-3xl rounded-full`} />
+        <div className={`absolute inset-0 ${reverse} opacity-40 blur-3xl rounded-full`} />
       </div>
 
       <div className="relative max-w-6xl mx-auto">
@@ -70,7 +69,7 @@ export function FooterSection() {
           {/* Logo and links */}
           <div>
             <motion.h2
-              className="text-6xl md:text-8xl font-serif text-foreground"
+              className="text-6xl md:text-8xl font-bold tracking-tight text-foreground"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -199,7 +198,7 @@ export function FooterSection() {
             <circle cx="12" cy="12" r="5" stroke="#a855f7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
-        <h3 className="text-3xl font-black mb-2 font-serif">You’re Subscribed!</h3>
+        <h3 className="text-3xl font-bold tracking-tight mb-2">You're Subscribed!</h3>
         <p className="text-gray-600 text-sm">
           Growth , insights are heading to your inbox 🚀
         </p>

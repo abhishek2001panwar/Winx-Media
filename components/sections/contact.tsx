@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import { supabase } from '@/lib/supabaseClient';
 import { FaRegPaperPlane } from 'react-icons/fa';
@@ -7,6 +7,14 @@ import { FaRegPaperPlane } from 'react-icons/fa';
 const ContactSection: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: false, amount: 0.2 });
+  
+  // Debug: Check environment variables on mount
+  useEffect(() => {
+    console.log('🔍 Supabase Configuration Check:');
+    console.log('NEXT_PUBLIC_SUPABASE_URL:', process.env.NEXT_PUBLIC_SUPABASE_URL ? '✓ Loaded' : '✗ Missing');
+    console.log('NEXT_PUBLIC_SUPABASE_ANON_KEY:', process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? '✓ Loaded' : '✗ Missing');
+    console.log('Supabase client:', supabase ? '✓ Initialized' : '✗ Failed');
+  }, []);
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -51,29 +59,45 @@ const ContactSection: React.FC = () => {
     }
 
     setLoading(true);
+    setSubmitError(''); // Clear any previous errors
 
-    const { error } = await supabase.from('contact').insert([
-      {
-        name: formData.name,
-        email: formData.email,
-        number: formData.phone,
-        description: formData.message,
-      },
-    ]);
+    try {
+      const { data, error } = await supabase.from('contact').insert([
+        {
+          name: formData.name,
+          email: formData.email,
+          number: formData.phone,
+          description: formData.message,
+        },
+      ]);
 
-    setLoading(false);
+      setLoading(false);
 
-    if (error) {
-      console.error(error);
-      // Show error to user
-      setErrors(prev => ({ ...prev, message: 'Failed to send message. Please try again.' }));
+      if (error) {
+        console.error('Supabase error:', error);
+        console.error('Error details:', {
+          message: error.message,
+          details: error.details,
+          hint: error.hint,
+          code: error.code
+        });
+        // Show error to user
+        setSubmitError(`Failed to send message: ${error.message || 'Please try again.'}`);
+        return;
+      }
 
+      console.log('Data inserted successfully:', data);
+    } catch (err) {
+      console.error('Unexpected error:', err);
+      setLoading(false);
+      setSubmitError('An unexpected error occurred. Please try again.');
       return;
     }
 
     setSubmitted(true);
     setFormData({ name: '', email: '', phone: '', message: '' });
     setErrors({ name: '', email: '', phone: '', message: '' });
+    setSubmitError('');
 
     setTimeout(() => setSubmitted(false), 2000);
   };
@@ -85,6 +109,7 @@ const ContactSection: React.FC = () => {
     phone: '',
     message: ''
   });
+  const [submitError, setSubmitError] = useState('');
     // Validation function
   const validateField = (name: string, value: string) => {
     let error = '';
@@ -142,14 +167,13 @@ const ContactSection: React.FC = () => {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Header Section */}
         <motion.div
-          className="text-center max-w-4xl mx-auto mb-20 font-serif"
-            className="text-center max-w-4xl mx-auto mb-6 font-serif"
+          className="text-center max-w-4xl mx-auto mb-20"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8 }}
         >
           <motion.p
-            className="text-sm font-bold tracking-[0.3em] uppercase text-gray-500 mb-6"
+            className="text-sm font-bold font-sans tracking-[0.3em] uppercase text-gray-500 mb-6"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -163,10 +187,10 @@ const ContactSection: React.FC = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            <h2 className="text-3xl md:text-5xl font-black text-black">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-black">
               Stop blending in. Start standing out.
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 font-normal">
               Let's turn your business into everyone's new obsession.
             </p>
           </motion.div>
@@ -206,7 +230,7 @@ const ContactSection: React.FC = () => {
               </motion.div>
             </div>
             <div className="mt-4 text-center text-gray-600 text-sm">
-              <span className="font-bold text-black">Our HQ:</span> WeWork Galaxy, Residency Road, Bengaluru
+              <span className="font-bold font-sans text-black">Our HQ:</span> WeWork Galaxy, Residency Road, Bengaluru
             </div>
           </motion.div>
 
@@ -217,7 +241,7 @@ const ContactSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <div className="bg-gradient-to-br from-[#f8fafc] via-white to-[#e0e7ef] rounded-3xl p-8 shadow-2xl relative z-10">
-              <h3 className="text-2xl font-black text-black mb-3 font-serif" >
+              <h3 className="text-2xl font-bold tracking-tight text-black mb-3" >
                 Let's make some magic happen
               </h3>
               <p className="text-gray-600 mb-6 text-sm">
@@ -244,7 +268,7 @@ const ContactSection: React.FC = () => {
                   />
                   <label
                     className={`
-                      absolute left-4 top-3 text-xs font-bold uppercase tracking-wide text-gray-500 pointer-events-none transition-all duration-200
+                      absolute left-4 top-3 text-xs font-bold font-sans uppercase tracking-wide text-gray-500 pointer-events-none transition-all duration-200
                       ${formData.name || focusedField === 'name' ? 'text-xs -top-3 bg-white px-1' : ''}
                       peer-focus:text-xs peer-focus:-top-3 peer-focus:bg-white peer-focus:px-1
                     `}
@@ -265,7 +289,7 @@ const ContactSection: React.FC = () => {
                 {/* Email & Phone Row */}
                 <div className="grid grid-cols-1 gap-3">
                   <div>
-                    <label className="block text-xs font-bold text-black mb-2 uppercase tracking-wide">
+                    <label className="block text-xs font-bold font-sans text-black mb-2 uppercase tracking-wide">
                       Email *
                     </label>
                     <motion.input
@@ -293,7 +317,7 @@ const ContactSection: React.FC = () => {
                     )}
                   </div>
                   <div>
-                    <label className="block text-xs font-bold text-black mb-2 uppercase tracking-wide">
+                    <label className="block text-xs font-bold font-sans text-black mb-2 uppercase tracking-wide">
                       Phone *
                     </label>
                     <motion.input
@@ -324,7 +348,7 @@ const ContactSection: React.FC = () => {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-xs font-bold text-black mb-2 uppercase tracking-wide">
+                  <label className="block text-xs font-bold font-sans text-black mb-2 uppercase tracking-wide">
                     Project Details *
                   </label>
                   <motion.textarea
@@ -365,6 +389,17 @@ const ContactSection: React.FC = () => {
                     <path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </motion.button>
+
+                {/* Submit Error Display */}
+                {submitError && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -5 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl text-sm font-medium"
+                  >
+                    ⚠️ {submitError}
+                  </motion.div>
+                )}
               </form>
             </div>
           </motion.div>
@@ -402,7 +437,7 @@ const ContactSection: React.FC = () => {
         <FaRegPaperPlane className="text-5xl text-purple-500" />
       </div>
 
-      <h3 className="text-4xl font-serif font-black text-black mb-2">
+      <h3 className="text-4xl font-bold tracking-tight text-black mb-2">
         Message Sent!
       </h3>
 

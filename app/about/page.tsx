@@ -59,7 +59,7 @@ function AboutPage() {
   }, [scrollYProgress])
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 font-serif overflow-x-hidden">
+    <div className="min-h-screen bg-white text-gray-900 overflow-x-hidden">
       <Navbar />
       
       <div ref={containerRef} className="relative">
