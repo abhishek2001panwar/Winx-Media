@@ -214,7 +214,7 @@ const ContactSection: React.FC = () => {
                 className="rounded-3xl"
               />
               {/* Animated marker */}
-              <motion.div
+              {/* <motion.div
                 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none will-change-transform"
                 initial={{ scale: 0.7, opacity: 0.7 }}
                 animate={{ scale: [1, 1.1, 1], opacity: [0.7, 1, 0.7] }}
@@ -222,7 +222,7 @@ const ContactSection: React.FC = () => {
               >
                 <div className="w-8 h-8 bg-gradient-to-tr from-purple-400 via-pink-400 to-lime-300 rounded-full border-4 border-white shadow-lg" />
                 <div className="absolute left-1/2 top-full w-1 h-8 bg-gradient-to-b from-purple-400 to-transparent -translate-x-1/2" />
-              </motion.div>
+              </motion.div> */}
             </div>
             <div className="mt-4 text-center text-gray-600 text-sm">
               <span className="font-bold font-sans text-black">Our HQ:</span> WeWork Galaxy, Residency Road, Bengaluru
