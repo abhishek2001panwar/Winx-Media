@@ -9,12 +9,7 @@ const ContactSection: React.FC = () => {
   const isInView = useInView(containerRef, { once: false, amount: 0.2 });
   
   // Debug: Check environment variables on mount
-  useEffect(() => {
-    console.log('🔍 Supabase Configuration Check:');
-    console.log('NEXT_PUBLIC_SUPABASE_URL:', process.env.NEXT_PUBLIC_SUPABASE_URL ? '✓ Loaded' : '✗ Missing');
-    console.log('NEXT_PUBLIC_SUPABASE_ANON_KEY:', process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ? '✓ Loaded' : '✗ Missing');
-    console.log('Supabase client:', supabase ? '✓ Initialized' : '✗ Failed');
-  }, []);
+ 
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -205,7 +200,7 @@ const ContactSection: React.FC = () => {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <div className="w-full h-[340px] rounded-3xl overflow-hidden shadow-lg border-2 border-gray-200 bg-gray-50 flex items-center justify-center relative">
+            <div className="w-full h-[340px] rounded-3xl overflow-hidden shadow-lg border-2 border-gray-200 bg-gray-50 flex items-center justify-center relative isolate">
               {/* Interactive Map (Google Maps Embed) */}
               <iframe
                 title="WinX Location"
@@ -220,9 +215,9 @@ const ContactSection: React.FC = () => {
               />
               {/* Animated marker */}
               <motion.div
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none will-change-transform"
                 initial={{ scale: 0.7, opacity: 0.7 }}
-                animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
+                animate={{ scale: [1, 1.1, 1], opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
                 <div className="w-8 h-8 bg-gradient-to-tr from-purple-400 via-pink-400 to-lime-300 rounded-full border-4 border-white shadow-lg" />
