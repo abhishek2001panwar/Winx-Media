@@ -61,7 +61,7 @@ export function Portfolio() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 <div className="absolute top-4 left-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-medium">
  200% avg. revenue growth
-</div>            <div className="relative z-10 p-2">
+</div>            <div className="relative z-10 px-5 py-4">
               <h3 className="text-2xl font-light text-white mb-1">Marketing Infrastructure for B2C & B2B Brands</h3>
               <p className="text-white/80 text-sm mb-3">Traffic  Conversion Scale</p>
               <div className="flex gap-2 flex-wrap">
@@ -85,7 +85,7 @@ export function Portfolio() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 <div className="absolute top-4 left-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full font-medium">
  12M+ organic reach generated
-</div>            <div className="relative z-10 p-2">
+</div>            <div className="relative z-10 px-5 py-4">
               <h3 className="text-2xl font-light text-white mb-1">Authority-Driven Social Media</h3>
               <p className="text-white/80 text-sm mb-3">Visibility that compounds</p>
               <div className="flex gap-2 flex-wrap">
@@ -109,7 +109,7 @@ export function Portfolio() {
 <div className="absolute top-4 left-4 bg-[#6c4fdc] text-white text-xs px-3 py-1 rounded-full font-medium">
   4.8★ average client rating
 
-</div>            <div className="relative z-10 p-2">
+</div>            <div className="relative z-10 px-5 py-4">
               <h3 className="text-2xl font-light text-white mb-1">Campaigns, Launches & Brand Experiences</h3>
               <p className="text-white/80 text-sm mb-3">Momentum that moves markets
 </p>
