@@ -133,11 +133,11 @@ function BlogGrid({ onSelect }) {
       <Navbar />
 
       {/* ── Heading ── */}
-      <div className="font-serif" style={{ textAlign: "center", padding: "32px 20px 32px" }}>
-        <p className="" style={{ fontSize: 11, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase", color: "rgba(0,0,0,0.32)", marginBottom: 10 }}>
+      <div  style={{ textAlign: "center", padding: "32px 20px 32px" }}>
+        <p className="" style={{ fontSize: 10, fontWeight: 600, letterSpacing: 4, textTransform: "uppercase", color: "rgba(0,0,0,0.32)", marginBottom: 10 }}>
           Insights & Strategy
         </p>
-        <h1  className="text-3xl font-bold" style={{
+        <h1  className="text-3xl " style={{
           fontSize: "clamp(38px,5.5vw,58px)", fontWeight: 600, lineHeight: 1.1,
           background: "linear-gradient(135deg, #181f7c, #a34fdc)",
           WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent"

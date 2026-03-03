@@ -188,6 +188,7 @@ export function HeroSection() {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover rounded-full"
                     src="https://player.vimeo.com/progressive_redirect/playback/1020697798/rendition/720p/file.mp4?loc=external&log_user=0&signature=cd45f23683db91c40f08a3f4a31ba153f1e93eac3d4f98cb3ca4b651b8830d04"
                   />
@@ -236,6 +237,7 @@ export function HeroSection() {
                     loop
                     muted
                     playsInline
+                    preload="metadata"
                     className="w-full h-full object-cover rounded-full"
                     src="https://player.vimeo.com/progressive_redirect/playback/1047169994/rendition/720p/file.mp4?loc=external&log_user=0&signature=780c70237c241a1fe7a4b3837cad974ed7fb98f38cd2e6f912752ff9e44107ee"
                   />

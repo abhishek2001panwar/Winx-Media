@@ -29,7 +29,7 @@ export interface CaseStudy {
 }
 export const caseStudiesData: CaseStudy[] = [
   {
-    title: "It's forever",
+    title: "It's Forever",
     subtitle: "Digging Deep into Digital Excellence",
     description:
       "We created a digital foundation as solid as the work they do.",
@@ -76,7 +76,7 @@ export const caseStudiesData: CaseStudy[] = [
     description:
       "When Ambari Weddings came to us, they were like incredibly talented artists ready to showcase their work on the biggest stage. They had the skills, the vision, the passion—they just needed the right platform to share it all. We built their complete brand ecosystem from the ground up. From brand identity to social media presence to performance marketing, we created a comprehensive platform that showcases their incredible talent for creating unforgettable celebrations. Now they're not just planning weddings; they're creating experiences that make people book them for future events before their current ones are even finished.",
     image:
-      "https://media.winxmarketingmedia.in/wp-content/uploads/2025/07/Untitled-design-33.png",
+      "/ambarilogo.png",
     tags: ["Instagram", "WordPress"],
     slug: "ambari-weddings",
     challenge:
@@ -313,5 +313,26 @@ export const caseStudiesData: CaseStudy[] = [
     ],
     color: "from-orange-500 to-red-600",
     instagramHandle: "@hsrtiles",
+  },
+  {
+    title: "Avocowhitefield",
+    subtitle: "Transforming Spaces, One Tile at a Time",
+    description: "Avocowhitefield is more than just a tile showroom—they are the curators of modern living and architectural elegance. Their products go beyond functionality; they represent craftsmanship, durability, and style designed to elevate every corner of a home. Through strategic digital storytelling, we showcased their evolution from a showroom to a trusted design partner for homeowners, architects, and interior creators. Today, they don't just attract buyers—they attract visionaries who believe every space deserves character and creativity.",
+    image:
+      "/avoconew.jpeg",
+    tags: ["Instagram"],
+    slug: "avocowhitefield",
+    challenge:
+      "Avocowhitefield needed to elevate from product showroom to design partner, appealing to homeowners and architects who see tiles as foundational elements of living spaces.",
+    solution:
+      "Strategic storytelling positioning tiles as foundations of memories and modern living, showcasing craftsmanship, style, and the elevation they bring to spaces through Instagram content.",
+    results: [
+      "Transformed from showroom to design partner",
+      "Attracted design-conscious homeowners and architects",
+      "Positioned products as lifestyle elevators, not just materials",
+      "Built community of visionaries valuing character and creativity",
+    ],
+    color: "from-orange-500 to-red-600",
+    instagramHandle: "@avocowhitefield.banglore",
   },
 ];

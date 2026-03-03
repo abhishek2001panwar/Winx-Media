@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { motion, AnimatePresence, useSpring } from 'framer-motion'
+import Image from 'next/image'
 
 const services = [
   {
@@ -104,11 +105,14 @@ export default function Services() {
             exit={{ opacity: 0, scale: 0.85 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="w-[300px] h-[300px] rounded-xl overflow-hidden">
-              <img
+            <div className="w-[300px] h-[300px] rounded-xl overflow-hidden relative">
+              <Image
                 src={services[active].img}
-                alt=""
-                className="w-full h-full object-cover"
+                alt={services[active].title}
+                fill
+                sizes="300px"
+                className="object-cover"
+                loading="lazy"
               />
             </div>
           </motion.div>

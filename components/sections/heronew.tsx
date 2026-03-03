@@ -2,6 +2,7 @@
 
 import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
+import Image from "next/image"
 
 const images = [
   "/img2.PNG",
@@ -26,9 +27,25 @@ export function Heronew() {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background px-6 md:py-80"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-background px-6 md:py-52 gap-12 md:gap-10"
     >
       
+      {/* Heading Text - Positioned at Top */}
+      <motion.div
+        className="relative z-10 pointer-events-none"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.8 }}
+      >
+        <h1 style={{
+          fontFamily: "var(--font-instrument-serif)" , fontWeight: 400,
+        }} className="text-5xl md:text-7xl lg:text-8xl text-center tracking-light
+bg-gradient-to-r from-[#181f7c] to-[#a34fdc] 
+bg-clip-text text-transparent  font-light">
+  Your Brand, <em className="italic">Obsessed</em>.
+</h1>
+      </motion.div>
+
       {/* Stacked images */}
       <div className="relative flex items-center justify-center">
         <motion.div
@@ -38,10 +55,14 @@ export function Heronew() {
           animate={{ clipPath: "inset(0 0 0 0)" }}
           transition={{ duration: .5, delay: 3, ease: [0.16, 1, 0.3, 0.16] }}
         >
-          <img
+          <Image
             src={images[0] || "/placeholder.svg"}
             alt="Portfolio showcase 1"
-            className="w-full h-full object-cover"
+            fill
+            sizes="(max-width: 768px) 280px, 320px"
+            className="object-cover"
+            loading="eager"
+            priority
           />
         </motion.div>
 
@@ -52,15 +73,17 @@ export function Heronew() {
           animate={{ clipPath: "inset(0 0 0 0)" }}
           transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
-          <video
-            src={images[2] || "/placeholder.mp4"}
-            autoPlay
-            muted
-            loop
-           
-            className="w-full h-full object-cover"
-          />
          
+         
+           <video
+              src={images[2] || "/placeholder.mp4"}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              className="w-full h-full object-cover relative z-0"
+            />
         </motion.div>
 
         <motion.div
@@ -70,29 +93,19 @@ export function Heronew() {
           animate={{ clipPath: "inset(0 0 0 0)" }}
           transition={{ duration: 1, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-           <img
+        
+            <Image
             src={images[1] || "/placeholder.svg"}
             alt="Portfolio showcase 2"
-            className="w-full h-full object-cover"
+            fill
+            sizes="(max-width: 768px) 280px, 320px"
+            className="object-cover"
+            loading="eager"
+            priority
           />
+          
         </motion.div>
       </div>
-
-      <motion.div
-        className="absolute inset-0 flex items-center justify-center pointer-events-none z-10"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.8 }}
-      >
-        <h1 style={{
-          fontFamily: "var(--font-instrument-serif)" , fontWeight: 300,
-        }} className="text-5xl md:text-7xl lg:text-8xl text-center tracking-tight
-bg-gradient-to-r from-[#181f7c] to-[#a34fdc] 
-bg-clip-text text-transparent font-instrument font-light">
-  Your Brand, <em className="italic">Obsessed</em>.
-</h1>
-
-      </motion.div>
 
       <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"

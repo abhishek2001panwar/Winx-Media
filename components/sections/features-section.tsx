@@ -168,7 +168,7 @@ function ContentAnimation() {
       >
         ✍️
       </motion.div>
-      <div className="text-2xl font-bold text-gray-700">
+      <div className="text-2xl  text-gray-700">
         Creating{'.'.repeat(dots + 1)}
       </div>
     </div>
@@ -359,7 +359,7 @@ function StrategyAnimation() {
           animate={{ opacity: [0.7, 1, 0.7] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
-          <span className="text-sm font-bold font-sans bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <span className="text-sm  font-sans bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
             {strategyNodes[activeNode]?.label}
           </span>
         </motion.div>
@@ -415,7 +415,7 @@ function ProductionAdShootAnimation() {
           ))}
         </div>
       </motion.div>
-      <span className="mt-7 text-xl text-gray-500 font-bold font-sans">Lights, Camera, Action!</span>
+      <span className="mt-7 text-xl text-gray-500  ">Lights, Camera, Action!</span>
     </div>
   )
 }
@@ -502,7 +502,7 @@ function ServiceCard({ service, index }: { service: typeof services[0], index: n
         </motion.div>
 
         {/* Title */}
-        <h3 className="text-2xl md:text-3xl font-bold mb-3 text-black">
+        <h3 className="text-2xl md:text-3xl  mb-3 text-black">
           {service.title}
         </h3>
 
@@ -527,12 +527,19 @@ export function FeaturesSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-gray-500 text-sm uppercase tracking-widest mb-2">
-            What We Offer
-          </p>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black">
-            Our Services
-          </h2>
+         <motion.p
+          className="text-sm uppercase tracking-widest mb-2 font-medium"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          WHAT WE OFFER
+        </motion.p>
+         <div>
+            <h2 className="text-4xl md:text-5xl font-light mb-2">
+              Our <span >Services</span>
+            </h2>
+          </div>
         </motion.div>
 
         {/* Services Grid */}

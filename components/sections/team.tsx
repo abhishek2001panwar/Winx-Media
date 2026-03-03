@@ -82,7 +82,7 @@ export default function TeamPage() {
               Our Team
             </span>
           </div>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold tracking-tight text-gray-900 mb-2">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl tracking-tight text-gray-900 mb-2">
             Meet the <span className="bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">Creators</span>
           </h1>
           {/* <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto font-light">
@@ -131,10 +131,10 @@ export default function TeamPage() {
                   
                   {/* Content */}
                   <div className="text-center space-y-2">
-                    <h3 className="text-lg sm:text-xl font-semibold font-sans text-gray-900 tracking-tight">
+                    <h3 className="text-lg sm:text-xl  text-gray-900 tracking-tight">
                       {member.name}
                     </h3>
-                    <p className={`text-sm font-medium font-sans bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
+                    <p className={`text-sm   bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
                       {member.role}
                     </p>
                  
@@ -152,7 +152,7 @@ export default function TeamPage() {
         <div>
           <div className="flex items-center justify-center mb-5">
             <div className="h-px w-12 bg-gradient-to-r from-transparent to-gray-300"></div>
-            <h2 className="mx-4 text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-400 font-serif">
+            <h2 className="mx-4 text-xs sm:text-sm uppercase tracking-[0.3em] text-gray-400 ">
               The Team
             </h2>
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-gray-300"></div>
@@ -189,10 +189,10 @@ export default function TeamPage() {
                   
                   {/* Content */}
                   <div className="text-center space-y-2">
-                    <h3 className="text-lg sm:text-xl font-semibold font-sans text-gray-900 tracking-tight">
+                    <h3 className="text-lg sm:text-xl  text-gray-900 tracking-tight">
                       {member.name}
                     </h3>
-                    <p className={`text-sm font-medium font-sans bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
+                    <p className={`text-sm  bg-gradient-to-r ${member.gradient} bg-clip-text text-transparent`}>
                       {member.role}
                     </p>
                   
@@ -206,14 +206,7 @@ export default function TeamPage() {
           </div>
         </div>
 
-        {/* Bottom decorative element */}
-        <div className="mt-5 flex justify-center">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc] animate-pulse"></div>
-            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc] animate-pulse delay-75"></div>
-            <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc] animate-pulse delay-150"></div>
-          </div>
-        </div>
+      
       </div>
 
       {/* Custom animations */}

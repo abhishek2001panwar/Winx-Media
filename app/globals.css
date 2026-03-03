@@ -1,3 +1,6 @@
+/* Performance optimizations */
+@import "./performance-optimizations.css";
+
 /* Hide native scrollbar for carousel area */
 .carousel-scroll-hide {
   scrollbar-width: none !important; /* Firefox */
@@ -675,7 +678,8 @@ body {
 
 /* Body text uses Times New Roman */
 p, li, td, th, blockquote {
-  font-family: "Times New Roman", Times, serif;
+    font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
 }
 
 /* Regular weight spans and divs inherit from parent (Times New Roman for body) */
@@ -686,7 +690,8 @@ div:not(.font-bold):not(.font-semibold):not(.font-medium):not([class*="font-"]) 
 
 /* Headers always use Montserrat bold */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-montserrat), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: "Times New Roman", Times, serif;
+
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;

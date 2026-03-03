@@ -178,7 +178,7 @@ function SocialCard({ post, idx }: { post: typeof posts[0]; idx: number }) {
               }}
               transition={{ duration: 0.3 }}
             >
-              <div className="bg-black/80 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg flex items-center gap-2">
+              <div className="bg-black/80 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm  shadow-lg flex items-center gap-2">
                 Visit Profile
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -188,7 +188,7 @@ function SocialCard({ post, idx }: { post: typeof posts[0]; idx: number }) {
 
             {/* Number Badge */}
             <motion.div
-              className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-black/80 backdrop-blur-md flex items-center justify-center text-white font-bold text-lg z-20"
+              className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-black/80 backdrop-blur-md flex items-center justify-center text-white  text-lg z-20"
               whileHover={{ scale: 1.2, rotate: 360 }}
               transition={{ duration: 0.5 }}
             >
@@ -203,7 +203,7 @@ function SocialCard({ post, idx }: { post: typeof posts[0]; idx: number }) {
                 transition={{ duration: 0.3 }}
                 className="w-full"
               >
-                <h3 className="text-xl md:text-2xl font-bold text-white drop-shadow-lg mb-2">
+                <h3 className="text-xl md:text-2xl  text-white drop-shadow-lg mb-2">
                   {post.text}
                 </h3>
                 <motion.p
@@ -296,7 +296,7 @@ function SocialPage() {
         {/* Header Section */}
         <div className="text-center mt-5 ">
           <motion.p
-            className="text-gray-600 text-sm font-bold tracking-[0.3em] uppercase "
+            className="text-gray-600 text-sm  tracking-[0.3em] uppercase "
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

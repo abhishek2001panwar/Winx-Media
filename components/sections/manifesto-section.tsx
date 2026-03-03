@@ -191,15 +191,15 @@ export function ManifestoSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* HEADLINE */}
         <div className="mb-8 md:mb-10 text-center">
-          <h2 className="headline text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-black mb-2 md:mb-3">
+          <h2 className="headline text-4xl md:text-5xl lg:text-6xl  tracking-tight text-black mb-2 md:mb-3">
             Stop building websites.
             <br />
-            <span className="relative inline-block mt-3 font-bold">
+            <span className="relative inline-block mt-3 ">
               <span className="bg-gradient-to-r  from-[#181f7c] via-[#6366f1] to-[#a34fdc] bg-clip-text text-transparent ">
                 Start telling stories.
               </span>
               <span
-                className="headline-underline mt-2 absolute left-0 -bottom-2 h-1 sm:h-1 md:h-2 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc]"
+                className="headline-underline mt-2 absolute left-0 -bottom-2 h-1 sm:h-1 md:h-1 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc]"
                 style={{ width: "0%" }}
               />
             </span>
@@ -207,20 +207,20 @@ export function ManifestoSection() {
         </div>
 
         {/* STORY FLOW */}
-        <div className="mx-auto max-w-5xl space-y-4 md:space-y-5  mt-8 font-serif">
+        <div className="mx-auto max-w-5xl space-y-4 md:space-y-5  mt-8 ">
           {/* Story 1 */}
           <p className="story-1 text-xl md:text-2xl lg:text-3xl text-gray-900 leading-relaxed text-left">
             {renderWords("We're a")}{" "}
-            <span className="word-span inline-block font-light bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>small</span>{" "}
-            <span className="word-span inline-block font-light bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>team</span>{" "}
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>small</span>{" "}
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>team</span>{" "}
             {renderWords("with big brains and even bigger dreams.")}
           </p>
 
           {/* Story 2 */}
           <p className="story-2 text-xl md:text-2xl lg:text-3xl text-gray-900 leading-relaxed text-left">
             {renderWords("What started as a few")}{" "}
-            <span className="word-span inline-block font-light bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>late-night</span>{" "}
-            <span className="word-span inline-block font-light bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>ideas</span>{" "}
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>late-night</span>{" "}
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>ideas</span>{" "}
             {renderWords(
               "became a collective of creators, designers, marketers, and strategists who genuinely care."
             )}
@@ -229,13 +229,13 @@ export function ManifestoSection() {
           {/* Story 3 */}
           <p className="story-3 text-xl md:text-2xl lg:text-3xl text-gray-900 leading-relaxed text-left">
             {renderWords("We're")}{" "}
-            <span className="word-span inline-block font-light bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>
               not here to just run ads.
             </span>
           </p>
 
           {/* Story 4 */}
-          <p className="story-4 text-xl md:text-2xl lg:text-3xl font-light text-gray-900 leading-relaxed text-left">
+          <p className="story-4 text-xl md:text-2xl lg:text-3xl  text-gray-900 leading-relaxed text-left">
             {renderWords("We're here to build")}{" "}
             <span className="word-span inline-block bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>
               brands that mean something.
@@ -245,13 +245,13 @@ export function ManifestoSection() {
           {/* Story 5 */}
           <p className="story-5 text-xl md:text-2xl lg:text-3xl text-gray-900 leading-relaxed text-left">
             {renderWords("Brands that people")}{" "}
-            <span className="word-span inline-block font-light bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>remember,</span>{" "}
-            <span className="word-span inline-block font-light bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>talk</span>{" "}
-            <span className="word-span inline-block font-light bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>about,</span>{" "}
-            <span className="word-span inline-block font-light bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>and</span>{" "}
-            <span className="word-span inline-block font-light bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>come</span>{" "}
-            <span className="word-span inline-block font-light bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>back</span>{" "}
-            <span className="word-span inline-block font-semibold bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>to.</span>
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>remember,</span>{" "}
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>talk</span>{" "}
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>about,</span>{" "}
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>and</span>{" "}
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>come</span>{" "}
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>back</span>{" "}
+            <span className="word-span inline-block  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent" style={{ opacity: 0, transform: "translateY(30px)" }}>to.</span>
             <br />
             {/* <span className="text-lg md:text-xl font-extrabold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 bg-clip-text text-transparent italic mt-3 inline-block">
               Because that's what marketing should be.
@@ -263,7 +263,7 @@ export function ManifestoSection() {
         <div className="mt-8 md:mt-10 text-center">
           <Link
             href="/about"
-            className="cta-button-1 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc] px-6 md:px-8 py-3 md:py-4 text-base md:text-lg font-semibold text-white shadow-2xl transition-all hover:scale-105"
+            className="cta-button-1 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#181f7c] to-[#a34fdc] px-6 md:px-8 py-3 md:py-4 text-base md:text-lg  text-white shadow-2xl transition-all hover:scale-105"
           >
             Learn More About Our Story →
           </Link>
@@ -280,7 +280,7 @@ export function ManifestoSection() {
                 <span className="text-2xl md:text-3xl">✨</span>
               </div>
 
-              <h3 className="mb-3 text-xl md:text-2xl font-bold text-gray-900">
+              <h3 className="mb-3 text-xl md:text-2xl  text-gray-900">
                 Your Brand's Best Friend
               </h3>
               <p className="text-sm md:text-base text-gray-700 leading-relaxed">
@@ -303,7 +303,7 @@ export function ManifestoSection() {
                 <span className="text-2xl md:text-3xl">🎯</span>
               </div>
 
-              <h3 className="mb-3 text-xl md:text-2xl font-bold text-gray-900">
+              <h3 className="mb-3 text-xl md:text-2xl text-gray-900">
                 Digital Experiences That Stick
               </h3>
               <p className="text-sm md:text-base text-gray-700 leading-relaxed">

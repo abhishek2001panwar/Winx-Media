@@ -144,6 +144,16 @@ const caseStudies = [
     tags: ["Instagram"],
     slug: "/work/hsr-tiles",
   },
+  {
+    title: "Avocowhitefield",
+    subtitle: "Transforming Spaces, One Tile at a Time",
+    description: "Avocowhitefield is more than just a tile showroom—they are the curators of modern living and architectural elegance. Their products go beyond functionality; they represent craftsmanship, durability, and style designed to elevate every corner of a home. Through strategic digital storytelling, we showcased their evolution from a showroom to a trusted design partner for homeowners, architects, and interior creators. Today, they don't just attract buyers—they attract visionaries who believe every space deserves character and creativity.",
+    image:
+      "/avoconew.jpeg",
+    tags: ["Instagram"],
+   
+  slug: "avocowhitefield",
+  },
 ];
 
 export default function ClientPage() {
@@ -152,7 +162,7 @@ export default function ClientPage() {
       <Navbar />
       <main className="max-w-5xl mx-auto px-4 py-52">
         <h1
-          className="text-5xl md:text-7xl font-bold mb-12 tracking-tight drop-shadow-lg text-center bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent"
+          className="text-5xl md:text-7xl  mb-12 tracking-tight drop-shadow-lg text-center bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent"
         >
           Our Clients, Our Pride
         </h1>
@@ -222,22 +232,13 @@ export default function ClientPage() {
                     </div>
                     {/* Content */}
                     <div className="w-full">
-                      <div className="text-xs font-bold text-gray-400 mb-1">
+                      <div className="text-xs  text-gray-400 mb-1">
                         0{idx + 1}
                       </div>
-                      <h2 className="text-xl font-bold mb-1 text-black">{client.title}</h2>
+                      <h2 className="text-xl  mb-1 text-black">{client.title}</h2>
                       <div className="text-base text-gray-600 font-semibold mb-1">{client.subtitle}</div>
                       <div className="text-gray-700 mb-2">{client.description}</div>
-                      <div className="flex gap-2 mt-2 flex-wrap">
-                        {client.tags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="inline-block px-3 py-1 rounded-full bg-black/10 text-black text-xs font-semibold tracking-wide"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
+                     
                     </div>
                   </a>
                 </motion.div>

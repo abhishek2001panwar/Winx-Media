@@ -18,6 +18,7 @@ import {
   ArrowUpRight
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -112,7 +113,7 @@ export default function Navbar() {
       >
         <div className={`max-w-7xl mx-auto flex items-center justify-between`}>
           {/* Logo */}
-          <button onClick={() => scrollToSection("home")} className="relative z-10">
+          <Link href="/" className="relative z-10">
             <div className="font-serif text-2xl md:text-4xl leading-tight text-black">
               <Image 
                 src="/logo.png"
@@ -122,11 +123,11 @@ export default function Navbar() {
                 className="w-[100px] h-auto sm:w-[120px] md:w-[140px] lg:w-[150px] object-contain"
               />
             </div>
-          </button>
+          </Link>
 
           {/* Center Text - Hidden on mobile and tablet */}
           <div className="hidden lg:block absolute left-1/2 -translate-x-1/2">
-            <p className="font-serif uppercase tracking-[0.25em] text-base lg:text-lg font-medium text-black">
+            <p className=" uppercase tracking-[0.1em] text-base lg:text-lg font-medium text-black">
              Creative Marketing Company
             </p>
           </div>
@@ -196,9 +197,17 @@ export default function Navbar() {
                 {menuItems.map((item, index) => {
                   const Icon = item.icon;
                   return (
-                    <button
+                    <Link
                       key={item.label}
-                      onClick={() => handleMenuClick(item.type as "scroll" | "route", item.value)}
+                      href={item.type === "route" ? item.value : `/#${item.value}`}
+                      onClick={(e) => {
+                        if (item.type === "scroll" && pathname === "/") {
+                          e.preventDefault();
+                          handleMenuClick(item.type, item.value);
+                        } else {
+                          setIsMenuOpen(false);
+                        }
+                      }}
                       className="group relative flex items-center gap-3 sm:gap-4 md:gap-5 lg:gap-6 text-black py-2 sm:py-3 transition-all duration-500 ease-in-out hover:translate-x-4 sm:hover:translate-x-6 "
                       style={{
                         animationDelay: `${index * 80}ms`,
@@ -230,7 +239,7 @@ export default function Navbar() {
                         className="sm:w-6 sm:h-6 md:w-7 md:h-7 ml-auto opacity-0 -translate-y-2 translate-x-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0 group-hover:translate-x-0 text-black/60" 
                         strokeWidth={1.5}
                       />
-                    </button>
+                    </Link>
                   );
                 })}
               </div>

@@ -168,7 +168,7 @@ const ContactSection: React.FC = () => {
           transition={{ duration: 0.8 }}
         >
           <motion.p
-            className="text-sm font-bold font-sans tracking-[0.3em] uppercase text-gray-500 mb-6"
+            className="text-sm  font-sans tracking-[0.3em] uppercase text-gray-500 mb-6"
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -182,7 +182,7 @@ const ContactSection: React.FC = () => {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-black">
+            <h2 className="text-3xl md:text-5xl  tracking-tight text-black">
               Stop blending in. Start standing out.
             </h2>
             <p className="text-xl text-gray-600 font-normal">
@@ -225,7 +225,7 @@ const ContactSection: React.FC = () => {
               </motion.div>
             </div>
             <div className="mt-4 text-center text-gray-600 text-sm">
-              <span className="font-bold font-sans text-black">Our HQ:</span> WeWork Galaxy, Residency Road, Bengaluru
+              <span className=" font-sans text-black">Our HQ:</span> WeWork Galaxy, Residency Road, Bengaluru
             </div>
           </motion.div>
 
@@ -236,7 +236,7 @@ const ContactSection: React.FC = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <div className="bg-gradient-to-br from-[#f8fafc] via-white to-[#e0e7ef] rounded-3xl p-8 shadow-2xl relative z-10">
-              <h3 className="text-2xl font-bold tracking-tight text-black mb-3" >
+              <h3 className="text-2xl  tracking-tight text-black mb-3" >
                 Let's make some magic happen
               </h3>
               <p className="text-gray-600 mb-6 text-sm">
@@ -263,7 +263,7 @@ const ContactSection: React.FC = () => {
                   />
                   <label
                     className={`
-                      absolute left-4 top-3 text-xs font-bold font-sans uppercase tracking-wide text-gray-500 pointer-events-none transition-all duration-200
+                      absolute left-4 top-3 text-xs  font-sans uppercase tracking-wide text-gray-500 pointer-events-none transition-all duration-200
                       ${formData.name || focusedField === 'name' ? 'text-xs -top-3 bg-white px-1' : ''}
                       peer-focus:text-xs peer-focus:-top-3 peer-focus:bg-white peer-focus:px-1
                     `}
@@ -284,7 +284,7 @@ const ContactSection: React.FC = () => {
                 {/* Email & Phone Row */}
                 <div className="grid grid-cols-1 gap-3">
                   <div>
-                    <label className="block text-xs font-bold font-sans text-black mb-2 uppercase tracking-wide">
+                    <label className="block text-xs  font-sans text-black mb-2 uppercase tracking-wide">
                       Email *
                     </label>
                     <motion.input
@@ -312,7 +312,7 @@ const ContactSection: React.FC = () => {
                     )}
                   </div>
                   <div>
-                    <label className="block text-xs font-bold font-sans text-black mb-2 uppercase tracking-wide">
+                    <label className="block text-xs  font-sans text-black mb-2 uppercase tracking-wide">
                       Phone *
                     </label>
                     <motion.input
@@ -343,7 +343,7 @@ const ContactSection: React.FC = () => {
 
                 {/* Message */}
                 <div>
-                  <label className="block text-xs font-bold font-sans text-black mb-2 uppercase tracking-wide">
+                  <label className="block text-xs  font-sans text-black mb-2 uppercase tracking-wide">
                     Project Details *
                   </label>
                   <motion.textarea
@@ -377,7 +377,7 @@ const ContactSection: React.FC = () => {
                   disabled={loading}
                    whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full py-3 bg-gradient-to-r from-[#181f7c] to-[#a34fdc] text-white font-bold text-base rounded-xl flex items-center justify-center gap-2  transition-all duration-300"
+                  className="w-full py-3 bg-gradient-to-r from-[#181f7c] to-[#a34fdc] text-white  text-base rounded-xl flex items-center justify-center gap-2  transition-all duration-300"
                 >
                   <span className="relative z-10"> {loading ? 'Sending...' : 'Submit & Let’s Talk'}</span>
                   <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
@@ -432,7 +432,7 @@ const ContactSection: React.FC = () => {
         <FaRegPaperPlane className="text-5xl text-purple-500" />
       </div>
 
-      <h3 className="text-4xl font-bold tracking-tight text-black mb-2">
+      <h3 className="text-4xl  tracking-tight text-black mb-2">
         Message Sent!
       </h3>
 

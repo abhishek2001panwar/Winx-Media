@@ -1,6 +1,8 @@
 'use client'
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
 
 // Story segments broken into narrative beats
 const storyBeats = [
@@ -104,7 +106,7 @@ const StoryBeat: React.FC<{ beat: typeof storyBeats[0]; index: number }> = ({ be
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-        className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed font-serif"
+        className="text-sm sm:text-base md:text-md lg:text-lg text-gray-800 leading-relaxed "
       >
         {beat.text.split(beat.highlight).map((part, i) => (
           <React.Fragment key={i}>
@@ -114,7 +116,7 @@ const StoryBeat: React.FC<{ beat: typeof storyBeats[0]; index: number }> = ({ be
                 initial={{ backgroundSize: '0% 100%' }}
                 animate={isInView ? { backgroundSize: '100% 100%' } : { backgroundSize: '0% 100%' }}
                 transition={{ duration: 0.8, delay: index * 0.1 + 0.5 }}
-                className="font-bold bg-gradient-to-r from-black/10 to-black/10 bg-no-repeat"
+                className=" bg-gradient-to-r from-black/10 to-black/10 bg-no-repeat"
                 style={{ backgroundPosition: '0 100%' }}
               >
                 {beat.highlight}
@@ -175,7 +177,7 @@ const Work: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10">
           <motion.p
-            className="text-gray-600 text-xs sm:text-sm font-bold font-sans tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2 sm:mb-3"
+            className="text-gray-600 text-xs sm:text-sm  font-sans tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2 sm:mb-3"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -185,23 +187,13 @@ const Work: React.FC = () => {
 
           <div className="max-w-5xl mx-auto relative mb-2 sm:mb-2">
             {/* Background text */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl  leading-tight text-center text-black font-light ">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl  leading-tight text-center text-black  ">
               Less talking
               <br />
               More showing
             </h2>
 
-            {/* Animated gradient text reveal */}
-            <motion.h2
-              className="absolute inset-0 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl   font-bold leading-tight text-center bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent"
-              initial={{ clipPath: 'inset(0 100% 0 0)' }}
-              animate={{ clipPath: 'inset(0 0 0 0)' }}
-              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            >
-              Less talking
-              <br />
-              More showing
-            </motion.h2>
+         
           </div>
 
           {/* Animated underline */}
@@ -232,9 +224,18 @@ const Work: React.FC = () => {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-block mb-4 sm:mb-6"
-              >
-                <img className='rounded-2xl sm:rounded-3xl w-full' src="./image.png" alt="" />
+                className="mb-4 sm:mb-6 w-full">
+                <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden">
+                  <Image 
+                    className='rounded-2xl sm:rounded-3xl w-full h-auto' 
+                    src="/image.png" 
+                    alt="Its Forever App"
+                    width={1200}
+                    height={675}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+                    loading="lazy"
+                  />
+                </div>
               </motion.div>
               
               {/* Stats */}
@@ -265,7 +266,7 @@ const Work: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="mb-8 sm:mb-10 md:mb-12"
           >
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 tracking-tight">The Journey</h3>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl  mb-3 sm:mb-4 tracking-tight">The Journey</h3>
             <p className="text-sm sm:text-base md:text-lg text-gray-600">From chaos to clarity, one feature at a time.</p>
           </motion.div>
 
@@ -309,7 +310,7 @@ const Work: React.FC = () => {
             />
             
             <div className="relative z-10 text-center">
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 tracking-tight">The Result?</h3>
+              <h3 className="text-2xl sm:text-3xl md:text-5xl mb-4 sm:mb-6 tracking-tight">The Result?</h3>
               <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed  mb-6 sm:mb-8">
                 A brand that doesn't just solve problems it transforms the entire wedding photography experience. From scattered chaos to organized magic.
               </p>
@@ -319,9 +320,9 @@ const Work: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 className="inline-block"
               >
-                <a
+                <Link
                   href="/work"
-                  className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-white text-black rounded-full font-bold text-sm sm:text-base md:text-lg hover:shadow-2xl transition-all duration-300"
+                  className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-white text-black rounded-full  text-sm sm:text-base md:text-lg hover:shadow-2xl transition-all duration-300"
                 >
                   Explore Full Case Study
                   <motion.svg
@@ -339,7 +340,7 @@ const Work: React.FC = () => {
                       d="M17 8l4 4m0 0l-4 4m4-4H3"
                     />
                   </motion.svg>
-                </a>
+                </Link>
               </motion.div>
               
             </div>

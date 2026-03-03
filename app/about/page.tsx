@@ -116,7 +116,7 @@ function AboutPage() {
             transition={{ duration: 1.5, ease: "easeOut" }}
           >
             <motion.h1 
-              className="text-6xl md:text-8xl font-bold text-gray-900"
+              className="text-6xl md:text-8xl  text-gray-900"
               animate={{
                 backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
               }}
@@ -184,14 +184,14 @@ function AboutPage() {
                     className="relative"
                     whileHover={{ scale: 1.02 }}
                   >
-                    <div className="text-8xl md:text-9xl font-bold opacity-10 text-gray-300 absolute -top-8 -left-4">
+                    <div className="text-8xl md:text-9xl  opacity-10 text-gray-300 absolute -top-8 -left-4">
                       {(index + 1).toString().padStart(2, '0')}
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 relative z-10 mb-4">
+                    <h2 className="text-3xl md:text-4xl  text-gray-900 relative z-10 mb-4">
                       {story.title}
                     </h2>
                     {story.subtitle && (
-                      <h3 className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent mb-2">
+                      <h3 className="text-xl md:text-2xl  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent mb-2">
                         {story.subtitle}
                       </h3>
                     )}
@@ -243,39 +243,22 @@ function AboutPage() {
                     transition={{ duration: 0.3 }}
                   >
                     {/* Animated border */}
-                    <motion.div
-                      className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                      style={{
-                        background: 'conic-gradient(from 0deg, #181f7c, #a34fdc, #181f7c)',
-                        padding: '2px',
-                      }}
-                      animate={{ rotate: [0, 360] }}
-                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                    >
-                      <div className="w-full h-full bg-white rounded-3xl"></div>
-                    </motion.div>
+                  
                     
                     <div className="relative z-10 text-center">
                       <motion.div
                         className="w-16 h-16 mx-auto mb-6 bg-gradient-to-r from-[#181f7c] to-[#a34fdc] rounded-full flex items-center justify-center"
-                        animate={{ 
-                          rotate: [0, 360],
-                          scale: [1, 1.1, 1]
-                        }}
-                        transition={{ 
-                          rotate: { duration: 10, repeat: Infinity, ease: "linear" },
-                          scale: { duration: 2, repeat: Infinity }
-                        }}
+                       
+                      
                       >
-                        <span className="text-2xl font-bold text-white">
+                        <span className="text-2xl  text-white">
                           {index + 1}
                         </span>
                       </motion.div>
                       
                       <motion.p 
-                        className="text-xl md:text-2xl font-bold bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent"
-                        animate={{ opacity: [0.7, 1, 0.7] }}
-                        transition={{ duration: 2, repeat: Infinity }}
+                        className="text-xl md:text-2xl  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent"
+                        
                       >
                         "{story.highlight}"
                       </motion.p>
@@ -319,7 +302,7 @@ function AboutPage() {
                     <p className="text-xl md:text-2xl font-medium mb-4">
                       "{story.extraDetail}"
                     </p>
-                    <p className="text-2xl md:text-3xl font-bold">
+                    <p className="text-2xl md:text-3xl ">
                       {story.highlight}
                     </p>
                   </div>
@@ -335,33 +318,7 @@ function AboutPage() {
                   viewport={{ once: true }}
                   transition={{ delay: 0.3, duration: 0.8 }}
                 >
-                  <div className="relative w-full max-w-md h-80 rounded-3xl flex items-center justify-center overflow-hidden group bg-gradient-to-br from-blue-50 to-purple-100">
-                    {/* Animated Paper Plane */}
-                    <motion.svg
-                      width="120"
-                      height="120"
-                      viewBox="0 0 120 120"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-                      initial={{ x: -60, y: 40, rotate: -10 }}
-                      animate={{ x: [ -60, 60, -60 ], y: [40, -30, 40], rotate: [-10, 10, -10] }}
-                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      <polygon points="10,60 110,60 60,10" fill="#a34fdc" stroke="#181f7c" strokeWidth="4" />
-                      <polygon points="60,10 60,110 10,60" fill="#fff" stroke="#181f7c" strokeWidth="2" />
-                      <polygon points="60,10 60,110 110,60" fill="#e0d7fa" stroke="#181f7c" strokeWidth="2" />
-                    </motion.svg>
-                    <motion.div
-                      className="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-xl"
-                      animate={{ y: [0, -10, 0] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    >
-                      <p className="text-lg font-bold bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent">
-                        Come fly with us.
-                      </p>
-                    </motion.div>
-                  </div>
+                 
                 </motion.div>
               )}
             </div>
@@ -369,7 +326,7 @@ function AboutPage() {
         ))}
 
         {/* Call to Action */}
-        <section className="">
+        <section className="m-10">
           <motion.div 
             className="text-center space-y-16 max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 100 }}
@@ -378,7 +335,7 @@ function AboutPage() {
             transition={{ duration: 1.5 }}
           >
             <motion.h2 
-              className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent"
+              className="text-5xl md:text-7xl  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent"
               animate={{ opacity: [0.8, 1, 0.8] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
@@ -386,7 +343,7 @@ function AboutPage() {
             </motion.h2>
             
             <motion.div 
-              className="space-y-8"
+              className="space-y-5"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -397,7 +354,7 @@ function AboutPage() {
               </p>
               
               <motion.button
-                className="group relative px-12 py-6 bg-gradient-to-r from-[#181f7c] to-[#a34fdc] rounded-full text-xl font-bold text-white overflow-hidden shadow-xl"
+                className="group relative px-12 py-6 bg-gradient-to-r from-[#181f7c] to-[#a34fdc] rounded-full text-xl  text-white overflow-hidden shadow-xl"
                 whileHover={{ scale: 1.1, boxShadow: '0 25px 50px rgba(24, 31, 124, 0.3)' }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -408,15 +365,15 @@ function AboutPage() {
                   transition={{ duration: 0.6 }}
                 />
                <Link href="/#contact" className="relative z-10">
-                <span className="relative z-10 flex items-center gap-4">
+                <h3 className="relative z-10 flex items-center gap-4">
                   Start the Journey
-                  <motion.span
+                  <motion.h3
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
                     →
-                  </motion.span>
-                </span>
+                  </motion.h3>
+                </h3>
                 </Link>
               </motion.button>
             </motion.div>
@@ -436,7 +393,7 @@ function AboutPage() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
               >
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent mb-4">
+                <h3 className="text-2xl  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent mb-4">
                   Follow us on:
                 </h3>
                 <div className="space-y-2 text-gray-700">
@@ -449,7 +406,7 @@ function AboutPage() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
               >
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent mb-4">
+                <h3 className="text-2xl  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent mb-4">
                   Quick Links:
                 </h3>
                 <div className="space-y-2 text-gray-700">
@@ -465,7 +422,7 @@ function AboutPage() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
               >
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent mb-4">
+                <h3 className="text-2xl  bg-gradient-to-r from-[#181f7c] to-[#a34fdc] bg-clip-text text-transparent mb-4">
                   Contact Info:
                 </h3>
                 <div className="space-y-2 text-gray-700">

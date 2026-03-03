@@ -273,11 +273,11 @@ function BlogGrid({ onSelect }) {
       <Navbar />
 
       {/* ── Heading ── */}
-      <div style={{ textAlign: "center", padding: "72px 20px 48px" }}>
+      <div style={{ textAlign: "left", padding: "72px 20px 48px" }}>
         <p className=" " style={{ fontSize: 11, fontWeight: 700, letterSpacing: 4, textTransform: "uppercase", color: "rgba(0,0,0,0.32)", marginBottom: 16 }}>
           Insights & Strategy
         </p>
-        <h1 className="mt-3 font-bold tracking-tight" style={{
+        <h1 className="mt-3  tracking-tight" style={{
           fontSize: "clamp(38px,5.5vw,58px)", fontWeight: 800, lineHeight: 1.1,
           background: "linear-gradient(135deg, #181f7c, #a34fdc)",
           WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent"

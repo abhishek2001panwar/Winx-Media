@@ -2,14 +2,9 @@
 
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import Link from "next/link";
-import { FaInstagram, FaWordpress } from "react-icons/fa";
+import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { caseStudiesData } from "@/lib/caseStudiesData";
-
-const tagIcons = {
-  Instagram: FaInstagram,
-  WordPress: FaWordpress,
-};
 
 const ProjectCard = ({ 
   item, 
@@ -31,7 +26,7 @@ const ProjectCard = ({
   const rotateX = useTransform(mouseY, [-100, 100], [5, -5]);
   const rotateY = useTransform(mouseX, [-100, 100], [-5, 5]);
 
-  const [explorePos, setExplorePos] = useState<{ x: number; y: number }>({ x: 50, y: 80 });
+  const [explorePos, setExplorePos] = useState<{ x: number; y: number }>({ x: 50, y: 50 });
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return;
@@ -49,18 +44,14 @@ const ProjectCard = ({
     mouseX.set(0);
     mouseY.set(0);
     onHoverChange(false);
-    setExplorePos({ x: 50, y: 80 });
+    setExplorePos({ x: 50, y: 50 });
   };
-
-  // Blur/dim effect removed
 
   return (
     <Link href={`/carousel/${item.slug}`} className="block">
-        
-
       <motion.div
         ref={cardRef}
-        className="w-[360px] md:w-[420px] md:p-5 flex-shrink-0 group cursor-pointer relative"
+        className="w-[360px] md:w-[420px] flex-shrink-0 group cursor-pointer relative"
         onMouseMove={handleMouseMove}
         onMouseEnter={() => onHoverChange(true)}
         onMouseLeave={handleMouseLeave}
@@ -69,14 +60,10 @@ const ProjectCard = ({
           rotateY: isThisHovered ? rotateY : 0,
           transformStyle: "preserve-3d",
         }}
-        animate={{
-          scale: isThisHovered ? 1.08 : 1,
-          filter: "none",
-          opacity: 1,
-        }}
+       
         transition={{ duration: 0.3 }}
       >
-        <div className="relative overflow-hidden rounded-2xl mb-6 ">
+        <div className="relative overflow-hidden rounded-2xl aspect-square">
           {/* Animated gradient border - only shows on hover */}
           <motion.div
             className="absolute inset-0 rounded-2xl p-[2px] z-0"
@@ -103,25 +90,29 @@ const ProjectCard = ({
           </motion.div>
 
           {/* Image */}
-          <motion.img
-            src={item.image}
-            alt={item.title}
-            className="w-full h-[280px] object-cover rounded-2xl relative z-10"
+          <motion.div
+            className="w-full h-full relative z-10 rounded-2xl overflow-hidden"
             animate={{
-              scale: isThisHovered ? 1.1 : 1,
+              scale: isThisHovered ? 1.08 : 1,
             }}
             transition={{ duration: 0.5 }}
-          />
-
-          {/* Bottom gradient overlay */}
-          <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 via-black/40 to-transparent rounded-b-2xl z-20 pointer-events-none" />
+          >
+            <Image
+              src={item.image}
+              alt={item.title}
+              fill
+              sizes="(max-width: 768px) 360px, 420px"
+              className="object-cover"
+              loading="lazy"
+            />
+          </motion.div>
 
           {/* Interactive light effect following mouse */}
           {isThisHovered && (
             <motion.div
               className="absolute inset-0 pointer-events-none rounded-2xl z-30"
               style={{
-                background: `radial-gradient(circle at ${explorePos.x}% ${explorePos.y}%, rgba(255,255,255,0.3) 0%, transparent 50%)`,
+                background: `radial-gradient(circle at ${explorePos.x}% ${explorePos.y}%, rgba(255,255,255,0.25) 0%, transparent 50%)`,
               }}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -134,7 +125,7 @@ const ProjectCard = ({
             <motion.div
               className="absolute inset-0 pointer-events-none rounded-2xl z-30"
               style={{
-                background: 'linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%)',
+                background: 'linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.15) 50%, transparent 60%)',
                 backgroundSize: '200% 200%',
               }}
               animate={{
@@ -148,146 +139,34 @@ const ProjectCard = ({
             />
           )}
 
-          {/* Sparkle Effect */}
+          {/* Explore button follows mouse */}
           {isThisHovered && (
-            <>
-              {[...Array(12)].map((_, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute w-1 h-1 bg-white rounded-full z-40"
-                  style={{
-                    top: `${15 + (i * 8) % 70}%`,
-                    left: `${10 + (i * 9) % 80}%`,
-                    pointerEvents: "none"
-                  }}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{
-                    opacity: [0, 1, 0],
-                    scale: [0, 2, 0],
-                    y: [0, -40],
-                  }}
-                  transition={{
-                    duration: 1.2,
-                    delay: i * 0.08,
-                    repeat: Infinity,
-                  }}
-                />
-              ))}
-              
-              {/* Explore button follows mouse with smooth spring */}
+            <motion.div
+              className="absolute z-50 w-20 h-20 flex items-center justify-center rounded-full bg-white text-black  shadow-2xl pointer-events-none border-2 border-white/20"
+              style={{
+                top: `calc(${explorePos.y}% - 40px)`,
+                left: `calc(${explorePos.x}% - 40px)`,
+              }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 25 }}
+            >
+              {/* Ripple effect */}
               <motion.div
-                className="absolute z-50 w-20 h-20 flex items-center justify-center rounded-full bg-white text-black font-semibold shadow-2xl pointer-events-none border-2 border-white/20"
-                style={{
-                  top: `calc(${explorePos.y}% - 40px)`,
-                  left: `calc(${explorePos.x}% - 40px)`,
+                className="absolute inset-0 rounded-full border-2 border-white"
+                animate={{
+                  scale: [1, 1.5, 1],
+                  opacity: [0.8, 0, 0.8],
                 }}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ type: "spring", stiffness: 400, damping: 25 }}
-              >
-                {/* Ripple effect */}
-                <motion.div
-                  className="absolute inset-0 rounded-full border-2 border-white"
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [0.8, 0, 0.8],
-                  }}
-                  transition={{
-                    duration: 2,
-                    repeat: Infinity,
-                    ease: 'easeInOut'
-                  }}
-                />
-                <span className="text-sm font-semibold relative z-10">Explore</span>
-              </motion.div>
-            </>
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: 'easeInOut'
+                }}
+              />
+              <span className="text-sm  relative z-10">View</span>
+            </motion.div>
           )}
-
-          {/* Number badge with rotation on hover */}
-          <motion.div
-            className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center text-black font-bold text-sm z-40 shadow-lg"
-            animate={{
-              rotate: isThisHovered ? 360 : 0,
-              scale: isThisHovered ? 1.2 : 1,
-            }}
-            transition={{ duration: 0.5 }}
-          >
-            {(index % caseStudiesData.length) + 1}
-          </motion.div>
-        </div>
-
-        {/* Content */}
-        <div className="space-y-4">
-          <div className="flex items-start justify-between gap-4">
-            <motion.h3
-              className="text-2xl font-semibold text-white"
-              animate={{
-                y: isThisHovered ? -5 : 0,
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              {item.title}
-            </motion.h3>
-
-            <div className="flex gap-3">
-              {item.tags.map((tag, i) => {
-                const Icon = tagIcons[tag as keyof typeof tagIcons];
-
-                return (
-                  <motion.span
-                    key={tag}
-                    className="flex items-center justify-center w-9 h-9 rounded-full border-2 border-white/60 text-white text-lg backdrop-blur-sm"
-                    title={tag}
-                    animate={{
-                      y: isThisHovered ? [0, -5, 0] : 0,
-                      borderColor: isThisHovered ? '#ffffff' : 'rgba(255,255,255,0.6)',
-                    }}
-                    whileHover={{
-                      scale: 1.2,
-                      rotate: 360,
-                      backgroundColor: '#ffffff',
-                      color: '#6c63ff',
-                      borderColor: '#ffffff',
-                    }}
-                    transition={{
-                      y: { duration: 0.6, delay: i * 0.1, repeat: isThisHovered ? Infinity : 0 },
-                      scale: { duration: 0.3 },
-                      rotate: { duration: 0.5 },
-                    }}
-                  >
-                    {Icon && <Icon />}
-                  </motion.span>
-                );
-              })}
-            </div>
-          </div>
-
-          <motion.p
-            className="text-white/80 text-sm leading-relaxed"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{
-              opacity: isThisHovered ? 1 : 0,
-              height: isThisHovered ? 'auto' : 0,
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            {item.subtitle}
-          </motion.p>
-
-          <div className="inline-flex items-center gap-2 font-semibold border-b-2 border-white/60 pb-1 text-white hover:gap-4 transition-all group/link">
-            View Case Study
-            <motion.span
-              animate={{
-                x: isThisHovered ? [0, 5, 0] : 0,
-              }}
-              transition={{
-                duration: 0.6,
-                repeat: isThisHovered ? Infinity : 0,
-              }}
-            >
-              →
-            </motion.span>
-          </div>
         </div>
       </motion.div>
     </Link>
@@ -345,9 +224,6 @@ export default function Carousel() {
       window.addEventListener('touchend', onUp);
     };
   
-  // duplicate for seamless scroll
-  const items = [...caseStudiesData, ...caseStudiesData ];
-
   const floatingShapes = [
     { top: "24%", left: "71%" },
     { top: "62%", left: "99%" },
@@ -431,11 +307,11 @@ export default function Carousel() {
       {/* Content */}
       <div className="relative z-10">
         {/* Section Heading */}
-        <div className="max-w-7xl mx-auto px-6 mb-6">
+        <div className="max-w-7xl mx-auto px-6 mb-8 md:mb-12">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
             <div>
               <motion.p
-                className="text-white/80 text-sm font-light tracking-[0.3em] uppercase mb-2"
+                className="text-white/80 text-sm tracking-[0.3em] uppercase mb-3"
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -443,18 +319,18 @@ export default function Carousel() {
                 Featured Work
               </motion.p>
               
-              <motion.h2
-                className="text-5xl  md:text-6xl font-bold text-white"
+              <motion.h3
+                className="text-5xl md:text-6xl lg:text-7xl text-white "
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
                 Our Clients
-              </motion.h2>
+              </motion.h3>
               
               {/* Animated Underline */}
               <motion.div
-                className="w-32 h-1 bg-white rounded-full mt-3"
+                className="w-32 h-1 bg-white rounded-full mt-4"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
@@ -470,62 +346,63 @@ export default function Carousel() {
               }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="px-10 py-4 rounded-full bg-white/10 backdrop-blur-md text-white border-2 border-white/30 font-serif text-lg font-semibold shadow-2xl overflow-hidden group relative"
+              className="px-8 py-3 md:px-10 md:py-4 rounded-full bg-white/10 backdrop-blur-md text-white border-2 border-white/30  text-base md:text-md shadow-2xl overflow-hidden group relative"
               onClick={() => window.location.href = "/client"}
             >
-              <span className="relative z-10 flex items-center gap-3">
+              <h3 className="relative z-10 flex items-center gap-3">
                 View All Projects
-                <motion.span
+                <motion.h3
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 >
                   →
-                </motion.span>
-              </span>
+                </motion.h3>
+              </h3>
               {/* Glow effect on hover */}
               <motion.span 
                 className="absolute inset-0 rounded-full bg-white/20"
                 initial={{ scale: 0, opacity: 0 }}
-                whileHover={{ scale: 0.2, opacity: 1 }}
-                transition={{ duration: 0.1 }}
+                whileHover={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.3 }}
               />
             </motion.button>
           </div>
         </div>
 
         {/* Carousel */}
-        <div
-          className="flex gap-8 px-6 overflow-x-auto mt-6 mb-8 carousel-scroll-hide"
-          style={{ WebkitOverflowScrolling: 'touch', cursor: 'grab' }}
-          ref={carouselRef}
-        >
-          {caseStudiesData.map((item, i) => (
-            <ProjectCard 
-              key={i} 
-              item={item} 
-              index={i}
-              isAnyHovered={hoveredIndex !== null}
-              isThisHovered={hoveredIndex === i}
-              onHoverChange={(hovered) => setHoveredIndex(hovered ? i : null)}
-            />
-          ))}
+        <div className="max-w-8xl mx-auto px-6">
+          <div
+            className="flex gap-3 md:gap-3 overflow-x-auto mt-8 mb-12 carousel-scroll-hide pb-4"
+            style={{ WebkitOverflowScrolling: 'touch', cursor: 'grab' }}
+            ref={carouselRef}
+          >
+            {caseStudiesData.map((item, i) => (
+              <ProjectCard 
+                key={i} 
+                item={item} 
+                index={i}
+                isAnyHovered={hoveredIndex !== null}
+                isThisHovered={hoveredIndex === i}
+                onHoverChange={(hovered) => setHoveredIndex(hovered ? i : null)}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* Progress Bar with horizontal scroll */}
-        {/* Draggable Progress Bar that scrolls the carousel */}
-        <div className="max-w-5xl mx-auto px-6 mb-8 select-none mt-20">
+        {/* Progress Bar */}
+        <div className="max-w-7xl mx-auto px-6 mb-12 select-none">
           <div
             className="w-full cursor-ew-resize"
             ref={progressBarRef}
             onMouseDown={handleProgressBarDrag}
             onTouchStart={handleProgressBarDrag}
           >
-            <div className="h-2 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm min-w-[600px] w-[120vw] relative">
+            <div className="h-2 bg-white/10 rounded-full overflow-hidden backdrop-blur-sm relative">
               <div
                 className="h-full bg-gradient-to-r from-white via-white/80 to-white rounded-full shadow-lg absolute left-0 top-0"
                 style={{
                   width: '40%',
-                  transform: `translateX(${progress * 60}%)`, // 60% = 100%-40%
+                  transform: `translateX(${progress * 60}%)`,
                   transition: 'transform 0.2s',
                 }}
               />

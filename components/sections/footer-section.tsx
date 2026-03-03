@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { supabase } from "@/lib/supabaseClient";
 import { AnimatePresence } from "framer-motion";
 
@@ -85,18 +86,21 @@ export function FooterSection() {
 
             <nav className="flex flex-wrap gap-6 mt-8">
               {footerLinks.map((link, i) => (
-                <motion.a
+                <Link
                   key={i}
                   href={link.href}
                   className="text-muted-foreground hover:text-foreground transition-colors"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
                   data-clickable
                 >
-                  {link.label}
-                </motion.a>
+                  <motion.span
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.05 }}
+                  >
+                    {link.label}
+                  </motion.span>
+                </Link>
               ))}
             </nav>
           </div>

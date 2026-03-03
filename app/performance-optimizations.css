@@ -1,0 +1,112 @@
+/* Performance Optimizations for Smooth Scrolling */
+
+/* Enable GPU acceleration for transforms and animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize scroll performance */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overscroll-behavior-y: none;
+}
+
+/* Optimize animations - use will-change sparingly */
+[data-scroll] {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation completes */
+.animation-complete {
+  will-change: auto;
+}
+
+/* Optimize images and videos */
+img, video {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px auto;
+}
+
+/* Reduce paint on scroll */
+.fixed-element {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize framer-motion components */
+[class*="motion-"] {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Debounce scroll events */
+.scroll-container {
+  contain: layout style paint;
+}
+
+/* Optimize gradient animations */
+.gradient-animation {
+  will-change: background-position;
+}
+
+/* Prevent layout shifts */
+.prevent-layout-shift {
+  content-visibility: auto;
+  contain-intrinsic-size: 500px;
+}
+
+/* Optimize carousel scrolling */
+.carousel-scroll-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-scroll-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* GPU layer optimization for parallax */
+[data-scroll-speed] {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Optimize backdrop filters */
+.backdrop-blur-optimized {
+  -webkit-backdrop-filter: blur(var(--blur-amount));
+  backdrop-filter: blur(var(--blur-amount));
+  transform: translateZ(0);
+}
+
+/* Reduce repaints during hover */
+.hover-optimized {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Optimize card hover effects */
+.card {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Lazy load optimization */
+.lazy-load {
+  content-visibility: auto;
+}
+
+/* Prevent text flickering */
+.text-optimized {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}

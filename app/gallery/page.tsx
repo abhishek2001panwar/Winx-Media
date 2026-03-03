@@ -7,7 +7,7 @@ export default function GalleryPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen relative overflow-hidden bg-white">
+      <main className="min-h-screen relative overflow-hidden bg-white ">
         {/* Animated background gradient mesh - subtle light version */}
         <div className="fixed inset-0 opacity-40 pointer-events-none">
           <div className="gradient-orb-light orb-1"></div>
@@ -24,17 +24,17 @@ export default function GalleryPage() {
           <div className="max-w-[1600px] mx-auto mb-10">
           
             
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-light text-black mb-2 text-center tracking-tight leading-[0] title-reveal">
-              Creative
-              <br />
-              <span
-                className=" font-serif text-transparent bg-clip-text bg-gradient-to-r from-[#181f7c] to-[#a34fdc]"
+            <h2 className="text-6xl md:text-7xl lg:text-8xl  text-black  text-center tracking-tight leading-[0] title-reveal">
+              Creative  Gallery
+              
+              <h2
+                className="  text-transparent bg-clip-text bg-gradient-to-r from-[#181f7c] to-[#a34fdc]"
               >
-                Gallery
-              </span>
-            </h1>
+               
+              </h2>
+            </h2>
             
-            <p className="text-lg md:text-xl text-gray-600 text-center max-w-2xl mx-auto font-light leading-relaxed subtitle-reveal">
+            <p className="text-lg md:text-xl text-gray-600 text-center max-w-2xl mx-auto  leading-relaxed subtitle-reveal">
               Immerse yourself in our collection of video projects, social media campaigns, 
               and engagement analytics.
             </p>
@@ -177,7 +177,7 @@ export default function GalleryPage() {
               {/* Engagement Section - Wide */}
               <Link 
                 href="/engagement" 
-                className="lg:col-span-12 gallery-card-light group relative block overflow-hidden rounded-3xl border border-black/10"
+                className="lg:col-span-12 gallery-card-light group relative block overflow-hidden rounded-3xl border border-black/10 mb-10"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-[#66b3ff]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 

@@ -126,7 +126,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
           <img
             src={caseStudy.image}
             alt={caseStudy.title}
-            className="w-full h-[300px] sm:h-[500px] object-cover"
+            className="w-full h-[300px] sm:h-[700px] object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
         </motion.div>

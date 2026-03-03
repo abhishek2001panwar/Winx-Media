@@ -19,6 +19,7 @@ import App from "./blog/page";
 import Carousel from "./carousel/page";
 import { Heronew } from "@/components/sections/heronew";
 import Analytic from "@/components/sections/analytic";
+import { Portfolio } from "@/components/sections/portfoliio";
 
 export default function Home() {
   const lastSectionRef = useRef<string>("");
@@ -115,6 +116,7 @@ export default function Home() {
           {/* <section id="about">
             <About />
           </section> */}
+          <Portfolio />
           <ManifestoSection />
 
           <section id="work">
