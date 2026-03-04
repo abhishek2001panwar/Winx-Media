@@ -43,7 +43,7 @@ export function InsightsSection() {
 
   return (
     <section className="  flex flex-col items-center justify-center md:py-16 px-4">
-      <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-center mb-12">FAQ</h2>
+      <h2 className="text-4xl md:text-5xl  tracking-tight text-center mb-12">FAQ</h2>
       
       {/* Desktop View - Floating Cards */}
       <div className="hidden lg:block relative w-full flex items-center justify-center" style={{ minHeight: 430 }}>
@@ -68,11 +68,11 @@ export function InsightsSection() {
               transition={{ duration: 0.6 }}
             >
               {/* Front (Question) */}
-              <div className="absolute w-full h-full bg-white text-black rounded-2xl flex items-center justify-center text-center text-lg font-semibold font-sans shadow-2xl [backface-visibility:hidden] px-6 py-4">
+              <div className="absolute w-full h-full bg-white text-black rounded-2xl flex items-center justify-center text-center text-lg  shadow-2xl [backface-visibility:hidden] px-6 py-4">
                 {faq.question}
               </div>
               {/* Back (Answer) */}
-              <div className="absolute w-full h-full bg-black text-white rounded-2xl flex items-center justify-center text-center text-base font-medium font-sans shadow-2xl [transform:rotateY(180deg)] [backface-visibility:hidden] px-6 py-10">
+              <div className="absolute w-full h-full bg-black text-white rounded-2xl flex items-center justify-center text-center text-base font-medium  shadow-2xl [transform:rotateY(180deg)] [backface-visibility:hidden] px-6 py-10">
                 {faq.answer}
               </div>
             </motion.div>
@@ -106,7 +106,7 @@ export function InsightsSection() {
               onClick={() => setExpanded(expanded === i ? null : i)}
               className="w-full text-left px-6 py-5 flex items-center justify-between gap-4"
             >
-              <span className="text-base font-semibold font-sans text-black">{faq.question}</span>
+              <h1 className="text-base  text-black">{faq.question}</h1>
               <motion.svg
                 animate={{ rotate: expanded === i ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
@@ -134,9 +134,9 @@ export function InsightsSection() {
               transition={{ duration: 0.3 }}
               className="overflow-hidden"
             >
-              <div className="px-6 pb-5 text-sm text-gray-700 leading-relaxed">
+              <p className="px-6 pb-5 text-sm text-gray-700 leading-relaxed">
                 {faq.answer}
-              </div>
+              </p>
             </motion.div>
           </motion.div>
         ))}

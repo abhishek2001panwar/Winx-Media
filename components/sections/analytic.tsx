@@ -61,9 +61,11 @@ const AnimatedCounter = ({ value, suffix }: { value: number; suffix?: string }) 
   }, [value]);
 
   return (
-    <span className="tabular-nums">
+    <span className="tabular-nums pr-2">
       {display}
-      {suffix}
+      {suffix && (
+        <span style={{ fontSize: '0.7em', marginLeft: '0.05em', verticalAlign: 'bottom', display: 'inline-block' }}>{suffix}</span>
+      )}
     </span>
   );
 };

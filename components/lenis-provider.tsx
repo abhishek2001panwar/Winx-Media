@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, createContext, useContext, useRef, type ReactNode } from "react"
+import { useEffect, createContext, useContext, useRef, useState, type ReactNode } from "react"
 import Lenis from "lenis"
 
 type LenisContextType = {
@@ -11,56 +11,57 @@ const LenisContext = createContext<LenisContextType>({ lenis: null })
 
 export const useLenis = () => useContext(LenisContext)
 
+// Stable context value stored outside component so it never causes re-renders
+const ctxValue: LenisContextType = { lenis: null }
+
 export function LenisProvider({ children }: { children: ReactNode }) {
-  const lenisRef = useRef<Lenis | null>(null)
+  // Using a ref for the context value means updating lenis instance
+  // NEVER triggers a re-render of any consumer
+  const ctxRef = useRef<LenisContextType>(ctxValue)
 
   useEffect(() => {
-    // Check if we're in a browser environment
-    if (typeof window === "undefined" || typeof document === "undefined") {
-      return
-    }
+    if (typeof window === "undefined") return
 
-    // Disable smooth scroll on mobile/touch devices to prevent conflicts
     const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
-    if (isTouchDevice) {
-      return
-    }
+    if (isTouchDevice) return
 
-    let lenis: Lenis | null = null
+    let rafId: number
 
     try {
-      lenis = new Lenis({
+      const lenis = new Lenis({
         duration: 1.2,
         easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
         orientation: "vertical",
         gestureOrientation: "vertical",
         smoothWheel: true,
-        wrapper: window,
-        content: document.documentElement,
+        // Do NOT pass wrapper or content — defaults are fine and
+        // don't mutate <html> classes
       })
 
-      lenisRef.current = lenis
+      ctxRef.current.lenis = lenis
 
       function raf(time: number) {
-        lenis?.raf(time)
-        requestAnimationFrame(raf)
+        lenis.raf(time)
+        rafId = requestAnimationFrame(raf)
       }
+      rafId = requestAnimationFrame(raf)
 
-      requestAnimationFrame(raf)
     } catch (error) {
       console.error("Failed to initialize Lenis:", error)
     }
 
     return () => {
-      if (lenis) {
-        lenis.destroy()
+      cancelAnimationFrame(rafId)
+      if (ctxRef.current.lenis) {
+        ctxRef.current.lenis.destroy()
+        ctxRef.current.lenis = null
       }
-      lenisRef.current = null
     }
   }, [])
 
+  // ctxRef.current is a stable object reference — never changes, never re-renders consumers
   return (
-    <LenisContext.Provider value={{ lenis: lenisRef.current }}>
+    <LenisContext.Provider value={ctxRef.current}>
       {children}
     </LenisContext.Provider>
   )
