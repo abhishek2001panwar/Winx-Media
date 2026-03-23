@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
-const showcaseImages = ["/marketing.png", "/auto.png", "/campaigns.jpeg"];
+const showcaseImages = ["/marketing.PNG", "/auto.PNG", "/campaigns.jpeg"];
 
 export function Portfolio() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -49,7 +49,7 @@ export function Portfolio() {
           {/* Card 1 */}
           <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden group flex flex-col justify-end">
             <Image
-              src="/marketing.png"
+              src="/marketing.PNG"
               alt="Content Strategy"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
@@ -83,7 +83,7 @@ export function Portfolio() {
           {/* Card 2 */}
           <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden group flex flex-col justify-end">
             <Image
-              src="/auto.png"
+              src="/auto.PNG"
               alt="Creative Campaigns"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
