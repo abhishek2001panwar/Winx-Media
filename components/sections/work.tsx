@@ -1,10 +1,8 @@
 'use client'
-import React, { useRef, useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, useInView } from 'framer-motion';
+import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// Story segments broken into narrative beats
 const storyBeats = [
   {
     type: 'problem',
@@ -62,183 +60,96 @@ const storyBeats = [
   }
 ];
 
-const StoryBeat: React.FC<{ beat: typeof storyBeats[0]; index: number }> = ({ beat, index }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: false, amount: 0.5 });
-  
+const StoryBeat: React.FC<{ beat: typeof storyBeats[0] }> = ({ beat }) => {
   const getTypeStyles = () => {
     switch (beat.type) {
-      case 'problem':
-        return 'border-l-4 border-gray-400 bg-gray-50';
-      case 'solution':
-        return 'border-l-4 border-black bg-black/5';
-      case 'feature':
-        return 'border-l-4 border-gray-600 bg-gray-100/50';
-      case 'result':
-        return 'border-l-4 border-gray-700 bg-gray-200/30';
-      case 'impact':
-        return 'border-l-4 border-black bg-black/10';
-      default:
-        return 'border-l-4 border-gray-300';
+      case 'problem':  return 'border-l-4 border-gray-400 bg-gray-50';
+      case 'solution': return 'border-l-4 border-black bg-black/5';
+      case 'feature':  return 'border-l-4 border-gray-600 bg-gray-100/50';
+      case 'result':   return 'border-l-4 border-gray-700 bg-gray-200/30';
+      case 'impact':   return 'border-l-4 border-black bg-black/10';
+      default:         return 'border-l-4 border-gray-300';
     }
   };
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, x: -50 }}
-      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
+    <div
       className={`relative p-3 sm:p-4 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl ${getTypeStyles()} mb-2 sm:mb-3 md:mb-4`}
     >
-      {/* Icon */}
-      <motion.div
-        initial={{ scale: 0, rotate: -180 }}
-        animate={isInView ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
-        transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-        className="absolute -left-4 sm:-left-5 md:-left-6 top-4 sm:top-6 md:top-8 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center text-base sm:text-xl md:text-2xl shadow-lg border-2 border-gray-200"
-      >
+      <div className="absolute -left-4 sm:-left-5 md:-left-6 top-4 sm:top-6 md:top-8 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center text-base sm:text-xl md:text-2xl shadow-lg border-2 border-gray-200">
         {beat.icon}
-      </motion.div>
+      </div>
 
-      {/* Story text */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.6, delay: index * 0.1 + 0.3 }}
-        className="text-sm sm:text-base md:text-md lg:text-lg text-gray-800 leading-relaxed "
-      >
-        {beat.text.split(beat.highlight).map((part, i) => (
+      <p className="text-sm sm:text-base md:text-md lg:text-lg text-gray-800 leading-relaxed">
+        {beat.text.split(beat.highlight).map((part, i, arr) => (
           <React.Fragment key={i}>
             {part}
-            {i < beat.text.split(beat.highlight).length - 1 && (
-              <motion.span
-                initial={{ backgroundSize: '0% 100%' }}
-                animate={isInView ? { backgroundSize: '100% 100%' } : { backgroundSize: '0% 100%' }}
-                transition={{ duration: 0.8, delay: index * 0.1 + 0.5 }}
-                className=" bg-gradient-to-r from-black/10 to-black/10 bg-no-repeat"
-                style={{ backgroundPosition: '0 100%' }}
-              >
+            {i < arr.length - 1 && (
+              <span className="bg-yellow-200">
                 {beat.highlight}
-              </motion.span>
+              </span>
             )}
           </React.Fragment>
         ))}
-      </motion.p>
+      </p>
 
-      {/* Type badge */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-        transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
-        className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 px-2 sm:px-2.5 md:px-3 py-0.5 sm:py-1 bg-white/80 backdrop-blur-sm rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider text-gray-600 border border-gray-200"
-      >
+      <div className="absolute top-2 sm:top-3 md:top-4 right-2 sm:right-3 md:right-4 px-2 sm:px-2.5 md:px-3 py-0.5 sm:py-1 bg-white/80 backdrop-blur-sm rounded-full text-[10px] sm:text-xs font-mono uppercase tracking-wider text-gray-600 border border-gray-200">
         {beat.type}
-      </motion.div>
-    </motion.div>
+      </div>
+    </div>
   );
 };
 
 const Work: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start']
-  });
-
-  const backgroundY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-
   return (
-    <section ref={containerRef} className="relative pt-1 sm:pt-2 md:pt-3 lg:pt-4 xl:pt-5 pb-2 overflow-hidden bg-background">
-      {/* Animated Background Elements */}
-      <motion.div
-        style={{ y: backgroundY }}
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-      >
-        <motion.div
-          className="absolute top-20 left-10 w-96 h-96 bg-black rounded-full blur-[100px]"
-          animate={{ 
-            y: [0, -50, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
-        />
-        <motion.div
-          className="absolute bottom-40 right-20 w-[600px] h-[600px] bg-gray-800 rounded-full blur-[120px]"
-          animate={{ 
-            y: [0, -50, 0],
-            scale: [1, 1.1, 1],
-          }}
-          transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        />
-      </motion.div>
+    <section className="relative pt-1 sm:pt-2 md:pt-3 lg:pt-4 xl:pt-5 pb-2 overflow-hidden bg-background">
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-black rounded-full blur-[100px]" />
+        <div className="absolute bottom-40 right-20 w-[600px] h-[600px] bg-gray-800 rounded-full blur-[120px]" />
+      </div>
 
       <div className="container mx-auto px-2 sm:px-4 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-4 sm:mb-6 md:mb-8 lg:mb-10">
-          <motion.p
-            className="text-gray-600 text-xs sm:text-sm  font-sans tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2 sm:mb-3"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <p className="text-gray-600 text-xs sm:text-sm font-sans tracking-[0.2em] sm:tracking-[0.3em] uppercase mb-2 sm:mb-3">
             Our Work
-          </motion.p>
+          </p>
 
           <div className="max-w-5xl mx-auto relative mb-2 sm:mb-2">
-            {/* Background text */}
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl  leading-tight text-center text-black  ">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl leading-tight text-center text-black">
               Less talking
               <br />
               More showing
             </h2>
-
-         
           </div>
 
-          {/* Animated underline */}
-          <motion.div
-            className="w-16 sm:w-20 md:w-24 h-0.5 sm:h-1 bg-black mx-auto rounded-full"
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          />
+          <div className="w-16 sm:w-20 md:w-24 h-0.5 sm:h-1 bg-black mx-auto rounded-full" />
         </div>
 
         {/* Client showcase card */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20"
-        >
+        <div className="max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20">
           <div className="relative p-6 sm:p-8 md:p-10 lg:p-12 bg-gradient-to-br from-gray-50 to-white rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200 overflow-hidden">
-            {/* Decorative corner elements */}
             <div className="absolute top-0 left-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-black/5 rounded-br-full" />
             <div className="absolute bottom-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 bg-black/5 rounded-tl-full" />
-            
+
             <div className="relative z-10 text-center">
-              <motion.div
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="mb-4 sm:mb-6 w-full">
-                <div className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden">
-                  <Image 
-                    className='rounded-2xl sm:rounded-3xl w-full h-auto' 
-                    src="/image.png" 
+              <div className="mb-4 sm:mb-6 w-full">
+                <div className="relative w-full max-w-2xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden bg-gray-100 aspect-[16/9]">
+                  <Image
+                    className='w-full h-full object-contain'
+                    src="/image.png"
                     alt="Its Forever App"
                     width={1200}
                     height={675}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
-                    loading="lazy"
+                    sizes="(max-width: 608px) 90vw, (max-width: 1200px) 70vw, 600px"
+                    priority={true}
+                    quality={75}
+                    placeholder="blur"
+                    blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 675'%3E%3Crect fill='%23f3f4f6' width='1200' height='675'/%3E%3C/svg%3E"
                   />
                 </div>
-              </motion.div>
-              
-              {/* Stats */}
+              </div>
+
               <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8 md:mt-10 pt-6 sm:pt-8 md:pt-10 border-t border-gray-200">
                 <div>
                   <div className="text-xl sm:text-2xl md:text-3xl font-black text-black">47K+</div>
@@ -255,126 +166,53 @@ const Work: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Story Timeline */}
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="mb-8 sm:mb-10 md:mb-12"
-          >
-            <h3 className="text-2xl sm:text-3xl md:text-4xl  mb-3 sm:mb-4 tracking-tight">The Journey</h3>
+          <div className="mb-8 sm:mb-10 md:mb-12">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4 tracking-tight">The Journey</h3>
             <p className="text-sm sm:text-base md:text-lg text-gray-600">From chaos to clarity, one feature at a time.</p>
-          </motion.div>
+          </div>
 
-          {/* Story beats */}
           <div className="relative pl-6 sm:pl-8">
-            {/* Timeline line */}
-            <motion.div
-              initial={{ scaleY: 0 }}
-              whileInView={{ scaleY: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 1.5, ease: "easeOut" }}
-              className="absolute left-0 top-0 bottom-0 w-0.5 sm:w-1 bg-gradient-to-b from-gray-300 via-gray-500 to-black origin-top"
-            />
+            <div className="absolute left-0 top-0 bottom-0 w-0.5 sm:w-1 bg-gradient-to-b from-gray-300 via-gray-500 to-black" />
 
-            {storyBeats.map((beat, index) => (
-              <StoryBeat key={index} beat={beat} index={index} />
-            ))}
+            <div>
+              {storyBeats.map((beat, index) => (
+                <StoryBeat key={index} beat={beat} />
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Final Impact Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto m-4"
-        >
+        <div className="max-w-4xl mx-auto m-4 mt-12 sm:mt-16 md:mt-20">
           <div className="relative p-8 sm:p-10 md:p-12 lg:p-16 border-l-4 border-gray-700 bg-gray-200/30 text-black border rounded-2xl sm:rounded-3xl overflow-hidden">
-            {/* Animated gradient background */}
-            <motion.div
-              className="absolute inset-0 opacity-10"
-              animate={{
-                background: [
-                  'radial-gradient(circle at 0% 0%, white 0%, transparent 50%)',
-                  'radial-gradient(circle at 100% 100%, white 0%, transparent 50%)',
-                  'radial-gradient(circle at 0% 0%, white 0%, transparent 50%)',
-                ],
-              }}
-              transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
-            />
-            
             <div className="relative z-10 text-center">
               <h3 className="text-2xl sm:text-3xl md:text-5xl mb-4 sm:mb-6 tracking-tight">The Result?</h3>
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed  mb-6 sm:mb-8">
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed mb-6 sm:mb-8">
                 A brand that doesn't just solve problems it transforms the entire wedding photography experience. From scattered chaos to organized magic.
               </p>
-              
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-block"
+
+              <Link
+                href="/work"
+                className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-white text-black rounded-full text-sm sm:text-base md:text-lg hover:shadow-2xl transition-all duration-300"
               >
-                <Link
-                  href="/work"
-                  className="inline-flex items-center gap-2 sm:gap-3 px-6 sm:px-8 md:px-10 py-3 sm:py-3.5 md:py-4 bg-white text-black rounded-full  text-sm sm:text-base md:text-lg hover:shadow-2xl transition-all duration-300"
+                Explore Full Case Study
+                <svg
+                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                  viewBox="0 0 24 24"
                 >
-                  Explore Full Case Study
-                  <motion.svg
-                    className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2.5}
-                    viewBox="0 0 24 24"
-                    whileHover={{ x: 5 }}
-                    transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </motion.svg>
-                </Link>
-              </motion.div>
-              
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
             </div>
           </div>
-        </motion.div>
-
-        {/* Floating particles */}
-        {([
-          { top: "15%", left: "10%" },
-          { top: "35%", left: "85%" },
-          { top: "55%", left: "8%" },
-          { top: "70%", left: "90%" },
-          { top: "25%", left: "92%" },
-          { top: "80%", left: "12%" },
-        ]).map((pos, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1.5 h-1.5 sm:w-2 sm:h-2 bg-black/10 rounded-full pointer-events-none hidden sm:block"
-            style={{
-              top: pos.top,
-              left: pos.left,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, (i % 2 === 0 ? 1 : -1) * 10, 0],
-              opacity: [0.1, 0.3, 0.1],
-            }}
-            transition={{
-              duration: 3 + i,
-              repeat: Infinity,
-              delay: i * 0.5,
-            }}
-          />
-        ))}
+        </div>
       </div>
     </section>
   );
