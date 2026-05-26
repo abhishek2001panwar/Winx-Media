@@ -20,6 +20,8 @@ import {
   TbTarget
 } from "react-icons/tb"
 
+import WebsiteDevelopmentAnimation from "../websitedevelopment"
+
 const socialLinks = [
   { icon: FaFacebookF, label: 'Facebook', color: '#1877F2', angle: 0 },
   { icon: FaInstagram, label: 'Instagram', color: '#E4405F', angle: 60 },
@@ -420,6 +422,10 @@ function ProductionAdShootAnimation() {
   )
 }
 
+// Website Development - Code animation
+
+
+
 const services = [
   {
     title: 'Social Media Marketing',
@@ -468,7 +474,13 @@ const services = [
     description: 'High-quality content production for impactful campaigns',
     icon: TbBrandGoogleAnalytics,
     animation: ProductionAdShootAnimation,
-  }
+  },
+  {
+    title: 'Website Development',
+    description: 'Custom websites that are fast, responsive, and conversion-focused',
+    icon: TbBrandGoogleAnalytics,
+    animation: WebsiteDevelopmentAnimation,
+  },
   
 ]
 
