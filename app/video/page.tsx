@@ -4,6 +4,13 @@ import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const videos = [
+  "https://hsrtiles.in/wp-content/uploads/2026/06/Ai-video.mp4",
+  "https://hsrtiles.in/wp-content/uploads/2026/06/Hook.mp4",
+  "https://hsrtiles.in/wp-content/uploads/2026/06/logo-1.mp4",
+  "https://hsrtiles.in/wp-content/uploads/2026/06/team.mp4",
+  "https://hsrtiles.in/wp-content/uploads/2026/06/WFA.mp4",
+  "https://hsrtiles.in/wp-content/uploads/2026/06/win-final.mp4",
+  "https://hsrtiles.in/wp-content/uploads/2026/06/winx.mp4",
   "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/Wait%E2%80%A6-WHAT-just-happened-at-this-wedding-You-wont-believe-what-went-down-during-the-ceremony.mp4",
   "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/I-couldnt-stop-crying-because-of-what-he-did%E2%80%A6-It-was-the-most-beautiful-surprise.-%F0%9F%98%AE-Take-these.mp4",
   "https://media.winxmarketingmedia.in/wp-content/uploads/2025/09/Create-a-QR-code-for-your-wedding-with-the-app-@itsforever.in-and-collect-all-the-photos-your-gu.mp4",
@@ -16,6 +23,7 @@ const videos = [
 function VideoCard({ src, idx }: { src: string; idx: number }) {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
   const [isHover, setIsHover] = useState(false)
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
@@ -29,6 +37,15 @@ function VideoCard({ src, idx }: { src: string; idx: number }) {
       vid.pause()
       setIsPlaying(false)
     }
+  }
+
+  const handleMuteToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation()
+    const vid = videoRef.current
+    if (!vid) return
+
+    vid.muted = !vid.muted
+    setIsMuted(vid.muted)
   }
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -78,11 +95,13 @@ function VideoCard({ src, idx }: { src: string; idx: number }) {
             ref={videoRef}
             src={src}
             controls={false}
+            muted={isMuted}
             className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
             poster=""
             preload="metadata"
             onPause={handlePause}
             onPlay={handlePlay}
+            onEnded={handlePause}
             tabIndex={0}
             style={{ outline: "none" }}
           />
@@ -106,50 +125,76 @@ function VideoCard({ src, idx }: { src: string; idx: number }) {
         {idx + 1}
       </motion.div>
 
-      {/* Play/Pause Button with magnetic effect */}
-      {(isHover || isPlaying) && (
-        <motion.button
-          className="absolute left-1/2 top-1/2 z-30
-                   w-20 h-20 rounded-full bg-white/90 backdrop-blur-md
-                   flex items-center justify-center shadow-2xl
-                   hover:bg-white transition-all"
-          style={{
-            transform: `translate(calc(-50% + ${mousePosition.x * 20}px), calc(-50% + ${mousePosition.y * 20}px))`,
-            transition: 'transform 0.2s ease-out'
-          }}
-          onClick={handleToggle}
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9 }}
-          aria-label={isPlaying ? "Pause video" : "Play video"}
-        >
-          {/* Ripple effect */}
-          <motion.div
-            className="absolute inset-0 rounded-full border-2 border-white"
-            animate={{
-              scale: [1, 1.8, 1],
-              opacity: [0.8, 0, 0.8],
+      {/* Video controls */}
+      {isHover && (
+        <div className="absolute inset-0 z-30 pointer-events-none">
+          <motion.button
+            className="absolute left-4 top-4 pointer-events-auto
+                     w-12 h-12 rounded-full bg-black/70 backdrop-blur-md
+                     flex items-center justify-center shadow-xl
+                     hover:bg-black transition-all"
+            onClick={handleMuteToggle}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label={isMuted ? "Unmute video" : "Mute video"}
+          >
+            {isMuted ? (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-white">
+                <path d="M11 5L6 9H3v6h3l5 4V5Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                <path d="M15 9l6 6m0-6l-6 6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+              </svg>
+            ) : (
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-white">
+                <path d="M11 5L6 9H3v6h3l5 4V5Z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
+                <path d="M15.5 8.5a4.5 4.5 0 0 1 0 7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                <path d="M18.5 5.5a8 8 0 0 1 0 13" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+              </svg>
+            )}
+          </motion.button>
+
+          <motion.button
+            className="absolute left-1/2 top-1/2 pointer-events-auto
+                     w-20 h-20 rounded-full bg-white/90 backdrop-blur-md
+                     flex items-center justify-center shadow-2xl
+                     hover:bg-white transition-all"
+            style={{
+              transform: `translate(calc(-50% + ${mousePosition.x * 20}px), calc(-50% + ${mousePosition.y * 20}px))`,
+              transition: 'transform 0.2s ease-out'
             }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: 'easeInOut'
-            }}
-          />
-          {isPlaying ? (
-            // Pause icon
-            <svg width="38" height="38" fill="none" viewBox="0 0 24 24" className="relative z-10">
-              <circle cx="12" cy="12" r="11" stroke="#000" strokeWidth="2" />
-              <rect x="8" y="8" width="2.8" height="8" rx="1" fill="#000" />
-              <rect x="13.2" y="8" width="2.8" height="8" rx="1" fill="#000" />
-            </svg>
-          ) : (
-            // Play icon
-            <svg width="40" height="40" fill="none" viewBox="0 0 24 24" className="relative z-10">
-              <circle cx="12" cy="12" r="11" stroke="#000" strokeWidth="2" />
-              <polygon points="10,8 16,12 10,16" fill="#000" />
-            </svg>
-          )}
-        </motion.button>
+            onClick={handleToggle}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            aria-label={isPlaying ? "Pause video" : "Play video"}
+          >
+            {/* Ripple effect */}
+            <motion.div
+              className="absolute inset-0 rounded-full border-2 border-white"
+              animate={{
+                scale: [1, 1.8, 1],
+                opacity: [0.8, 0, 0.8],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut'
+              }}
+            />
+            {isPlaying ? (
+              // Pause icon
+              <svg width="38" height="38" fill="none" viewBox="0 0 24 24" className="relative z-10">
+                <circle cx="12" cy="12" r="11" stroke="#000" strokeWidth="2" />
+                <rect x="8" y="8" width="2.8" height="8" rx="1" fill="#000" />
+                <rect x="13.2" y="8" width="2.8" height="8" rx="1" fill="#000" />
+              </svg>
+            ) : (
+              // Play icon
+              <svg width="40" height="40" fill="none" viewBox="0 0 24 24" className="relative z-10">
+                <circle cx="12" cy="12" r="11" stroke="#000" strokeWidth="2" />
+                <polygon points="10,8 16,12 10,16" fill="#000" />
+              </svg>
+            )}
+          </motion.button>
+        </div>
       )}
 
       {/* Glossy shine effect */}

@@ -18,6 +18,7 @@ const nextConfig = {
     { protocol: "https", hostname: "cdn.prod.website-files.com" },
     { protocol: "https", hostname: "a.storyblok.com" },
     { protocol: "https", hostname: "i.pinimg.com" },
+    { protocol: "https", hostname: "hsrtiles.in" },
   ],
 },
   // Performance optimizations
