@@ -72,7 +72,7 @@ export function InsightsSection() {
                 {faq.question}
               </div>
               {/* Back (Answer) */}
-              <div className="absolute w-full h-full bg-black text-white rounded-2xl flex items-center justify-center text-center text-base font-medium  shadow-2xl [transform:rotateY(180deg)] [backface-visibility:hidden] px-6 py-10">
+              <div className="absolute w-full h-full bg-black text-white rounded-2xl flex items-center justify-center text-center text-sm font-medium  shadow-2xl [transform:rotateY(180deg)] [backface-visibility:hidden] px-6 py-20">
                 {faq.answer}
               </div>
             </motion.div>

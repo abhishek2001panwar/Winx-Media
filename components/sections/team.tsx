@@ -61,6 +61,20 @@ const team = [
     image: "/abhishek.png",
     gradient: "from-blue-400 to-cyan-400",
   },
+  {
+    name: "V Jesh",
+    role: "Graphic Designer",
+    description: "Transforming ideas into visually captivating designs.",
+    image: "/vjesh.jpeg",
+    gradient: "from-orange-400 to-amber-400",
+  },
+  {
+    name: "Siddharth raj",
+    role: "Video editor and cinematographer",
+    description: "Crafting compelling visual narratives through video and cinematography.",
+    image: "/siddharth.PNG",
+    gradient: "from-indigo-400 to-purple-400",
+  },
 ];
 
 export default function TeamPage() {
