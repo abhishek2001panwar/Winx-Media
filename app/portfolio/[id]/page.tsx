@@ -1,8 +1,11 @@
 "use client";
 import React from "react";
 import { projects } from "../../../lib/projects";
+import { useState } from "react";
+
 
 function Page() {
+    const [expanded, setExpanded] = useState(false);
   // Array of placeholder image paths—replace these with your actual local or hosted image URLs
   const projectGallery = [
     "/path-to-your-images/gallery-1.jpg",
@@ -17,7 +20,7 @@ function Page() {
       <div className="max-w-[1600px] mx-auto px-6 pt-8 md:px-12 lg:px-16 flex justify-between items-center">
         <button
           onClick={() => window.history.back()}
-          className="group flex items-center gap-2 text-neutral-400 hover:text-white transition-colors duration-200 text-sm font-medium"
+          className="group flex items-center gap-2 text-neutral-400 hover:text-black transition-colors duration-200 text-sm font-medium"
         >
           {/* Back Arrow Icon */}
           <svg
@@ -39,8 +42,8 @@ function Page() {
       </div>
 
       {/* Main Massive Hero Image (Full Width of Content Grid) */}
-      <div className="max-w-[1600px] mx-auto px-6 pt-6 pb-16 md:px-12 lg:px-16">
-        <div className="w-full overflow-hidden rounded-xl bg-neutral-900 shadow-2xl">
+<div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-10 lg:px-16 pt-6 md:pt-10">   
+         <div className="w-full overflow-hidden rounded-xl bg-neutral-900 shadow-2xl">
           <img
             src={projects[0].coverImage}
             alt="Blank Street Coffee Sign"
@@ -50,75 +53,123 @@ function Page() {
       </div>
 
       {/* Main Content Grid - Enhanced to an Ultra-wide Scale */}
-      <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 px-6 pb-24 md:px-12 lg:px-16">
-        {/* Left Column: Brand Info & Stats */}
-        <div className="lg:col-span-5 flex flex-col justify-between space-y-16">
-          <div>
-            {/* Title */}
-            <h1 className="text-4xl md:text-6xl  tracking-tight mb-10 font-light">
-              {projects[0].title}
-            </h1>
+<div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-10 lg:px-16 pt-4 md:pt-8 pb-10 md:pb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 lg:gap-16">
+          {/* Left Column: Brand Info & Stats */}
+          <div className="lg:col-span-5 flex flex-col justify-between space-y-8 md:space-y-16">
+            <div>
+              {/* Title */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight mb-6 md:mb-10 font-light text-black">
+                {projects[0].title}
+              </h1>
 
-            {/* Metadata */}
-            <div className="space-y-8 text-sm md:text-base">
-              <div>
-                <h3 className="text-neutral-500 font-light mb-1">Industry</h3>
-                <p className="text-neutral-300">{projects[0].industry}</p>
-              </div>
-              <div>
-                <h3 className="text-neutral-500 font-light mb-1">
-                  What We Did
-                </h3>
-                <p className="text-neutral-300 leading-relaxed max-w-md">
+              {/* Metadata */}
+              <div className="space-y-6 md:space-y-8 text-sm md:text-base">
+                <div>
+                  <h3 className="text-neutral-600 font-light mb-2 text-xs md:text-sm uppercase tracking-wide">Industry</h3>
+                  <p className="text-neutral-800 font-medium">{projects[0].industry}</p>
+                </div>
+                <div>
+                  <h3 className="text-neutral-600 font-light mb-2 text-xs md:text-sm uppercase tracking-wide">
+                    What We Did
+                  </h3>
                   <div className="flex flex-wrap gap-2 max-w-md">
                     {projects[0]?.services.map((service) => (
                       <span
                         key={service}
-                        className="border border-neutral-300 rounded-full px-3 py-1 text-sm font-light"
+                        className="border border-neutral-800 rounded-full px-3 py-1 text-xs sm:text-sm font-light text-black hover:bg-neutral-900 hover:text-white transition-colors"
                       >
-                        {service}
+                        <h2 className="text-xs sm:text-sm font-light ">
+                          {service}
+                        </h2>
                       </span>
                     ))}
                   </div>
-                </p>
+                </div>
               </div>
+            </div>
+
+            {/* Download Button */}
+            <div>
+              <button
+                onClick={() => {
+                  window.location.href = "tel:+919876543210";
+                }}
+                className="w-full sm:w-auto bg-neutral-900 hover:bg-black text-white text-sm font-medium py-3 md:py-4 px-6 md:px-8 rounded-full transition-colors duration-200 shadow-md"
+              >
+                Connect with us
+              </button>
             </div>
           </div>
 
-          {/* Stats Section */}
+          {/* Right Column: Narrative Content */}
+          <div className="lg:col-span-7 space-y-8 md:space-y-12 pt-0 lg:pt-2">
+            {/* Section 1 */}
+            <div className="space-y-4 md:space-y-6">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-black">
+                {projects[0].sections[0]?.heading}
+              </h2>
 
-          {/* Download Button */}
-          <div>
-            <button
-              onClick={() => {
-                window.location.href = "tel:+919876543210";
-              }}
-              className="bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-medium py-4 px-8 rounded-full transition-colors duration-200 shadow-md"
-            >
-              Connect with us
-            </button>
-          </div>
-        </div>
+              {/* Small Screen: Show First Paragraph + Collapsible Rest */}
+              <div className="lg:hidden">
+                {/* Always show first paragraph */}
+                {projects[0].sections[0]?.paragraphs[0] && (
+                  <p className="text-neutral-800 text-sm sm:text-base leading-relaxed font-light mb-4">
+                    {projects[0].sections[0].paragraphs[0]}
+                  </p>
+                )}
 
-        {/* Right Column: Narrative Content */}
-        <div className="lg:col-span-7 space-y-16 pt-2">
-          {/* Section 1 */}
-          <div className="space-y-6">
-            <h2 className="text-2xl md:text-4xl font-light tracking-tight">
-              {projects[0].sections[0]?.heading}
-            </h2>
-            <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-              {projects[0].sections[0]?.paragraphs[0]}
-            </p>
-            <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-              {projects[0].sections[0]?.paragraphs[1]}
-            </p>
-            <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-              {projects[0].sections[0]?.paragraphs[2]}
-            </p>
-            <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-              {projects[0].sections[0]?.paragraphs[3]}
-            </p>
+                {/* Collapsible button for remaining paragraphs */}
+                {projects[0].sections[0]?.paragraphs.length > 1 && (
+                  <>
+                    <button
+                      onClick={() => setExpanded(!expanded)}
+                      className="flex items-center gap-2 text-black font-medium py-2 hover:text-neutral-700 transition-colors"
+                    >
+                      <span>{expanded ? "Show Less" : "Know More"}</span>
+                      <svg
+                        className={`w-4 h-4 transition-transform ${expanded ? "rotate-180" : ""}`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                        />
+                      </svg>
+                    </button>
+
+                    {expanded && (
+                      <div className="space-y-4 mt-4 animate-in fade-in">
+                        {projects[0].sections[0]?.paragraphs.slice(1).map((para, idx) => (
+                          <p
+                            key={idx}
+                            className="text-neutral-800 text-sm sm:text-base leading-relaxed font-light"
+                          >
+                            {para}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                )}
+              </div>
+
+              {/* Large Screen: Always Visible */}
+              <div className="hidden lg:block space-y-4">
+                {projects[0].sections[0]?.paragraphs.map((para, idx) => (
+                  <p
+                    key={idx}
+                    className="text-neutral-800 text-base md:text-lg lg:text-xl leading-relaxed font-light"
+                  >
+                    {para}
+                  </p>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
