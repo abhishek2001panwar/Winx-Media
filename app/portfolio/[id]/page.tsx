@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import { projects } from "../../../lib/projects";
 
 function Page() {
   // Array of placeholder image paths—replace these with your actual local or hosted image URLs
@@ -38,7 +39,7 @@ function Page() {
       <div className="max-w-[1600px] mx-auto px-6 pt-6 pb-16 md:px-12 lg:px-16">
         <div className="w-full overflow-hidden rounded-xl bg-neutral-900 shadow-2xl">
           <img 
-            src="/brand/cover.jpg" 
+            src={projects[0].coverImage} 
             alt="Blank Street Coffee Sign" 
             className="w-full h-auto aspect-[16/7] object-cover object-center"
           />
@@ -52,52 +53,47 @@ function Page() {
         <div className="lg:col-span-5 flex flex-col justify-between space-y-16">
           <div>
             {/* Title */}
-            <h1 className="text-4xl md:text-6xl font-medium tracking-tight mb-10">
-              Blank Street
+            <h1 className="text-4xl md:text-6xl  tracking-tight mb-10 font-light">
+                {projects[0].title}
             </h1>
 
             {/* Metadata */}
             <div className="space-y-8 text-sm md:text-base">
               <div>
-                <h3 className="text-neutral-500 font-medium mb-1">Industry</h3>
-                <p className="text-neutral-300">Food and drink</p>
+                <h3 className="text-neutral-500 font-light mb-1">Industry</h3>
+                <p className="text-neutral-300">{projects[0].industry}</p>
               </div>
               <div>
-                <h3 className="text-neutral-500 font-medium mb-1">What We Did</h3>
+                <h3 className="text-neutral-500 font-light mb-1">What We Did</h3>
                 <p className="text-neutral-300 leading-relaxed max-w-md">
-                  Brand Strategy, Verbal Identity, Visual Identity, Culture Strategy & EVP
+                  <div className="flex flex-wrap gap-2 max-w-md">
+  {projects[0]?.services.map((service) => (
+    <span
+      key={service}
+      className="border border-neutral-300 rounded-full px-3 py-1 text-sm font-light"
+    >
+      {service}
+    </span>
+  ))}
+</div>
                 </p>
               </div>
             </div>
           </div>
 
           {/* Stats Section */}
-          <div className="space-y-12 my-6">
-            <div>
-              <span className="block text-6xl md:text-8xl font-light tracking-tight mb-2">80%</span>
-              <p className="text-sm md:text-base text-neutral-400 max-w-sm leading-relaxed">
-                YoY growth in user-generated content post-launch
-              </p>
-            </div>
-            <div>
-              <span className="block text-6xl md:text-8xl font-light tracking-tight mb-2">60%</span>
-              <p className="text-sm md:text-base text-neutral-400 max-w-sm leading-relaxed">
-                First-month sales at new Glasgow store came from Gen Z customers
-              </p>
-            </div>
-            <div>
-              <span className="block text-6xl md:text-8xl font-light tracking-tight mb-2">66%</span>
-              <p className="text-sm md:text-base text-neutral-400 max-w-sm leading-relaxed">
-                Of the engaged audience on TikTok is aged 18-24
-              </p>
-            </div>
-          </div>
+         
 
           {/* Download Button */}
           <div>
-            <button className="bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-medium py-4 px-8 rounded-full transition-colors duration-200 shadow-md">
-              Download Project Images
-            </button>
+           <button
+  onClick={() => {
+    window.location.href = "tel:+919876543210";
+  }}
+  className="bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-medium py-4 px-8 rounded-full transition-colors duration-200 shadow-md"
+>
+  Connect with us
+</button>
           </div>
         </div>
 
@@ -105,71 +101,124 @@ function Page() {
         <div className="lg:col-span-7 space-y-16 pt-2">
           {/* Section 1 */}
           <div className="space-y-6">
-            <h2 className="text-2xl md:text-4xl font-medium tracking-tight">
-              Adding a spark to the coffee run
+            <h2 className="text-2xl md:text-4xl font-light tracking-tight">
+                {projects[0].sections[0]?.heading}
             </h2>
             <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-              When Blank Street opened its first coffee cart in Williamsburg in 2020, the world was shutting down. Born as a lean operational model – small footprints, efficient machines, quick service – Blank Street carved out space for connection when coffee drinkers needed it most.
+                {projects[0].sections[0]?.paragraphs[0]}
             </p>
             <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-              Fast-forward a few years: dozens of locations across multiple cities, a devoted following, and a business that had started to take on a life of its own. But as Blank Street began to shed its scrappy beginnings and expand, its identity struggled to keep pace. The brand tropes that worked for a challenger started to feel too small for what Blank Street was becoming – and where it wanted to go next.
+                {projects[0].sections[0]?.paragraphs[1]}
+            </p>
+            <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
+                {projects[0].sections[0]?.paragraphs[2]}
+            </p>
+            <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
+                {projects[0].sections[0]?.paragraphs[3]}
             </p>
           </div>
 
-          {/* Section 2 */}
-          <div className="space-y-6">
-            <h2 className="text-2xl md:text-4xl font-medium tracking-tight">
-              Regularly remarkable
-            </h2>
-            <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-              The inflection point was clear: evolve from startup challenger to generational cultural icon. Shift the daily coffee run from transactional blur into an experience people want to be a part of. Take the opportunity to make the ordinary feel remarkable.
-            </p>
-            <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-              It was a case of amplifying what was already there; a brand that understood the power of small, elevated moments. The insight was simple but potent: life happens in the everyday moments. The coffee you grab before a meeting. The afternoon pick-me-up that resets your mood. Those tiny, ordinary rituals that matter.
-            </p>
-          </div>
+         
         </div>
 
       </div>
 
       {/* --- Full-Width Image Showcases (Stacked One by One) --- */}
-      <section className="space-y-8 md:space-y-16 pb-16">
-        <div className="w-full min-h-[60vh] md:min-h-screen bg-neutral-950 flex items-center justify-center overflow-hidden">
-          <img 
-            src="/brand/02.jpg" 
-            alt="Blank Street Brand Showcase Large View 1" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="w-full min-h-[60vh] md:min-h-screen bg-neutral-950 flex items-center justify-center overflow-hidden">
-          <img 
-            src="/brand/03.jpg" 
-            alt="Blank Street Brand Showcase Large View 2" 
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </section>
+<section className="py-16 md:py-24 space-y-8 md:space-y-12">
 
-      {/* --- Interactive / Dynamic Grid Section --- */}
-      <section className="max-w-[1600px] mx-auto px-6 pb-32 md:px-12 lg:px-16">
-        <h3 className="text-neutral-500 font-medium text-sm tracking-wider uppercase mb-8">
-          Project Gallery
-        </h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {projectGallery.map((src, index) => (
-            <div 
-              key={index} 
-              className="group overflow-hidden rounded-xl bg-neutral-950 aspect-square md:aspect-[4/3] relative"
-            >
-              <img 
-                src={src} 
-                alt={`Project gallery frame ${index + 1}`} 
-                className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+  {/* Landscape 1 */}
+  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
+      <img
+        src="/brand/02.jpg"
+        alt=""
+        className="w-full h-auto max-h-[55vh] md:h-[90vh] md:max-h-none object-contain md:object-cover transition-transform duration-700 "
+      />
+    </div>
+  </div>
+
+  {/* Landscape 2 */}
+  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
+      <img
+        src="/brand/03.jpg"
+        alt=""
+        className="w-full h-auto max-h-[55vh] md:h-[90vh] md:max-h-none object-contain md:object-cover transition-transform duration-700 "
+      />
+    </div>
+  </div>
+
+  {/* Two Image Grid */}
+  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+
+      <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
+        <img
+          src="https://images.unsplash.com/photo-1782730951536-d81badeca960?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+          className="w-full h-auto md:h-[650px] object-contain md:object-cover transition-transform duration-700 "
+        />
+      </div>
+
+      <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
+        <img
+          src="https://images.unsplash.com/photo-1782730951536-d81badeca960?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+          className="w-full h-auto md:h-[650px] object-contain md:object-cover transition-transform duration-700 "
+        />
+      </div>
+
+    </div>
+  </div>
+
+  {/* Landscape 3 */}
+  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
+      <img
+        src="/brand/06.jpg"
+        alt=""
+        className="w-full h-auto max-h-[55vh] md:h-[90vh] md:max-h-none object-contain md:object-cover transition-transform duration-700 "
+      />
+    </div>
+  </div>
+
+  {/* Landscape 4 */}
+  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
+      <img
+        src="/brand/07.jpg"
+        alt=""
+        className="w-full h-auto max-h-[55vh] md:h-[90vh] md:max-h-none object-contain md:object-cover transition-transform duration-700 "
+      />
+    </div>
+  </div>
+
+  {/* Two Image Grid */}
+  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+
+      <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
+        <img
+          src="https://images.unsplash.com/photo-1782730951536-d81badeca960?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+          className="w-full h-auto md:h-[650px] object-contain md:object-cover transition-transform duration-700 "
+        />
+      </div>
+
+      <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
+        <img
+          src="https://images.unsplash.com/photo-1782730951536-d81badeca960?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
+          className="w-full h-auto md:h-[650px] object-contain md:object-cover transition-transform duration-700 "
+        />
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+     
 
     </div>
   )

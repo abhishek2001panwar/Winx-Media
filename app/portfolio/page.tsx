@@ -2,55 +2,57 @@ import Navbar from "@/components/navbar";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { projects  } from "../../lib/projects";
 
 export default function Page() {
-  const projects = [
-    {
-      title: "Aureya",
-      subtitle: " Yoga and Wellness Sanctuary ",
-      image:
-        "/brand/01.jpg",
-      tags: [
-        "Food & Drink",
-        "Brand Strategy",
-        "Verbal Identity",
-        "Visual Identity",
-      ],
-      slug: "aureya",
-    },
-    {
-      title: "Sandals & Beaches Resorts",
-      subtitle: "Rooted In Caribbean Soul",
-      image:
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3?q=80&w=1600&auto=format&fit=crop",
-      tags: ["Travel", "Hospitality", "Visual Identity", "Branding"],
-      slug: "sandals-and-beaches-resorts",
-    },
-    {
-      title: "House Of Bliss",
-      subtitle: "Luxury Wellness Retreat",
-      image:
-        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1800&auto=format&fit=crop",
-      tags: ["Luxury", "Website", "Creative Direction", "Brand Identity"],
-      slug: "house-of-bliss",
-    },
-    {
-      title: "Studio Nova",
-      subtitle: "Premium Digital Experience",
-      image:
-        "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1600&auto=format&fit=crop",
-      tags: ["Agency", "UI/UX", "Creative"],
-      slug: "studio-nova",
-    },
-    {
-      title: "Aurora Fashion",
-      subtitle: "Minimal Luxury Identity",
-      image:
-        "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1600&auto=format&fit=crop",
-      tags: ["Fashion", "Branding", "Campaign"],
-      slug: "aurora-fashion",
-    },
-  ];
+//   const projects = [
+//     {
+//       title: "Aureya",
+//       subtitle: " Yoga and Wellness Sanctuary ",
+//       image:
+//         "/brand/01.jpg",
+//       tags: [
+//         "Food & Drink",
+//         "Brand Strategy",
+//         "Verbal Identity",
+//         "Visual Identity",
+//       ],
+//       slug: "aureya",
+//     },
+//     {
+//       title: "Sandals & Beaches Resorts",
+//       subtitle: "Rooted In Caribbean Soul",
+//       image:
+//         "https://images.unsplash.com/photo-1507525428034-b723cf961d3?q=80&w=1600&auto=format&fit=crop",
+//       tags: ["Travel", "Hospitality", "Visual Identity", "Branding"],
+//       slug: "sandals-and-beaches-resorts",
+//     },
+//     {
+//       title: "House Of Bliss",
+//       subtitle: "Luxury Wellness Retreat",
+//       image:
+//         "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1800&auto=format&fit=crop",
+//       tags: ["Luxury", "Website", "Creative Direction", "Brand Identity"],
+//       slug: "house-of-bliss",
+//     },
+//     {
+//       title: "Studio Nova",
+//       subtitle: "Premium Digital Experience",
+//       image:
+//         "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1600&auto=format&fit=crop",
+//       tags: ["Agency", "UI/UX", "Creative"],
+//       slug: "studio-nova",
+//     },
+//     {
+//       title: "Aurora Fashion",
+//       subtitle: "Minimal Luxury Identity",
+//       image:
+//         "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=1600&auto=format&fit=crop",
+//       tags: ["Fashion", "Branding", "Campaign"],
+//       slug: "aurora-fashion",
+//     },
+//   ];
+
 
   return (
     <>
@@ -84,7 +86,7 @@ export default function Page() {
               >
                 <div className="relative h-[650px] rounded-[28px] overflow-hidden group">
                   <Image
-                    src={projects[0].image}
+                    src={projects[0].hero}
                     alt=""
                     fill
                     className="object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-90"
@@ -102,19 +104,19 @@ export default function Page() {
               </Link>
 
               <div className="mt-6">
-                <h2 className="text-3xl font-semibold">{projects[0].title}</h2>
+                <h2 className="text-3xl font-light">{projects[0].title}</h2>
 
-                <p className="text-neutral-400 text-xl mt-2">
+                <p className="text-neutral-400 text-md mt-2 font-medium">
                   {projects[0].subtitle}
                 </p>
 
                 <div className="flex flex-wrap gap-3 mt-5">
-                  {projects[0].tags.map((tag) => (
+                  {projects[0].services.map((service) => (
                     <span
-                      key={tag}
-                      className="border border-neutral-700 rounded-full px-4 py-2 text-sm hover:bg-white hover:text-black transition"
+                      key={service}
+                      className="font-light border border-neutral-700 rounded-full px-4 py-2 text-sm hover:bg-white hover:text-black transition"
                     >
-                      {tag}
+                      {service}
                     </span>
                   ))}
                 </div>
@@ -126,7 +128,7 @@ export default function Page() {
             <div className="group cursor-pointer">
               <div className="relative h-[470px] rounded-[28px] overflow-hidden">
                 <Image
-                  src={projects[1].image}
+                  src={projects[1]?.hero}
                   alt=""
                   fill
                   className="object-cover transition duration-700 group-hover:scale-105"
@@ -134,19 +136,19 @@ export default function Page() {
               </div>
 
               <div className="mt-6">
-                <h2 className="text-2xl font-semibold">{projects[1].title}</h2>
+                <h2 className="text-2xl font-semibold">{projects[1]?.title}</h2>
 
                 <p className="text-neutral-400 text-lg mt-2">
-                  {projects[1].subtitle}
+                  {projects[1]?.subtitle}
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-5">
-                  {projects[1].tags.map((tag) => (
+                  {projects[1]?.services.map((service) => (
                     <span
-                      key={tag}
+                      key={service}
                       className="border border-neutral-700 rounded-full px-4 py-2 text-sm hover:bg-white hover:text-black transition"
                     >
-                      {tag}
+                      {service}
                     </span>
                   ))}
                 </div>
@@ -159,7 +161,7 @@ export default function Page() {
           <div className="group cursor-pointer">
             <div className="relative h-[520px] rounded-[32px] overflow-hidden">
               <Image
-                src={projects[2].image}
+                src={projects[2]?.coverImage}
                 alt=""
                 fill
                 className="object-cover transition duration-700 group-hover:scale-105"
@@ -168,21 +170,21 @@ export default function Page() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
 
               <div className="absolute bottom-10 left-10">
-                <h2 className="text-5xl font-bold">{projects[2].title}</h2>
+                <h2 className="text-5xl font-bold">{projects[2]?.title}</h2>
 
                 <p className="text-xl text-neutral-300 mt-3">
-                  {projects[2].subtitle}
+                  {projects[2]?.subtitle}
                 </p>
               </div>
             </div>
 
             <div className="flex flex-wrap gap-3 mt-6">
-              {projects[2].tags.map((tag) => (
+              {projects[2]?.services.map((service) => (
                 <span
-                  key={tag}
+                  key={service  }
                   className="border border-neutral-700 rounded-full px-5 py-2 hover:bg-white hover:text-black transition"
                 >
-                  {tag}
+                  {service}
                 </span>
               ))}
             </div>
@@ -196,7 +198,7 @@ export default function Page() {
             <div className="group cursor-pointer">
               <div className="relative h-[450px] rounded-[28px] overflow-hidden">
                 <Image
-                  src={projects[3].image}
+                  src={projects[3]?.coverImage}
                   alt=""
                   fill
                   className="object-cover transition duration-700 group-hover:scale-105"
@@ -204,17 +206,17 @@ export default function Page() {
               </div>
 
               <div className="mt-6">
-                <h2 className="text-2xl font-semibold">{projects[3].title}</h2>
+                <h2 className="text-2xl font-semibold">{projects[3]?.title}</h2>
 
-                <p className="text-neutral-400 mt-2">{projects[3].subtitle}</p>
+                <p className="text-neutral-400 mt-2">{projects[3]?.subtitle}</p>
 
                 <div className="flex flex-wrap gap-2 mt-5">
-                  {projects[3].tags.map((tag) => (
+                  {projects[3]?.services.map((service) => (
                     <span
-                      key={tag}
+                      key={service}
                       className="border border-neutral-700 rounded-full px-4 py-2 text-sm hover:bg-white hover:text-black transition"
                     >
-                      {tag}
+                      {service}
                     </span>
                   ))}
                 </div>
@@ -226,7 +228,7 @@ export default function Page() {
             <div className="lg:col-span-2 group cursor-pointer">
               <div className="relative h-[620px] rounded-[28px] overflow-hidden">
                 <Image
-                  src={projects[4].image}
+                  src={projects[4]?.coverImage}
                   alt=""
                   fill
                   className="object-cover transition duration-700 group-hover:scale-105"
@@ -234,19 +236,19 @@ export default function Page() {
               </div>
 
               <div className="mt-6">
-                <h2 className="text-3xl font-semibold">{projects[4].title}</h2>
+                <h2 className="text-3xl font-semibold">{projects[4]?.title}</h2>
 
                 <p className="text-neutral-400 text-xl mt-2">
-                  {projects[4].subtitle}
+                  {projects[4]?.subtitle}
                 </p>
 
                 <div className="flex flex-wrap gap-3 mt-5">
-                  {projects[4].tags.map((tag) => (
+                  {projects[4]?.services.map((service) => (
                     <span
-                      key={tag}
+                      key={service}
                       className="border border-neutral-700 rounded-full px-4 py-2 text-sm hover:bg-white hover:text-black transition"
                     >
-                      {tag}
+                      {service}
                     </span>
                   ))}
                 </div>
