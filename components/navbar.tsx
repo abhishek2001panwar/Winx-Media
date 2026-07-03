@@ -93,6 +93,7 @@ export default function Navbar() {
     { label: "About us", type: "route", value: "/about", icon: Info },
     { label: "Services", type: "scroll", value: "features", icon: Wrench },
     { label: "Gallery", type: "route", value: "/gallery", icon: ImageIcon },
+    { label: "Portfolio", type: "route", value: "/portfolio", icon: ImageIcon },
     { label: "Contact", type: "scroll", value: "contact", icon: MessageCircle },
     { label: "Team", type: "scroll", value: "team", icon: Sparkles }
   ];
@@ -187,7 +188,7 @@ export default function Navbar() {
             isMenuOpen ? "translate-y-0 opacity-100 duration-700 ease-in-out" : "-translate-y-full opacity-0"
           }`}
         >
-          <div className="h-full flex flex-col justify-between px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-20 sm:py-24 md:py-28 lg:py-32">
+          <div className="h-full flex flex-col justify-between px-4 sm:px-6 md:px-10 lg:px-16 xl:px-24 2xl:px-32 py-20 sm:py-24 md:py-24 lg:py-28">
             
             {/* MAIN CONTENT AREA */}
             <div className="flex-1 flex flex-col lg:grid lg:grid-cols-[1.2fr_auto_0.8fr] gap-8 lg:gap-16 xl:gap-24">

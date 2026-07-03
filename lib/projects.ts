@@ -66,67 +66,59 @@ export const projects: Project[] = [
     showcase: [
       {
         type: "landscape",
-        image: "/brand/01.jpg",
+        image: "/brand/02.jpg",
       },
       {
         type: "landscape",
-        image: "/brand/02.jpg",
+        image: "/brand/03.jpg",
       },
       {
         type: "grid",
         images: [
           {
-            image: "/brand/03.jpg",
+            image: "/brand/10.jpg",
             aspect: "portrait",
           },
           {
-            image: "/brand/04.jpg",
+            image: "/brand/11.jpg",
             aspect: "landscape",
           },
         ],
+      },
+      {
+        type: "landscape",
+        image: "/brand/04.jpg",
       },
       {
         type: "landscape",
         image: "/brand/05.jpg",
       },
       {
-        type: "landscape",
-        image: "/brand/06.jpg",
-      },
-      {
         type: "grid",
         images: [
-          {
-            image: "/brand/07.jpg",
-            aspect: "portrait",
-          },
-          {
-            image: "/brand/08.jpg",
-            aspect: "portrait",
-          },
-        ],
-      },
-      {
-        type: "landscape",
-        image: "/brand/09.jpg",
-      },
-      {
-        type: "landscape",
-        image: "/brand/10.jpg",
-      },
-      {
-        type: "grid",
-        images: [
-          {
-            image: "/brand/11.jpg",
-            aspect: "landscape",
-          },
           {
             image: "/brand/12.jpg",
             aspect: "portrait",
           },
+          {
+            image: "/brand/13.jpg",
+            aspect: "portrait",
+          },
         ],
       },
+      {
+        type: "landscape",
+        image: "/brand/06.jpg",
+      },
+      {
+        type: "landscape",
+        image: "/brand/07.jpg",
+      },
+       {
+        type: "landscape",
+        image: "/brand/08.jpg",
+      }
+     
     ],
   },
 ];

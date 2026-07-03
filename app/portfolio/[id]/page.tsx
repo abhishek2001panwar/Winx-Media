@@ -1,5 +1,5 @@
-'use client'
-import React from 'react'
+"use client";
+import React from "react";
 import { projects } from "../../../lib/projects";
 
 function Page() {
@@ -13,23 +13,26 @@ function Page() {
 
   return (
     <div className="min-h-screen bg-white text-black font-sans antialiased selection:bg-neutral-800">
-      
       {/* Top Navigation Bar with Back Button */}
       <div className="max-w-[1600px] mx-auto px-6 pt-8 md:px-12 lg:px-16 flex justify-between items-center">
-        <button 
-          onClick={() => window.history.back()} 
+        <button
+          onClick={() => window.history.back()}
           className="group flex items-center gap-2 text-neutral-400 hover:text-white transition-colors duration-200 text-sm font-medium"
         >
           {/* Back Arrow Icon */}
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            strokeWidth={2} 
-            stroke="currentColor" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
             className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform duration-200"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18"
+            />
           </svg>
           Back
         </button>
@@ -38,9 +41,9 @@ function Page() {
       {/* Main Massive Hero Image (Full Width of Content Grid) */}
       <div className="max-w-[1600px] mx-auto px-6 pt-6 pb-16 md:px-12 lg:px-16">
         <div className="w-full overflow-hidden rounded-xl bg-neutral-900 shadow-2xl">
-          <img 
-            src={projects[0].coverImage} 
-            alt="Blank Street Coffee Sign" 
+          <img
+            src={projects[0].coverImage}
+            alt="Blank Street Coffee Sign"
             className="w-full h-auto aspect-[16/7] object-cover object-center"
           />
         </div>
@@ -48,13 +51,12 @@ function Page() {
 
       {/* Main Content Grid - Enhanced to an Ultra-wide Scale */}
       <div className="max-w-[1600px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 px-6 pb-24 md:px-12 lg:px-16">
-        
         {/* Left Column: Brand Info & Stats */}
         <div className="lg:col-span-5 flex flex-col justify-between space-y-16">
           <div>
             {/* Title */}
             <h1 className="text-4xl md:text-6xl  tracking-tight mb-10 font-light">
-                {projects[0].title}
+              {projects[0].title}
             </h1>
 
             {/* Metadata */}
@@ -64,36 +66,37 @@ function Page() {
                 <p className="text-neutral-300">{projects[0].industry}</p>
               </div>
               <div>
-                <h3 className="text-neutral-500 font-light mb-1">What We Did</h3>
+                <h3 className="text-neutral-500 font-light mb-1">
+                  What We Did
+                </h3>
                 <p className="text-neutral-300 leading-relaxed max-w-md">
                   <div className="flex flex-wrap gap-2 max-w-md">
-  {projects[0]?.services.map((service) => (
-    <span
-      key={service}
-      className="border border-neutral-300 rounded-full px-3 py-1 text-sm font-light"
-    >
-      {service}
-    </span>
-  ))}
-</div>
+                    {projects[0]?.services.map((service) => (
+                      <span
+                        key={service}
+                        className="border border-neutral-300 rounded-full px-3 py-1 text-sm font-light"
+                      >
+                        {service}
+                      </span>
+                    ))}
+                  </div>
                 </p>
               </div>
             </div>
           </div>
 
           {/* Stats Section */}
-         
 
           {/* Download Button */}
           <div>
-           <button
-  onClick={() => {
-    window.location.href = "tel:+919876543210";
-  }}
-  className="bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-medium py-4 px-8 rounded-full transition-colors duration-200 shadow-md"
->
-  Connect with us
-</button>
+            <button
+              onClick={() => {
+                window.location.href = "tel:+919876543210";
+              }}
+              className="bg-neutral-800 hover:bg-neutral-700 text-white text-sm font-medium py-4 px-8 rounded-full transition-colors duration-200 shadow-md"
+            >
+              Connect with us
+            </button>
           </div>
         </div>
 
@@ -102,126 +105,82 @@ function Page() {
           {/* Section 1 */}
           <div className="space-y-6">
             <h2 className="text-2xl md:text-4xl font-light tracking-tight">
-                {projects[0].sections[0]?.heading}
+              {projects[0].sections[0]?.heading}
             </h2>
             <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-                {projects[0].sections[0]?.paragraphs[0]}
+              {projects[0].sections[0]?.paragraphs[0]}
             </p>
             <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-                {projects[0].sections[0]?.paragraphs[1]}
+              {projects[0].sections[0]?.paragraphs[1]}
             </p>
             <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-                {projects[0].sections[0]?.paragraphs[2]}
+              {projects[0].sections[0]?.paragraphs[2]}
             </p>
             <p className="text-neutral-400 text-base md:text-xl leading-relaxed font-light">
-                {projects[0].sections[0]?.paragraphs[3]}
+              {projects[0].sections[0]?.paragraphs[3]}
             </p>
           </div>
-
-         
         </div>
-
       </div>
 
       {/* --- Full-Width Image Showcases (Stacked One by One) --- */}
-<section className="py-16 md:py-24 space-y-8 md:space-y-12">
+      <section className="py-16 md:py-24 space-y-8 md:space-y-12">
+        {projects[0].showcase.map((item, index) => {
+          // Landscape Image
+          if (item.type === "landscape") {
+            return (
+              <div
+                key={index}
+                className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8"
+              >
+                <div className="overflow-hidden rounded-xl lg:rounded-xl bg-black">
+                  <img
+                    src={item.image}
+                    alt=""
+                    className="w-full h-auto max-h-[55vh] md:h-[90vh] md:max-h-none object-contain md:object-cover transition-transform duration-700 md:hover:scale-105"
+                  />
+                </div>
+              </div>
+            );
+          }
 
-  {/* Landscape 1 */}
-  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
-      <img
-        src="/brand/02.jpg"
-        alt=""
-        className="w-full h-auto max-h-[55vh] md:h-[90vh] md:max-h-none object-contain md:object-cover transition-transform duration-700 "
-      />
+          // Grid Images
+          return (
+            <div key={index} className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+                {item.images?.map((image, i) => (
+                  <div
+                    key={i}
+                    className="overflow-hidden rounded-xl lg:rounded-xl bg-black"
+                  >
+                    <img
+                      src={image.image}
+                      alt=""
+                      className={`
+                  w-full
+                  h-auto
+                  md:h-[650px]
+                  object-contain
+                  md:object-cover
+                  transition-transform
+                  duration-700
+                  md:hover:scale-105
+                  ${
+                    image.aspect === "portrait"
+                      ? "md:aspect-[3/4]"
+                      : "md:aspect-[4/3]"
+                  }
+                `}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </section>
     </div>
-  </div>
-
-  {/* Landscape 2 */}
-  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
-      <img
-        src="/brand/03.jpg"
-        alt=""
-        className="w-full h-auto max-h-[55vh] md:h-[90vh] md:max-h-none object-contain md:object-cover transition-transform duration-700 "
-      />
-    </div>
-  </div>
-
-  {/* Two Image Grid */}
-  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-
-      <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
-        <img
-          src="https://images.unsplash.com/photo-1782730951536-d81badeca960?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
-          className="w-full h-auto md:h-[650px] object-contain md:object-cover transition-transform duration-700 "
-        />
-      </div>
-
-      <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
-        <img
-          src="https://images.unsplash.com/photo-1782730951536-d81badeca960?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
-          className="w-full h-auto md:h-[650px] object-contain md:object-cover transition-transform duration-700 "
-        />
-      </div>
-
-    </div>
-  </div>
-
-  {/* Landscape 3 */}
-  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
-      <img
-        src="/brand/06.jpg"
-        alt=""
-        className="w-full h-auto max-h-[55vh] md:h-[90vh] md:max-h-none object-contain md:object-cover transition-transform duration-700 "
-      />
-    </div>
-  </div>
-
-  {/* Landscape 4 */}
-  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
-      <img
-        src="/brand/07.jpg"
-        alt=""
-        className="w-full h-auto max-h-[55vh] md:h-[90vh] md:max-h-none object-contain md:object-cover transition-transform duration-700 "
-      />
-    </div>
-  </div>
-
-  {/* Two Image Grid */}
-  <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
-
-      <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
-        <img
-          src="https://images.unsplash.com/photo-1782730951536-d81badeca960?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
-          className="w-full h-auto md:h-[650px] object-contain md:object-cover transition-transform duration-700 "
-        />
-      </div>
-
-      <div className="overflow-hidden rounded-2xl lg:rounded-3xl bg-black">
-        <img
-          src="https://images.unsplash.com/photo-1782730951536-d81badeca960?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxNHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
-          className="w-full h-auto md:h-[650px] object-contain md:object-cover transition-transform duration-700 "
-        />
-      </div>
-
-    </div>
-  </div>
-
-</section>
-
-     
-
-    </div>
-  )
+  );
 }
 
-export default Page
+export default Page;
