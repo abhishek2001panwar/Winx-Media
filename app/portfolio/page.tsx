@@ -110,7 +110,7 @@ export default function Page() {
                   {projects[0].subtitle}
                 </p>
 
-                <div className="flex flex-wrap gap-3 mt-5">
+                {/* <div className="flex flex-wrap gap-3 mt-5">
                   {projects[0].services.map((service) => (
                     <span
                       key={service}
@@ -119,13 +119,13 @@ export default function Page() {
                       {service}
                     </span>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
 
             {/* Small Card */}
 
-            <div className="group cursor-pointer">
+            <div className="group cursor-pointer hidden">
               <div className="relative h-[470px] rounded-[28px] overflow-hidden">
                 <Image
                   src={projects[1]?.hero}
@@ -158,7 +158,7 @@ export default function Page() {
 
           {/* Full Width Card */}
 
-          <div className="group cursor-pointer">
+          <div className="group cursor-pointer hidden">
             <div className="relative h-[520px] rounded-[32px] overflow-hidden">
               <Image
                 src={projects[2]?.coverImage}
@@ -192,7 +192,7 @@ export default function Page() {
 
           {/* Bottom Row */}
 
-          <div className="grid lg:grid-cols-3 gap-10 items-start">
+          <div className="grid lg:grid-cols-3 gap-10 items-start hidden">
             {/* Small */}
 
             <div className="group cursor-pointer">
