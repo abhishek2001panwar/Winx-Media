@@ -125,24 +125,38 @@ export default function Page() {
 
             {/* Small Card */}
 
-            <div className="group cursor-pointer hidden">
+            <div className="group cursor-pointer">
               <div className="relative h-[470px] rounded-[28px] overflow-hidden">
+                 <Link
+                href={`/portfolio/${projects[1].slug}`}
+                className="block group"
+              >
                 <Image
                   src={projects[1]?.hero}
                   alt=""
                   fill
                   className="object-cover transition duration-700 group-hover:scale-105"
                 />
+                  <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-3 group-hover:translate-y-0">
+                    <div className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-2xl">
+                      <ArrowUpRight
+                        className="text-white transition-transform duration-500 group-hover:rotate-45"
+                        size={22}
+                        strokeWidth={2}
+                      />
+                    </div>
+                  </div>
+                </Link>
               </div>
 
               <div className="mt-6">
-                <h2 className="text-2xl font-semibold">{projects[1]?.title}</h2>
+                <h2 className="text-2xl font-light">{projects[1]?.title}</h2>
 
-                <p className="text-neutral-400 text-lg mt-2">
+                <p className="text-neutral-400 text-md mt-2 font-medium">
                   {projects[1]?.subtitle}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mt-5">
+                {/* <div className="flex flex-wrap gap-2 mt-5">
                   {projects[1]?.services.map((service) => (
                     <span
                       key={service}
@@ -151,7 +165,7 @@ export default function Page() {
                       {service}
                     </span>
                   ))}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

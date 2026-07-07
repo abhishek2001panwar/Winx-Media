@@ -2,17 +2,26 @@
 import React from "react";
 import { projects } from "../../../lib/projects";
 import { useState } from "react";
+import { useParams } from "next/navigation";
 
 
-function Page() {
+
+
+ function  Page() {
     const [expanded, setExpanded] = useState(false);
   // Array of placeholder image paths—replace these with your actual local or hosted image URLs
-  const projectGallery = [
-    "/path-to-your-images/gallery-1.jpg",
-    "/path-to-your-images/gallery-2.jpg",
-    "/path-to-your-images/gallery-3.jpg",
-    "/path-to-your-images/gallery-4.jpg",
-  ];
+ 
+   const params = useParams();
+
+const id = params.id as string;
+
+const project = projects.find((p) => p.slug === id);
+
+  if (!project) {
+    return <div>Project not found</div>;
+  }
+
+
 
   return (
     <div className="min-h-screen bg-white text-black font-sans antialiased selection:bg-neutral-800">
@@ -45,7 +54,7 @@ function Page() {
 <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-10 lg:px-16 pt-6 md:pt-10">   
          <div className="w-full overflow-hidden rounded-xl bg-neutral-900 shadow-2xl">
           <img
-            src={projects[0].coverImage}
+            src={project.coverImage}
             alt="Blank Street Coffee Sign"
             className="w-full h-auto aspect-[16/7] object-cover object-center"
           />
@@ -60,21 +69,21 @@ function Page() {
             <div>
               {/* Title */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight mb-6 md:mb-10 font-light text-black">
-                {projects[0].title}
+                {project.title}
               </h1>
 
               {/* Metadata */}
               <div className="space-y-6 md:space-y-8 text-sm md:text-base">
                 <div>
                   <h3 className="text-neutral-600 font-light mb-2 text-xs md:text-sm uppercase tracking-wide">Industry</h3>
-                  <p className="text-neutral-800 font-medium">{projects[0].industry}</p>
+                  <p className="text-neutral-800 font-medium">{project.industry}</p>
                 </div>
                 <div>
                   <h3 className="text-neutral-600 font-light mb-2 text-xs md:text-sm uppercase tracking-wide">
                     What We Did
                   </h3>
                   <div className="flex flex-wrap gap-2 max-w-md">
-                    {projects[0]?.services.map((service) => (
+                    {project?.services.map((service) => (
                       <span
                         key={service}
                         className="border border-neutral-800 rounded-full px-3 py-1 text-xs sm:text-sm font-light text-black hover:bg-neutral-900 hover:text-white transition-colors"
@@ -107,20 +116,20 @@ function Page() {
             {/* Section 1 */}
             <div className="space-y-4 md:space-y-6">
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-black">
-                {projects[0].sections[0]?.heading}
+                {project.sections[0]?.heading}
               </h2>
 
               {/* Small Screen: Show First Paragraph + Collapsible Rest */}
               <div className="lg:hidden">
                 {/* Always show first paragraph */}
-                {projects[0].sections[0]?.paragraphs[0] && (
+                {project.sections[0]?.paragraphs[0] && (
                   <p className="text-neutral-800 text-sm sm:text-base leading-relaxed font-light mb-4">
-                    {projects[0].sections[0].paragraphs[0]}
+                    {project.sections[0].paragraphs[0]}
                   </p>
                 )}
 
                 {/* Collapsible button for remaining paragraphs */}
-                {projects[0].sections[0]?.paragraphs.length > 1 && (
+                {project.sections[0]?.paragraphs.length > 1 && (
                   <>
                     <button
                       onClick={() => setExpanded(!expanded)}
@@ -144,7 +153,7 @@ function Page() {
 
                     {expanded && (
                       <div className="space-y-4 mt-4 animate-in fade-in">
-                        {projects[0].sections[0]?.paragraphs.slice(1).map((para, idx) => (
+                        {project.sections[0]?.paragraphs.slice(1).map((para, idx) => (
                           <p
                             key={idx}
                             className="text-neutral-800 text-sm sm:text-base leading-relaxed font-light"
@@ -160,7 +169,7 @@ function Page() {
 
               {/* Large Screen: Always Visible */}
               <div className="hidden lg:block space-y-4">
-                {projects[0].sections[0]?.paragraphs.map((para, idx) => (
+                {project.sections[0]?.paragraphs.map((para, idx) => (
                   <p
                     key={idx}
                     className="text-neutral-800 text-base md:text-lg lg:text-xl leading-relaxed font-light"
@@ -176,7 +185,7 @@ function Page() {
 
       {/* --- Full-Width Image Showcases (Stacked One by One) --- */}
       <section className="py-16 md:py-24 space-y-8 md:space-y-12">
-        {projects[0].showcase.map((item, index) => {
+        {project.showcase.map((item, index) => {
           // Landscape Image
           if (item.type === "landscape") {
             return (
