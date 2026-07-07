@@ -191,13 +191,13 @@ const project = projects.find((p) => p.slug === id);
             return (
               <div
                 key={index}
-                className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8"
+                className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8"
               >
                 <div className="overflow-hidden rounded-xl lg:rounded-xl bg-black">
                   <img
                     src={item.image}
                     alt=""
-                    className="w-full h-auto max-h-[55vh] md:h-[90vh] md:max-h-none object-contain md:object-cover transition-transform duration-700 md:hover:scale-105"
+                    className="w-full h-auto max-h-[55vh] md:h-[97vh] md:max-h-none lg:h-[110vh]   object-contain md:object-cover "
                   />
                 </div>
               </div>
