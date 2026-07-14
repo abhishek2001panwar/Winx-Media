@@ -117,7 +117,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    title: "AUREYA",
+    title: "Aureya",
     slug: "aureya",
     subtitle: "Logo & Visual Identity",
     hero: "/aureya/01.jpg",
@@ -173,6 +173,111 @@ export const projects: Project[] = [
         image: "/aureya/09.jpg",
       },
 
+    ],
+  },
+  {
+    title: "Juura",
+    slug: "juura",
+    subtitle: "Packaging Design",
+    hero: "/juura/03.jpg",
+    coverImage: "/juura/cover.jpg",
+    contact: "+1(234) 567-8900",
+
+    industry: "Beverage/Juice Production",
+
+    services: ["Packaging Design"],
+
+    sections: [
+      {
+        heading: "Crafting a Refreshing Brand Identity",
+        paragraphs: [
+          "For JUURA, we developed a distinctive beverage can packaging design that captures the brand's youthful, refreshing personality while ensuring strong shelf presence. ",
+          "The design system features bold typography, vibrant flavor-specific color palettes, and playful organic graphics that instantly communicate each variant-Citrus Spark, Mango Rush, and Blueberry Burst. We created a cohesive visual identity across the product range, balancing modern aesthetics with clear product communication.",
+          " Every design element, from layout and typography to color hierarchy and flavor differentiation, was carefully crafted to enhance brand recognition, improve consumer appeal, and create a memorable packaging experience that stands out in the competitive beverage market.",
+        ],
+      },
+      {
+        heading: "Designed for mindful living",
+        paragraphs: [
+          "Lorem ipsum dolor sit amet...",
+          "Lorem ipsum dolor sit amet...",
+        ],
+      },
+    ],
+
+    showcase: [
+      {
+        type: "landscape",
+        image: "/juura/12.jpg",
+      },
+      {
+        type: "landscape",
+        image: "/juura/02.jpg",
+      },
+      {
+        type: "grid",
+        images: [
+          {
+            image: "/juura/05.jpg",
+            aspect: "portrait",
+          },
+          {
+            image: "/juura/06.jpg",
+            aspect: "portrait",
+          },
+        ],
+      },
+      {
+        type: "landscape",
+        image: "/juura/03.jpg",
+      },
+      {
+        type: "landscape",
+        image: "/juura/04.jpg",
+      },
+      {
+        type: "grid",
+        images: [
+          {
+            image: "/juura/09.jpg",
+            aspect: "portrait",
+          },
+          {
+            image: "/juura/10.jpg",
+            aspect: "portrait",
+          },
+        ],
+      },
+      {
+        type: "landscape",
+        image: "/juura/07.jpg",
+      },
+      {
+        type: "landscape",
+        image: "/juura/08.jpg",
+      },
+       {
+        type: "grid",
+        images: [
+          {
+            image: "/juura/13.jpg",
+            aspect: "portrait",
+          },
+          {
+            image: "/juura/14.jpg",
+            aspect: "portrait",
+          },
+        ],
+      },
+        {
+        type: "landscape",
+        image: "/juura/11.jpg",
+      },
+      {
+        type: "landscape",
+        image: "/juura/01.jpg",
+      },
+     
     ],
   },
 ];

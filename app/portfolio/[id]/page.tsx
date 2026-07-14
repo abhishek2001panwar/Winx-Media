@@ -54,9 +54,9 @@ const project = projects.find((p) => p.slug === id);
 <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-10 lg:px-16 pt-6 md:pt-10">   
          <div className="w-full overflow-hidden rounded-xl bg-neutral-900 shadow-2xl">
           <img
-            src={project.coverImage}
+            src={project.hero}
             alt="Blank Street Coffee Sign"
-            className="w-full h-auto aspect-[16/7] object-cover object-center"
+            className="w-full h-auto aspect-[16/8] object-cover object-center"
           />
         </div>
       </div>
