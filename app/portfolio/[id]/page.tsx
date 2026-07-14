@@ -222,9 +222,8 @@ const project = projects.find((p) => p.slug === id);
                   md:h-[650px]
                   object-contain
                   md:object-cover
-                  transition-transform
-                  duration-700
-                  md:hover:scale-105
+                 
+                
                   ${
                     image.aspect === "portrait"
                       ? "md:aspect-[3/4]"

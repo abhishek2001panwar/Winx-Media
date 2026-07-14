@@ -179,7 +179,7 @@ export const projects: Project[] = [
     title: "Juura",
     slug: "juura",
     subtitle: "Packaging Design",
-    hero: "/juura/03.jpg",
+    hero: "/juura/01.jpg",
     coverImage: "/juura/cover.jpg",
     contact: "+1(234) 567-8900",
 
@@ -208,11 +208,11 @@ export const projects: Project[] = [
     showcase: [
       {
         type: "landscape",
-        image: "/juura/12.jpg",
+        image: "/juura/02.jpg",
       },
       {
         type: "landscape",
-        image: "/juura/02.jpg",
+        image: "/juura/12.jpg",
       },
       {
         type: "grid",
@@ -275,7 +275,7 @@ export const projects: Project[] = [
       },
       {
         type: "landscape",
-        image: "/juura/01.jpg",
+        image: "/juura/03.jpg",
       },
      
     ],
