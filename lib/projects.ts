@@ -60,6 +60,10 @@ export const projects: Project[] = [
     ],
 
     showcase: [
+       {
+        type: "landscape",
+        image: "/brand/01.jpg",
+      },
       {
         type: "landscape",
         image: "/brand/02.jpg",
@@ -141,6 +145,10 @@ export const projects: Project[] = [
     ],
 
     showcase: [
+       {
+        type: "landscape",
+        image: "/aureya/01.jpg",
+      },
      
       {
         type: "landscape",
