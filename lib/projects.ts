@@ -162,7 +162,7 @@ export const projects: Project[] = [
       },
       {
         type: "landscape",
-        image: "/aureya/07.jpg",
+        image: "/aureya/07new.jpeg",
       },
       {
         type: "landscape",
@@ -204,17 +204,26 @@ export const projects: Project[] = [
         ],
       },
     ],
-
+  
     showcase: [
+      {
+        type: "landscape",
+        image: "/juura/01.jpg",
+      },
       {
         type: "landscape",
         image: "/juura/02.jpg",
       },
+  
       {
         type: "landscape",
-        image: "/juura/12.jpg",
+        image: "/juura/03.jpg",
       },
       {
+        type: "landscape",
+        image: "/juura/04.jpg",
+      },
+       {
         type: "grid",
         images: [
           {
@@ -227,13 +236,13 @@ export const projects: Project[] = [
           },
         ],
       },
-      {
+        {
         type: "landscape",
-        image: "/juura/03.jpg",
+        image: "/juura/07.jpg",
       },
       {
         type: "landscape",
-        image: "/juura/04.jpg",
+        image: "/juura/08.jpg",
       },
       {
         type: "grid",
@@ -250,12 +259,13 @@ export const projects: Project[] = [
       },
       {
         type: "landscape",
-        image: "/juura/07.jpg",
+        image: "/juura/11.jpg",
       },
       {
         type: "landscape",
-        image: "/juura/08.jpg",
+        image: "/juura/12.jpg",
       },
+    
        {
         type: "grid",
         images: [
@@ -268,15 +278,9 @@ export const projects: Project[] = [
             aspect: "portrait",
           },
         ],
-      },
-        {
-        type: "landscape",
-        image: "/juura/11.jpg",
-      },
-      {
-        type: "landscape",
-        image: "/juura/03.jpg",
-      },
+      }
+
+
      
     ],
   },

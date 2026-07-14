@@ -54,7 +54,7 @@ const project = projects.find((p) => p.slug === id);
 <div className="max-w-[1600px] mx-auto px-5 sm:px-6 md:px-10 lg:px-16 pt-6 md:pt-10">   
          <div className="w-full overflow-hidden rounded-xl bg-neutral-900 shadow-2xl">
           <img
-            src={project.hero}
+            src={project.coverImage}
             alt="Blank Street Coffee Sign"
             className="w-full h-auto aspect-[16/8] object-cover object-center"
           />
@@ -197,7 +197,7 @@ const project = projects.find((p) => p.slug === id);
                   <img
                     src={item.image}
                     alt=""
-                    className="w-full h-auto max-h-[55vh] md:h-[97vh] md:max-h-none lg:h-[110vh]   object-contain md:object-cover "
+                    className="w-full h-auto max-h-[55vh] md:h-[97vh] md:max-h-none   object-contain md:object-cover "
                   />
                 </div>
               </div>
