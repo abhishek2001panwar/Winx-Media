@@ -211,7 +211,7 @@ const project = projects.find((p) => p.slug === id);
                 {item.images?.map((image, i) => (
                   <div
                     key={i}
-                    className="overflow-hidden rounded-xl lg:rounded-xl bg-black"
+                    className="overflow-hidden rounded-xl lg:rounded-xl"
                   >
                     <img
                       src={image.image}
@@ -224,11 +224,8 @@ const project = projects.find((p) => p.slug === id);
                   md:object-cover
                  
                 
-                  ${
-                    image.aspect === "portrait"
-                      ? "md:aspect-[3/4]"
-                      : "md:aspect-[4/3]"
-                  }
+                 
+
                 `}
                     />
                   </div>
@@ -243,3 +240,9 @@ const project = projects.find((p) => p.slug === id);
 }
 
 export default Page;
+
+//  ${
+//                     image.aspect === "portrait"
+//                       ? "md:aspect-[3/4]"
+//                       : "md:aspect-[4/3]"
+//                   }
