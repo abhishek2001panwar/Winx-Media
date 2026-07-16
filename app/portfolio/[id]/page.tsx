@@ -193,11 +193,11 @@ const project = projects.find((p) => p.slug === id);
                 key={index}
                 className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8"
               >
-                <div className="overflow-hidden rounded-xl lg:rounded-xl bg-black">
+                <div className="overflow-hidden rounded-xl lg:rounded-xl">
                   <img
                     src={item.image}
                     alt=""
-                    className="w-full h-auto max-h-[55vh] md:h-[97vh] md:max-h-none   object-contain md:object-cover "
+                    className="w-full h-auto max-h-[55vh]  md:h-auto md:max-h-none   object-contain md:object-cover"
                   />
                 </div>
               </div>
@@ -219,7 +219,7 @@ const project = projects.find((p) => p.slug === id);
                       className={`
                   w-full
                   h-auto
-                  md:h-[650px]
+                  md:h-auto
                   object-contain
                   md:object-cover
                  
