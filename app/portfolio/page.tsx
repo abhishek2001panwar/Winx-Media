@@ -57,7 +57,7 @@ export default function Page() {
     <>
       <Navbar />
       <main className="bg-white text-black min-h-screen px-6 md:px-12 lg:px-20 py-20">
-        <div className="max-w-7xl mx-auto space-y-14">
+        <div className="max-w-8xl mx-auto space-y-14">
           {/* Heading */}
 
           <div className="py-20">
@@ -228,33 +228,39 @@ export default function Page() {
 
           {/* Bottom Row */}
 
-          {/* <div className="grid lg:grid-cols-3 gap-10 items-start hidden">
+          <div className="grid lg:grid-cols-3 gap-10 items-start">
 
             <div className="group cursor-pointer">
               <div className="relative h-[450px] rounded-[28px] overflow-hidden">
+                 <Link
+                href={`/portfolio/${projects[3].slug}`}
+                className="block group"
+              >
                 <Image
                   src={projects[3]?.coverImage}
                   alt=""
                   fill
                   className="object-cover transition duration-700 group-hover:scale-105"
                 />
+                 <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-3 group-hover:translate-y-0">
+                  <div className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-xl border border-white/20 flex items-center justify-center shadow-2xl">
+                    <ArrowUpRight
+                      className="text-white transition-transform duration-500 group-hover:rotate-45"
+                      size={22}
+                      strokeWidth={2}
+                    />
+                  </div>
+                </div>
+              </Link>
               </div>
 
               <div className="mt-6">
-                <h2 className="text-2xl font-semibold">{projects[3]?.title}</h2>
+               <h2 className="text-2xl font-light">{projects[3]?.title}</h2>
 
-                <p className="text-neutral-400 mt-2">{projects[3]?.subtitle}</p>
-
-                <div className="flex flex-wrap gap-2 mt-5">
-                  {projects[3]?.services.map((service) => (
-                    <span
-                      key={service}
-                      className="border border-neutral-700 rounded-full px-4 py-2 text-sm hover:bg-white hover:text-black transition"
-                    >
-                      {service}
-                    </span>
-                  ))}
-                </div>
+                <p className="text-neutral-400 text-md mt-2 font-medium">
+                  {projects[3]?.subtitle}
+                </p>
+               
               </div>
             </div>
 
@@ -289,7 +295,7 @@ export default function Page() {
                 </div>
               </div>
             </div>
-          </div> */}
+          </div>
         </div>
       </main>
     </>

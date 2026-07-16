@@ -292,4 +292,71 @@ export const projects: Project[] = [
      
     ],
   },
+
+  {
+    title: "KO NIGHTS",
+    slug: "ko-nights",
+    subtitle: "Social media poster",
+    hero: "/ko-nights/01.jpg",
+    coverImage: "/ko-nights/cover.jpg",
+    contact: "+1(234) 567-8900",
+
+    industry: "Events & Entertainment",
+
+    services: ["Social Media Poster"],
+
+    sections: [
+      {
+        heading: "Building a Bold Nightlife Presence",
+        paragraphs: [
+          "We developed a cohesive social media identity for KO NIGHTS, crafting visually striking creatives that capture the brand's vibrant nightlife culture and premium party experiences. ",
+          " Every design was created to build excitement, strengthen brand recognition, and maintain a consistent visual language across platforms. From event promotions and artist announcements to festive campaigns and engaging content, each creative combined bold typography, dynamic layouts, and modern aesthetics to maximize audience engagement.",
+          "The result is a distinctive digital presence that reflects the energy, exclusivity, and unforgettable atmosphere of KO NIGHTS, helping the brand connect with its audience and stand out in the competitive nightlife industry.",
+        ],
+      }
+    ],
+
+    showcase: [
+       {
+        type: "landscape",
+        image: "/ko-nights/01.png",
+      },
+     
+      {
+        type: "landscape",
+        image: "/ko-nights/02.png",
+      },
+     
+      {
+        type: "landscape",
+        image: "/ko-nights/03.png",
+      },
+      {
+        type: "landscape",
+        image: "/ko-nights/04.png",
+      },
+      {
+        type: "landscape",
+        image: "/ko-nights/05.png",
+      },
+     
+      {
+        type: "landscape",
+        image: "/ko-nights/06.png",
+      },
+      {
+        type: "landscape",
+        image: "/ko-nights/07new.jpeg",
+      },
+      {
+        type: "landscape",
+        image: "/ko-nights/08.jpg",
+      },
+      {
+        type: "landscape",
+        image: "/ko-nights/09.jpg",
+      },
+
+    ],
+  },
 ];
