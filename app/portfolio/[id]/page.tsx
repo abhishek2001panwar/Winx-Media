@@ -86,9 +86,9 @@ const project = projects.find((p) => p.slug === id);
                     {project?.services.map((service) => (
                       <span
                         key={service}
-                        className="border border-neutral-800 rounded-full px-3 py-1 text-xs sm:text-sm font-light text-black hover:bg-neutral-900 hover:text-white transition-colors"
+                        className="border border-neutral-600 rounded-full px-3 py-1 text-xs sm:text-sm  text-neutral-800 hover:bg-neutral-900 hover:text-white transition-colors"
                       >
-                        <h2 className="text-xs sm:text-sm font-light ">
+                        <h2 className="text-xs sm:text-sm  ">
                           {service}
                         </h2>
                       </span>
@@ -104,7 +104,7 @@ const project = projects.find((p) => p.slug === id);
                 onClick={() => {
                   window.location.href = "tel:+919876543210";
                 }}
-                className="w-full sm:w-auto bg-neutral-900 hover:bg-black text-white text-sm font-medium py-3 md:py-4 px-6 md:px-8 rounded-full transition-colors duration-200 shadow-md"
+                className="w-auto sm:w-auto bg-neutral-900 hover:bg-black text-white text-sm font-medium py-3 md:py-4 px-6 md:px-8 rounded-full transition-colors duration-200 shadow-md"
               >
                 Connect with us
               </button>
