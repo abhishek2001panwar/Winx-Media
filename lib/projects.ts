@@ -128,7 +128,7 @@ export const projects: Project[] = [
     coverImage: "/aureya/cover.jpg",
     contact: "+1(234) 567-8900",
 
-    industry: "Constructions",
+    industry: "Yoga Studio",
 
     services: ["Logo Design", "Visual Identity"],
 
