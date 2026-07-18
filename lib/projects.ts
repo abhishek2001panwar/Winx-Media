@@ -340,22 +340,6 @@ export const projects: Project[] = [
         image: "/ko-nights/05.png",
       },
      
-      {
-        type: "landscape",
-        image: "/ko-nights/06.png",
-      },
-      {
-        type: "landscape",
-        image: "/ko-nights/07new.jpeg",
-      },
-      {
-        type: "landscape",
-        image: "/ko-nights/08.jpg",
-      },
-      {
-        type: "landscape",
-        image: "/ko-nights/09.jpg",
-      },
 
     ],
   },
